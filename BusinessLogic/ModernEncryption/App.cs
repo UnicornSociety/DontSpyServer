@@ -8,7 +8,18 @@ namespace ModernEncryption
     {
         public void Start()
         {
-         System.Diagnostics.Debug.WriteLine("Hello World!");   
+            System.Diagnostics.Debug.WriteLine("Hello World!");
+
+            var dataHelper = new DataHelper();
+            dataHelper.OutputAlert();
+            var input = dataHelper.DataReadIn();
+            var symbols = dataHelper.DataSplitting(input);
+            if (dataHelper.ValidateData(symbols) == false)
+            {
+                dataHelper.ErrorOutput();
+            }
+
+            var x = new Interval();
         }
     }
 }
