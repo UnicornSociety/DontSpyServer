@@ -20,6 +20,7 @@ namespace ModernEncryption
             }
 
             var x = new Interval();
+            Intervals.IntervalTable.Add("unicorn", x);
         }
     }
 }
