@@ -69,7 +69,7 @@ namespace ModernEncryption
             
             var comma = new Interval(1313, 1335);
             
-            var underline = new Interval(1336, 1590);
+            var space = new Interval(1336, 1590);
             
             var one = new Interval(1591, 1591);
             
@@ -120,7 +120,7 @@ namespace ModernEncryption
             IntervalTable.Add("ß", sharpS);
             IntervalTable.Add(".", dot);
             IntervalTable.Add(",", comma);
-            IntervalTable.Add(" ", underline);
+            IntervalTable.Add(" ", space);
             IntervalTable.Add("1", one);
             IntervalTable.Add("2", two);
             IntervalTable.Add("3", three);
