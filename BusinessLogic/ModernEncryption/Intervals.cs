@@ -7,7 +7,7 @@ namespace ModernEncryption
     public static class Intervals
     {
         // TODO: Intervallwerte in Dictionary abspeichern
-        public static Dictionary<string, Interval> IntervalTable { get; set; } = new Dictionary<string, Interval>();
+        public static Dictionary<char, Interval> IntervalTable { get; set; } = new Dictionary<char, Interval>();
 
         public static void InitalizeIntervalTable()
         {
@@ -91,46 +91,46 @@ namespace ModernEncryption
             
             var zero = new Interval(1600, 1600);
             
-            IntervalTable.Add("a", a);
-            IntervalTable.Add("b", b);
-            IntervalTable.Add("c", c);
-            IntervalTable.Add("d", d);
-            IntervalTable.Add("e", e);
-            IntervalTable.Add("f", f);
-            IntervalTable.Add("g", g);
-            IntervalTable.Add("h", h);
-            IntervalTable.Add("i", i);
-            IntervalTable.Add("j", j);
-            IntervalTable.Add("k", k);
-            IntervalTable.Add("l", l);
-            IntervalTable.Add("m", m);
-            IntervalTable.Add("n", n);
-            IntervalTable.Add("o", o);
-            IntervalTable.Add("p", p);
-            IntervalTable.Add("q", q);
-            IntervalTable.Add("r", r);
-            IntervalTable.Add("s", s);
-            IntervalTable.Add("t", t);
-            IntervalTable.Add("u", u);
-            IntervalTable.Add("v", v);
-            IntervalTable.Add("w", w);
-            IntervalTable.Add("x", x);
-            IntervalTable.Add("y", y);
-            IntervalTable.Add("z", z);
-            IntervalTable.Add("ß", sharpS);
-            IntervalTable.Add(".", dot);
-            IntervalTable.Add(",", comma);
-            IntervalTable.Add(" ", space);
-            IntervalTable.Add("1", one);
-            IntervalTable.Add("2", two);
-            IntervalTable.Add("3", three);
-            IntervalTable.Add("4", four);
-            IntervalTable.Add("5", five);
-            IntervalTable.Add("6", six);
-            IntervalTable.Add("7", seven);
-            IntervalTable.Add("8", eight);
-            IntervalTable.Add("9", nine);
-            IntervalTable.Add("0", zero);
+            IntervalTable.Add('a', a);
+            IntervalTable.Add('b', b);
+            IntervalTable.Add('c', c);
+            IntervalTable.Add('d', d);
+            IntervalTable.Add('e', e);
+            IntervalTable.Add('f', f);
+            IntervalTable.Add('g', g);
+            IntervalTable.Add('h', h);
+            IntervalTable.Add('i', i);
+            IntervalTable.Add('j', j);
+            IntervalTable.Add('k', k);
+            IntervalTable.Add('l', l);
+            IntervalTable.Add('m', m);
+            IntervalTable.Add('n', n);
+            IntervalTable.Add('o', o);
+            IntervalTable.Add('p', p);
+            IntervalTable.Add('q', q);
+            IntervalTable.Add('r', r);
+            IntervalTable.Add('s', s);
+            IntervalTable.Add('t', t);
+            IntervalTable.Add('u', u);
+            IntervalTable.Add('v', v);
+            IntervalTable.Add('w', w);
+            IntervalTable.Add('x', x);
+            IntervalTable.Add('y', y);
+            IntervalTable.Add('z', z);
+            IntervalTable.Add('ß', sharpS);
+            IntervalTable.Add('.', dot);
+            IntervalTable.Add(',', comma);
+            IntervalTable.Add(' ', space);
+            IntervalTable.Add('1', one);
+            IntervalTable.Add('2', two);
+            IntervalTable.Add('3', three);
+            IntervalTable.Add('4', four);
+            IntervalTable.Add('5', five);
+            IntervalTable.Add('6', six);
+            IntervalTable.Add('7', seven);
+            IntervalTable.Add('8', eight);
+            IntervalTable.Add('9', nine);
+            IntervalTable.Add('0', zero);
         }
     }
 
