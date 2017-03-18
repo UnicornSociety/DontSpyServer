@@ -7,11 +7,11 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="3a076811-a2f8-4ee6-be05-e09b062bddec"
+    Name="e9f89418-4f05-44b7-9b9a-a96b3976700f"
     Publisher="CN=hello"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="3a076811-a2f8-4ee6-be05-e09b062bddec" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="e9f89418-4f05-44b7-9b9a-a96b3976700f" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>ModernEncryption.UWP</DisplayName>

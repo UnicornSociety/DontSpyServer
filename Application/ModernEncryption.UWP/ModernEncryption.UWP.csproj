@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{403EAC26-BCEC-490A-A41F-A4AD6AE344BF}</ProjectGuid>
+    <ProjectGuid>{B2F65FDF-ABAE-4BD4-ABA0-A99BA76134A8}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ModernEncryption.UWP</RootNamespace>
@@ -128,11 +128,8 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\ModernEncryption\ModernEncryption.csproj">
-      <Project>{b8fcf0e4-0bd4-4eea-9121-627138bb9328}</Project>
+      <Project>{61053a80-2cd5-438f-852f-7f5671edab3b}</Project>
       <Name>ModernEncryption</Name>
     </ProjectReference>
   </ItemGroup>

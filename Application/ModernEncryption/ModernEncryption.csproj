@@ -6,23 +6,30 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="App.xaml" />
-    <None Remove="MainPage.xaml" />
+    <Compile Remove="Class1.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="App.xaml" />
+    <None Remove="App.xaml" />
+    <None Remove="MainPage.xaml" />
+    <None Remove="Page1.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="App.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="2.3.3.168" />
+    <PackageReference Include="Xamarin.Forms" Version="2.3.4.212-pre4" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="MainPage.xaml.cs">
+    <Compile Update="Page1.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
