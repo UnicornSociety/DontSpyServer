@@ -23,24 +23,20 @@ namespace ModernEncryption
 
         public char[] DataSplitting(string input)
         {
-            var symbols = input.ToCharArray();
-            return symbols;
+            return input.ToCharArray();
         }
 
 
         public bool ValidateData(char[] symbols)
         {
             char[] characters40 = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'ß', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ',', '.', ' ' };
-            bool helper = true;
-            for (var i = 0; i < symbols.Length; i++)
+            var helper = true;
+            foreach (char symbol in symbols)
             {
-                if (characters40.Contains(symbols[i])){
+                if (characters40.Contains(symbol)){
                     continue;
                 }
-                else
-                {
-                    helper = false;
-                }
+                helper = false;
             }
             return helper;
         }
