@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 
@@ -26,7 +27,8 @@ namespace ModernEncryption
 
         public void SelectRandomIntervalNumber(Interval interval)
         {
-            //TODO Zufällig Zahl zwischen Start und Endwert auswählen
+            Random rnd = new Random();
+            var chiffre = rnd.Next(start, end + 1);
         }
 
         public void Permutation()
@@ -37,6 +39,7 @@ namespace ModernEncryption
         public string Transformation()
         {
             //TODO Rückübersetzung von Zahl in Zeichenpaar
+            chiffre = (chiffre - 1) / 40;
             return "blabla";
         }
 

@@ -20,7 +20,7 @@ namespace ModernEncryption
                 dataHelper.ErrorOutput();
             }
             var symbol = new Symbol(symbols[2]);
-            Debug.WriteLine(symbol.symbol);
+            Debug.WriteLine(symbol.Symbol);
 
 
         }
