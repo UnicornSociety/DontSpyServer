@@ -11,6 +11,8 @@ namespace ModernEncryption
 
         private string chiffre { get; }
         public char symbol { get; }
+        public int start { get; }
+        public int end { get; }
 
         public Symbol(char symbol)
         {
@@ -28,18 +30,19 @@ namespace ModernEncryption
         public void SelectRandomIntervalNumber(Interval interval)
         {
             Random rnd = new Random();
-            var chiffre = rnd.Next(start, end + 1);
+            var chiffre = rnd.Next(start, end +1);
         }
 
         public void Permutation()
         {
-            //TODO Eine Permutation implementieren
+            var chiffre = (chiffre * 20 - 9) % 1600;
         }
 
         public string Transformation()
         {
             //TODO Rückübersetzung von Zahl in Zeichenpaar
-            chiffre = (chiffre - 1) / 40;
+            // chiffre = (chiffre -  1) / 40;
+            var permutation = chiffre -1 % 40
             return "blabla";
         }
 
