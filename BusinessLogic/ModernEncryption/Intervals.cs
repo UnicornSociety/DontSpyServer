@@ -6,7 +6,6 @@ namespace ModernEncryption
 {
     public static class Intervals
     {
-        // TODO: Intervallwerte in Dictionary abspeichern
         public static Dictionary<char, Interval> IntervalTable { get; set; } = new Dictionary<char, Interval>();
 
         public static void InitalizeIntervalTable()

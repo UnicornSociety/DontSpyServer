@@ -15,5 +15,9 @@ namespace ModernEncryption
             _end = end;
         }
 
+        public static bool ContainsValue(int p0)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
