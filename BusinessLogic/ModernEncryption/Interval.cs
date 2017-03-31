@@ -7,17 +7,14 @@ namespace ModernEncryption
 {
     public class Interval
     {
-        private int _start;
-        private int _end;
+        public int Start { get; }
+        public int End { get; }
         public Interval(int start, int end)
         {
-            _start = start;
-            _end = end;
+            Start = start;
+            End = end;
         }
 
-        public static bool ContainsValue(int p0)
-        {
-            throw new NotImplementedException();
-        }
+      
     }
 }

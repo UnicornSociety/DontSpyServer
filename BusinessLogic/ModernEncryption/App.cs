@@ -19,8 +19,12 @@ namespace ModernEncryption
             {
                 dataHelper.ErrorOutput();
             }
-            var symbol = new Symbol(symbols[2]);
-            Debug.WriteLine(symbol.Symbol);
+            foreach (var symbol in symbols)
+            {
+                var chiffre = new Symbol(symbol);
+                Debug.Write(chiffre.chiffre); 
+            }
+
 
 
         }
