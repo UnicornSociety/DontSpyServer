@@ -9,6 +9,7 @@ namespace ModernEncryption
     {
         public void Start()
         {
+            //Decryption
             Intervals.InitalizeIntervalTable();
 
             var dataHelper = new DataHelper();
@@ -25,8 +26,18 @@ namespace ModernEncryption
                 Debug.Write(chiffre.chiffre); 
             }
 
-
-
+            //Encryption
+            var dataHelperEncryption = new DataHelper();
+            dataHelperEncryption.OutputAlert();
+            var inputEncryption = dataHelperEncryption.DataReadIn();
+            var oneOfChiffrePair = dataHelperEncryption.DataSplitting(inputEncryption);
+            if (dataHelperEncryption.ValidateData(oneOfChiffrePair) == false)
+            {
+                dataHelperEncryption.ErrorOutput();
+            }
+            //TODO 2 aufeinanderfolgende chars im char array wieder in 1 Zahl verwandeln
+            //TODO Permutation rückwärts
+            //TODO Schauen in welchen Intervall die Zahl liegt
         }
     }
 }
