@@ -35,7 +35,8 @@ namespace ModernEncryption
             {
                 dataHelperEncryption.ErrorOutput();
             }
-            //TODO 2 aufeinanderfolgende chars im char array wieder in 1 Zahl verwandeln
+            var transformationSteps = new Enryption();
+            var listOfAllIntegers = transformationSteps.BackTransformation(oneOfChiffrePair);
             //TODO Permutation rückwärts
             //TODO Schauen in welchen Intervall die Zahl liegt
         }
