@@ -23,13 +23,13 @@ namespace ModernEncryption
             foreach (var symbol in symbols)
             {
                 var chiffre = new Symbol(symbol);
-                Debug.Write(chiffre.chiffre); 
+                Debug.WriteLine(chiffre.chiffre); 
             }
 
             //Encryption
             var dataHelperEncryption = new DataHelper();
             dataHelperEncryption.OutputAlert();
-            var inputEncryption = dataHelperEncryption.DataReadIn();
+            var inputEncryption = dataHelperEncryption.DataReadInEncryption();
             var oneOfChiffrePair = dataHelperEncryption.DataSplitting(inputEncryption);
             if (dataHelperEncryption.ValidateData(oneOfChiffrePair) == false)
             {
@@ -37,7 +37,7 @@ namespace ModernEncryption
             }
             var transformationSteps = new Enryption();
             var listOfAllIntegers = transformationSteps.BackTransformation(oneOfChiffrePair);
-            //TODO Permutation rückwärts
+            //TODO Permutation rückwärts dafür andere Permutation benötigt
             //TODO Schauen in welchen Intervall die Zahl liegt
         }
     }

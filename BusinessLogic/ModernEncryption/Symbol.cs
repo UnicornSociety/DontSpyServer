@@ -20,8 +20,8 @@ namespace ModernEncryption
             this.symbol = symbol;
             var interval = IntervalAssignment();
             var randomNumber = SelectRandomIntervalNumber(interval);
-            Debug.WriteLine(randomNumber);
             randomNumber = Permutation(randomNumber);
+            Debug.WriteLine(randomNumber);
             chiffre = Transformation(randomNumber);
         }
 

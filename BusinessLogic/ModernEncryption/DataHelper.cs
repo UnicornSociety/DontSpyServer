@@ -21,6 +21,15 @@ namespace ModernEncryption
             return userInput;
         }
 
+
+        public string DataReadInEncryption()
+        {
+            string userInputEncryption;
+            ///userInput = Console.ReadLine();
+            userInputEncryption = "o1v191skl1hk";
+            return userInputEncryption;
+        }
+
         public char[] DataSplitting(string input)
         {
             return input.ToCharArray();

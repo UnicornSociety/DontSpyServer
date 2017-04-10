@@ -52,7 +52,7 @@ namespace ModernEncryption
             BackTransformationTable.Add('9', 39);
             BackTransformationTable.Add('0', 40);
             int[] integers = new int[chiffre.Length];
-            for (int i = 0; i/2 <= chiffre.Length;i++)
+            for (int i = 0; i < chiffre.Length;i++)
             {
                 var a = BackTransformationTable[chiffre[i]];
                 i++;
