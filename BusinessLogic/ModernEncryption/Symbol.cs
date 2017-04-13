@@ -20,7 +20,6 @@ namespace ModernEncryption
             this.symbol = symbol;
             var interval = IntervalAssignment();
             var randomNumber = SelectRandomIntervalNumber(interval);
-            randomNumber = Permutation(randomNumber);
             Debug.WriteLine(randomNumber);
             chiffre = Transformation(randomNumber);
         }
@@ -36,10 +35,42 @@ namespace ModernEncryption
             return rnd.Next(interval.Start, interval.End +1);
         }
 
-        public int Permutation(int randomNumber)
+        public int KeyDataReadIn()
         {
-            return (randomNumber * 20 - 9) % 1600;
+                //int keyInput = Console.ReadLine();
+                int keyInput;
+                keyInput = 3;
+                return keyInput;
         }
+
+        //Encryption
+        public int Permutation(int randomNumber, int keyInput, int n)
+        {
+            int[] key = new int[] {n};
+            while (n++ < 1600)
+            {
+                key[n] = keyInput;
+            }
+
+            key[randomNumber]= new ramdomNumber;
+
+            return randomNumber;
+        }
+
+        //Decryption
+        public int BackPermutation(int randomNumber, int value, int n)
+        {
+            int[] key = new int[] { n };
+            while (n++ < 1600)
+            {
+                key[n] = value;
+            }
+
+            key[randomNumber] = new value;
+
+            return value;
+        }
+
 
         public string Transformation(int randomNumber)
         {
