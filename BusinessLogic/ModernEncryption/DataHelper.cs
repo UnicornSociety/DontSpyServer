@@ -16,7 +16,7 @@ namespace ModernEncryption
         public string DataReadIn()
         {
             string userInput;
-            ///userInput = Console.ReadLine();
+            //userInput = Console.ReadLine();
             userInput = "krypto";
             return userInput;
         }
@@ -25,7 +25,7 @@ namespace ModernEncryption
         public string DataReadInEncryption()
         {
             string userInputEncryption;
-            ///userInput = Console.ReadLine();
+            //userInput = Console.ReadLine();
             userInputEncryption = "o1v191skl1hk";
             return userInputEncryption;
         }

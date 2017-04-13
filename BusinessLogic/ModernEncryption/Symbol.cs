@@ -24,6 +24,133 @@ namespace ModernEncryption
             chiffre = Transformation(randomNumber);
         }
 
+        //public int KeyDataReadIn()
+        // {
+            //int keyInput = Console.ReadLine();
+            //int keyInput;
+            //keyInput = 3;
+            //return keyInput;
+        //}
+
+        public int ValueOfKeyDataReadIn()
+        {
+            //int valueInput = Console.ReadLine();
+            int valueInput;
+            valueInput = 3;
+            return valueInput;
+        }
+
+        public static Dictionary<int, int> KeyTable  = new Dictionary<int, int>();
+        public void Value(int valueInput)
+        {
+            KeyTable.Add(4, 21);
+            KeyTable.Add(10, 22);
+            KeyTable.Add(11, 23);
+            KeyTable.Add(17, 24);
+            KeyTable.Add(12, 25);
+            KeyTable.Add(5, 26);
+            KeyTable.Add(1, 27);
+            KeyTable.Add(9, 28);
+            KeyTable.Add(7, 29);
+            KeyTable.Add(18, 30);
+            KeyTable.Add(6, 31);
+            KeyTable.Add(3, 32);
+            KeyTable.Add(15, 33);
+            KeyTable.Add(19, 34);
+            KeyTable.Add(14, 35);
+            KeyTable.Add(16, 36);
+            KeyTable.Add(8, 37);
+            KeyTable.Add(2, 38);
+            KeyTable.Add(13, 39);
+            KeyTable.Add(20, 40);
+            KeyTable.Add(21, 4);
+            KeyTable.Add(22, 10);
+            KeyTable.Add(23, 11);
+            KeyTable.Add(24, 17);
+            KeyTable.Add(25, 12);
+            KeyTable.Add(26, 5);
+            KeyTable.Add(27, 1);
+            KeyTable.Add(28, 9);
+            KeyTable.Add(29, 7);
+            KeyTable.Add(30, 18);
+            KeyTable.Add(31, 6);
+            KeyTable.Add(32, 3);
+            KeyTable.Add(33, 15);
+            KeyTable.Add(34, 19);
+            KeyTable.Add(35, 14);
+            KeyTable.Add(36, 16);
+            KeyTable.Add(37, 8);
+            KeyTable.Add(38, 2);
+            KeyTable.Add(39, 13);
+            KeyTable.Add(40, 20);
+            KeyTable.Add(41, 71);
+            KeyTable.Add(42, 72);
+            KeyTable.Add(43, 73);
+            KeyTable.Add(44, 74);
+            KeyTable.Add(45, 75);
+            KeyTable.Add(46, 76);
+            KeyTable.Add(47, 77);
+            KeyTable.Add(48, 78);
+            KeyTable.Add(49, 79);
+            KeyTable.Add(50, 80);
+            KeyTable.Add(51, 81);
+            KeyTable.Add(52, 82);
+            KeyTable.Add(53, 83);
+            KeyTable.Add(54, 84);
+            KeyTable.Add(55, 85);
+            KeyTable.Add(56, 86);
+            KeyTable.Add(57, 87);
+            KeyTable.Add(58, 88);
+            KeyTable.Add(59, 89);
+            KeyTable.Add(60, 90);
+            KeyTable.Add(61, 91);
+            KeyTable.Add(62, 92);
+            KeyTable.Add(63, 93);
+            KeyTable.Add(64, 94);
+            KeyTable.Add(65, 95);
+            KeyTable.Add(66, 96);
+            KeyTable.Add(67, 97);
+            KeyTable.Add(68, 98);
+            KeyTable.Add(69, 99);
+            KeyTable.Add(70, 100);
+            KeyTable.Add(71, 41);
+            KeyTable.Add(72, 42);
+            KeyTable.Add(73, 43);
+            KeyTable.Add(74, 44);
+            KeyTable.Add(75, 45);
+            KeyTable.Add(76, 46);
+            KeyTable.Add(77, 47);
+            KeyTable.Add(78, 48);
+            KeyTable.Add(79, 49);
+            KeyTable.Add(80, 50);
+            KeyTable.Add(81, 51);
+            KeyTable.Add(82, 52);
+            KeyTable.Add(83, 53);
+            KeyTable.Add(84, 54);
+            KeyTable.Add(85, 55);
+            KeyTable.Add(86, 56);
+            KeyTable.Add(87, 57);
+            KeyTable.Add(88, 58);
+            KeyTable.Add(89, 59);
+            KeyTable.Add(90, 60);
+            KeyTable.Add(91, 61);
+            KeyTable.Add(92, 62);
+            KeyTable.Add(93, 63);
+            KeyTable.Add(94, 64);
+            KeyTable.Add(95, 65);
+            KeyTable.Add(96, 66);
+            KeyTable.Add(97, 67);
+            KeyTable.Add(98, 68);
+            KeyTable.Add(99, 69);
+            KeyTable.Add(100, 70);
+
+            //foreach (KeyValuePair<int, int> key in KeyTable)
+            //{
+                //int valuePair = valueInput;
+            //}
+            //TODO: Variablen key und value definieren
+        }
+
         public Interval IntervalAssignment()
         {
             return IntervalTable[symbol];
@@ -35,42 +162,27 @@ namespace ModernEncryption
             return rnd.Next(interval.Start, interval.End +1);
         }
 
-        public int KeyDataReadIn()
-        {
-                //int keyInput = Console.ReadLine();
-                int keyInput;
-                keyInput = 3;
-                return keyInput;
-        }
-
         //Encryption
-        public int Permutation(int randomNumber, int keyInput, int n)
+        public int Permutation(int randomNumber)
         {
-            int[] key = new int[] {n};
-            while (n++ < 1600)
+            if (KeyTable.ContainsKey(randomNumber))
             {
-                key[n] = keyInput;
+                KeyTable[randomNumber] = randomNumber;
+                //return randomNumber;
             }
-
-            key[randomNumber]= new ramdomNumber;
-
-            return randomNumber;
+            return 1; //Platzhalter
         }
 
         //Decryption
-        public int BackPermutation(int randomNumber, int value, int n)
+        public int BackPermutation(int value)
         {
-            int[] key = new int[] { n };
-            while (n++ < 1600)
+            if (KeyTable.ContainsKey(value))
             {
-                key[n] = value;
+                KeyTable[value] = value;
+                //return value; 
             }
-
-            key[randomNumber] = new value;
-
-            return value;
+            return 1; //Platzhalter
         }
-
 
         public string Transformation(int randomNumber)
         {
