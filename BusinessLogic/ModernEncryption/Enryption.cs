@@ -62,6 +62,27 @@ namespace ModernEncryption
                 integers[(i+1) / 2] = value;
             }
             return integers;
+
+        }
+
+        public char[] NumberToLetter(int[] integers)
+        {
+            foreach (var number in integers)
+            {
+                int counter;
+                for (counter = 0; counter <= 40; counter++)
+                {
+                    //if (number >= Interval.Start && <= Interval.End)
+                    //{
+                    //    break;
+                    //}
+                }
+                //var plaintext = Symbol.TransformationTable[i]
+            }
+            //if (x>= start && <= end)
+            //Interrval kann aj benutzt werden, daraus start und end wert dabei schleife hochlaufen lassen in dem intervall wo es drin ist mit der nummer dann mit der transformationTable das zeichen dafür bestimmen
+            char[] array2 = new char[] {'a','b' };
+            return array2;
         }
     }
 }
