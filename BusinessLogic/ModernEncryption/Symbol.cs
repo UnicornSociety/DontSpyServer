@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices.ComTypes;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using static ModernEncryption.Intervals;
 
@@ -165,10 +166,13 @@ namespace ModernEncryption
         //Encryption
         public int Permutation(int randomNumber)
         {
-            if (KeyTable.ContainsKey(randomNumber))
+            for (randomNumber = 0; randomNumber < 100; randomNumber++)
             {
-                KeyTable[randomNumber] = randomNumber;
-                //return randomNumber;
+                if (KeyTable.ContainsKey(randomNumber))
+                {
+                    randomNumber = KeyTable[randomNumber];
+                    //return randomNumber;
+                }
             }
             return 1; //Platzhalter
         }
@@ -176,12 +180,15 @@ namespace ModernEncryption
         //Decryption
         public int BackPermutation(int value)
         {
-            if (KeyTable.ContainsKey(value))
-            {
-                KeyTable[value] = value;
-                //return value; 
-            }
-            return 1; //Platzhalter
+            for (value = 0; value < 100; value++ )
+                {
+                    if (KeyTable.ContainsKey(value))
+                    {
+                        value = KeyTable[value];
+                        //return value; 
+                    }
+                }
+                return 1; //Platzhalter
         }
 
         public string Transformation(int randomNumber)
