@@ -8,14 +8,6 @@ $app->get('/message/{id}', function($request, $response){
 
 });
 
-$app->post('/message/new', function($request, $response){
-  "timestamp": "",
-  "sender": "",
-  "receiver":"",
-  "message":"",
-  "keyNumber":""
-
-});
 
 $app->post('/message/new', function ($request, $response) {
     $data = $request->getParsedBody();
@@ -37,16 +29,12 @@ $app->get('/user', function ($request, $response) {
 
   });
 
-$app->get('/message/{id}', function ($request, $response) {
-
-    });
 
 
 
 //Original
 
-$app->get('/user/{id}', function ($request, $response, $args) {
-    $patient_id = (int)$args['id'];
+/*    $patient_id = (int)$args['id'];
     $mapper = new PatientMapper($this->db);
     $patient = $mapper->getPatientById($patient_id);
     return $response->withJson($patient);

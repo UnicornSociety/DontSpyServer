@@ -9,9 +9,8 @@
   "license": " ",
   "authors": [
     {
-      "name": "Lukas Ruf, Mai Saito", 
-      "email": "lukas_ruf@gmx.net",
-      
+      "name": "Lukas Ruf, Mai Saito",
+      "email": "lukas_ruf@gmx.net"
     }
   ],
   "require": {
