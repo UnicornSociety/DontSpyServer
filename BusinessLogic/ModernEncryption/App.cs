@@ -9,7 +9,7 @@ namespace ModernEncryption
     {
         public void Start()
         {
-            //Decryption
+            //Encryption
             Intervals.InitalizeIntervalTable();
 
             var dataHelper = new DataHelper();
@@ -26,19 +26,19 @@ namespace ModernEncryption
                 Debug.WriteLine(chiffre.chiffre); 
             }
 
-            //Encryption
-            var dataHelperEncryption = new DataHelper();
-            dataHelperEncryption.OutputAlert();
-            var inputEncryption = dataHelperEncryption.DataReadInEncryption();
-            var oneOfChiffrePair = dataHelperEncryption.DataSplitting(inputEncryption);
-            if (dataHelperEncryption.ValidateData(oneOfChiffrePair) == false)
+            //Decryption
+            var dataHelperDecryption = new DataHelper();
+            dataHelperDecryption.OutputAlert();
+            var inputDecryption = dataHelperDecryption.DataReadInDecryption();
+            var oneOfChiffrePair = dataHelperDecryption.DataSplitting(inputDecryption);
+            if (dataHelperDecryption.ValidateData(oneOfChiffrePair) == false)
             {
-                dataHelperEncryption.ErrorOutput();
+                dataHelperDecryption.ErrorOutput();
             }
-            var transformationSteps = new Enryption();
+            var transformationSteps = new Decryption();
             var listOfAllIntegers = transformationSteps.BackTransformation(oneOfChiffrePair);
             //TODO Permutation rückwärts dafür andere Permutation benötigt
-            //TODO Schauen in welchen Intervall die Zahl liegt
+            var plaintext = transformationSteps.NumberToLetter(listOfAllIntegers);
         }
     }
 }

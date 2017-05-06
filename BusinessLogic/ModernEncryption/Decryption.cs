@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net;
 using System.Text;
 
 namespace ModernEncryption
 {
-    public class Enryption
+    public class Decryption
     {
         public Dictionary<char, int> BackTransformationTable { get; set; } = new Dictionary<char, int>();
         public int [] BackTransformation(char [] chiffre)
@@ -67,22 +68,26 @@ namespace ModernEncryption
 
         public char[] NumberToLetter(int[] integers)
         {
+            var placeInString = 1;
+            char[] plaintext = new char[] {};
             foreach (var number in integers)
             {
                 int counter;
-                for (counter = 0; counter <= 40; counter++)
+                for (counter = 1; counter <= 40; counter++)
                 {
                     //if (number >= Interval.Start && <= Interval.End)
                     //{
                     //    break;
                     //}
                 }
-                //var plaintext = Symbol.TransformationTable[i]
+                var transformation = new Symbol('a');//number wenn int char tabelle benötigt (1=a,2=b...)
+                var letterOfPlaintext = transformation.TransformationTable[counter];
+                plaintext[placeInString] = letterOfPlaintext;
+                placeInString++;
             }
             //if (x>= start && <= end)
             //Interrval kann aj benutzt werden, daraus start und end wert dabei schleife hochlaufen lassen in dem intervall wo es drin ist mit der nummer dann mit der transformationTable das zeichen dafür bestimmen
-            char[] array2 = new char[] {'a','b' };
-            return array2;
+            return plaintext;
         }
     }
 }

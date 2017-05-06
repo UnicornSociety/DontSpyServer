@@ -22,12 +22,12 @@ namespace ModernEncryption
         }
 
 
-        public string DataReadInEncryption()
+        public string DataReadInDecryption()
         {
-            string userInputEncryption;
+            string userInputDecryption;
             //userInput = Console.ReadLine();
-            userInputEncryption = "o1v191skl1hk";
-            return userInputEncryption;
+            userInputDecryption = "o1v191skl1hk";
+            return userInputDecryption;
         }
 
         public char[] DataSplitting(string input)
