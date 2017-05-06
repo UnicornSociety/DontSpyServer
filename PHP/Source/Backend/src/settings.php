@@ -19,9 +19,9 @@ return [
         // Database settings
         'db' => [
             'host' => 'localhost',
-            'user' => '',
+            'user' => 'root',
             'pass' => '',
-            'dbname' => ''
+            'dbname' => 'krypto'
         ]
     ],
 ];
