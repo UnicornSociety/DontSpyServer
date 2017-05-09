@@ -80,3 +80,4 @@ $app->post('/vitalsign/new', function ($request, $response) {
     //$response = $response->withRedirect("/senvis/api/patient/" . $vitalSign_data['patientId'] . "/vitalsign");
     return $response;
 });
+*/

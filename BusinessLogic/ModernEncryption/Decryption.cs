@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq.Expressions;
 using System.Net;
 using System.Text;
 
@@ -75,14 +76,16 @@ namespace ModernEncryption
                 int counter;
                 for (counter = 1; counter <= 40; counter++)
                 {
-                    //if (number >= Interval.Start && <= Interval.End)
-                    //{
-                    //    break;
-                    //}
+                    var helper = new Symbol('b');//hier muss noch des symbol rein des gerade zurückübersetzt werden soll
+                    var interval = helper.IntervalAssignment();
+                    if (number >= interval.Start && number <= interval.End)
+                    {
+                        break;
+                    }
                 }
-                var transformation = new Symbol('a');//number wenn int char tabelle benötigt (1=a,2=b...)
-                var letterOfPlaintext = transformation.TransformationTable[counter];
-                plaintext[placeInString] = letterOfPlaintext;
+                var transformation = new Symbol('a');//number wenn int char tabelle benötigt (1=a,2=b...)transformationtable schon da
+                //var letterOfPlaintext = transformation.TransformationTable[counter];
+                //plaintext[placeInString] = letterOfPlaintext;
                 placeInString++;
             }
             //if (x>= start && <= end)

@@ -13,7 +13,7 @@ namespace ModernEncryption
     {
         public Dictionary<int, char> TransformationTable { get; set; } = new Dictionary<int, char>();
         public char symbol { get; }
-        public String chiffre { get;  set; }
+        public string Chiffre { get;  set; }
 
 
         public Symbol(char symbol)
@@ -22,7 +22,7 @@ namespace ModernEncryption
             var interval = IntervalAssignment();
             var randomNumber = SelectRandomIntervalNumber(interval);
             Debug.WriteLine(randomNumber);
-            chiffre = Transformation(randomNumber);
+            Chiffre = Transformation(randomNumber);
         }
 
         //public int KeyDataReadIn()
