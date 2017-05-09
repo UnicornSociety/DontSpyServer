@@ -76,16 +76,16 @@ namespace ModernEncryption
                 int counter;
                 for (counter = 1; counter <= 40; counter++)
                 {
-                    var helper = new Symbol('b');//hier muss noch des symbol rein des gerade zurückübersetzt werden soll
+                    var symbol = TransformationTable.transformationTable[number];
+                    var helper = new Symbol(symbol);
                     var interval = helper.IntervalAssignment();
                     if (number >= interval.Start && number <= interval.End)
                     {
                         break;
                     }
                 }
-                var transformation = new Symbol('a');//number wenn int char tabelle benötigt (1=a,2=b...)transformationtable schon da
-                //var letterOfPlaintext = transformation.TransformationTable[counter];
-                //plaintext[placeInString] = letterOfPlaintext;
+                var letterOfPlaintext = TransformationTable.transformationTable[counter];
+                plaintext[placeInString] = letterOfPlaintext;
                 placeInString++;
             }
             //if (x>= start && <= end)
