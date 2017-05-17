@@ -13,11 +13,11 @@ $app->post('/message/new', function ($request, $response) {
     $data = $request->getParsedBody();
     $message_data = [];
     $message_data['timestamp'] = $data['timestamp'];
-    $message_data['sender'] = filter_var($data['sender'], FILTER_SANITIZE_STRING);
-    $message_data['receiver'] = filter_var($data['receiver'], FILTER_SANITIZE_STRING);
+    $message_data['sender'] = $data['sender'];
+    $message_data['receiver'] = $data['receiver');
     $message_data['message'] = filter_var($data['message'], FILTER_SANITIZE_STRING);
-    $message_data['keyNumber'] = filter_var($data['keyNumber'], FILTER_SANITIZE_STRING);
-    $message_data['UserId'] = filter_var($data['userId'], FILTER_SANITIZE_STRING);
+    $message_data['keyNumber'] = $data['keyNumber'];
+    $message_data['UserId'] = $data['userId'];
     $message = new UserEntity($message_data);
     $mapper = new UserMapper($this->db);
     $mapper->save($message);

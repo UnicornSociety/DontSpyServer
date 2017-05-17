@@ -3,8 +3,11 @@
 class UserEntity implements JsonSerializable
 {
     protected $id;
-    protected $firstname;
-    protected $lastname;
+    protected $sender;
+    protected $receiver;
+    protected $message;
+    protected $keyNumber;
+    protected $timestamp;
 
     public function __construct(array $data)
     {
@@ -12,8 +15,11 @@ class UserEntity implements JsonSerializable
         if (isset($data['id'])) {
             $this->id = $data['id'];
         }
-        $this->firstname = $data['firstname'];
-        $this->surame = $data['surname'];
+        $this->sender = $data['sender'];
+        $this->receiver = $data['receiver'];
+        $this->message = $data['message'];
+        $this->keyNumber = $data['keyNumber'];
+        $this->timestamp = $data['timestamp'];
     }
 
 // saving data from post message routes

@@ -76,7 +76,8 @@ namespace ModernEncryption
                 int counter;
                 for (counter = 1; counter <= 40; counter++)
                 {
-                    var symbol = TransformationTable.transformationTable[number];
+                    //var symbol = TransformationTable.transformationTable[number];
+                    var symbol = 'b';
                     var helper = new Symbol(symbol);
                     var interval = helper.IntervalAssignment();
                     if (number >= interval.Start && number <= interval.End)
