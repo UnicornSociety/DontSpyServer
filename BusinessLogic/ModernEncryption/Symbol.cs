@@ -197,11 +197,9 @@ namespace ModernEncryption
 
             var keyA = (randomNumber - 1) / 40 + 1;
             var keyB = (randomNumber - 1) % 40 + 1;
-            Debug.WriteLine(keyB);
-            //char chiffreSplit1 = TransformationTable.transformationTable[keyA];
-            char chiffreSplit1 = 'b';
-            //char chiffreSplit2 = TransformationTable.transformationTable[keyB];
-            char chiffreSplit2 = 'c';
+            Debug.WriteLine(keyA);
+            char chiffreSplit1 = TransformationTable.transformationTable[keyA];
+            char chiffreSplit2 = TransformationTable.transformationTable[keyB];
             return ""+ chiffreSplit1 + chiffreSplit2;
         }
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 06. Mai 2017 um 11:48
+-- Erstellungszeit: 19. Mai 2017 um 16:34
 -- Server-Version: 10.1.21-MariaDB
 -- PHP-Version: 5.6.30
 
@@ -28,12 +28,21 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `message` (
   `id` int(11) NOT NULL,
-  `chiffre` text NOT NULL,
+  `message` text NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `sender` int(11) NOT NULL,
   `receiver` int(11) NOT NULL,
   `keyNumber` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Daten für Tabelle `message`
+--
+
+INSERT INTO `message` (`id`, `message`, `timestamp`, `sender`, `receiver`, `keyNumber`) VALUES
+(1, 'Hallo ich bin eine Nachricht', '2017-05-19 14:29:18', 1, 2, 4),
+(2, 'Das ist die Anwort auf die tolle nachricht', '2017-05-19 14:29:58', 2, 1, 2),
+(3, 'Zweite Nachricht', '2017-05-19 14:31:13', 1, 2, 3);
 
 -- --------------------------------------------------------
 
@@ -45,14 +54,14 @@ CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `firstname` varchar(30) NOT NULL,
   `surname` varchar(30) NOT NULL,
-  `e-Mail` varchar(254) NOT NULL
+  `eMail` varchar(254) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Daten für Tabelle `user`
 --
 
-INSERT INTO `user` (`id`, `firstname`, `surname`, `e-Mail`) VALUES
+INSERT INTO `user` (`id`, `firstname`, `surname`, `eMail`) VALUES
 (1, 'Max', 'Mustermann', 'max.mustermann@gmx.net'),
 (2, 'Petra', 'Fischer', 'petra.fischer@gmail.com');
 
@@ -82,12 +91,12 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT für Tabelle `message`
 --
 ALTER TABLE `message`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT für Tabelle `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- Constraints der exportierten Tabellen
 --

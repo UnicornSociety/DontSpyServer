@@ -2,58 +2,20 @@
 
 class UserEntity implements JsonSerializable
 {
-    protected $id;
-    protected $sender;
-    protected $receiver;
-    protected $message;
-    protected $keyNumber;
-    protected $timestamp;
+    protected $firstname;
+    protected $surname;
+    protected $eMail;
 
     public function __construct(array $data)
     {
-        // no id if we're creating
-        if (isset($data['id'])) {
-            $this->id = $data['id'];
-        }
-        $this->sender = $data['sender'];
-        $this->receiver = $data['receiver'];
-        $this->message = $data['message'];
-        $this->keyNumber = $data['keyNumber'];
-        $this->timestamp = $data['timestamp'];
-    }
-
-// saving data from post message routes
-
-    public function saveId()
-    {
-        return $this->id;
-    }
-    public function saveTimestamp()
-    {
-        return $this->timestamp;
-    }
-    public function saveReceiver()
-    {
-        return $this->receiver;
-    }
-    public function saveSender()
-    {
-        return $this->sender;
-    }
-    public function saveKeyNumber()
-    {
-        return $this->keyNumber;
-    }
-
-// original
-
-    public function getId()
-    {
-        return $this->id;
+        $this->firstname = $data['firstname'];
+        $this->surname = $data['surname'];
+        $this->eMail = $data['eMail'];
     }
 
     public function getFirstname()
     {
+        print_r($this->firstname);
         return $this->firstname;
     }
 
@@ -62,19 +24,17 @@ class UserEntity implements JsonSerializable
         return $this->surname;
     }
 
-    public function getEmail()
+    public function getEMail()
     {
-        return $this->email; //email isn't e-Mail
+        return $this->eMail;
     }
 
     public function jsonSerialize()
     {
         return [
-            'id' => $this->getId(),
             'firstname' => $this->getFirstname(),
-            'lastname' => $this->getLastname(),
-            'lastname' => $this->getLastname(),
-> $this->getSex()
+            'surname' => $this->getSurname(),
+            'eMail' => $this->getEMail()
         ];
     }
 }
