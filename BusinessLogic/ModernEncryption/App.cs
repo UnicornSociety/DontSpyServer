@@ -24,7 +24,7 @@ namespace ModernEncryption
             foreach (var symbol in symbols)
             {
                 var chiffre = new Symbol(symbol);
-                Debug.WriteLine(chiffre.Chiffre); 
+                //Debug.WriteLine(chiffre.Chiffre); 
             }
 
             //Decryption

@@ -14,17 +14,45 @@ namespace ModernEncryption
         public char symbol { get; }
         public string Chiffre { get;  set; }
 
+        public Symbol()
+        {
+            
+        }
+
 
         public Symbol(char symbol)
         {
             this.symbol = symbol;
             var interval = IntervalAssignment();
             var randomNumber = SelectRandomIntervalNumber(interval);
-            Debug.WriteLine(randomNumber);
+            //Debug.WriteLine(randomNumber);
             Chiffre = Transformation(randomNumber);
         }
 
-        //public int KeyDataReadIn()
+        public Interval IntervalAssignment()
+        {
+            return IntervalTable[symbol];
+        }
+
+        public int SelectRandomIntervalNumber(Interval interval)
+        {
+            Random rnd = new Random();
+            return rnd.Next(interval.Start, interval.End + 1);
+        }
+
+        public string Transformation(int randomNumber)
+        {
+
+            //TODO Rückübersetzung von Zahl in Zeichenpaar
+
+            var keyA = (randomNumber - 1) / 40 + 1;
+            var keyB = (randomNumber - 1) % 40 + 1;
+            char chiffreSplit1 = TransformationTable.transformationTable[keyA];
+            char chiffreSplit2 = TransformationTable.transformationTable[keyB];
+            return "" + chiffreSplit1 + chiffreSplit2;
+        }
+
+        /*//public int KeyDataReadIn()
         // {
             //int keyInput = Console.ReadLine();
             //int keyInput;
@@ -149,59 +177,37 @@ namespace ModernEncryption
                 //int valuePair = valueInput;
             //}
             //TODO: Variablen key und value definieren
-        }
+        }*/
 
-        public Interval IntervalAssignment()
-        {
-            return IntervalTable[symbol];
-        }
-
-        public int SelectRandomIntervalNumber(Interval interval)
-        {
-            Random rnd = new Random();
-            return rnd.Next(interval.Start, interval.End +1);
-        }
-
-        //Encryption
-        public int Permutation(int randomNumber)
-        {
-            for (randomNumber = 0; randomNumber < 100; randomNumber++)
+        /*//Encryption
+            public int Permutation(int randomNumber)
             {
-                if (KeyTable.ContainsKey(randomNumber))
+                for (randomNumber = 0; randomNumber < 100; randomNumber++)
                 {
-                    randomNumber = KeyTable[randomNumber];
-                    //return randomNumber;
-                }
-            }
-            return 1; //Platzhalter
-        }
-
-        //Decryption
-        public int BackPermutation(int value)
-        {
-            for (value = 0; value < 100; value++ )
-                {
-                    if (KeyTable.ContainsKey(value))
+                    if (KeyTable.ContainsKey(randomNumber))
                     {
-                        value = KeyTable[value];
-                        //return value; 
+                        randomNumber = KeyTable[randomNumber];
+                        //return randomNumber;
                     }
                 }
                 return 1; //Platzhalter
-        }
+            }
 
-        public string Transformation(int randomNumber)
-        {
-            
-            //TODO Rückübersetzung von Zahl in Zeichenpaar
+            //Decryption
+            public int BackPermutation(int value)
+            {
+                for (value = 0; value < 100; value++ )
+                    {
+                        if (KeyTable.ContainsKey(value))
+                        {
+                            value = KeyTable[value];
+                            //return value; 
+                        }
+                    }
+                    return 1; //Platzhalter
+            }*/
 
-            var keyA = (randomNumber - 1) / 40 + 1;
-            var keyB = (randomNumber - 1) % 40 + 1;
-            Debug.WriteLine(keyA);
-            char chiffreSplit1 = TransformationTable.transformationTable[keyA];
-            char chiffreSplit2 = TransformationTable.transformationTable[keyB];
-            return ""+ chiffreSplit1 + chiffreSplit2;
-        }
+
 
     }
 }

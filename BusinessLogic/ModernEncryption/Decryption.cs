@@ -76,7 +76,7 @@ namespace ModernEncryption
                 for (counter = 1; counter < 40; counter++)
                 {
                     var symbol = TransformationTable.transformationTable[number];
-                    var helper = new Symbol(symbol);
+                    var helper = new Symbol();
                     var interval = helper.IntervalAssignment();
                     if (number >= interval.Start && number <= interval.End)
                     {
@@ -84,6 +84,8 @@ namespace ModernEncryption
                     }
                 }
                 var letterOfPlaintext = TransformationTable.transformationTable[counter];
+                Debug.WriteLine("Decryption");
+                Debug.WriteLine(letterOfPlaintext);
                 plaintext.Add(letterOfPlaintext);
             }
             var finalPlaintext = plaintext.ToArray();
