@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq.Expressions;
 using System.Net;
 using System.Text;
+using static ModernEncryption.Intervals;
 
 namespace ModernEncryption
 {
@@ -67,6 +68,11 @@ namespace ModernEncryption
 
         }
 
+        /*public Interval IntervalBuilder(char listOfAllIntegers)
+        {
+            return IntervalTable[listOfAllIntegers];
+        }*/
+
         public char[] NumberToLetter(int[] integers)
         {
             var plaintext = new List<char> ();
@@ -75,9 +81,9 @@ namespace ModernEncryption
                 int counter;
                 for (counter = 1; counter < 40; counter++)
                 {
-                    var symbol = TransformationTable.transformationTable[number];
-                    var helper = new Symbol();
-                    var interval = helper.IntervalAssignment();
+                    
+                    var symbol = TransformationTable.transformationTable[counter];
+                    var interval = IntervalTable[symbol];
                     if (number >= interval.Start && number <= interval.End)
                     {
                         break;
