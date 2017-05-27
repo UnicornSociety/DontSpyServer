@@ -26,7 +26,7 @@ namespace ModernEncryption
         {
             string userInputDecryption;
             //userInput = Console.ReadLine();
-            userInputDecryption = "o1v191skl1hk";
+            userInputDecryption = "q4y528w9,8wt";
             return userInputDecryption;
         }
 

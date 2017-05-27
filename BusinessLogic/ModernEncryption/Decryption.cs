@@ -76,7 +76,7 @@ namespace ModernEncryption
         public char[] NumberToLetter(int[] integers)
         {
             var plaintext = new List<char> ();
-            for (var number = 1; number <= integers.Length; number++)
+            foreach (var letter in integers)
             {
                 int counter;
                 for (counter = 1; counter < 40; counter++)
@@ -84,15 +84,17 @@ namespace ModernEncryption
                     
                     var symbol = TransformationTable.transformationTable[counter];
                     var interval = IntervalTable[symbol];
-                    if (number >= interval.Start && number <= interval.End)
+                    if (letter >= interval.Start && letter <= interval.End)
                     {
+                        Debug.WriteLine(letter);
+                        Debug.WriteLine(counter);
+                        var letterOfPlaintext = TransformationTable.transformationTable[counter];
+                        plaintext.Add(letterOfPlaintext);
+                        Debug.WriteLine("Decryption");
+                        Debug.WriteLine(letterOfPlaintext);
                         break;
                     }
                 }
-                var letterOfPlaintext = TransformationTable.transformationTable[counter];
-                Debug.WriteLine("Decryption");
-                Debug.WriteLine(letterOfPlaintext);
-                plaintext.Add(letterOfPlaintext);
             }
             var finalPlaintext = plaintext.ToArray();
             return finalPlaintext;
