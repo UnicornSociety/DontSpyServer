@@ -390,7 +390,7 @@ namespace ModernEncryption
         //Encryption
         public int Permutation(int randomNumber)
             {
-                /*for (randomNumber = 0; randomNumber < 100; randomNumber++)
+                /*for (randomNumber = 0; randomNumber < 310; randomNumber++)
                 {*/
                     if (KeyTable.ContainsKey(randomNumber))
                     {
@@ -405,15 +405,15 @@ namespace ModernEncryption
             //Decryption
             public int BackPermutation(int value)
             {
-                for (value = 0; value < 100; value++ )
-                    {
+                /*for (value = 0; value < 310; value++ )
+                    {*/
                         if (KeyTable.ContainsKey(value))
                         {
                             value = KeyTable[value];
-                            return value;
+                            //return value;
                         }
-                    }
-                return 1; 
+                    //}
+                return value; 
             }
 
 
