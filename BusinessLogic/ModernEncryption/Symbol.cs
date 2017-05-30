@@ -14,19 +14,15 @@ namespace ModernEncryption
         public char symbol { get; }
         public string Chiffre { get;  set; }
 
-        public Symbol()
-        {
-            
-        }
-
-
+ 
         public Symbol(char symbol)
         {
             this.symbol = symbol;
             var interval = IntervalAssignment();
             var randomNumber = SelectRandomIntervalNumber(interval);
             //Debug.WriteLine(randomNumber);
-            Chiffre = Transformation(randomNumber);
+            var chiffre = Permutation(randomNumber);
+            Chiffre = Transformation(chiffre);
         }
 
         public Interval IntervalAssignment()
@@ -187,7 +183,7 @@ namespace ModernEncryption
             KeyTable.Add(113, 275);
             KeyTable.Add(114, 299);
             KeyTable.Add(115, 300);
-            KeyTable.Add(116 ,    301);
+            KeyTable.Add(116, 301);
             KeyTable.Add(117, 302);
             KeyTable.Add(118, 303);
             KeyTable.Add(119, 304);
@@ -203,7 +199,7 @@ namespace ModernEncryption
             KeyTable.Add(129, 115);
             KeyTable.Add(130, 116);
             KeyTable.Add(131, 117);
-            KeyTable.Add(132  ,   118);
+            KeyTable.Add(132, 118);
             KeyTable.Add(133, 119);
             KeyTable.Add(134, 120);
             KeyTable.Add(135, 121);
@@ -219,7 +215,7 @@ namespace ModernEncryption
             KeyTable.Add(145, 286);
             KeyTable.Add(146, 108);
             KeyTable.Add(147, 109);
-            KeyTable.Add(148  ,   110);
+            KeyTable.Add(148,  110);
             KeyTable.Add(149, 111);
             KeyTable.Add(150, 289);
             KeyTable.Add(151, 288);
@@ -394,15 +390,16 @@ namespace ModernEncryption
         //Encryption
         public int Permutation(int randomNumber)
             {
-                for (randomNumber = 0; randomNumber < 100; randomNumber++)
-                {
+                /*for (randomNumber = 0; randomNumber < 100; randomNumber++)
+                {*/
                     if (KeyTable.ContainsKey(randomNumber))
                     {
                         randomNumber = KeyTable[randomNumber];
-                        return randomNumber;
+                        //return randomNumber;
                     }
-                }
-                return 1;
+                //}
+                //return 1;
+                return randomNumber;
             }
 
             //Decryption

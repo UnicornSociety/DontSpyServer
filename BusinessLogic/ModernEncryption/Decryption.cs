@@ -86,8 +86,8 @@ namespace ModernEncryption
                     var interval = IntervalTable[symbol];
                     if (letter >= interval.Start && letter <= interval.End)
                     {
-                        Debug.WriteLine(letter);
-                        Debug.WriteLine(counter);
+                        //Debug.WriteLine(letter);
+                        //Debug.WriteLine(counter);
                         var letterOfPlaintext = TransformationTable.transformationTable[counter];
                         plaintext.Add(letterOfPlaintext);
                         Debug.WriteLine("Decryption");
