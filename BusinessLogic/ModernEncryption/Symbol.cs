@@ -14,14 +14,19 @@ namespace ModernEncryption
         public char symbol { get; }
         public string Chiffre { get;  set; }
 
+        public Symbol()
+        {
+            Value();
+        }
  
         public Symbol(char symbol)
         {
             this.symbol = symbol;
             var interval = IntervalAssignment();
             var randomNumber = SelectRandomIntervalNumber(interval);
-            //Debug.WriteLine(randomNumber);
+            Debug.WriteLine(randomNumber);
             var chiffre = Permutation(randomNumber);
+            Debug.WriteLine(chiffre);
             Chiffre = Transformation(chiffre);
         }
 
@@ -65,7 +70,7 @@ namespace ModernEncryption
         }*/
 
         public static Dictionary<int, int> KeyTable  = new Dictionary<int, int>();
-        public void Value(int valueInput)
+        public void Value()
         {
             KeyTable.Add(4, 21);
             KeyTable.Add(10, 22);
@@ -389,30 +394,22 @@ namespace ModernEncryption
 
         //Encryption
         public int Permutation(int randomNumber)
-            {
-                /*for (randomNumber = 0; randomNumber < 310; randomNumber++)
-                {*/
-                    if (KeyTable.ContainsKey(randomNumber))
-                    {
-                        randomNumber = KeyTable[randomNumber];
-                        //return randomNumber;
-                    }
-                //}
-                //return 1;
-                return randomNumber;
-            }
+        {
+            
+            if (KeyTable.ContainsKey(randomNumber))
+                {
+                    randomNumber = KeyTable[randomNumber];
+                }
+            return randomNumber;
+        }
 
             //Decryption
             public int BackPermutation(int value)
             {
-                /*for (value = 0; value < 310; value++ )
-                    {*/
-                        if (KeyTable.ContainsKey(value))
-                        {
-                            value = KeyTable[value];
-                            //return value;
-                        }
-                    //}
+               if (KeyTable.ContainsKey(value))
+                {
+                     value = KeyTable[value];
+                }
                 return value; 
             }
 

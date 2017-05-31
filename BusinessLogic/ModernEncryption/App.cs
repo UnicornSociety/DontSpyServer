@@ -12,6 +12,7 @@ namespace ModernEncryption
             //Encryption
             Intervals.InitalizeIntervalTable();
             TransformationTable.InitalizeTransformationTable();
+            var initializeKeyTable = new Symbol();
 
             var dataHelper = new DataHelper();
             dataHelper.OutputAlert();

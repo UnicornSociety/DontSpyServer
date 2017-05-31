@@ -17,7 +17,7 @@ namespace ModernEncryption
         {
             string userInput;
             //userInput = Console.ReadLine();
-            userInput = "krypto";
+            userInput = "abacy";
             return userInput;
         }
 
