@@ -15,7 +15,6 @@ class UserEntity implements JsonSerializable
 
     public function getFirstname()
     {
-        print_r($this->firstname);
         return $this->firstname;
     }
 

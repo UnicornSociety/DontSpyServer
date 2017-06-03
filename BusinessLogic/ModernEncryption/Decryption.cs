@@ -61,17 +61,21 @@ namespace ModernEncryption
                 i++;
                 var b = BackTransformationTable[chiffre[i]];
                 int value = (a - 1) * 40 + b;
-                Debug.WriteLine(value);
+                //Debug.WriteLine(value);
                 integers[(i+1) / 2] = value;
             }
             return integers;
 
         }
 
-        /*public Interval IntervalBuilder(char listOfAllIntegers)
+        public int BackPermutation(int value)
         {
-            return IntervalTable[listOfAllIntegers];
-        }*/
+            if (TransformationTable.KeyTable.ContainsKey(value))
+            {
+                value = TransformationTable.KeyTable[value];
+            }
+            return value;
+        }
 
         public char[] NumberToLetter(int[] integers)
         {

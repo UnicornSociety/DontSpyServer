@@ -37,7 +37,7 @@ $app->post('/user/new', function ($request, $response) {
     $user_data['firstname'] = filter_var($data['firstname'], FILTER_SANITIZE_STRING);
     $user_data['surname'] = filter_var($data['surname'], FILTER_SANITIZE_STRING);
     $user_data['eMail'] = filter_var($data['eMail'], FILTER_SANITIZE_STRING);
-    print_r("Hello".$request);
+    print_r("Hello".$data);
     $user = new UserEntity($user_data);
     $mapper = new UserMapper($this->db);
     $mapper->save($user);

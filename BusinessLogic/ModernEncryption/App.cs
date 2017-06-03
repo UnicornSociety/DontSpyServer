@@ -12,7 +12,7 @@ namespace ModernEncryption
             //Encryption
             Intervals.InitalizeIntervalTable();
             TransformationTable.InitalizeTransformationTable();
-            var initializeKeyTable = new Symbol();
+            TransformationTable.InitializeKeyTable();
 
             var dataHelper = new DataHelper();
             dataHelper.OutputAlert();
@@ -25,8 +25,8 @@ namespace ModernEncryption
             foreach (var symbol in symbols)
             {
                 var chiffre = new Symbol(symbol);
-                Debug.WriteLine("Verschlüsselter Buchstabe");
-                Debug.WriteLine(chiffre.Chiffre); 
+                //Debug.WriteLine("Verschlüsselter Buchstabe");
+                Debug.Write(chiffre.Chiffre); 
             }
 
             //Decryption
@@ -40,7 +40,12 @@ namespace ModernEncryption
             }
             var transformationSteps = new Decryption();
             var listOfAllIntegers = transformationSteps.BackTransformation(oneOfChiffrePair);
-            //TODO Permutation rückwärts dafür andere Permutation benötigt
+            var counter = 0;
+            foreach (var value in listOfAllIntegers)
+            {
+                listOfAllIntegers[counter] = transformationSteps.BackPermutation(value);
+                counter++;
+            }
             var plaintext = transformationSteps.NumberToLetter(listOfAllIntegers);
         }
     }

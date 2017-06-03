@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ModernEncryption.LoginPage">
+
+    <StackLayout HorizontalOptions="Center" VerticalOptions="Start">
+        <Label Text="Willkommen bei Modern Encryption" FontSize="45"></Label>
+        <Entry IsPassword="true" Placeholder="PIN"/>
+        <Button Text="Bestätigen"/>
+    </StackLayout>
+    
+</ContentPage>

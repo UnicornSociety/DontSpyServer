@@ -5,12 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace ModernEncryption
 {
-	public partial class MainPage : ContentPage
+	[XamlCompilation(XamlCompilationOptions.Compile)]
+	public partial class ContactDetailPage : ContentPage
 	{
-		public MainPage ()
+		public ContactDetailPage ()
 		{
 			InitializeComponent ();
 		}

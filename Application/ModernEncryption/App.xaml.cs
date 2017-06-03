@@ -13,7 +13,7 @@ namespace ModernEncryption
 		public App ()
 		{
 			InitializeComponent ();
-            MainPage = new ModernEncryption.MainPage();
+            MainPage = new ModernEncryption.AnchorPage();
         }
 
         protected override void OnStart()

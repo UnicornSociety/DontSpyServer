@@ -17,7 +17,7 @@ namespace ModernEncryption
         {
             string userInput;
             //userInput = Console.ReadLine();
-            userInput = "abacy";
+            userInput = "krypto";
             return userInput;
         }
 
@@ -26,7 +26,7 @@ namespace ModernEncryption
         {
             string userInputDecryption;
             //userInput = Console.ReadLine();
-            userInputDecryption = "q4y528w9,8wt";
+            userInputDecryption = "qwx0g8w7eiwy";
             return userInputDecryption;
         }
 
