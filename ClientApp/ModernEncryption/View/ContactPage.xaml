@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ModernEncryption.View.ContactPage">
+    
+    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+        <SrollView>
+            <Button Text="Neuen Kontakt hinzufügen"/>
+            <Button Text="Firma Mitarbeiter 1"/>
+            <Button Text="Mai"/>
+            <Button Text="Mama"/>
+        </SrollView>
+    </StackLayout>
+    
+</ContentPage>
