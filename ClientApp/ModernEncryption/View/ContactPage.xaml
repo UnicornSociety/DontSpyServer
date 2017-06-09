@@ -4,12 +4,12 @@
              x:Class="ModernEncryption.View.ContactPage">
     
     <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start">
-        <SrollView>
+        <ScrollView>
             <Button Text="Neuen Kontakt hinzufügen"/>
             <Button Text="Firma Mitarbeiter 1"/>
             <Button Text="Mai"/>
             <Button Text="Mama"/>
-        </SrollView>
+        </ScrollView>
     </StackLayout>
     
 </ContentPage>
