@@ -16,8 +16,7 @@ namespace ModernEncryption
 		public App ()
 		{
 			InitializeComponent ();
-		    MainPage = new View.LoginPage();
-
+		    MainPage = new View.AddChatPage();
             //cryptoTest();
         }
 

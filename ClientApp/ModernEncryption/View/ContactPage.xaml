@@ -4,8 +4,22 @@
              x:Class="ModernEncryption.View.ContactPage">
     
     <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+
+
+        <Label Text="Kontakte" FontSize="30" TextColor="White"  BackgroundColor="Green" HorizontalTextAlignment="Center" ></Label>
+        
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <SearchBar Grid.Column="0"  Placeholder="Kontakt suchen" HorizontalTextAlignment="Center"></SearchBar>
+            <Button Grid.Column="1" Text="Neuen Kontakt hinzufügen"></Button>
+        </Grid>
+
         <ScrollView>
-            <Button Text="Neuen Kontakt hinzufügen"/>
+
             <Button Text="Firma Mitarbeiter 1"/>
             <Button Text="Mai"/>
             <Button Text="Mama"/>

@@ -2,8 +2,17 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ModernEncryption.View.AddNewContactPage">
-    <StackLayout>
-        <Entry Placeholder="E-Mail"/>
+    <StackLayout HorizontalOptions="Center"  VerticalOptions="Center">
+        
+        <Button Text="zurück" HorizontalOptions="Start" VerticalOptions="Start"  BackgroundColor="White"  BorderColor="Gray"></Button>
+      
+        <Label Text="l" TextColor="White"></Label>
+        
+        <Label Text="Chatübersicht" FontSize="30" TextColor="White"  BackgroundColor="Green" HorizontalTextAlignment="Center" ></Label>
+        
+        
+        <Entry Placeholder="E-mail"/>
         <Button Text="Zu Kontakten hinzufügen"/>
+        
     </StackLayout>
 </ContentPage>

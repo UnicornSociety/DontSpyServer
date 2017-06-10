@@ -2,14 +2,25 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ModernEncryption.View.ChatPage">
-    <StackLayout>
-        <ScrollView>
-            
+    <StackLayout VerticalOptions="Start">
+        
+    <StackLayout  VerticalOptions="Start">
+        <Button Text="zurück" HorizontalOptions="Start" BackgroundColor="White"  BorderColor="Gray"></Button>
+        <Label Text="Petra Fischer" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="20" TextColor="White"  BackgroundColor="Green"></Label>
+    </StackLayout>
+
+        <ScrollView VerticalOptions="Center">
+
+            <Frame OutlineColor="Gray" HasShadow="True" HorizontalOptions="Start" VerticalOptions="Start">
+                <Label Text="Nachricht 1"></Label>
+            </Frame>
+
         </ScrollView>
-        <StackLayout VerticalOptions="End">
+
+        <StackLayout VerticalOptions="End" >
             <Entry Placeholder="Bitte Nachricht eingeben"/>
             <Button Text="Senden"/>
         </StackLayout>
+
     </StackLayout>
-    
 </ContentPage>

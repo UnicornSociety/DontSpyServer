@@ -3,6 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ModernEncryption.View.ErrorPage">
     <StackLayout>
+        
+        <Button Text="zurück" HorizontalOptions="Start" BackgroundColor="White"  BorderColor="Gray"></Button>
+        
         <Label Text="Der passende Fehler"/>
     </StackLayout>
 </ContentPage>
