@@ -20,9 +20,11 @@
         <SearchBar Placeholder="Chat suchen" HorizontalTextAlignment="Center"></SearchBar>
 
         <ScrollView  HorizontalOptions="Start" VerticalOptions="Start">
-
-            <Button Text="Firma 1" BackgroundColor="Black" HorizontalOptions="Start" VerticalOptions="FillAndExpand"> </Button>
-            <Button Text="Mama"/>
+            <StackLayout>
+                <Button Text="Firma 1" HorizontalOptions="Start"> </Button>
+                <Button Text="Mama" HorizontalOptions="Start"></Button>
+                <Button Text="Mitarbeiter 1" HorizontalOptions="Start"></Button>
+            </StackLayout>
         </ScrollView>
         
     </StackLayout>

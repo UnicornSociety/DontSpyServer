@@ -8,7 +8,7 @@
       
         <Label Text="l" TextColor="White"></Label>
         
-        <Label Text="Chatübersicht" FontSize="30" TextColor="White"  BackgroundColor="Green" HorizontalTextAlignment="Center" ></Label>
+        <Label Text="Chatübersicht" FontSize="30" TextColor="White"  BackgroundColor="Green" HorizontalTextAlignment="Center" VerticalOptions="Start" ></Label>
         
         
         <Entry Placeholder="E-mail"/>

@@ -11,13 +11,16 @@
         <Label Text="Neuer Chat" FontSize="30" TextColor="White"  BackgroundColor="Green" HorizontalTextAlignment="Center" ></Label>
 
         <SearchBar Placeholder="Kontakt suchen" HorizontalTextAlignment="Center"></SearchBar>
-        
-        <ScrollView>
-            <Label Text="Mitarbeiter 1" HorizontalTextAlignment="Start" ></Label>
-            <Label Text="Mitarbeiter 2" HorizontalTextAlignment="Start" ></Label>            
-            
-        </ScrollView>
 
+
+        <ScrollView>
+            <StackLayout  HorizontalOptions="StartAndExpand">
+                <Button Text="Mitarbeiter 1" HorizontalOptions="StartAndExpand" VerticalOptions="Start " BorderColor="LightGray" BorderWidth="0.5"></Button>
+                <Button Text="Mitarbeiter 1" HorizontalOptions="StartAndExpand" VerticalOptions="Start " BorderColor="LightGray" BorderWidth="0.5"></Button>
+                <Button Text="Mitarbeiter 1" HorizontalOptions="StartAndExpand" VerticalOptions="Start " BorderColor="LightGray" BorderWidth="0.5"></Button>
+            </StackLayout>
+        </ScrollView>
+        
     </StackLayout>
     
 </ContentPage>
