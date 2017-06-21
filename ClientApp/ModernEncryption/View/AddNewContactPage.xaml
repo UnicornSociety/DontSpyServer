@@ -5,11 +5,10 @@
     <StackLayout HorizontalOptions="Center"  VerticalOptions="Center">
         
         <Button Text="zurück" HorizontalOptions="Start" VerticalOptions="Start"  BackgroundColor="White"  BorderColor="Gray"></Button>
-      
-        <Label Text="l" TextColor="White"></Label>
-        
-        <Label Text="Chatübersicht" FontSize="30" TextColor="White"  BackgroundColor="Green" HorizontalTextAlignment="Center" ></Label>
-        
+
+        <Label Text="Kontaktübersicht" FontSize="30" TextColor="White"  BackgroundColor="Green" HorizontalTextAlignment="Center" ></Label>
+
+        <Button Text="Max Mustermann" TextColor="Black"></Button>
         
         <Entry Placeholder="E-mail"/>
         <Button Text="Zu Kontakten hinzufügen"/>

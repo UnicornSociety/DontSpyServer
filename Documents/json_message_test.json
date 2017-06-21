@@ -1,7 +1,6 @@
 {
-"timestamp":"12345678912",
 "receiver":2, 
 "sender":1,
 "keyNumber":3,
-"chiffre":"wort"
+"message":"wort"
 }
