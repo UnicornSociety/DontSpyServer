@@ -5,8 +5,11 @@
 
     <StackLayout HorizontalOptions="Center" VerticalOptions="Start">
         <Label Text="Willkommen bei Modern Encryption" FontSize="45"></Label>
-        <Entry IsPassword="true" Placeholder="PIN"/>
-        <Button Text="Bestätigen"/>
+        <StackLayout VerticalOptions="FillAndExpand">
+            <Entry IsPassword="true" Placeholder="PIN"/>
+            <Button Text="Bestätigen"/>
+        </StackLayout>
+        
     </StackLayout>
     
 </ContentPage>

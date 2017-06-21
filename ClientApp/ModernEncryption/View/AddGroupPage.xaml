@@ -12,13 +12,15 @@
             <Label Text="Neuer Gruppenchat" FontSize="30" TextColor="White"  BackgroundColor="Green" HorizontalTextAlignment="Center" ></Label>
 
             <SearchBar Placeholder="Kontakt suchen" HorizontalTextAlignment="Center"></SearchBar>
-
+            
+<!--TODO: SwitchCell bei Mitarbeitern einfügen-->
 
             <ScrollView>
                 <StackLayout  HorizontalOptions="StartAndExpand">
                     <Label Text="Mitarbeiter 1"></Label>
                     <Label Text="Mitarbeiter 1"></Label>
                     <Label Text="Mitarbeiter 1"></Label>
+                    <Switch>hhh</Switch>
                 </StackLayout>
             </ScrollView>
 

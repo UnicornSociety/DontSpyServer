@@ -2,23 +2,31 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ModernEncryption.View.AddNewContactPage">
-    <StackLayout HorizontalOptions="Center"  VerticalOptions="Center">
+    <StackLayout HorizontalOptions="FillAndExpand"  VerticalOptions="Center">
         
         <Button Text="zurück" HorizontalOptions="Start" VerticalOptions="Start"  BackgroundColor="White"  BorderColor="Gray"></Button>
-<<<<<<< HEAD
 
-        <Label Text="Kontaktübersicht" FontSize="30" TextColor="White"  BackgroundColor="Green" HorizontalTextAlignment="Center" ></Label>
+        <Label Text="l" TextColor="White"></Label>
 
-        <Button Text="Max Mustermann" TextColor="Black"></Button>
-=======
-      
+        <Label Text="Vorname:"  HorizontalTextAlignment="Start" ></Label>
+
+        <Entry></Entry>
+
+        <Label Text="Nachname:"  HorizontalTextAlignment="Start" ></Label>
+
+        <Entry></Entry>
+
+
         <Label Text="l" TextColor="White"></Label>
         
-        <Label Text="Chatübersicht" FontSize="30" TextColor="White"  BackgroundColor="Green" HorizontalTextAlignment="Center" VerticalOptions="Start" ></Label>
+<!--9094a67abc6a1bdc4ab8c5202dbe1f5198130e1b-->
+
+        <Label Text="E-mail:"  HorizontalTextAlignment="Start" ></Label>
+
+        <Entry></Entry>
+
+        <Label Text="l" TextColor="White"></Label>
         
->>>>>>> 9094a67abc6a1bdc4ab8c5202dbe1f5198130e1b
-        
-        <Entry Placeholder="E-mail"/>
         <Button Text="Zu Kontakten hinzufügen"/>
         
     </StackLayout>

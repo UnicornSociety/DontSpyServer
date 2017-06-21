@@ -14,15 +14,17 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
 
-            <SearchBar Grid.Column="0"  Placeholder="Kontakt suchen" HorizontalTextAlignment="Center"></SearchBar>
-            <Button Grid.Column="1" Text="Neuen Kontakt hinzufügen"></Button>
+            <SearchBar Grid.Column="0"  Placeholder="Kontakt suchen" HorizontalTextAlignment="Center" BackgroundColor="White"></SearchBar>
+            <Button Grid.Column="1" Text="Neuen Kontakt hinzufügen" BackgroundColor="White" BorderColor="Gray"></Button>
         </Grid>
 
         <ScrollView>
-
-            <Button Text="Firma Mitarbeiter 1"/>
-            <Button Text="Mai"/>
-            <Button Text="Mama"/>
+            <StackLayout HorizontalOptions="FillAndExpand">
+                <Button Text="Firma Mitarbeiter 1"/>
+                <Button Text="Mai"/>
+                <Button Text="Mama"/>
+            </StackLayout>
+            
         </ScrollView>
     </StackLayout>
     
