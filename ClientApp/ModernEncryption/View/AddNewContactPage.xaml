@@ -18,8 +18,6 @@
 
 
         <Label Text="l" TextColor="White"></Label>
-        
-<!--9094a67abc6a1bdc4ab8c5202dbe1f5198130e1b-->
 
         <Label Text="E-mail:"  HorizontalTextAlignment="Start" ></Label>
 
