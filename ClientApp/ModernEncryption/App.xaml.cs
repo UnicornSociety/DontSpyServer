@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using ModernEncryption.Crypto;
+using ModernEncryption.Interfaces;
+using ModernEncryption.Model;
+using ModernEncryption.Service;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -17,7 +21,11 @@ namespace ModernEncryption
         {
             InitializeComponent();
             MainPage = new View.ContactPage();
-            //cryptoTest();		              
+            //cryptoTest();		   
+            IMessage messageInterface = new MessageService();
+            messageInterface.GetMessage(2);
+            var xyz = new Message("abc", 1,2,3,4);
+            messageInterface.SendMessage(xyz);
         }
     }
 }
