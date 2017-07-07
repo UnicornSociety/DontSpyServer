@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using ModernEncryption.Interfaces;
@@ -12,18 +13,15 @@ namespace ModernEncryption.Service
 {
     class MessageService : IMessage
     {
+        HttpClient client;
+
         public MessageService()
         {
-            new HttpClient {MaxResponseContentBufferSize = 256000};
+            client = new HttpClient ();
+            client.MaxResponseContentBufferSize = 256000;
         }
 
-        public Message GetMessage(int userId)
-        {
-            Debug.WriteLine("Bitte Eingabe taetigen: ");
-            return null;
-        }
-/* Angefangen, aber nicht fertifggestellt
-        public async Task<List<TodoItem>> RefreshDataAsync()
+        public async Task<List<Message>> GetMessageTask(int userId)
         {
             // RestUrl = http://localhost/api/message{receiver}
             var uri = new Uri(string.Format(Constants.RestUrl, string.Empty));
@@ -31,21 +29,20 @@ namespace ModernEncryption.Service
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
-                Items = JsonConvert.DeserializeObject<List<TodoItem>>(content);
+                Items = JsonConvert.DeserializeObject<List<Message>>(content);
             }
-        }*/
-
-        public bool SendMessage( Message message)
-        {
-            return true;
+            return Items;
         }
-        /* Angefanngen, aber nicht fertiggestellt
-        public async Task SaveTodoItemAsync(TodoItem message, bool isNewItem = false)
+
+        public List<Message> Items { get; set; }
+
+      
+        public async Task SendMessage(Message message, bool isNewItem = false)
         {
             // RestUrl = http://localhost/api/message/new
-            var uri = new Uri(string.Format(Constants.RestUrl, message.ID));
+            var uri = new Uri(string.Format(Constants.RestUrl, string.Empty));
 
-  var json = JsonConvert.SerializeObject(message);
+            var json = JsonConvert.SerializeObject(message);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
             HttpResponseMessage response = null;
@@ -53,13 +50,23 @@ namespace ModernEncryption.Service
             {
                 response = await client.PostAsync(uri, content);
             }
-            
 
-  if (response.IsSuccessStatusCode)
+            if (response.IsSuccessStatusCode)
             {
                 Debug.WriteLine(@"Message successfully saved.");
 
             }
-        }*/
+        }
+        /*public Message GetMessage(int userId)
+      {
+          Debug.WriteLine("Bitte Eingabe taetigen: ");
+          return null;
+
+
+      public bool SendMessage( Message message)
+      {
+          return true;
+      }
+      }*/
     }
 }
