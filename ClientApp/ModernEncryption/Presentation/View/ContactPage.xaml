@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ModernEncryption.Presentation.View.ContactPage">
+    
+    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+
+
+        <Label Text="Kontakte" FontSize="30" TextColor="White"  BackgroundColor="Green" HorizontalTextAlignment="Center" ></Label>
+        
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <SearchBar Grid.Column="0"  Placeholder="Kontakt suchen" HorizontalTextAlignment="Center" BackgroundColor="White"></SearchBar>
+            <Button Grid.Column="1" Text="Neuen Kontakt hinzufügen" BackgroundColor="White" BorderColor="Gray"></Button>
+        </Grid>
+
+        <ScrollView>
+            <StackLayout HorizontalOptions="FillAndExpand">
+                <Button Text="Firma Mitarbeiter 1"/>
+                <Button Text="Mai"/>
+                <Button Text="Mama"/>
+            </StackLayout>
+            
+        </ScrollView>
+    </StackLayout>
+    
+</ContentPage>
