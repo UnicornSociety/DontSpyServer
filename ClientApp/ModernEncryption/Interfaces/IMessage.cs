@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using ModernEncryption.Model;
-
-namespace ModernEncryption.Interfaces
+﻿namespace ModernEncryption.Interfaces
 {
-    interface IMessage
+    internal interface IMessage
     {
-        Message GetMessage(int userId);
-        bool SendMessage(Message message);
-
+        string Text { get; }
+        int Sender { get; }
+        int KeyNumber { get; }
+        int Timestamp { get; }
+        int Receiver { get; }
     }
 }

@@ -1,19 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Threading.Tasks;
 using ModernEncryption.Interfaces;
 using ModernEncryption.Model;
 
 namespace ModernEncryption.Service
 {
-    class UserService : IUser
+    internal class UserService : IUserService
     {
-        public User GetUser(string eMail)
+        public async Task<User> GetUser(string eMail)
         {
             throw new NotImplementedException();
         }
 
-        public bool NewUser(User user)
+        public async Task<bool> NewUser(User user)
         {
             throw new NotImplementedException();
         }

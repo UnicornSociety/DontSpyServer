@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ModernEncryption.Model
+﻿namespace ModernEncryption.Model
 {
-    class User
+    internal class User
     {
         public string Firstname { get; }
         public string Surname { get; }

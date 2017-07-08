@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-using ModernEncryption.Crypto;
+using ModernEncryption.BusinessLogic.Crypto;
 using ModernEncryption.Interfaces;
 using ModernEncryption.Model;
+using ModernEncryption.Presentation.View;
 using ModernEncryption.Service;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -20,84 +17,47 @@ namespace ModernEncryption
         public App()
         {
             InitializeComponent();
-            MainPage = new View.ContactPage();
-            //cryptoTest();		   
-            IMessage messageInterface = new MessageService();
-            messageInterface.GetMessage(2);
-            var xyz = new Message("abc", 1,2,3,4);
-            messageInterface.SendMessage(xyz);
+            MainPage = new ContactPage();
+            
+            // Input -> Encryption -> Send to server
+            var plainMessage = new DecryptedMessage("krypto", 1, 2, 23535, 3); // Incoming from View: DecryptedMessage obj which is validated
+            IEncrypt encryptionLogic = new EncryptionLogic(plainMessage);
+            IMessage encryptedMessage = encryptionLogic.Encrypt();
+            IMessageService messageService = new MessageService();
+            messageService.SendMessage(encryptedMessage);
+
+
+            // Get from Server -> Decryption -> Output
+            IMessageService messageService2 = new MessageService();
+            var encryptedMessages = messageService2.GetMessage(2).Result; // Incoming from internal drive
+            foreach (var message in encryptedMessages)
+            {
+                IDecrypt decryptionLogic = new DecryptionLogic(message);
+                Debug.WriteLine(decryptionLogic.Decrypt().Text);
+            }
+        }
+
+        protected override void OnStart()
+        {
+            // Handle when your app starts
+
+            var mml = new MathematicalMappingLogic();
+            mml.InitalizeIntervalTable();
+            mml.InitializeKeyTable();
+            mml.InitalizeTransformationTable();
+
+            // Create reverse table for the transformation table
+            MathematicalMappingLogic.BackTransformationTable = MathematicalMappingLogic.TransformationTable.ToDictionary(x => x.Value, x => x.Key);
+        }
+
+        protected override void OnSleep()
+        {
+            // Handle when your app sleeps
+        }
+
+        protected override void OnResume()
+        {
+            // Handle when your app resumes
         }
     }
 }
-
-/*public App()
-            {
-                InitializeComponent();
-
-                MainPage = new View.AddNewContactPage();
-                //cryptoTest();
-
-                // MainPage = new View.ChatOverview();
-                //cryptoTest();
-    //9094a67abc6a1bdc4ab8c5202dbe1f5198130e1b
-            }
-
-            // TODO: Temporary
-            public void cryptoTest()
-            {
-                //Encryption
-                Intervals.InitalizeIntervalTable();
-                TransformationTable.InitalizeTransformationTable();
-                TransformationTable.InitializeKeyTable();
-
-                var dataHelper = new DataHelper();
-                dataHelper.OutputAlert();
-                var input = dataHelper.DataReadIn();
-                var symbols = dataHelper.DataSplitting(input);
-                if (dataHelper.ValidateData(symbols) == false)
-                {
-                    dataHelper.ErrorOutput();
-                }
-                foreach (var symbol in symbols)
-                {
-                    var chiffre = new Symbol(symbol);
-                    //Debug.WriteLine("Verschlüsselter Buchstabe");
-                    Debug.Write(chiffre.Chiffre);
-                }
-
-                //Decryption
-                var dataHelperDecryption = new DataHelper();
-                dataHelperDecryption.OutputAlert();
-                var inputDecryption = dataHelperDecryption.DataReadInDecryption();
-                var oneOfChiffrePair = dataHelperDecryption.DataSplitting(inputDecryption);
-                if (dataHelperDecryption.ValidateData(oneOfChiffrePair) == false)
-                {
-                    dataHelperDecryption.ErrorOutput();
-                }
-                var transformationSteps = new Decryption();
-                var listOfAllIntegers = transformationSteps.BackTransformation(oneOfChiffrePair);
-                var counter = 0;
-                foreach (var value in listOfAllIntegers)
-                {
-                    listOfAllIntegers[counter] = transformationSteps.BackPermutation(value);
-                    counter++;
-                }
-                var plaintext = transformationSteps.NumberToLetter(listOfAllIntegers);
-            }
-
-            protected override void OnStart()
-            {
-                // Handle when your app starts
-            }
-
-            protected override void OnSleep()
-            {
-                // Handle when your app sleeps
-            }
-
-            protected override void OnResume()
-            {
-                // Handle when your app resumes
-            }
-        }*/
-        
