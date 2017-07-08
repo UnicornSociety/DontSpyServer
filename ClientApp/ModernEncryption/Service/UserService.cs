@@ -20,7 +20,7 @@ namespace ModernEncryption.Service
             client.MaxResponseContentBufferSize = 256000;
         }
 
-        public async Task<List<User>> GetUserTask(int eMail)
+        public async Task<List<User>> GetUser(int eMail)
         {
             // RestUrl = http://localhost/api/user{email}
             var uri = new Uri(string.Format(Constants.RestUrl, string.Empty));
