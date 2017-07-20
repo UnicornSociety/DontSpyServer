@@ -52,5 +52,9 @@ namespace ModernEncryption.Service
             return true;
         }
 
+        public Task<bool> SendMessage(IMessage message)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

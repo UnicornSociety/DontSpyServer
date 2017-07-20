@@ -1,12 +1,19 @@
-﻿using Xamarin.Forms;
+﻿using ModernEncryption.Presentation.ViewModel;
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace ModernEncryption.Presentation.View
 {
-	public partial class VerificationPage : ContentPage
-	{
-		public VerificationPage ()
-		{
-			InitializeComponent ();
-		}
-	}
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class VerificationPage : ContentPage
+    {
+        private VerificationPageViewModel _viewModel;
+
+        public VerificationPage()
+        {
+            InitializeComponent();
+            _viewModel = new VerificationPageViewModel();
+            BindingContext = _viewModel;
+        }
+    }
 }

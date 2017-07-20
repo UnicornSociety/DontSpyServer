@@ -13,7 +13,7 @@ namespace ModernEncryption.Service
 
         public UserService()
         {
-            _client = new HttpClient { MaxResponseContentBufferSize = 256000 };
+            _client = new HttpClient {MaxResponseContentBufferSize = 256000};
         }
 
         public async Task<User> GetUser(string eMail)
@@ -27,7 +27,13 @@ namespace ModernEncryption.Service
             }
             return null;
 
-        public async Task<bool> NewUser(User user)
+            async Task<bool> NewUser(User user)
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public Task<bool> NewUser(User user)
         {
             throw new NotImplementedException();
         }

@@ -1,14 +1,19 @@
-﻿using Xamarin.Forms;
+﻿using ModernEncryption.Presentation.ViewModel;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace ModernEncryption.Presentation.View
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class ContactDetailPage : ContentPage
-	{
-		public ContactDetailPage ()
-		{
-			InitializeComponent ();
-		}
-	}
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class ContactDetailPage: ContentPage
+    {
+        private ContactDetailPageViewModel _viewModel;
+
+        public ContactDetailPage()
+        {
+            InitializeComponent();
+            _viewModel = new ContactDetailPageViewModel();
+            BindingContext = _viewModel;
+        }
+    }
 }

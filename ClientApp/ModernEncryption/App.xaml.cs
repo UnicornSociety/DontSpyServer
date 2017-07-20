@@ -17,8 +17,9 @@ namespace ModernEncryption
         public App()
         {
             InitializeComponent();
-            MainPage = new ContactPage();
-            
+            MainPage = new ChatOverview();
+
+            /*
             // Input -> Encryption -> Send to server
             var plainMessage = new DecryptedMessage("krypto", 1, 2, 23535, 3); // Incoming from View: DecryptedMessage obj which is validated
             IEncrypt encryptionLogic = new EncryptionLogic(plainMessage);
@@ -58,6 +59,7 @@ namespace ModernEncryption
         protected override void OnResume()
         {
             // Handle when your app resumes
+        }*/
         }
     }
 }
