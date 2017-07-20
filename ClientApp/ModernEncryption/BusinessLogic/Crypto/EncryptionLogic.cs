@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using ModernEncryption.Interfaces;
 using ModernEncryption.Model;
 
@@ -33,6 +34,7 @@ namespace ModernEncryption.BusinessLogic.Crypto
         private int CreateChipher(char symbol)
         {
             var rnd = new Random();
+            Debug.WriteLine(symbol);
             var interval = MathematicalMappingLogic.IntervalTable[symbol];
             return rnd.Next(interval.Start, interval.End + 1);
         }
