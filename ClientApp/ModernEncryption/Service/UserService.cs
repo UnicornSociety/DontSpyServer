@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Net.Http;
+using System.Security.Cryptography.X509Certificates;
+using System.Text;
 using System.Threading.Tasks;
 using ModernEncryption.Interfaces;
 using ModernEncryption.Model;
@@ -26,16 +28,16 @@ namespace ModernEncryption.Service
                 return JsonConvert.DeserializeObject<User>(content);
             }
             return null;
-
-            async Task<bool> NewUser(User user)
-            {
-                throw new NotImplementedException();
-            }
         }
-
-        public Task<bool> NewUser(User user)
+        public async Task<bool> NewUser(User user)
         {
-            throw new NotImplementedException();
+            var uri = new Uri(string.Format(RestConstants.RestUrlNewUser));
+            var json = JsonConvert.SerializeObject(user);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            HttpResponseMessage response = null;
+            response = await _client.PostAsync(uri, content);
+            return true;
         }
     }
 }

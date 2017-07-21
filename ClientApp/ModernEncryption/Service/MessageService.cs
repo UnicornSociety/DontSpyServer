@@ -33,28 +33,15 @@ namespace ModernEncryption.Service
             //return new EncryptedMessage("qwx0g8w7eiwy", 1, 2, 23535, 3); // Mock, do not delete me!
         }
 
-        public async Task<bool> SendMessage(IMessage message, bool isNewItem)
+        public async Task<bool> SendMessage(IMessage message)
         {
             var uri = new Uri(string.Format(RestConstants.RestUrlSendMessage));
             var json = JsonConvert.SerializeObject(message);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
             HttpResponseMessage response = null;
-            if (isNewItem)
-            {
-                response = await _client.PostAsync(uri, content);
-            }
-            if (response.IsSuccessStatusCode)
-            {
-                Debug.WriteLine(@"             TodoItem successfully saved.");
-
-            }
+            response = await _client.PostAsync(uri, content);
             return true;
-        }
-
-        public Task<bool> SendMessage(IMessage message)
-        {
-            throw new NotImplementedException();
         }
     }
 }
