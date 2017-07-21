@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `message` (
   `id` int(11) NOT NULL,
   `message` text NOT NULL,
-  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `timestamp` int(11) NOT NULL,
   `sender` int(11) NOT NULL,
   `receiver` int(11) NOT NULL,
   `keyNumber` int(11) NOT NULL
@@ -40,9 +40,9 @@ CREATE TABLE `message` (
 --
 
 INSERT INTO `message` (`id`, `message`, `timestamp`, `sender`, `receiver`, `keyNumber`) VALUES
-(1, 'Hallo ich bin eine Nachricht', '2017-05-19 14:29:18', 1, 2, 4),
-(2, 'Das ist die Anwort auf die tolle nachricht', '2017-05-19 14:29:58', 2, 1, 2),
-(3, 'Zweite Nachricht', '2017-05-19 14:31:13', 1, 2, 3);
+(1, 'Hallo ich bin eine Nachricht', 1500639171, 1, 2, 4),
+(2, 'Das ist die Anwort auf die tolle nachricht', 1500639171, 2, 1, 2),
+(3, 'Zweite Nachricht', 1500639171, 1, 2, 3);
 
 -- --------------------------------------------------------
 
@@ -91,12 +91,12 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT für Tabelle `message`
 --
 ALTER TABLE `message`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
 --
 -- AUTO_INCREMENT für Tabelle `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
 --
 -- Constraints der exportierten Tabellen
 --
