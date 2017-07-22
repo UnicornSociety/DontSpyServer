@@ -3,20 +3,24 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 using System.Windows.Input;
+using ModernEncryption.Interfaces;
 using ModernEncryption.Presentation.View;
+using ModernEncryption.Service;
 using Xamarin.Forms;
 
 namespace ModernEncryption.Presentation.ViewModel
 {
     class RegistrationPageViewModel
     {
-        public ICommand VerificationCommand { protected set; get; }
+        public ICommand SendVoucherCommand { protected set; get; }
 
         public RegistrationPageViewModel()
         {
-            this.VerificationCommand = new Command<string>((key) =>
+            SendVoucherCommand = new Command<string>(eMail =>
             {
-                Debug.WriteLine("Hallo Helmut");
+                IUserService userService = new UserService();
+                var user = userService.GetUser(eMail).Result;
+                userService.VerifyUser(user);
             });
         }
 

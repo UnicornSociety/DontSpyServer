@@ -8,12 +8,12 @@
         <Label Text="l" FontSize="10" TextColor="White"></Label>
         <Label Text="Bitte registrieren Sie sich." FontSize="20"></Label>
 
-        <Entry Placeholder="Vorname" x:Name="Firstname"/>
-        <Entry Placeholder="Nachname" x:Name="Surname"/>
+        <Entry Placeholder="Vorname" />
+        <Entry Placeholder="Nachname" />
         
-        <Entry Placeholder="E-mail" x:Name="EMail" />
+        <Entry Placeholder="E-mail" x:Name="eMail" />
  
-        <Button Text="PIN an E-Mail-Adresse senden." Command="{Binding VerificationCommand}"/>
+        <Button Text="PIN an E-Mail-Adresse senden." Command="{Binding SendVoucherCommand}" CommandParameter="{Binding Source={x:Reference eMail}, Path=Text}" />
     </StackLayout>
     
 </ContentPage>

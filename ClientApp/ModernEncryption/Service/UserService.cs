@@ -29,7 +29,7 @@ namespace ModernEncryption.Service
             }
             return null;
         }
-        public async Task<bool> NewUser(User user)
+        public async Task<bool> CreateUser(User user)
         {
             var uri = new Uri(string.Format(Constants.RestUrlNewUser));
             var json = JsonConvert.SerializeObject(user);
@@ -39,11 +39,11 @@ namespace ModernEncryption.Service
             response = await _client.PostAsync(uri, content);
             return true;
         }
-        public bool SendVoucherCode()
+        public bool VerifyUser(User user)
         {
             var voucherCode = new BusinessLogic.UserManagement.VoucherCode();
             var pin = voucherCode.CreateVoucherCode();
-            voucherCode.SendVoucherCode(pin);
+            voucherCode.SendVoucherCode(pin, user);
             return true;
         }
 

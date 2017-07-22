@@ -6,6 +6,7 @@ namespace ModernEncryption.Interfaces
     internal interface IUserService
     {
         Task<User> GetUser(string eMail);
-        Task<bool> NewUser(User user);
+        Task<bool> CreateUser(User user);
+        bool VerifyUser(User user);
     }
 }

@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using MailKit.Net.Smtp;
 using MimeKit;
 using ModernEncryption.Model;
@@ -11,15 +9,15 @@ namespace ModernEncryption.BusinessLogic.UserManagement
     {
         public int CreateVoucherCode()
         {
-            Random random = new Random();
+            var random = new Random();
             return random.Next(1000, 10000);
         }
 
-        public bool SendVoucherCode(int voucherCode)
+        public bool SendVoucherCode(int voucherCode, User user)
         {
             var message = new MimeMessage();
             message.From.Add(new MailboxAddress(Constants.NameEMailAddress, Constants.SendingEMailAddress));
-            message.To.Add(new MailboxAddress("Mrs. Chanandler Bong", "chandler@friends.com"));
+            message.To.Add(new MailboxAddress(user.Firstname + " " + user.Surname, user.Email));
             message.Subject = Constants.EMailHeader;
 
             message.Body = new TextPart("plain")
