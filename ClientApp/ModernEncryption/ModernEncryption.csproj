@@ -16,7 +16,6 @@
     <None Remove="Presentation\View\ContactPage.xaml" />
     <None Remove="Presentation\View\ErrorPage.xaml" />
     <None Remove="Presentation\View\LoginPage.xaml" />
-    <None Remove="Presentation\View\VerificationPage.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -53,14 +52,24 @@
     <EmbeddedResource Include="Presentation\View\LoginPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\View\VerificationPage.xaml">
+    <EmbeddedResource Include="Presentation\View\RegistrationPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="MailKit" Version="1.16.2" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
     <PackageReference Include="Xamarin.Forms" Version="2.3.4.247" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System">
+      <HintPath>..\..\..\..\Users\SFZ\.nuget\packages\Microsoft.NETCore.Portable.Compatibility\1.0.2\ref\netcore50\System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web">
+      <HintPath>..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.Web.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

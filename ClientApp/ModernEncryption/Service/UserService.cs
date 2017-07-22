@@ -20,7 +20,7 @@ namespace ModernEncryption.Service
 
         public async Task<User> GetUser(string eMail)
         {
-            var uri = new Uri(string.Format(RestConstants.RestUrlGetUser, eMail));
+            var uri = new Uri(string.Format(Constants.RestUrlGetUser, eMail));
             var response = await _client.GetAsync(uri);
             if (response.IsSuccessStatusCode)
             {
@@ -31,7 +31,7 @@ namespace ModernEncryption.Service
         }
         public async Task<bool> NewUser(User user)
         {
-            var uri = new Uri(string.Format(RestConstants.RestUrlNewUser));
+            var uri = new Uri(string.Format(Constants.RestUrlNewUser));
             var json = JsonConvert.SerializeObject(user);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
@@ -39,5 +39,14 @@ namespace ModernEncryption.Service
             response = await _client.PostAsync(uri, content);
             return true;
         }
+        public bool SendVoucherCode()
+        {
+            var voucherCode = new BusinessLogic.UserManagement.VoucherCode();
+            var pin = voucherCode.CreateVoucherCode();
+            voucherCode.SendVoucherCode(pin);
+            return true;
+        }
+
+        
     }
 }

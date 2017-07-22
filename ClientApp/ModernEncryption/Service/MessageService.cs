@@ -22,7 +22,7 @@ namespace ModernEncryption.Service
         public async Task<List<EncryptedMessage>> GetMessage(int userId) {
             var items = new List<EncryptedMessage>();
 
-            var uri = new Uri(string.Format(RestConstants.RestUrlGetMessage, userId));
+            var uri = new Uri(string.Format(Constants.RestUrlGetMessage, userId));
             var response = await _client.GetAsync(uri);
             if (response.IsSuccessStatusCode) {
                 var content = await response.Content.ReadAsStringAsync();
@@ -35,7 +35,7 @@ namespace ModernEncryption.Service
 
         public async Task<bool> SendMessage(IMessage message)
         {
-            var uri = new Uri(string.Format(RestConstants.RestUrlSendMessage));
+            var uri = new Uri(string.Format(Constants.RestUrlSendMessage));
             var json = JsonConvert.SerializeObject(message);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 

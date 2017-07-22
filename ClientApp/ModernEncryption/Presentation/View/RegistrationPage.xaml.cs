@@ -5,14 +5,14 @@ using Xamarin.Forms.Xaml;
 namespace ModernEncryption.Presentation.View
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class VerificationPage : ContentPage
+    public partial class RegistrationPage : ContentPage
     {
-        private VerificationPageViewModel _viewModel;
+        private RegistrationPageViewModel _viewModel;
 
-        public VerificationPage()
+        public RegistrationPage()
         {
             InitializeComponent();
-            _viewModel = new VerificationPageViewModel();
+            _viewModel = new ViewModel.RegistrationPageViewModel();
             BindingContext = _viewModel;
         }
     }
