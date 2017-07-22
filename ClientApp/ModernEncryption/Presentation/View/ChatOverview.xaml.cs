@@ -1,4 +1,5 @@
-﻿using ModernEncryption.Presentation.ViewModel;
+﻿using System.Collections.ObjectModel;
+using ModernEncryption.Presentation.ViewModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,5 +16,8 @@ namespace ModernEncryption.Presentation.View
             _viewModel = new ChatOverviewViewModel();
             BindingContext = _viewModel;
         }
+
+        public string Surname { get; set; }
+        public static ObservableCollection<ChatOverview> ItemsSource { get; set; }
     }
 }

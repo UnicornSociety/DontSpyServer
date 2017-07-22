@@ -20,7 +20,7 @@
                     <ColumnDefinition/>
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <Button Text = "Nachricht von Petra" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" BackgroundColor="LimeGreen"  BorderRadius="8" />
+                <Button Text = "Nachricht von {Binding Surname}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" BackgroundColor="LimeGreen"  BorderRadius="8" />
                 <Button Text = "Nachricht an Petra" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="1" BackgroundColor="LightBlue"  BorderRadius="8" />
 
             </Grid>

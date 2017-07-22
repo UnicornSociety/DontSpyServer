@@ -6,18 +6,18 @@
         
         <Button Text="zurück" HorizontalOptions="Start" BackgroundColor="White"  BorderColor="Gray"> </Button>
         
-        <Label Text="Max Mustermann" FontSize="30" FontAttributes="Bold"  TextColor="White"  BackgroundColor="Green" HorizontalTextAlignment="Center" ></Label>
+        <Label Text="{Binding Surname}" FontSize="30" FontAttributes="Bold"  TextColor="White"  BackgroundColor="Green" HorizontalTextAlignment="Center" ></Label>
 
         <Label Text="Vorname"  BackgroundColor="LightGray" FontAttributes="Italic" TextColor="White"/>
-        <Label Text="Max"/>
+        <Label Text="{Binding Firstname}"/>
 
         <Label Text="Nachname"  BackgroundColor="LightGray" FontAttributes="Italic" TextColor="White"/>
-        <Label Text="Mustermann"/>
+        <Label Text="{Binding Surname}"/>
         
-        <Label Text="Mustermann" TextColor="White"/>
+        <Label Text="aaa" TextColor="White"/>
 
         <Label Text="E-mail"  BackgroundColor="LightGray" FontAttributes="Italic" TextColor="White"/>
-        <Label Text="max.mustermann@gmx.net"/>
+        <Label Text="{Binding EMail}"/>
         
     </StackLayout>
 </ContentPage>

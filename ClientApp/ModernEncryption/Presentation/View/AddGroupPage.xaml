@@ -17,9 +17,7 @@
 
             <ScrollView>
                 <StackLayout  HorizontalOptions="StartAndExpand">
-                    <Label Text="Mitarbeiter 1"></Label>
-                    <Label Text="Mitarbeiter 1"></Label>
-                    <Label Text="Mitarbeiter 1"></Label>
+                    <Label Text="{Binding Surname} "></Label>
                     <Switch>hhh</Switch>
                 </StackLayout>
             </ScrollView>

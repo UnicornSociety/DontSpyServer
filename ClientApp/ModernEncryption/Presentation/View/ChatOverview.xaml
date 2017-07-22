@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ModernEncryption.Presentation.View.ChatOverview">
 
+    
     <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start">
         
         <Label Text="Chatübersicht" FontSize="30" TextColor="White"  BackgroundColor="Green" HorizontalTextAlignment="Center" ></Label>
@@ -19,13 +20,13 @@
 
         <SearchBar Placeholder="Chat suchen" HorizontalTextAlignment="Center"></SearchBar>
 
+
         <ScrollView  HorizontalOptions="Start" VerticalOptions="Start">
             <StackLayout>
-                <Button Text="Firma 1"   HorizontalOptions="Start"> </Button>
-                <Button Text="Mama" HorizontalOptions="Start"></Button>
-                <Button Text="Mitarbeiter 1" HorizontalOptions="Start"></Button>
+                <Button Text="{Binding Surname }"  FontSize="24"    HorizontalOptions="Start"> </Button>
+
             </StackLayout>
         </ScrollView>
-        
+
     </StackLayout>
 </ContentPage>

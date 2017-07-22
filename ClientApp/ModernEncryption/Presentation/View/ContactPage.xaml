@@ -20,9 +20,7 @@
 
         <ScrollView>
             <StackLayout HorizontalOptions="FillAndExpand">
-                <Button Text="Firma Mitarbeiter 1"/>
-                <Button Text="Mai"/>
-                <Button Text="Mama"/>
+                <Button Text="{Binding Surname}"/>
             </StackLayout>
             
         </ScrollView>
