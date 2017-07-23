@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Diagnostics;
+using ModernEncryption.Model;
 
 namespace ModernEncryption.Presentation.ViewModel
 {
-    class ContactPageViewModel
+    internal class ContactPageViewModel
     {
         public string Surname { get; set; }
         public string Firstname { get; set; }
@@ -14,6 +13,10 @@ namespace ModernEncryption.Presentation.ViewModel
 
         public ContactPageViewModel()
         {
+            // Simulation of persist data
+            //var primaryKey = DependencyHandler.Db().Save(new User("Tobias", "Straub", "abc@def.de"));
+            //Debug.WriteLine(DependencyHandler.Db().Get<User>(primaryKey).Email);
+
             Surname = "Mustermann";
             Firstname = "Max";
             Receiver = 1;

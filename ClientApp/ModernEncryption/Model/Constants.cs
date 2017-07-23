@@ -11,5 +11,6 @@
         public static string NameEMailAddress = "ModernEncryption";
         public static string EMailHeader = "Einmaliger Pin zur Verifizierung bei Modern Encryption";
         public static string EMailText = @"Ihr einmaliger PIN ist: ";
+        public static string LocalDatabaseName = "ModernEncryption";
     }
 }
