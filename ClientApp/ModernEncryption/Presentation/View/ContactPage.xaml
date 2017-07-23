@@ -2,12 +2,11 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ModernEncryption.Presentation.View.ContactPage">
-    
+
     <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start">
 
-
         <Label Text="Kontakte" FontSize="30" TextColor="White"  BackgroundColor="Green" HorizontalTextAlignment="Center" ></Label>
-        
+
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -18,12 +17,22 @@
             <Button Grid.Column="1" Text="Neuen Kontakt hinzufügen" BackgroundColor="White" BorderColor="Gray"></Button>
         </Grid>
 
-        <ScrollView>
-            <StackLayout HorizontalOptions="FillAndExpand">
-                <Button Text="{Binding Surname}"/>
-            </StackLayout>
-            
-        </ScrollView>
+
+        <ListView ItemsSource="{Binding Contacts}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Vertical">
+                            <StackLayout Orientation="Horizontal" BackgroundColor="#0000ff">
+                                <Label Text="{Binding Firstname}" BackgroundColor="#f35e20" />
+                                <Label Text="{Binding Surname}" HorizontalOptions="Center" BackgroundColor="#503026" />
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
     </StackLayout>
-    
+
 </ContentPage>

@@ -17,7 +17,7 @@ namespace ModernEncryption
         public App()
         {
             InitializeComponent();
-            MainPage = new RegistrationPage();
+            MainPage = new ContactPage();
 
             /*
             // Input -> Encryption -> Send to server
