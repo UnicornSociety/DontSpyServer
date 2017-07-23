@@ -17,7 +17,7 @@ namespace ModernEncryption
         public App()
         {
             InitializeComponent();
-            MainPage = new ChatOverview();
+            MainPage = new RegistrationPage();
 
             /*
             // Input -> Encryption -> Send to server

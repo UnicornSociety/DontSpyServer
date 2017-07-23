@@ -7,10 +7,15 @@ namespace ModernEncryption.Presentation.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class RegistrationPage : ContentPage
     {
+        private readonly RegistrationPageViewModel _viewModel;
+
         public RegistrationPage()
         {
             InitializeComponent();
-            BindingContext = new RegistrationPageViewModel();
+            _viewModel = new RegistrationPageViewModel();
+            _viewModel.SetView(this);
+            BindingContext = _viewModel;
         }
+
     }
 }
