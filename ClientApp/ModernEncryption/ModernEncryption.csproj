@@ -60,6 +60,7 @@
   <ItemGroup>
     <PackageReference Include="MailKit" Version="1.16.2" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="sameerIOTApps.Plugin.SecureStorage" Version="1.2.2" />
     <PackageReference Include="Xamarin.Forms" Version="2.3.4.247" />
   </ItemGroup>
 

@@ -7,6 +7,6 @@ namespace ModernEncryption.Interfaces
     {
         Task<User> GetUser(string eMail);
         Task<bool> CreateUser(User user);
-        bool VerifyUser(User user);
+        bool ValidateVoucherCode(int userVoucher);
     }
 }

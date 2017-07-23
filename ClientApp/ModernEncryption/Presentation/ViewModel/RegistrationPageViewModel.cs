@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 using ModernEncryption.Interfaces;
 using ModernEncryption.Model;
 using ModernEncryption.Presentation.View;
@@ -27,7 +23,6 @@ namespace ModernEncryption.Presentation.ViewModel
                 IUserService userService = new UserService();
                 var user = new User(firstname, surname, eMail);
                 userService.CreateUser(user);
-                userService.VerifyUser(user);
             });
         }
 

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using ModernEncryption.Interfaces;
 using ModernEncryption.Model;
 using Newtonsoft.Json;
+using Plugin.SecureStorage;
 
 namespace ModernEncryption.Service
 {
@@ -28,6 +29,7 @@ namespace ModernEncryption.Service
             }
             return null;
         }
+
         public async Task<bool> CreateUser(User user)
         {
             var uri = new Uri(string.Format(Constants.RestUrlNewUser));
@@ -36,16 +38,25 @@ namespace ModernEncryption.Service
 
             HttpResponseMessage response = null;
             response = await _client.PostAsync(uri, content);
-            return true;
-        }
-        public bool VerifyUser(User user)
-        {
-            var voucherCode = new BusinessLogic.UserManagement.VoucherCode();
-            var pin = voucherCode.CreateVoucherCode();
-            voucherCode.SendVoucherCode(pin, user);
+
+            VerifyUser(user);
+
             return true;
         }
 
-        
+        private bool VerifyUser(User user)
+        {
+            var voucherCode = new BusinessLogic.UserManagement.VoucherCode();
+            var voucher = voucherCode.CreateVoucherCode();
+            CrossSecureStorage.Current.SetValue("Voucher", voucher.ToString());
+            voucherCode.SendVoucherCode(voucher, user);
+            return true;
+        }
+
+        public bool ValidateVoucherCode(int userVoucher)
+        {
+            var voucher = Convert.ToInt32(CrossSecureStorage.Current.GetValue("Voucher", "-1"));
+            return voucher == userVoucher;
+        }
     }
 }
