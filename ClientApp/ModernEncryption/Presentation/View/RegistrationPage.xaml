@@ -13,7 +13,7 @@
         
         <Entry Placeholder="E-mail" x:Name="eMail" />
  
-        <Button Text="PIN an E-Mail-Adresse senden." Command="{Binding SendVoucherCommand}" CommandParameter="{Binding .}" />
+        <Button Text="PIN an E-Mail-Adresse senden." Command="{Binding SendVoucherCommand}" />
     </StackLayout>
     
 </ContentPage>
