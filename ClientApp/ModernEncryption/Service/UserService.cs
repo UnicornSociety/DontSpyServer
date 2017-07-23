@@ -56,7 +56,10 @@ namespace ModernEncryption.Service
         public bool ValidateVoucherCode(int userVoucher)
         {
             var voucher = Convert.ToInt32(CrossSecureStorage.Current.GetValue("Voucher", "-1"));
-            return voucher == userVoucher;
+            if (voucher != userVoucher) return false;
+
+            CrossSecureStorage.Current.DeleteKey("Voucher");
+            return true;
         }
     }
 }
