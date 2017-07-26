@@ -2,27 +2,38 @@
 using MailKit.Net.Smtp;
 using MimeKit;
 using ModernEncryption.Model;
+using Plugin.SecureStorage;
 
 namespace ModernEncryption.BusinessLogic.UserManagement
 {
-    class VoucherCode
+    internal class VoucherCode
     {
-        public int CreateVoucherCode()
+        private readonly int _voucherCode;
+        private readonly User _user;
+
+        public VoucherCode(User user)
+        {
+            _user = user;
+            _voucherCode = CreateVoucherCode();
+            CrossSecureStorage.Current.SetValue("Voucher", _voucherCode.ToString());
+        }
+
+        private int CreateVoucherCode()
         {
             var random = new Random();
             return random.Next(1000, 10000);
         }
 
-        public bool SendVoucherCode(int voucherCode, User user)
+        public bool SendVoucherCode()
         {
             var message = new MimeMessage();
             message.From.Add(new MailboxAddress(Constants.NameEMailAddress, Constants.SendingEMailAddress));
-            message.To.Add(new MailboxAddress(user.Firstname + " " + user.Surname, user.Email));
+            message.To.Add(new MailboxAddress(_user.Firstname + " " + _user.Surname, _user.Email));
             message.Subject = Constants.EMailHeader;
 
             message.Body = new TextPart("plain")
             {
-                Text = Constants.EMailText + voucherCode
+                Text = Constants.EMailText + _voucherCode
             };
 
             using (var client = new SmtpClient())

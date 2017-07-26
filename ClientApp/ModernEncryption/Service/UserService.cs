@@ -2,6 +2,7 @@
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using ModernEncryption.BusinessLogic.UserManagement;
 using ModernEncryption.Interfaces;
 using ModernEncryption.Model;
 using Newtonsoft.Json;
@@ -39,17 +40,9 @@ namespace ModernEncryption.Service
             HttpResponseMessage response = null;
             response = await _client.PostAsync(uri, content);
 
-            VerifyUser(user);
+            var voucherCode = new VoucherCode(user);
+            voucherCode.SendVoucherCode();
 
-            return true;
-        }
-
-        private bool VerifyUser(User user)
-        {
-            var voucherCode = new BusinessLogic.UserManagement.VoucherCode();
-            var voucher = voucherCode.CreateVoucherCode();
-            CrossSecureStorage.Current.SetValue("Voucher", voucher.ToString());
-            voucherCode.SendVoucherCode(voucher, user);
             return true;
         }
 
