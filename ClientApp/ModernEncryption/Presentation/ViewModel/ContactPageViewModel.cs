@@ -5,6 +5,7 @@ namespace ModernEncryption.Presentation.ViewModel
 {
     public class ContactPageViewModel
     {
+        public string Title { get; set; } = "ContactPage";
         public ObservableCollection<User> Contacts { get; }
 
         public ContactPageViewModel()

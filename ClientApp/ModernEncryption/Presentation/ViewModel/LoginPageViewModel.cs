@@ -6,5 +6,6 @@ namespace ModernEncryption.Presentation.ViewModel
 {
     class LoginPageViewModel
     {
+        public string Title { get; set; } = "LoginPage";
     }
 }

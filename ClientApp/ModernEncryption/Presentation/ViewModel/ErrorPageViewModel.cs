@@ -6,5 +6,6 @@ namespace ModernEncryption.Presentation.ViewModel
 {
     class ErrorPageViewModel
     {
+        public string Title { get; set; } = "ErrorPage";
     }
 }

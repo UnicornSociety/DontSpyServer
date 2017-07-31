@@ -7,6 +7,8 @@ namespace ModernEncryption.Presentation.ViewModel
 {
     class ContactDetailPageViewModel
     {
+        public string Title { get; set; } = "ContactDetailPage";
+
         public string Surname { get; set; }
         public string Firstname { get; set; }
         public int Receiver { get; set; }

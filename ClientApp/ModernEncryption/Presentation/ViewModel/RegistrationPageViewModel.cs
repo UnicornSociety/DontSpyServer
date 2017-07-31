@@ -9,6 +9,7 @@ namespace ModernEncryption.Presentation.ViewModel
 {
     internal class RegistrationPageViewModel
     {
+        public string Title { get; set; } = "RegistrationPage";
         private RegistrationPage _view;
         public ICommand SendVoucherCommand { protected set; get; }
 

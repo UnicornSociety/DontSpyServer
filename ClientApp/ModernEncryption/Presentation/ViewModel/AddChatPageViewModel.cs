@@ -2,6 +2,8 @@
 {
     class AddChatPageViewModel
     {
+        public string Title { get; set; } = "AddChatPage";
+
         public string Surname { get; set; }
         public string Firstname { get; set; }
         public int Sender { get; set; }

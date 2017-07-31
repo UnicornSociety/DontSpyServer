@@ -6,6 +6,8 @@ namespace ModernEncryption.Presentation.ViewModel
 {
     class AddGroupPageViewModel
     {
+        public string Title { get; set; } = "AddGroupPage";
+
         public string Surname { get; set; }
         public string Firstname { get; set; }
         public int Sender { get; set; }

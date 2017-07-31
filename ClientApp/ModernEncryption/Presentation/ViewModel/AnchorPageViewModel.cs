@@ -6,5 +6,6 @@ namespace ModernEncryption.Presentation.ViewModel
 {
     class AnchorPageViewModel
     {
+        public string Title { get; set; } = "AnchorPage";
     }
 }
