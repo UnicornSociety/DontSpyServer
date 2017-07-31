@@ -34,7 +34,6 @@ namespace ModernEncryption.BusinessLogic.Crypto
         private int CreateChipher(char symbol)
         {
             var rnd = new Random();
-            Debug.WriteLine(symbol);
             var interval = MathematicalMappingLogic.IntervalTable[symbol];
             return rnd.Next(interval.Start, interval.End + 1);
         }
@@ -43,7 +42,7 @@ namespace ModernEncryption.BusinessLogic.Crypto
         {
             if (MathematicalMappingLogic.KeyTable.ContainsKey(chipher)) // TODO: What if not? e.g. return -1
                 return MathematicalMappingLogic.KeyTable[chipher];
-            return -1;
+            return chipher;
         }
 
         private string CreateCharacterPair(int permutedChipher)
