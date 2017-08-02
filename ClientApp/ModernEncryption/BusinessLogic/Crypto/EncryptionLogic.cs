@@ -40,7 +40,7 @@ namespace ModernEncryption.BusinessLogic.Crypto
 
         private int RunPermutationFor(int chipher)
         {
-            if (MathematicalMappingLogic.KeyTable.ContainsKey(chipher)) // TODO: What if not? e.g. return -1
+            if (MathematicalMappingLogic.KeyTable.ContainsKey(chipher))
                 return MathematicalMappingLogic.KeyTable[chipher];
             return chipher;
         }

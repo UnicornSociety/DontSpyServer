@@ -38,9 +38,9 @@ namespace ModernEncryption.BusinessLogic.Crypto
 
         private int RevertPermutationFor(int permutedChipher)
         {
-            if (MathematicalMappingLogic.KeyTable.ContainsKey(permutedChipher)) // TODO: What if not? e.g. return -1
+            if (MathematicalMappingLogic.KeyTable.ContainsKey(permutedChipher))
                 return MathematicalMappingLogic.KeyTable[permutedChipher];
-            return -1;
+            return permutedChipher;
         }
 
         private char RevertChipher(int chiper)
