@@ -27,11 +27,9 @@ namespace ModernEncryption
             IMessageService messageService = new MessageService();
             messageService.SendMessage(encryptedMessage);
 
-
-            // Debugging Outputs
+            // Debugging Control Outputs
             Debug.WriteLine("Local Decrypted message: " + encryptedMessage.Text);
-            Debug.WriteLine("Local Encrypted message: " + new DecryptionLogic(new EncryptedMessage("qwx0g8w7eiwy", plainMessage)).Decrypt().Text);
-            
+            Debug.WriteLine("Local Encrypted message: " + new DecryptionLogic((EncryptedMessage)encryptedMessage).Decrypt().Text);
 
             // Get from Server -> Decryption -> Output
             IMessageService messageService2 = new MessageService();
