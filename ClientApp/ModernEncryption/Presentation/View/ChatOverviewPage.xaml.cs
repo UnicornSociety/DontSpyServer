@@ -6,11 +6,11 @@ using Xamarin.Forms.Xaml;
 namespace ModernEncryption.Presentation.View
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ChatOverview : ContentPage
+    public partial class ChatOverviewPage : ContentPage
     {
         private ChatOverviewViewModel _viewModel;
 
-        public ChatOverview()
+        public ChatOverviewPage()
         {
             InitializeComponent();
             _viewModel = new ChatOverviewViewModel();
@@ -18,6 +18,6 @@ namespace ModernEncryption.Presentation.View
         }
 
         public string Surname { get; set; }
-        public static ObservableCollection<ChatOverview> ItemsSource { get; set; }
+        public static ObservableCollection<ChatOverviewPage> ItemsSource { get; set; }
     }
 }

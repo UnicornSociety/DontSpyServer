@@ -9,7 +9,7 @@ namespace ModernEncryption.Presentation.ViewModel
 {
     class ChatOverviewViewModel 
     {
-        public string Title { get; set; } = "ChatOverview";
+        public string Title { get; set; } = "ChatOverviewPage";
 
         public string Surname { get; set; }
         public string Firstname { get; set; }

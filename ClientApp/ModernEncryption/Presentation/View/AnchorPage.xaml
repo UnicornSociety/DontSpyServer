@@ -4,7 +4,7 @@
             xmlns:local="clr-namespace:ModernEncryption.Presentation.View;assembly=ModernEncryption"
             x:Class="ModernEncryption.Presentation.View.AnchorPage">
     
-    <local:ChatOverview />
+    <local:ChatOverviewPage />
     <local:ContactPage />
 
 </TabbedPage>
