@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ModernEncryption.Presentation.ViewModel
+﻿namespace ModernEncryption.Presentation.ViewModel
 {
-    class AnchorPageViewModel
+    internal class AnchorPageViewModel
     {
-        public string Title { get; set; } = "AnchorPage";
     }
 }

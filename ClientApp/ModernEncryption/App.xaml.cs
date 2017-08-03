@@ -16,9 +16,16 @@ namespace ModernEncryption
         public App()
         {
             InitializeComponent();
-            OnStart(); // TODO: Bug, issue #21
 
-            MainPage = new AddChatPage();
+            var mml = new MathematicalMappingLogic();
+            mml.InitalizeIntervalTable();
+            mml.InitializeKeyTable();
+            mml.InitalizeTransformationTable();
+
+            // Create reverse table for the transformation table
+            MathematicalMappingLogic.BackTransformationTable = MathematicalMappingLogic.TransformationTable.ToDictionary(x => x.Value, x => x.Key);
+
+            MainPage = new AnchorPage();
 
             // Input -> Encryption -> Send to server
             var plainMessage = new DecryptedMessage("krypto", 1, 2, 23535, 3); // Incoming from View: DecryptedMessage obj which is validated
@@ -32,27 +39,18 @@ namespace ModernEncryption
             Debug.WriteLine("Local Encrypted message: " + new DecryptionLogic((EncryptedMessage)encryptedMessage).Decrypt().Text);
 
             // Get from Server -> Decryption -> Output
-            IMessageService messageService2 = new MessageService();
+            /*IMessageService messageService2 = new MessageService();
             var encryptedMessages = messageService2.GetMessage(2).Result; // Incoming from internal drive
             foreach (var message in encryptedMessages)
             {
                 IDecrypt decryptionLogic = new DecryptionLogic(message);
                 Debug.WriteLine(decryptionLogic.Decrypt().Text);
-            }
+            }*/
         }
 
         protected override void OnStart()
         {
             // Handle when your app starts
-
-            var mml = new MathematicalMappingLogic();
-            mml.InitalizeIntervalTable();
-            mml.InitializeKeyTable();
-            mml.InitalizeTransformationTable();
-
-            // Create reverse table for the transformation table
-            MathematicalMappingLogic.BackTransformationTable = MathematicalMappingLogic.TransformationTable.ToDictionary(x => x.Value, x => x.Key);
-
         }
 
         protected override void OnSleep()
