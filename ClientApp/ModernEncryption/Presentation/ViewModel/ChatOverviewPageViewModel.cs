@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Text;
-using Xamarin.Forms;
-
-namespace ModernEncryption.Presentation.ViewModel
+﻿namespace ModernEncryption.Presentation.ViewModel
 {
-    class ChatOverviewViewModel 
+    internal class ChatOverviewPageViewModel 
     {
         public string Title { get; set; } = "ChatOverviewPage";
 
@@ -17,7 +10,7 @@ namespace ModernEncryption.Presentation.ViewModel
         public int Receiver { get; set; }
         public int Timestamp { get; set; }
        
-        public ChatOverviewViewModel()
+        public ChatOverviewPageViewModel()
         {
             Surname = "Mustermann";
             Firstname = "Max";

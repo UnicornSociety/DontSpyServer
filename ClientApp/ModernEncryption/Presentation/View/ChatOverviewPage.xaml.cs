@@ -8,12 +8,12 @@ namespace ModernEncryption.Presentation.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ChatOverviewPage : ContentPage
     {
-        private ChatOverviewViewModel _viewModel;
+        private ChatOverviewPageViewModel _viewModel;
 
         public ChatOverviewPage()
         {
             InitializeComponent();
-            _viewModel = new ChatOverviewViewModel();
+            _viewModel = new ChatOverviewPageViewModel();
             BindingContext = _viewModel;
         }
 
