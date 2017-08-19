@@ -1,6 +1,10 @@
-﻿namespace ModernEncryption.Presentation.ViewModel
+﻿using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using ModernEncryption.Annotations;
+
+namespace ModernEncryption.Presentation.ViewModel
 {
-    class AddChatPageViewModel
+    class AddChatPageViewModel:INotifyPropertyChanged
     {
         public string Title { get; set; } = "AddChatPage";
 
@@ -17,6 +21,14 @@
             Sender = 1;
             Receiver = 2;
             Timestamp = 123456;
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 
