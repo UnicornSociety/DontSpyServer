@@ -22,14 +22,14 @@
         <SearchBar Placeholder="Chat suchen" HorizontalTextAlignment="Center"></SearchBar>
 
 
-            <ListView ItemsSource="{Binding Contacts}">
+            <ListView ItemsSource="{Binding Messages}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Orientation="Vertical">
                                 <StackLayout Orientation="Horizontal" BackgroundColor="#0000ff">
-                                    <Label Text="{Binding Firstname}" BackgroundColor="#f35e20" />
-                                    <Label Text="{Binding Surname}" HorizontalOptions="Center" BackgroundColor="#503026" />
+                                    <Label Text="{Binding Sender}" BackgroundColor="#f35e20" />
+                                    <Label Text="{Binding Timestamp}" HorizontalOptions="Center" BackgroundColor="#503026" />
                                 </StackLayout>
                             </StackLayout>
                         </ViewCell>

@@ -25,7 +25,7 @@ namespace ModernEncryption
             // Create reverse table for the transformation table
             MathematicalMappingLogic.BackTransformationTable = MathematicalMappingLogic.TransformationTable.ToDictionary(x => x.Value, x => x.Key);
 
-            MainPage = new ContactPage();
+            MainPage = new ChatOverviewPage();
 
             // Input -> Encryption -> Send to server
             var plainMessage = new DecryptedMessage("krypto", 1, 2, 23535, 3); // Incoming from View: DecryptedMessage obj which is validated
