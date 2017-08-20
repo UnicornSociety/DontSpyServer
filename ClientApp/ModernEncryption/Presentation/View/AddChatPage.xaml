@@ -5,7 +5,7 @@
              Title="{Binding Title}">
 
     <StackLayout HorizontalOptions="FillAndExpand"  VerticalOptions="Start">
-        <Button Text="zurück" HorizontalOptions="Start" VerticalOptions="Start"  BackgroundColor="White"  BorderColor="Gray"></Button>
+        <Button Text="zurück" HorizontalOptions="Start" VerticalOptions="Start"  BackgroundColor="White"  BorderColor="Gray" Command="{Binding BackToOverViewCommand}"></Button>
 
         <Label Text="l" TextColor="White"></Label>
 
@@ -14,15 +14,21 @@
         <SearchBar Placeholder="Kontakt suchen" HorizontalTextAlignment="Start"></SearchBar>
 
 
-        <ScrollView>
-            <StackLayout  HorizontalOptions="StartAndExpand">
-             
-                <Button Text="{Binding Surname}" HorizontalOptions="StartAndExpand" VerticalOptions="Start " BorderColor="LightGray" BorderWidth="0.5"></Button>
-                <Button Text="Mitarbeiter 1" HorizontalOptions="StartAndExpand" VerticalOptions="Start " BorderColor="LightGray" BorderWidth="0.5"></Button>
-                <Button Text="Mitarbeiter 1" HorizontalOptions="StartAndExpand" VerticalOptions="Start " BorderColor="LightGray" BorderWidth="0.5"></Button>
-            </StackLayout>
-        </ScrollView>
-        
+        <ListView ItemsSource="{Binding Contacts}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Vertical">
+                            <StackLayout Orientation="Horizontal" >
+                                <Button Text="{Binding Firstname}"/>
+                                <Button Text="{Binding Surname}" HorizontalOptions="Center" />
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
     </StackLayout>
     
 </ContentPage>

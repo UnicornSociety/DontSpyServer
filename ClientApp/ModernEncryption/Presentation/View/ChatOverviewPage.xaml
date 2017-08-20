@@ -22,12 +22,21 @@
         <SearchBar Placeholder="Chat suchen" HorizontalTextAlignment="Center"></SearchBar>
 
 
-        <ScrollView  HorizontalOptions="Start" VerticalOptions="Start">
-            <StackLayout>
-                <Button Text="{Binding Surname }"  FontSize="24"    HorizontalOptions="Start"> </Button>
+            <ListView ItemsSource="{Binding Contacts}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical">
+                                <StackLayout Orientation="Horizontal" BackgroundColor="#0000ff">
+                                    <Label Text="{Binding Firstname}" BackgroundColor="#f35e20" />
+                                    <Label Text="{Binding Surname}" HorizontalOptions="Center" BackgroundColor="#503026" />
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
 
-            </StackLayout>
-        </ScrollView>
 
     </StackLayout>
 </ContentPage>

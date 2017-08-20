@@ -16,8 +16,6 @@ namespace ModernEncryption.Presentation.View
             _viewModel = new ChatOverviewPageViewModel();
             BindingContext = _viewModel;
         }
-
-        public string Surname { get; set; }
-        public static ObservableCollection<ChatOverviewPage> ItemsSource { get; set; }
+        
     }
 }

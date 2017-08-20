@@ -1,10 +1,14 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.Runtime.CompilerServices;
-using ModernEncryption.Annotations;
+using System.Windows.Input;
+using ModernEncryption.Model;
+using Xamarin.Forms;
 
 namespace ModernEncryption.Presentation.ViewModel
 {
-    class AddChatPageViewModel:INotifyPropertyChanged
+    class AddChatPageViewModel
     {
         public string Title { get; set; } = "AddChatPage";
 
@@ -14,22 +18,30 @@ namespace ModernEncryption.Presentation.ViewModel
         public int Receiver { get; set; }
         public int Timestamp { get; set; }
 
-        public AddChatPageViewModel()
-        {
-            Surname = "Mustermann";
-            Firstname = "Max";
-            Sender = 1;
-            Receiver = 2;
-            Timestamp = 123456;
+
+        public ICommand BackToChatOverViewCommand { protected set; get; }
+
+        public ObservableCollection<User> Contacts { get; }
+
+public AddChatPageViewModel()
+{
+            this.BackToChatOverViewCommand = new Command<string>((key) =>
+             {
+                Debug.WriteLine("Hallo Helmut");
+                        });
+
+            Contacts = new ObservableCollection<User>();
+
+            Contacts.Add(new User("Lukas", "Ruf", "lukas.ruf@sfzlab.de"));
+            Contacts.Add(new User("Mai", "Saito", "mai.saito@sfzlab.de"));
+            Contacts.Add(new User("Max", "Mustermann", "max@mustermann.de"));
+            Contacts.Add(new User("Tobias", "Straub", "tobias.straub@sfzlab.de"));
+            Contacts.Add(new User("Helmut", "Ruf", "helmut.ruf@sfzlab.de")); Surname = "Mustermann";
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+       
     }
 
     }
