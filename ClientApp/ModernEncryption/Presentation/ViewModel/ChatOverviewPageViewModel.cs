@@ -1,6 +1,8 @@
-﻿namespace ModernEncryption.Presentation.ViewModel
+﻿using System.ComponentModel;
+
+namespace ModernEncryption.Presentation.ViewModel
 {
-    internal class ChatOverviewPageViewModel 
+    internal class ChatOverviewPageViewModel :INotifyPropertyChanged
     {
         public string Title { get; set; } = "ChatOverviewPage";
 
@@ -18,6 +20,14 @@
             Receiver = 2;
             Timestamp = 123456;
         }
-
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this,
+                    new PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
 }

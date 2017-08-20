@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace ModernEncryption.Presentation.ViewModel
 {
-    class AddNewContactPageViewModel
+    class AddNewContactPageViewModel:INotifyPropertyChanged
     {
         public string Title { get; set; } = "AddNewContactPage";
 
@@ -21,6 +22,15 @@ namespace ModernEncryption.Presentation.ViewModel
             Sender = 1;
             Receiver = 2;
             Timestamp = 123456;
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this,
+                    new PropertyChangedEventArgs(propertyName));
+            }
         }
     }
 }

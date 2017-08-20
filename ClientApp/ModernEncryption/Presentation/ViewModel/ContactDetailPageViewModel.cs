@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 namespace ModernEncryption.Presentation.ViewModel
 {
-    class ContactDetailPageViewModel
+    class ContactDetailPageViewModel:INotifyPropertyChanged
     {
         public string Title { get; set; } = "ContactDetailPage";
 
@@ -22,6 +23,15 @@ namespace ModernEncryption.Presentation.ViewModel
             Receiver = 1;
             Sender = 2;
             EMail = "max.muster@gmx.net";
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this,
+                    new PropertyChangedEventArgs(propertyName));
+            }
         }
     }
 }

@@ -8,6 +8,7 @@
 
         <Label Text="Kontakte" FontSize="30" TextColor="White"  BackgroundColor="Green" HorizontalTextAlignment="Center" ></Label>
 
+        
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -17,6 +18,13 @@
             <SearchBar Grid.Column="0"  Placeholder="Kontakt suchen" HorizontalTextAlignment="Center" BackgroundColor="White"></SearchBar>
             <Button Grid.Column="1" Text="Neuen Kontakt hinzufügen" BackgroundColor="White" BorderColor="Gray"></Button>
         </Grid>
+
+        <!--<ListView.Header>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Header" TextColor="Olive"  BackgroundColor="Red" />
+            </StackLayout>
+        </ListView.Header>-->
+
 
 
         <ListView ItemsSource="{Binding Contacts}">

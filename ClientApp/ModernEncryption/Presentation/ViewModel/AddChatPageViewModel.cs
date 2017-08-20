@@ -8,7 +8,7 @@ using Xamarin.Forms;
 
 namespace ModernEncryption.Presentation.ViewModel
 {
-    class AddChatPageViewModel
+    class AddChatPageViewModel : INotifyPropertyChanged
     {
         public string Title { get; set; } = "AddChatPage";
 
@@ -39,9 +39,19 @@ public AddChatPageViewModel()
             Contacts.Add(new User("Helmut", "Ruf", "helmut.ruf@sfzlab.de")); Surname = "Mustermann";
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        /*TODO: Ajust getter & Setter for propertychanged*/
 
-       
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this,
+                    new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
+
     }
 
     }

@@ -1,4 +1,5 @@
-﻿using System.Windows.Input;
+﻿using System.ComponentModel;
+using System.Windows.Input;
 using ModernEncryption.Interfaces;
 using ModernEncryption.Model;
 using ModernEncryption.Presentation.View;
@@ -7,7 +8,7 @@ using Xamarin.Forms;
 
 namespace ModernEncryption.Presentation.ViewModel
 {
-    internal class RegistrationPageViewModel
+    internal class RegistrationPageViewModel:INotifyPropertyChanged
     {
         public string Title { get; set; } = "RegistrationPage";
         private RegistrationPage _view;
@@ -31,6 +32,15 @@ namespace ModernEncryption.Presentation.ViewModel
         public void SetView(RegistrationPage view)
         {
             _view = view;
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this,
+                    new PropertyChangedEventArgs(propertyName));
+            }
         }
     }
 }
