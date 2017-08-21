@@ -13,6 +13,7 @@ namespace ModernEncryption.Presentation.View
         {
             InitializeComponent();
             _viewModel = new AddGroupPageViewModel();
+            _viewModel.SetView(this);
             BindingContext = _viewModel;
         }
     }

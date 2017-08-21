@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using ModernEncryption.Presentation.View;
 
 namespace ModernEncryption.Presentation.ViewModel
 {
@@ -24,6 +25,12 @@ namespace ModernEncryption.Presentation.ViewModel
             Sender = 2;
             EMail = "max.muster@gmx.net";
         }
+
+        public void SetView(ContactDetailPage view)
+        {
+            _view = view;
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged(string propertyName)
         {

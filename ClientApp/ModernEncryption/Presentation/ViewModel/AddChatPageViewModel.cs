@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using ModernEncryption.Model;
+using ModernEncryption.Presentation.View;
 using Xamarin.Forms;
 
 namespace ModernEncryption.Presentation.ViewModel
@@ -40,6 +41,11 @@ public AddChatPageViewModel()
         }
 
         /*TODO: Ajust getter & Setter for propertychanged*/
+
+        public void SetView(AddChatPage view)
+        {
+            _view = view;
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged(string propertyName)

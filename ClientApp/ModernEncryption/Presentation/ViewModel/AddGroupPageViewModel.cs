@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
+using ModernEncryption.Presentation.View;
 
 namespace ModernEncryption.Presentation.ViewModel
 {
@@ -23,6 +24,11 @@ namespace ModernEncryption.Presentation.ViewModel
             Receiver = 2;
             Timestamp = 123456;
         }
+        public void SetView(AddGroupPage view)
+        {
+            _view = view;
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged(string propertyName)
         {

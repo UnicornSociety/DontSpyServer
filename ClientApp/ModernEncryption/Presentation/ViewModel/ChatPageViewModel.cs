@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
+using ModernEncryption.Presentation.View;
 
 namespace ModernEncryption.Presentation.ViewModel
 {
@@ -19,6 +20,12 @@ namespace ModernEncryption.Presentation.ViewModel
             Firstname = "Max";
             Receiver = 1;
         }
+
+        public void SetView(ChatPage view)
+        {
+            _view = view;
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged(string propertyName)
         {

@@ -14,6 +14,7 @@ namespace ModernEncryption.Presentation.View
         {
             InitializeComponent();
             _viewModel = new ChatOverviewPageViewModel();
+            _viewModel.SetView(this);
             BindingContext = _viewModel;
         }
         

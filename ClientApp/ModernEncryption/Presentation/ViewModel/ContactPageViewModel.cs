@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
 using ModernEncryption.Model;
+using ModernEncryption.Presentation.View;
 
 namespace ModernEncryption.Presentation.ViewModel
 {
@@ -23,6 +24,12 @@ namespace ModernEncryption.Presentation.ViewModel
             //var primaryKey = DependencyHandler.Db().Save(new User("Tobias", "Straub", "abc@def.de"));
             //Debug.WriteLine(DependencyHandler.Db().Get<User>(primaryKey).Email);
         }
+
+        public void SetView(ContactPage view)
+        {
+            _view = view;
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged(string propertyName)
         {

@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
 using ModernEncryption.Model;
+using ModernEncryption.Presentation.View;
 
 namespace ModernEncryption.Presentation.ViewModel
 {
@@ -26,6 +27,12 @@ namespace ModernEncryption.Presentation.ViewModel
             Messages.Add(new Message(7,45,56,67));
             Messages.Add(new Message(89,45,67,78));
         }
+
+        public void SetView(ChatOverviewPage view)
+        {
+            _view = view;
+        }
+
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged(string propertyName)
