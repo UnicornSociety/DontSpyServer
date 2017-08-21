@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel;
-using System.Runtime.CompilerServices;
 using ModernEncryption.Interfaces;
 using SQLite;
 
@@ -7,77 +6,79 @@ namespace ModernEncryption.Model
 {
     public class User : IEntity,INotifyPropertyChanged
     {
+        private int _id;
+        private string _firstname;
+        private string _surname;
+        private string _email;
+
         [PrimaryKey, AutoIncrement, Column("id")]
         // public int Id { get; set; }
         public int Id
         {
             set
             {
-                if (Id != value)
+                if (_id != value)
                 {
-                    Id = value;
-                    OnPropertyChanged("Color");
+                    _id = value;
+                    OnPropertyChanged("Id");
                 }
             }
             get
             {
-                return Id;
+                return _id;
             }
         }
 
         [MaxLength(18), Column("firstname")]
-        public string Firstname { get; set; }
-        /*public string Firstname
+        public string Firstname
         {
             set
             {
-                if (Firstname != value)
+                if (_firstname != value)
                 {
-                    Firstname = value;
+                    _firstname = value;
                     OnPropertyChanged("Firstname");
                 }
             }
             get
             {
-                return Firstname;
+                return _firstname;
             }
-        }*/
+        }
 
         [MaxLength(18), Column("surname")]
-        public string Surname { get; set; }
-       /* public string Surname
+       public string Surname
         {
             set
             {
-                if (Surname != value)
+                if (_surname != value)
                 {
-                    Surname = value;
+                    _surname = value;
                     OnPropertyChanged("Surname");
                 }
             }
             get
             {
-                return Surname;
+                return _surname;
             }
-        }*/
+        }
 
         [MaxLength(32), Unique, Column("email")]
-        public string Email { get; set; }
-        /*public string Email
+        public string Email
         {
             set
             {
-                if (Email != value)
+                if (_email != value)
                 {
-                    Email = value;
+                    _email = value;
                     OnPropertyChanged("Email");
                 }
             }
             get
             {
-                return Email;
+                return _email;
             }
-        }*/
+        }
 
         // Used to signalize that type T must be a reference type
         public User()
