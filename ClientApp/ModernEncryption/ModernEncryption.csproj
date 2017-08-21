@@ -13,6 +13,7 @@
     <None Remove="Presentation\View\ChatPage.xaml" />
     <None Remove="Presentation\View\ContactDetailPage.xaml" />
     <None Remove="Presentation\View\ContactPage.xaml" />
+    <None Remove="Presentation\View\DefinePasswordPage.xaml" />
     <None Remove="Presentation\View\ErrorPage.xaml" />
     <None Remove="Presentation\View\LoginPage.xaml" />
   </ItemGroup>
@@ -45,6 +46,9 @@
     <EmbeddedResource Include="Presentation\View\ContactPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\View\DefinePasswordPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentation\View\ErrorPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -61,6 +65,7 @@
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
     <PackageReference Include="sameerIOTApps.Plugin.SecureStorage" Version="1.2.2" />
     <PackageReference Include="sqlite-net-pcl" Version="1.3.3" />
+    <PackageReference Include="System.Net.Security" Version="4.3.1" />
     <PackageReference Include="Xamarin.Forms" Version="2.3.4.247" />
   </ItemGroup>
 

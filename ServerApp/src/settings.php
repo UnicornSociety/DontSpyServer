@@ -19,9 +19,9 @@ return [
         // Database settings
         'db' => [
             'host' => 'localhost',
-            'user' => 'root',
-            'pass' => '',
-            'dbname' => 'krypto'
+            'user' => 'kd34167_Crypto',
+            'pass' => 'ModernEncryption',
+            'dbname' => 'kd34167_Crypto'
         ]
     ],
 ];

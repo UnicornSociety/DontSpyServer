@@ -1,10 +1,13 @@
 ﻿using System.Diagnostics;
 using System.Linq;
+using MimeKit.Cryptography;
 using ModernEncryption.BusinessLogic.Crypto;
+using ModernEncryption.BusinessLogic.UserManagement;
 using ModernEncryption.Interfaces;
 using ModernEncryption.Model;
 using ModernEncryption.Presentation.View;
 using ModernEncryption.Service;
+using Plugin.SecureStorage;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -25,7 +28,29 @@ namespace ModernEncryption
             // Create reverse table for the transformation table
             MathematicalMappingLogic.BackTransformationTable = MathematicalMappingLogic.TransformationTable.ToDictionary(x => x.Value, x => x.Key);
 
-            MainPage = new ChatOverviewPage();
+            if (!CrossSecureStorage.Current.HasKey("RegistrationProcess"))
+            {
+                MainPage = new RegistrationPage();
+            }
+
+            else if (!CrossSecureStorage.Current.HasKey("VoucherProcess"))
+            {
+                MainPage = new DefinePasswordPage();
+            }
+
+            else
+            {
+                MainPage = new AnchorPage();
+            }
+            
+
+            /*var userService = new UserService();
+            var user = userService.GetUser("max.mustermann@gmx.net").Result;
+            Debug.WriteLine(user.Firstname);*/
+
+            /*var user = new User("kl", "sj", "lukas_ruf@gmx.net");
+            var voucherCode = new VoucherCode(user);
+            voucherCode.SendVoucherCode();*/
 
             // Input -> Encryption -> Send to server
             var plainMessage = new DecryptedMessage("krypto", 1, 2, 23535, 3); // Incoming from View: DecryptedMessage obj which is validated
