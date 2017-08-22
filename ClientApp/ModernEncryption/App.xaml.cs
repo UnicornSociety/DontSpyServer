@@ -28,6 +28,10 @@ namespace ModernEncryption
             // Create reverse table for the transformation table
             MathematicalMappingLogic.BackTransformationTable = MathematicalMappingLogic.TransformationTable.ToDictionary(x => x.Value, x => x.Key);
 
+            // DEBUGGING START
+            CrossSecureStorage.Current.DeleteKey("RegistrationProcess");
+            // DEBUGGING END
+
             if (!CrossSecureStorage.Current.HasKey("RegistrationProcess"))
             {
                 MainPage = new RegistrationPage();

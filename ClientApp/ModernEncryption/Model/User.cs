@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using ModernEncryption.Interfaces;
+using Newtonsoft.Json;
 using SQLite;
 
 namespace ModernEncryption.Model
@@ -12,7 +13,7 @@ namespace ModernEncryption.Model
         private string _email;
 
         [PrimaryKey, AutoIncrement, Column("id")]
-        // public int Id { get; set; }
+        [JsonIgnore]
         public int Id
         {
             set
@@ -30,6 +31,7 @@ namespace ModernEncryption.Model
         }
 
         [MaxLength(18), Column("firstname")]
+        [JsonProperty(PropertyName = "firstname")]
         public string Firstname
         {
             set
@@ -47,7 +49,8 @@ namespace ModernEncryption.Model
         }
 
         [MaxLength(18), Column("surname")]
-       public string Surname
+        [JsonProperty(PropertyName = "surname")]
+        public string Surname
         {
             set
             {
@@ -64,6 +67,7 @@ namespace ModernEncryption.Model
         }
 
         [MaxLength(32), Unique, Column("email")]
+        [JsonProperty(PropertyName = "eMail")]
         public string Email
         {
             set

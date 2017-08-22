@@ -36,7 +36,7 @@ namespace ModernEncryption.Service
         public async Task<bool> CreateUser(User user)
         {
             var validateEmail = GetUser(user.Email).Result;
-            if (validateEmail == null) return false;
+            if (validateEmail != null) return false;
             var uri = new Uri(string.Format(Constants.RestUrlNewUser));
             var json = JsonConvert.SerializeObject(user);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
