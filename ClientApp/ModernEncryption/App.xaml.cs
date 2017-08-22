@@ -42,11 +42,6 @@ namespace ModernEncryption
             {
                 MainPage = new AnchorPage();
             }
-            
-
-            /*var userService = new UserService();
-            var user = userService.GetUser("max.mustermann@gmx.net").Result;
-            Debug.WriteLine(user.Firstname);*/
 
             /*var user = new User("kl", "sj", "lukas_ruf@gmx.net");
             var voucherCode = new VoucherCode(user);
@@ -57,7 +52,7 @@ namespace ModernEncryption
             IEncrypt encryptionLogic = new EncryptionLogic(plainMessage);
             IMessage encryptedMessage = encryptionLogic.Encrypt();
             IMessageService messageService = new MessageService();
-            messageService.SendMessage(encryptedMessage);
+            //messageService.SendMessage(encryptedMessage);
 
             // Debugging Control Outputs
             Debug.WriteLine("Local Decrypted message: " + encryptedMessage.Text);

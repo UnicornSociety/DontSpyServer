@@ -24,7 +24,7 @@ namespace ModernEncryption.Service
         public async Task<User> GetUser(string eMail)
         {
             var uri = new Uri(string.Format(Constants.RestUrlGetUser, eMail));
-            var response = await _client.GetAsync(uri);
+            var response = await _client.GetAsync(uri).ConfigureAwait(false);
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
