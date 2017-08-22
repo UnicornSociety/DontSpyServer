@@ -43,10 +43,6 @@ namespace ModernEncryption
                 MainPage = new AnchorPage();
             }
 
-            /*var user = new User("kl", "sj", "lukas_ruf@gmx.net");
-            var voucherCode = new VoucherCode(user);
-            voucherCode.SendVoucherCode();*/
-
             // Input -> Encryption -> Send to server
             var plainMessage = new DecryptedMessage("krypto", 1, 2, 23535, 3); // Incoming from View: DecryptedMessage obj which is validated
             IEncrypt encryptionLogic = new EncryptionLogic(plainMessage);

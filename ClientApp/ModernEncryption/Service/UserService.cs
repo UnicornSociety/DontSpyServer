@@ -40,7 +40,6 @@ namespace ModernEncryption.Service
             var uri = new Uri(string.Format(Constants.RestUrlNewUser));
             var json = JsonConvert.SerializeObject(user);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
-            Debug.WriteLine(json);
 
             HttpResponseMessage response = null;
             response = await _client.PostAsync(uri, content);
