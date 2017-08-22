@@ -13,9 +13,9 @@
         <Entry Placeholder="Nachname" x:Name="surname" />
 
         <Entry Placeholder="E-mail" x:Name="eMail">
-            <Entry.Behaviors>
-                <local:EmailValidatorBehavior x:Name="emailValidator"/>
-            </Entry.Behaviors>
+            <!--<Entry.Behaviors>
+                <validator:EmailValidatorBehavior x:Name="emailValidator"/>
+            </Entry.Behaviors>-->
         </Entry> 
  
         <Button Text="PIN an E-Mail-Adresse senden." Command="{Binding SendVoucherCommand}" />

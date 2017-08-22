@@ -6,8 +6,10 @@ using ModernEncryption.Presentation.View;
 
 namespace ModernEncryption.Presentation.ViewModel
 {
-    class ErrorPageViewModel:INotifyPropertyChanged
+    class ErrorPageViewModel : INotifyPropertyChanged
     {
+        private ErrorPage _view;
+
         public string Title { get; set; } = "ErrorPage";
         public event PropertyChangedEventHandler PropertyChanged;
         public void SetView(ErrorPage view)

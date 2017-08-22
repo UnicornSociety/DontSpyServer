@@ -8,8 +8,9 @@ namespace ModernEncryption.Presentation.ViewModel
 {
     class AddGroupPageViewModel : INotifyPropertyChanged
     {
-        public string Title { get; set; } = "AddGroupPage";
+        private AddGroupPage _view;
 
+        public string Title { get; set; } = "AddGroupPage";
         public string Surname { get; set; }
         public string Firstname { get; set; }
         public int Sender { get; set; }

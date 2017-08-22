@@ -11,8 +11,9 @@ namespace ModernEncryption.Presentation.ViewModel
 {
     class AddChatPageViewModel : INotifyPropertyChanged
     {
-        public string Title { get; set; } = "AddChatPage";
+        private AddChatPage _view;
 
+        public string Title { get; set; } = "AddChatPage";
         public string Surname { get; set; }
         public string Firstname { get; set; }
         public int Sender { get; set; }
@@ -24,12 +25,12 @@ namespace ModernEncryption.Presentation.ViewModel
 
         public ObservableCollection<User> Contacts { get; }
 
-public AddChatPageViewModel()
-{
+        public AddChatPageViewModel()
+        {
             this.BackToChatOverViewCommand = new Command<string>((key) =>
              {
-                Debug.WriteLine("Hallo Helmut");
-                        });
+                 Debug.WriteLine("Hallo Helmut");
+             });
 
             Contacts = new ObservableCollection<User>();
 
@@ -60,4 +61,4 @@ public AddChatPageViewModel()
 
     }
 
-    }
+}

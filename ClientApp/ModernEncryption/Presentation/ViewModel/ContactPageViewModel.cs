@@ -5,8 +5,10 @@ using ModernEncryption.Presentation.View;
 
 namespace ModernEncryption.Presentation.ViewModel
 {
-    public class ContactPageViewModel:INotifyPropertyChanged
+    public class ContactPageViewModel : INotifyPropertyChanged
     {
+        private ContactPage _view;
+
         public string Title { get; set; } = "ContactPage";
         public ObservableCollection<User> Contacts { get; }
 

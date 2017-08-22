@@ -6,10 +6,11 @@ using ModernEncryption.Presentation.View;
 
 namespace ModernEncryption.Presentation.ViewModel
 {
-    class ChatPageViewModel:INotifyPropertyChanged
+    class ChatPageViewModel : INotifyPropertyChanged
     {
-        public string Title { get; set; } = "ChatPage";
+        private ChatPage _view;
 
+        public string Title { get; set; } = "ChatPage";
         public string Surname { get; set; }
         public string Firstname { get; set; }
         public int Receiver { get; set; }

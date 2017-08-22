@@ -7,10 +7,11 @@ using ModernEncryption.Presentation.View;
 
 namespace ModernEncryption.Presentation.ViewModel
 {
-    class ContactDetailPageViewModel:INotifyPropertyChanged
+    class ContactDetailPageViewModel : INotifyPropertyChanged
     {
-        public string Title { get; set; } = "ContactDetailPage";
+        private ContactDetailPage _view;
 
+        public string Title { get; set; } = "ContactDetailPage";
         public string Surname { get; set; }
         public string Firstname { get; set; }
         public int Receiver { get; set; }
