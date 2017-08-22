@@ -40,9 +40,9 @@ CREATE TABLE `message` (
 --
 
 INSERT INTO `message` (`id`, `message`, `timestamp`, `sender`, `receiver`, `keyNumber`) VALUES
-(1, 'Hallo ich bin eine Nachricht', 1500639171, 1, 2, 4),
-(2, 'Das ist die Anwort auf die tolle nachricht', 1500639171, 2, 1, 2),
-(3, 'Zweite Nachricht', 1500639171, 1, 2, 3);
+(1, 'qzxwg8w5dfwg', 1500639171, 1, 2, 4),
+(2, 'q2yug8w9d9wu', 1500639171, 2, 1, 2),
+(3, 'q1ypg8w8d5ws', 1500639171, 1, 2, 3);
 
 -- --------------------------------------------------------
 

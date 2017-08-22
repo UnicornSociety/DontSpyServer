@@ -31,14 +31,10 @@ namespace ModernEncryption
             if (!CrossSecureStorage.Current.HasKey("RegistrationProcess"))
             {
                 MainPage = new RegistrationPage();
-            }
-
-            else if (!CrossSecureStorage.Current.HasKey("VoucherProcess"))
+            } else if (!CrossSecureStorage.Current.HasKey("VoucherProcess"))
             {
                 MainPage = new DefinePasswordPage();
-            }
-
-            else
+            } else
             {
                 MainPage = new AnchorPage();
             }
@@ -53,19 +49,14 @@ namespace ModernEncryption
             IMessage encryptedMessage = encryptionLogic.Encrypt();
             IMessageService messageService = new MessageService();
             messageService.SendMessage(encryptedMessage);
-
-            // Debugging Control Outputs
-            Debug.WriteLine("Local Decrypted message: " + encryptedMessage.Text);
-            Debug.WriteLine("Local Encrypted message: " + new DecryptionLogic((EncryptedMessage)encryptedMessage).Decrypt().Text);
-
+            
             // Get from Server -> Decryption -> Output
             IMessageService messageService2 = new MessageService();
-            var encryptedMessages = messageService2.GetMessage(2).Result; // Incoming from internal drive
+            var encryptedMessages = messageService2.GetMessage(3).Result; // Incoming from internal drive
             foreach (var message in encryptedMessages)
             {
-                Debug.WriteLine("msg: " + message.Text);
-                //IDecrypt decryptionLogic = new DecryptionLogic(message);
-                //Debug.WriteLine(decryptionLogic.Decrypt().Text);
+                IDecrypt decryptionLogic = new DecryptionLogic(message);
+                Debug.WriteLine(decryptionLogic.Decrypt().Text);
             }
         }
 
