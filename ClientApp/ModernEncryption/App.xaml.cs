@@ -52,7 +52,7 @@ namespace ModernEncryption
             IEncrypt encryptionLogic = new EncryptionLogic(plainMessage);
             IMessage encryptedMessage = encryptionLogic.Encrypt();
             IMessageService messageService = new MessageService();
-            //messageService.SendMessage(encryptedMessage);
+            messageService.SendMessage(encryptedMessage);
 
             // Debugging Control Outputs
             Debug.WriteLine("Local Decrypted message: " + encryptedMessage.Text);
