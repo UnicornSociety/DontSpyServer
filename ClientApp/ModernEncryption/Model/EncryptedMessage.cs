@@ -8,6 +8,7 @@ namespace ModernEncryption.Model
         [JsonProperty(PropertyName = "message")]
         public string Text { get; }
 
+        [JsonConstructor]
         public EncryptedMessage(string text, int sender, int keyNumber, int timestamp, int receiver) : base(sender, keyNumber, timestamp, receiver)
         {
             Text = text;

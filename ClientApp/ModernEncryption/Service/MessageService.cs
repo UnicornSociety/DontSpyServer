@@ -23,14 +23,13 @@ namespace ModernEncryption.Service
             var items = new List<EncryptedMessage>();
 
             var uri = new Uri(string.Format(Constants.RestUrlGetMessage, userId));
-            var response = await _client.GetAsync(uri);
+            var response = await _client.GetAsync(uri).ConfigureAwait(false);
             if (response.IsSuccessStatusCode) {
                 var content = await response.Content.ReadAsStringAsync();
                 items = JsonConvert.DeserializeObject<List<EncryptedMessage>>(content);
             }
 
             return items;
-            //return new EncryptedMessage("qwx0g8w7eiwy", 1, 2, 23535, 3); // Mock, do not delete me!
         }
 
         public async Task<bool> SendMessage(IMessage message)

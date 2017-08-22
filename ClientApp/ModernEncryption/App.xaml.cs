@@ -59,13 +59,14 @@ namespace ModernEncryption
             Debug.WriteLine("Local Encrypted message: " + new DecryptionLogic((EncryptedMessage)encryptedMessage).Decrypt().Text);
 
             // Get from Server -> Decryption -> Output
-            /*IMessageService messageService2 = new MessageService();
+            IMessageService messageService2 = new MessageService();
             var encryptedMessages = messageService2.GetMessage(2).Result; // Incoming from internal drive
             foreach (var message in encryptedMessages)
             {
-                IDecrypt decryptionLogic = new DecryptionLogic(message);
-                Debug.WriteLine(decryptionLogic.Decrypt().Text);
-            }*/
+                Debug.WriteLine("msg: " + message.Text);
+                //IDecrypt decryptionLogic = new DecryptionLogic(message);
+                //Debug.WriteLine(decryptionLogic.Decrypt().Text);
+            }
         }
 
         protected override void OnStart()
