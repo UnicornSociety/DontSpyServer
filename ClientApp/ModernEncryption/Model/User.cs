@@ -5,7 +5,7 @@ using SQLite;
 
 namespace ModernEncryption.Model
 {
-    public class User : IEntity,INotifyPropertyChanged
+    public class User : IEntity, INotifyPropertyChanged
     {
         private int _id;
         private string _firstname;
@@ -18,16 +18,11 @@ namespace ModernEncryption.Model
         {
             set
             {
-                if (_id != value)
-                {
-                    _id = value;
-                    OnPropertyChanged("Id");
-                }
+                if (_id == value) return;
+                _id = value;
+                OnPropertyChanged("Id");
             }
-            get
-            {
-                return _id;
-            }
+            get => _id;
         }
 
         [MaxLength(18), Column("firstname")]
@@ -36,16 +31,11 @@ namespace ModernEncryption.Model
         {
             set
             {
-                if (_firstname != value)
-                {
-                    _firstname = value;
-                    OnPropertyChanged("Firstname");
-                }
+                if (_firstname == value) return;
+                _firstname = value;
+                OnPropertyChanged("Firstname");
             }
-            get
-            {
-                return _firstname;
-            }
+            get => _firstname;
         }
 
         [MaxLength(18), Column("surname")]
@@ -54,16 +44,11 @@ namespace ModernEncryption.Model
         {
             set
             {
-                if (_surname != value)
-                {
-                    _surname = value;
-                    OnPropertyChanged("Surname");
-                }
+                if (_surname == value) return;
+                _surname = value;
+                OnPropertyChanged("Surname");
             }
-            get
-            {
-                return _surname;
-            }
+            get => _surname;
         }
 
         [MaxLength(32), Unique, Column("email")]
@@ -72,16 +57,11 @@ namespace ModernEncryption.Model
         {
             set
             {
-                if (_email != value)
-                {
-                    _email = value;
-                    OnPropertyChanged("Email");
-                }
+                if (_email == value) return;
+                _email = value;
+                OnPropertyChanged("Email");
             }
-            get
-            {
-                return _email;
-            }
+            get => _email;
         }
 
         // Used to signalize that type T must be a reference type

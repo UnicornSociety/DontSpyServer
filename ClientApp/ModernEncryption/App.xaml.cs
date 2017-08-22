@@ -30,9 +30,10 @@ namespace ModernEncryption
 
             // DEBUGGING START
             CrossSecureStorage.Current.DeleteKey("RegistrationProcess");
+            MainPage = new ContactPage();
             // DEBUGGING END
 
-            if (!CrossSecureStorage.Current.HasKey("RegistrationProcess"))
+            /*if (!CrossSecureStorage.Current.HasKey("RegistrationProcess"))
             {
                 MainPage = new RegistrationPage();
             } else if (!CrossSecureStorage.Current.HasKey("VoucherProcess"))
@@ -41,7 +42,7 @@ namespace ModernEncryption
             } else
             {
                 MainPage = new AnchorPage();
-            }
+            }*/
 
             // Input -> Encryption -> Send to server
             var plainMessage = new DecryptedMessage("krypto", 1, 2, 23535, 3); // Incoming from View: DecryptedMessage obj which is validated
