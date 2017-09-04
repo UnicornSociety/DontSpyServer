@@ -47,7 +47,7 @@ namespace ModernEncryption.BusinessLogic.UserManagement
                 client.Send(message);
                 client.Disconnect(true);
             }
-            return true;
+            return true; //TODO catch
         }
     }
 

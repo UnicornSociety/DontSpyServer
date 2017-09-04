@@ -40,7 +40,7 @@ namespace ModernEncryption.Service
 
             HttpResponseMessage response = null;
             response = await _client.PostAsync(uri, content);
-            return true;
+            return true; //TODO catch
         }
     }
 }

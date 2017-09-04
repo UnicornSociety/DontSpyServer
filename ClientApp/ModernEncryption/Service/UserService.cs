@@ -30,7 +30,7 @@ namespace ModernEncryption.Service
                 var content = await response.Content.ReadAsStringAsync();
                 return JsonConvert.DeserializeObject<User>(content);
             }
-            return null;
+            return null; //TODO catch
         }
 
         public async Task<bool> CreateUser(User user)
