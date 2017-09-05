@@ -1,5 +1,7 @@
-﻿using ModernEncryption.Interfaces;
+﻿using System.Diagnostics;
+using ModernEncryption.Interfaces;
 using ModernEncryption.Model;
+using Newtonsoft.Json.Serialization;
 
 namespace ModernEncryption.BusinessLogic.Crypto
 {
@@ -23,6 +25,10 @@ namespace ModernEncryption.BusinessLogic.Crypto
                 var permutedChipher = RevertCharacterPair(_messageTextSymbols[i], _messageTextSymbols[++i]);
                 var chiper = RevertPermutationFor(permutedChipher);
                 concatenatedDecryptedSymbols += RevertChipher(chiper);
+                if (chiper == '-')
+                {
+                    Debug.WriteLine("Ungültiger Eingabewert");
+                }
             }
 
             return new DecryptedMessage(concatenatedDecryptedSymbols, _message);
@@ -54,7 +60,7 @@ namespace ModernEncryption.BusinessLogic.Crypto
                 }
             }
 
-            return '-'; // TODO: catch
+            return '-';
         }
     }
 }
