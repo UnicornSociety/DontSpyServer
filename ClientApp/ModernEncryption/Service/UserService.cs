@@ -30,25 +30,36 @@ namespace ModernEncryption.Service
                 var content = await response.Content.ReadAsStringAsync();
                 return JsonConvert.DeserializeObject<User>(content);
             }
-            return null; //TODO catch
+            Debug.WriteLine("Server antwortet nicht");
+            return null;
         }
 
         public async Task<bool> CreateUser(User user)
         {
-            var validateEmail = GetUser(user.Email).Result;
-            if (validateEmail != null) return false;
-            var uri = new Uri(string.Format(Constants.RestUrlNewUser));
-            var json = JsonConvert.SerializeObject(user);
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            try
+            {
+                var validateEmail = GetUser(user.Email).Result;
+                if (validateEmail != null) return false;
+                var uri = new Uri(string.Format(Constants.RestUrlNewUser));
+                var json = JsonConvert.SerializeObject(user);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-            HttpResponseMessage response = null;
-            response = await _client.PostAsync(uri, content);
-            CrossSecureStorage.Current.SetValue("RegistrationProcess", "1");
+                HttpResponseMessage response = null;
+                response = await _client.PostAsync(uri, content);
+                CrossSecureStorage.Current.SetValue("RegistrationProcess", "1");
 
-            var voucherCode = new VoucherCode(user);
-            voucherCode.SendVoucherCode();
+                var voucherCode = new VoucherCode(user);
+                voucherCode.SendVoucherCode();
 
-            return true;
+                return true;
+            }
+
+            catch
+            {
+                Debug.WriteLine("Server antwortet nicht");
+                return false;
+            }
+           
         }
 
         public bool ValidateVoucherCode(int userVoucher)

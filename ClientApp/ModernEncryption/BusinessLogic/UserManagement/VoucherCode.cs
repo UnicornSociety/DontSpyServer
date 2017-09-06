@@ -29,25 +29,35 @@ namespace ModernEncryption.BusinessLogic.UserManagement
 
         public bool SendVoucherCode()
         {
-            var message = new MimeMessage();
-            message.From.Add(new MailboxAddress(Constants.NameEMailAddress, Constants.SendingEMailAddress));
-            message.To.Add(new MailboxAddress(_user.Firstname + " " + _user.Surname, _user.Email));
-            message.Subject = Constants.EMailHeader;
-
-            message.Body = new TextPart("plain")
+            try
             {
-                Text = Constants.EMailText + _voucherCode
-            };
+                var message = new MimeMessage();
+                message.From.Add(new MailboxAddress(Constants.NameEMailAddress, Constants.SendingEMailAddress));
+                message.To.Add(new MailboxAddress(_user.Firstname + " " + _user.Surname, _user.Email));
+                message.Subject = Constants.EMailHeader;
 
-            using (var client = new SmtpClient())
-            {
-                client.Connect("mail.sfzlab.de", 25, false); 
-                client.AuthenticationMechanisms.Remove("XOAUTH2");
-                client.Authenticate("noreply@sfzlab.de", "ModernEncryption");
-                client.Send(message);
-                client.Disconnect(true);
+                message.Body = new TextPart("plain")
+                {
+                    Text = Constants.EMailText + _voucherCode
+                };
+
+                using (var client = new SmtpClient())
+                {
+                    client.Connect("mail.sfzlab.de", 25, false);
+                    client.AuthenticationMechanisms.Remove("XOAUTH2");
+                    client.Authenticate("noreply@sfzlab.de", "ModernEncryption");
+                    client.Send(message);
+                    client.Disconnect(true);
+                }
+                return true;
             }
-            return true; //TODO catch
+
+            catch
+            {
+                Debug.WriteLine("Server antwortet nicht");
+                return false;
+            }
+           
         }
     }
 

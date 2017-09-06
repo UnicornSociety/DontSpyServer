@@ -34,13 +34,22 @@ namespace ModernEncryption.Service
 
         public async Task<bool> SendMessage(IMessage message)
         {
-            var uri = new Uri(string.Format(Constants.RestUrlSendMessage));
-            var json = JsonConvert.SerializeObject(message);
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            try
+            {
+                var uri = new Uri(string.Format(Constants.RestUrlSendMessage));
+                var json = JsonConvert.SerializeObject(message);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-            HttpResponseMessage response = null;
-            response = await _client.PostAsync(uri, content);
-            return true; //TODO catch
+                HttpResponseMessage response = null;
+                response = await _client.PostAsync(uri, content);
+                return true;
+            }
+
+            catch
+            {
+                Debug.WriteLine("Server antwortet nicht");
+                return false;
+            }
         }
     }
 }
