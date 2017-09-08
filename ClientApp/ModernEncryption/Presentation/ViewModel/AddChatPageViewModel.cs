@@ -21,15 +21,15 @@ namespace ModernEncryption.Presentation.ViewModel
         public int Timestamp { get; set; }
 
 
-        public ICommand BackToChatOverViewCommand { protected set; get; }
+        public ICommand BackToChatOverviewCommand { protected set; get; }
 
         public ObservableCollection<User> Contacts { get; }
 
         public AddChatPageViewModel()
         {
-            this.BackToChatOverViewCommand = new Command<string>((key) =>
+            this.BackToChatOverviewCommand = new Command<string>((key) =>
              {
-                 Debug.WriteLine("Hallo Helmut");
+                 Debug.WriteLine("Hallo");
              });
 
             Contacts = new ObservableCollection<User>();
