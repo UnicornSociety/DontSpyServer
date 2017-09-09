@@ -11,10 +11,12 @@
 
         <Label Text="Neuer Chat" FontSize="30" TextColor="White"  BackgroundColor="Green" HorizontalTextAlignment="Center" ></Label>
 
-        <SearchBar Placeholder="Kontakt suchen" HorizontalTextAlignment="Start"></SearchBar>
-
-
         <ListView ItemsSource="{Binding Contacts}">
+            
+            <ListView.Header>
+                <SearchBar x:Name="contact" Placeholder="Kontakt suchen" HorizontalTextAlignment="Center" BackgroundColor="White" SearchCommand="{Binding FindContactViaNameCommand}" /> <!--TODO: Command missing-->
+            </ListView.Header>
+            
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

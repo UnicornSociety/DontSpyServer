@@ -30,7 +30,7 @@ namespace ModernEncryption
 
             // DEBUGGING START
             CrossSecureStorage.Current.DeleteKey("RegistrationProcess");
-            MainPage = new AddChatPage();
+            MainPage = new AddGroupPage();
             // DEBUGGING END
 
             /*if (!CrossSecureStorage.Current.HasKey("RegistrationProcess"))

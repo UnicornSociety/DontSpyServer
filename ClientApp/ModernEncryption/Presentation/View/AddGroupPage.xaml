@@ -12,16 +12,26 @@
 
             <Label Text="Neuer Gruppenchat" FontSize="30" TextColor="White"  BackgroundColor="Green" HorizontalTextAlignment="Center" ></Label>
 
-            <SearchBar Placeholder="Kontakt suchen" HorizontalTextAlignment="Center"></SearchBar>
-            
-<!--TODO: SwitchCell bei Mitarbeitern einfügen-->
+            <ListView ItemsSource="{Binding Contacts}">
+                <ListView.Header>
+                    <SearchBar x:Name="contact" Placeholder="Kontakt suchen" HorizontalTextAlignment="Center" BackgroundColor="White" SearchCommand="{Binding FindContactViaNameCommand}" />
+                    <!--TODO: Command missing-->
+                </ListView.Header>
 
-            <ScrollView>
-                <StackLayout  HorizontalOptions="StartAndExpand">
-                    <Label Text="{Binding Surname} "></Label>
-                    <Switch>hhh</Switch>
-                </StackLayout>
-            </ScrollView>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical">
+                                <StackLayout Orientation="Horizontal" >
+                                    <Button Text="{Binding Firstname}"/>
+                                    <Button Text="{Binding Surname}" HorizontalOptions="Center" Style="{DynamicResource SwitchCellStyle}" />
+                                    <Switch HorizontalOptions="End"  />
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
 
         </StackLayout>
 

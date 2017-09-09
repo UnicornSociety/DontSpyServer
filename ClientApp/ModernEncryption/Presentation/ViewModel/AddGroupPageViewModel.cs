@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Text;
+using ModernEncryption.Model;
 using ModernEncryption.Presentation.View;
 
 namespace ModernEncryption.Presentation.ViewModel
@@ -17,13 +19,17 @@ namespace ModernEncryption.Presentation.ViewModel
         public int Receiver { get; set; }
         public int Timestamp { get; set; }
 
+        public ObservableCollection<User> Contacts { get; }
+
         public AddGroupPageViewModel()
         {
-            Surname = "Mustermann";
-            Firstname = "Max";
-            Sender = 1;
-            Receiver = 2;
-            Timestamp = 123456;
+            Contacts = new ObservableCollection<User>();
+
+            Contacts.Add(new User("Lukas", "Ruf", "lukas.ruf@sfzlab.de"));
+            Contacts.Add(new User("Mai", "Saito", "mai.saito@sfzlab.de"));
+            Contacts.Add(new User("Max", "Mustermann", "max@mustermann.de"));
+            Contacts.Add(new User("Tobias", "Straub", "tobias.straub@sfzlab.de"));
+            Contacts.Add(new User("Helmut", "Ruf", "helmut.ruf@sfzlab.de")); Surname = "Mustermann";
         }
         public void SetView(AddGroupPage view)
         {
