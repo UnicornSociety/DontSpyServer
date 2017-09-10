@@ -10,29 +10,40 @@
         <Label Text="Petra Fischer" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="20" TextColor="White"  BackgroundColor="Green"></Label>
     </StackLayout>
 
-        <ScrollView VerticalOptions="CenterAndExpand">
-
+        
            <!-- <Frame OutlineColor="Gray" HasShadow="True" HorizontalOptions="Start" VerticalOptions="Start">
                 <Label Text="Nachricht 1"></Label>
             </Frame>-->
 
-            <Grid>
+           <!-- <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <Button Text = "Nachricht von {Binding Surname}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" BackgroundColor="LimeGreen"  BorderRadius="8" />
+                <Button Text = "{Binding Surname}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" BackgroundColor="LimeGreen"  BorderRadius="8" />
                 <Button Text = "Nachricht an Petra" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="1" BackgroundColor="LightBlue"  BorderRadius="8" />
 
-            </Grid>
-            
+            </Grid>-->
+        
+            <ListView ItemsSource="{Binding Messages}">
 
-        </ScrollView>
-
-        <StackLayout VerticalOptions="EndAndExpand" >
-            <Entry Placeholder="Bitte Nachricht eingeben"/>
-            <Button Text="Senden"/>
-        </StackLayout>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Vertical">
+                            <StackLayout Orientation="Horizontal" BackgroundColor="#0000ff">
+                                <Label Text="{Binding Sender}" BackgroundColor="#f35e20" />
+                                <Label Text="{Binding Timestamp}" HorizontalOptions="Center" BackgroundColor="#503026" />
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
+        <Entry Placeholder="Bitte Nachricht eingeben"/>
+        <Button Text="Senden"/>
+        <!--TODO: Command missing-->
 
     </StackLayout>
 </ContentPage>
