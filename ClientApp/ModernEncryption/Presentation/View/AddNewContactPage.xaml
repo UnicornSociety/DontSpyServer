@@ -4,9 +4,8 @@
              x:Class="ModernEncryption.Presentation.View.AddNewContactPage"
              Title="{Binding Title}">
     <StackLayout HorizontalOptions="FillAndExpand"  VerticalOptions="Center">
-        
-        <Button Text="zurück" HorizontalOptions="Start" VerticalOptions="Start"  BackgroundColor="White"  BorderColor="Gray"></Button>
 
+        <Button Text="zurück" HorizontalOptions="Start" VerticalOptions="Start"  BackgroundColor="White"  BorderColor="Gray" Command="{Binding BackToContactPageCommand}"></Button>
         <Label Text="l" TextColor="White"></Label>
 
         <Label Text="Vorname:"  HorizontalTextAlignment="Start" ></Label>

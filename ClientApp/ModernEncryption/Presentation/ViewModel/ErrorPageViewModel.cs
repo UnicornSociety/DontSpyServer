@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Text;
+using System.Windows.Input;
 using ModernEncryption.Presentation.View;
+using Xamarin.Forms;
 
 namespace ModernEncryption.Presentation.ViewModel
 {
@@ -12,6 +15,16 @@ namespace ModernEncryption.Presentation.ViewModel
 
         public string Title { get; set; } = "ErrorPage";
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public ICommand BackToPreviousPageCommand { protected set; get; }
+        public ErrorPageViewModel()
+        {
+            this.BackToPreviousPageCommand = new Command<string>((key) =>
+            {
+                Debug.WriteLine("Zurück zur vorherigen Seite");
+            });
+        }
+
         public void SetView(ErrorPage view)
         {
             _view = view;

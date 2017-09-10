@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Text;
+using System.Windows.Input;
 using ModernEncryption.Model;
 using ModernEncryption.Presentation.View;
+using Xamarin.Forms;
 
 namespace ModernEncryption.Presentation.ViewModel
 {
@@ -17,10 +20,17 @@ namespace ModernEncryption.Presentation.ViewModel
         public string Firstname { get; set; }
         public int Receiver { get; set; }
 
+        public ICommand BackToChatOverviewPageCommand { protected set; get; }
+
         public ObservableCollection<Message> Messages { get; }
 
         public ChatPageViewModel()
         {
+            this.BackToChatOverviewPageCommand = new Command<string>((key) =>
+            {
+                Debug.WriteLine("Zurück zur ChatOverviewPage");
+            });
+
             Messages = new ObservableCollection<Message>();
 
             Messages.Add(new Message(5, 6, 7, 8));

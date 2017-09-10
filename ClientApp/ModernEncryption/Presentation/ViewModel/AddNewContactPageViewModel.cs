@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Text;
+using System.Windows.Input;
 using ModernEncryption.Presentation.View;
+using Xamarin.Forms;
 
 namespace ModernEncryption.Presentation.ViewModel
 {
@@ -17,8 +20,15 @@ namespace ModernEncryption.Presentation.ViewModel
         public int Receiver { get; set; }
         public int Timestamp { get; set; }
 
+        public ICommand BackToContactPageCommand { protected set; get; }
+
         public AddNewContactPageViewModel()
         {
+            this.BackToContactPageCommand = new Command<string>((key) =>
+            {
+                Debug.WriteLine("Zurück zur ContactPage");
+            });
+
             Surname = "Mustermann";
             Firstname = "Max";
             Sender = 1;

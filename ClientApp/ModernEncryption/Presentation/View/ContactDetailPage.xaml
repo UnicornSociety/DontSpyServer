@@ -4,9 +4,9 @@
              x:Class="ModernEncryption.Presentation.View.ContactDetailPage"
              Title="{Binding Title}">
     <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="Start">
-        
-        <Button Text="zurück" HorizontalOptions="Start" BackgroundColor="White"  BorderColor="Gray"> </Button>
-        
+
+        <Button Text="zurück" HorizontalOptions="Start" VerticalOptions="Start"  BackgroundColor="White"  BorderColor="Gray" Command="{Binding BackToContactPageCommand}"></Button>
+
         <Label Text="{Binding Surname}" FontSize="30" FontAttributes="Bold"  TextColor="White"  BackgroundColor="Green" HorizontalTextAlignment="Center" ></Label>
 
         <Label Text="Vorname"  BackgroundColor="LightGray" FontAttributes="Italic" TextColor="White"/>

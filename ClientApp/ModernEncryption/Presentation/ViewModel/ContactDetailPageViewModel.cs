@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Windows.Input;
 using ModernEncryption.Presentation.View;
+using Xamarin.Forms;
 
 namespace ModernEncryption.Presentation.ViewModel
 {
@@ -18,8 +21,15 @@ namespace ModernEncryption.Presentation.ViewModel
         public int Sender { get; set; }
         public string EMail { get; set; }
 
+        public ICommand BackToContactPageCommand { protected set; get; }
+
         public ContactDetailPageViewModel()
         {
+            this.BackToContactPageCommand = new Command<string>((key) =>
+            {
+                Debug.WriteLine("Zurück zur ContactPage");
+            });
+
             Surname = "Mustermann";
             Firstname = "Max";
             Receiver = 1;

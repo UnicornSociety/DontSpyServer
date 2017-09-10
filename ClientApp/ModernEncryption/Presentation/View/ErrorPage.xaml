@@ -4,9 +4,9 @@
              x:Class="ModernEncryption.Presentation.View.ErrorPage"
              Title="{Binding Title}">
     <StackLayout>
-        
-        <Button Text="zurück" HorizontalOptions="Start" BackgroundColor="White"  BorderColor="Gray"></Button>
-        
+
+        <Button Text="zurück" HorizontalOptions="Start" VerticalOptions="Start"  BackgroundColor="White"  BorderColor="Gray" Command="{Binding BackToPreviousPageCommand}"></Button>
+
         <Label Text="Der passende Fehler"/>
     </StackLayout>
 </ContentPage>

@@ -6,8 +6,8 @@
     <StackLayout VerticalOptions="FillAndExpand">
         
     <StackLayout  VerticalOptions="Start">
-        <Button Text="zurück" HorizontalOptions="Start" BackgroundColor="White"  BorderColor="Gray"></Button>
-        <Label Text="Petra Fischer" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="20" TextColor="White"  BackgroundColor="Green"></Label>
+            <Button Text="zurück" HorizontalOptions="Start" VerticalOptions="Start"  BackgroundColor="White"  BorderColor="Gray" Command="{Binding BackToChatOverviewPageCommand}"></Button>
+            <Label Text="Petra Fischer" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="20" TextColor="White"  BackgroundColor="Green"></Label>
     </StackLayout>
 
         

@@ -7,6 +7,8 @@ using ModernEncryption.Model;
 using ModernEncryption.Presentation.View;
 using Xamarin.Forms;
 
+
+
 namespace ModernEncryption.Presentation.ViewModel
 {
     class AddChatPageViewModel : INotifyPropertyChanged
@@ -20,17 +22,21 @@ namespace ModernEncryption.Presentation.ViewModel
         public int Receiver { get; set; }
         public int Timestamp { get; set; }
 
-
-        public ICommand BackToChatOverviewCommand { protected set; get; }
+        public ICommand BackToChatOverviewPageCommand { protected set; get; }
 
         public ObservableCollection<User> Contacts { get; }
 
         public AddChatPageViewModel()
         {
-            this.BackToChatOverviewCommand = new Command<string>((key) =>
-             {
-                 Debug.WriteLine("Hallo");
-             });
+            /*this.BackToChatOverviewCommand = new Command<Page>((key) =>
+            {
+                Application.Current.MainPage = new ChatOverviewPage();
+            });*/
+
+            this.BackToChatOverviewPageCommand = new Command<string>((key) =>
+            {
+                Debug.WriteLine("Zurück zur ChatOverviewPage");
+            });
 
             Contacts = new ObservableCollection<User>();
 
