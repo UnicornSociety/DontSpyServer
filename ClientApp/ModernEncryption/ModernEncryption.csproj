@@ -7,28 +7,15 @@
 
   <ItemGroup>
     <None Remove="App.xaml" />
-    <None Remove="Presentation\View\AddChatPage.xaml" />
-    <None Remove="Presentation\View\AddNewContactPage.xaml" />
     <None Remove="Presentation\View\AnchorPage.xaml" />
     <None Remove="Presentation\View\ChatPage.xaml" />
-    <None Remove="Presentation\View\ContactDetailPage.xaml" />
     <None Remove="Presentation\View\ContactPage.xaml" />
     <None Remove="Presentation\View\DefinePasswordPage.xaml" />
-    <None Remove="Presentation\View\ErrorPage.xaml" />
     <None Remove="Presentation\View\LoginPage.xaml" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="App.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\View\AddChatPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\View\AddNewContactPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\View\AddGroupPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\View\AnchorPage.xaml">
@@ -40,16 +27,10 @@
     <EmbeddedResource Include="Presentation\View\ChatPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\View\ContactDetailPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Include="Presentation\View\ContactPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\View\DefinePasswordPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\View\ErrorPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\View\LoginPage.xaml">
