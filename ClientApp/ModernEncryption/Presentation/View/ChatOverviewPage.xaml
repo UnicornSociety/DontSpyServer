@@ -20,10 +20,8 @@
         </Grid>
 
         <ListView ItemsSource="{Binding Messages}">
-
             <ListView.Header>
-                <SearchBar x:Name="chat" Placeholder="Chat suchen" HorizontalTextAlignment="Center" BackgroundColor="White" SearchCommand="{Binding FindChatByNameCommand}" />
-                <!--TODO: Command missing-->
+                <!-- TODO: Add Neuer Chat, Neue Gruppe buttons (see above) -->
             </ListView.Header>
             
             <ListView.ItemTemplate>
