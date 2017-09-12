@@ -5,12 +5,12 @@ using System.Text;
 
 namespace ModernEncryption.BusinessLogic.Crypto
 {
-    class GenerateKeys
+    static class GenerateKeys
     {
-        private int j;
-        private int[] L, H;
+        private static int j;
+        private static int[] L, H;
 
-        public int[] ProduceKeys(int n)
+        public static int[] ProduceKeys(int n)
         {
             for (var i = 0; i<n; i++)
             {
