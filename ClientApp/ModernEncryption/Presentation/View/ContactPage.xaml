@@ -7,10 +7,13 @@
     <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start">
         <Label Text="Kontakte" FontSize="30" TextColor="White"  BackgroundColor="Green" HorizontalTextAlignment="Center" ></Label>
 
-        <ListView ItemsSource="{Binding Contacts}">
+        <ListView ItemsSource="{Binding Contacts}" >
             
             <ListView.Header>
-                <SearchBar x:Name="email" Placeholder="E-Mail" HorizontalTextAlignment="Center" BackgroundColor="White" SearchCommand="{Binding AddContactViaEmailCommand}" />
+                <StackLayout>
+                    <SearchBar x:Name="email" Placeholder="E-Mail" HorizontalTextAlignment="Center" BackgroundColor="White" SearchCommand="{Binding AddContactViaEmailCommand}" />
+                </StackLayout>
+                
             </ListView.Header>
             
             <ListView.ItemTemplate>
@@ -18,8 +21,8 @@
                     <ViewCell>
                         <StackLayout Orientation="Vertical">
                             <StackLayout Orientation="Horizontal" BackgroundColor="#0000ff">
-                                <Label Text="{Binding Firstname}" BackgroundColor="#f35e20" />
-                                <Label Text="{Binding Surname}" HorizontalOptions="Center" BackgroundColor="#503026" />
+                                <!--<CheckBox x:Name = "cb1"   Content = "ContactSelection"  Checked = "HandleCheck"  Unchecked = "HandleUnchecked"  Margin = "10" />-->
+                                <Label Text="{Binding Surname}" BackgroundColor="#f35e20" />
                             </StackLayout>
                         </StackLayout>
                     </ViewCell>

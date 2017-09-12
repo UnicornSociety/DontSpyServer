@@ -39,10 +39,19 @@
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
+
+            <ListView.Footer>
+                <StackLayout Orientation="Horizontal">
+                    <Entry Placeholder="Bitte Nachricht eingeben" HorizontalOptions="FillAndExpand"/>
+                    <Button Text="Senden" HorizontalOptions="End"/>
+                </StackLayout>
+                
+
+            </ListView.Footer>
         </ListView>
         
-        <Entry Placeholder="Bitte Nachricht eingeben"/>
-        <Button Text="Senden"/>
+        
+       
         <!--TODO: Command missing-->
 
     </StackLayout>

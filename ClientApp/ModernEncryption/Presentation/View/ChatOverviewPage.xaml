@@ -6,24 +6,20 @@
 
     
     <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start">
-        
+
         <Label Text="Chatübersicht" FontSize="30" TextColor="White"  BackgroundColor="Green" HorizontalTextAlignment="Center" ></Label>
 
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-
-            <Button Grid.Column="0" Text="Neuer Chat"></Button>
-            <Button Grid.Column="1" Text="Neue Gruppe"></Button>
-        </Grid>
-
-        <ListView ItemsSource="{Binding Messages}">
-            <ListView.Header>
-                <!-- TODO: Add Neuer Chat, Neue Gruppe buttons (see above) -->
+        <ListView x:Name="listView" ItemsSource="{Binding Messages}" >
+   
+                <ListView.Header>
+                   <!-- <controls:ScrollHeader Mode="Sticky" TargetListViewBase="{x:Bind listView}">-->
+                <StackLayout Orientation="Horizontal">
+                    <Button Text="Neuer Chat" HorizontalOptions="FillAndExpand"></Button>
+                    <Button Text="Neue Gruppe" HorizontalOptions="FillAndExpand"></Button>
+                </StackLayout>
+                <!--  </controls:ScrollHeader>-->
             </ListView.Header>
-            
+
             <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
