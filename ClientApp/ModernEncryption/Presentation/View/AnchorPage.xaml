@@ -3,8 +3,16 @@
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:local="clr-namespace:ModernEncryption.Presentation.View;assembly=ModernEncryption"
             x:Class="ModernEncryption.Presentation.View.AnchorPage">
-    
-    <local:ChatOverviewPage />
-    <local:ContactPage />
+
+    <NavigationPage Title="ChatOverview" x:Name="aa">
+        <x:Arguments>
+            <local:ChatOverviewPage />
+        </x:Arguments>
+    </NavigationPage>
+    <NavigationPage Title="Contact">
+        <x:Arguments>
+            <local:ContactPage />
+        </x:Arguments>
+    </NavigationPage>
 
 </TabbedPage>
