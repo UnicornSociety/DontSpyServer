@@ -14,6 +14,7 @@ namespace ModernEncryption.DataAccess
         {
             _db = new SQLiteConnection(Path.Combine(dbPath, Constants.LocalDatabaseName));
             _db.CreateTable<User>();
+            _db.CreateTable<Channel>();
         }
 
         public int Save<T>(T obj)

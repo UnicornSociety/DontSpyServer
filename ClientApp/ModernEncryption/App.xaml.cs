@@ -53,12 +53,12 @@ namespace ModernEncryption
             
             // Get from Server -> Decryption -> Output
             IMessageService messageService2 = new MessageService();
-            var encryptedMessages = messageService2.GetMessage(3).Result; // Incoming from internal drive
+            /*var encryptedMessages = messageService2.GetMessage(3).Result; // Incoming from internal drive
             foreach (var message in encryptedMessages)
             {
                 IDecrypt decryptionLogic = new DecryptionLogic(message);
                 Debug.WriteLine(decryptionLogic.Decrypt().Text);
-            }
+            }*/
         }
 
         protected override void OnStart()

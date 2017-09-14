@@ -7,15 +7,15 @@
     
     <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start">
 
-        <Label Text="Chatübersicht" FontSize="30" TextColor="White"  BackgroundColor="Green" HorizontalTextAlignment="Center" ></Label>
+        <!--<Label Text="Chatübersicht" FontSize="30" TextColor="White"  BackgroundColor="Green" HorizontalTextAlignment="Center" ></Label>-->
 
         <ListView x:Name="listView" ItemsSource="{Binding Messages}" >
    
                 <ListView.Header>
                    <!-- <controls:ScrollHeader Mode="Sticky" TargetListViewBase="{x:Bind listView}">-->
                 <StackLayout Orientation="Horizontal">
-                    <Button Text="Neuer Chat" HorizontalOptions="FillAndExpand"></Button>
-                    <Button Text="Neue Gruppe" HorizontalOptions="FillAndExpand"></Button>
+                    <Button Text="Neuer Chat" HorizontalOptions="FillAndExpand" Command ="{Binding NewChatCommand}"></Button>
+                    <Button Text="Neue Gruppe" HorizontalOptions="FillAndExpand" Command ="{Binding NewGroupChatCommand}"></Button>
                 </StackLayout>
                 <!--  </controls:ScrollHeader>-->
             </ListView.Header>

@@ -5,12 +5,13 @@ using System.Text;
 
 namespace ModernEncryption.BusinessLogic.Crypto
 {
-    static class GenerateKeys
+    class GenerateKeys
     {
-        private static int j;
-        private static int[] L, H;
+        private int j;
+        private int[] L, H;
 
-        public static int[] ProduceKeys(int n)
+        public String ProduceKeys(int n)
+
         {
             for (var i = 0; i<n; i++)
             {
@@ -26,9 +27,25 @@ namespace ModernEncryption.BusinessLogic.Crypto
                     H[j] = H[j + 1];
                 }
             }
-            return L;
+            return L.ToString();
         }
 
-        
+        public Dictionary<int, int> TableOfKeys = new Dictionary<int, int>();
+    
+        public Dictionary<int, int> KeyTable(int numberOfSigns, String key)
+        {
+            int[] intKey = new int[] {};
+            for (int i=0; i< key.ToCharArray().Length;i++)
+            {
+                intKey[i] = (int)key[i];
+            }
+                for (int i = 1; i <= numberOfSigns; i++)
+                {
+                    TableOfKeys.Add(i, intKey[i]);
+                }
+
+        return TableOfKeys;
+        }
     }
+    
 }

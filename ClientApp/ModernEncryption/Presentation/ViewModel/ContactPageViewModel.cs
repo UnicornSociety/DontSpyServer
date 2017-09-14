@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Windows.Input;
 using ModernEncryption.Interfaces;
 using ModernEncryption.Model;
@@ -13,9 +14,10 @@ namespace ModernEncryption.Presentation.ViewModel
     {
         private ContactPage _view;
 
-        public string Title { get; set; } = "ContactPage";
+        public string Title { get; set; } = "Kontakte";
         public ObservableCollection<User> Contacts { get; }
         public ICommand AddContactViaEmailCommand { protected set; get; }
+        public ICommand TabbedContactCommand { protected set; get; }
 
         public ContactPageViewModel()
         {
@@ -31,6 +33,22 @@ namespace ModernEncryption.Presentation.ViewModel
 
                 if (user == null) return;
                 SaveContact(user);
+            });
+
+            TabbedContactCommand = new Command<object>(param =>
+            {
+                Debug.WriteLine("es tuttuttut");
+                //user aus dem param casten
+                var channelOpened = DependencyHandler.Db().Get<User>("SELECT * FROM channel WHERE members='" + user.Id + "'");//muss noch so machen das Grupppen wo auch der user drin ist nicht gezählt werden
+                if (channelOpened.Count > 0)
+                {
+                    _view.Navigation.PushAsync(new ChatPage(channelOpened));//channel casten
+                }
+                else
+                {
+                    
+                }
+
             });
         }
 

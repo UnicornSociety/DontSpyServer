@@ -1,7 +1,10 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
+using System.Windows.Input;
 using ModernEncryption.Model;
 using ModernEncryption.Presentation.View;
+using Xamarin.Forms;
 
 namespace ModernEncryption.Presentation.ViewModel
 {
@@ -9,7 +12,7 @@ namespace ModernEncryption.Presentation.ViewModel
     {
         private ChatOverviewPage _view;
 
-        public string Title { get; set; } = "ChatOverviewPage";
+        public string Title { get; set; } = "Chatübersicht";
         public string Surname { get; set; }
         public string Firstname { get; set; }
         public int Sender { get; set; }
@@ -17,9 +20,21 @@ namespace ModernEncryption.Presentation.ViewModel
         public int Timestamp { get; set; }
 
         public ObservableCollection<Message> Messages { get; }
+        public ICommand NewChatCommand { protected set; get; }
+        public ICommand NewGroupChatCommand { protected set; get; }
 
         public ChatOverviewPageViewModel()
         {
+            NewChatCommand = new Command<object>(param =>
+            {
+                _view.Navigation.PushAsync(new ContactPage());
+            });
+
+            NewGroupChatCommand = new Command<object>(param =>
+            {
+                _view.Navigation.PushAsync(new ContactPage());
+            });
+
             Messages = new ObservableCollection<Message>();
 
             Messages.Add(new Message(5, 6, 7, 8));
@@ -74,6 +89,7 @@ namespace ModernEncryption.Presentation.ViewModel
             _view = view;
         }
 
+        
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged(string propertyName)

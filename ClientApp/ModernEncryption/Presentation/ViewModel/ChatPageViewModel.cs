@@ -19,13 +19,16 @@ namespace ModernEncryption.Presentation.ViewModel
         public string Surname { get; set; }
         public string Firstname { get; set; }
         public int Receiver { get; set; }
+        private Channel _channel;
 
         public ICommand BackToChatOverviewPageCommand { protected set; get; }
 
         public ObservableCollection<Message> Messages { get; }
 
-        public ChatPageViewModel()
+        public ChatPageViewModel(Channel channel)
         {
+            _channel = channel;
+
             this.BackToChatOverviewPageCommand = new Command<string>((key) =>
             {
                 Debug.WriteLine("Zurück zur ChatOverviewPage");

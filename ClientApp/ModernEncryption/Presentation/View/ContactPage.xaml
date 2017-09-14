@@ -7,7 +7,7 @@
     <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start">
         <Label Text="Kontakte" FontSize="30" TextColor="White"  BackgroundColor="Green" HorizontalTextAlignment="Center" ></Label>
 
-        <ListView ItemsSource="{Binding Contacts}" >
+        <ListView ItemsSource="{Binding Contacts}" ItemTabbed ="{Binding TabbedContactCommand}" >
             
             <ListView.Header>
                 <StackLayout>
