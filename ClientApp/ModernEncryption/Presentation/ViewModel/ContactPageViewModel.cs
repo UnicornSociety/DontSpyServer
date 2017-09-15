@@ -39,7 +39,7 @@ namespace ModernEncryption.Presentation.ViewModel
             {
                 Debug.WriteLine("es tuttuttut");
                 //user aus dem param casten
-                var channelOpened = DependencyHandler.Db().Get<User>("SELECT * FROM channel WHERE members='" + user.Id + "'");//muss noch so machen das Grupppen wo auch der user drin ist nicht gezählt werden
+                /*var channelOpened = DependencyHandler.Db().Get<User>("SELECT * FROM channel WHERE members='" + user.Id + "'");//muss noch so machen das Grupppen wo auch der user drin ist nicht gezählt werden
                 if (channelOpened.Count > 0)
                 {
                     _view.Navigation.PushAsync(new ChatPage(channelOpened));//channel casten
@@ -47,7 +47,7 @@ namespace ModernEncryption.Presentation.ViewModel
                 else
                 {
                     
-                }
+                }*/
 
             });
         }
