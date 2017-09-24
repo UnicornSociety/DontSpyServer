@@ -21,7 +21,7 @@ namespace ModernEncryption.Presentation.ViewModel
         public int Receiver { get; set; }
         private Channel _channel;
 
-        public ICommand BackToChatOverviewPageCommand { protected set; get; }
+        public ICommand NewChatoverviewPageCommand { protected set; get; }
 
         public ObservableCollection<Message> Messages { get; }
 
@@ -29,9 +29,9 @@ namespace ModernEncryption.Presentation.ViewModel
         {
             _channel = channel;
 
-            this.BackToChatOverviewPageCommand = new Command<string>((key) =>
+            NewChatoverviewPageCommand = new Command<object>(param =>
             {
-                Debug.WriteLine("Zurück zur ChatOverviewPage");
+                _view.Navigation.PushAsync(new ChatOverviewPage());
             });
 
             Messages = new ObservableCollection<Message>();
