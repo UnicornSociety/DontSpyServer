@@ -5,10 +5,10 @@
              Title="{Binding Title}">
 
     <StackLayout HorizontalOptions="Center" VerticalOptions="Start">
-        <Label Text="Willkommen bei Modern Encryption" FontSize="45"></Label>
+        <Label Text="Welcome to Modern Encryption" FontSize="45"></Label>
         <StackLayout VerticalOptions="FillAndExpand">
             <Entry IsPassword="true" Placeholder="PIN"/>
-            <Button Text="Bestätigen"/>
+            <Button Text="Confirm"/>
         </StackLayout>
         
     </StackLayout>

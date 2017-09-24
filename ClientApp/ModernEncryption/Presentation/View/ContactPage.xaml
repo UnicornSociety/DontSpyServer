@@ -5,13 +5,13 @@
              Title="{Binding Title}">
 
     <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start">
-        <Label Text="Kontakte" FontSize="30" TextColor="White"  BackgroundColor="Green" HorizontalTextAlignment="Center" ></Label>
+        <Label Text="Contacts" FontSize="30" TextColor="White"  BackgroundColor="Green" HorizontalTextAlignment="Center" ></Label>
 
         <ListView ItemsSource="{Binding Contacts}">
             
             <ListView.Header>
                 <StackLayout>
-                    <SearchBar x:Name="email" Placeholder="E-Mail" HorizontalTextAlignment="Center" BackgroundColor="White" SearchCommand="{Binding AddContactViaEmailCommand}" />
+                    <SearchBar x:Name="email" Placeholder="Email" HorizontalTextAlignment="Center" BackgroundColor="White" SearchCommand="{Binding AddContactViaEmailCommand}" />
                 </StackLayout>
                 
             </ListView.Header>

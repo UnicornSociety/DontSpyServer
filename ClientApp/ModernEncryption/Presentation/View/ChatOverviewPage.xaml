@@ -14,8 +14,8 @@
                 <ListView.Header>
                    <!-- <controls:ScrollHeader Mode="Sticky" TargetListViewBase="{x:Bind listView}">-->
                 <StackLayout Orientation="Horizontal">
-                    <Button Text="Neuer Chat" HorizontalOptions="FillAndExpand" Command ="{Binding NewChatCommand}"></Button>
-                    <Button Text="Neue Gruppe" HorizontalOptions="FillAndExpand" Command ="{Binding NewGroupChatCommand}"></Button>
+                    <Button Text="New Chat" HorizontalOptions="FillAndExpand" Command ="{Binding NewChatCommand}"></Button>
+                    <Button Text="New Group" HorizontalOptions="FillAndExpand" Command ="{Binding NewGroupChatCommand}"></Button>
                 </StackLayout>
                 <!--  </controls:ScrollHeader>-->
             </ListView.Header>

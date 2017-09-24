@@ -5,20 +5,20 @@
              Title="{Binding Title}">
 
     <StackLayout HorizontalOptions="Center" VerticalOptions="Start">
-        <Label Text="Willkommen bei Modern Encryption" FontSize="45"></Label>
+        <Label Text="Welcome to Modern Encryption" FontSize="45"></Label>
         <Label Text="l" FontSize="10" TextColor="White"></Label>
-        <Label Text="Bitte registrieren Sie sich." FontSize="20"></Label>
+        <Label Text="Please register." FontSize="20"></Label>
 
-        <Entry Placeholder="Vorname" x:Name="firstname" />
-        <Entry Placeholder="Nachname" x:Name="surname" />
+        <Entry Placeholder="Firstname" x:Name="firstname" />
+        <Entry Placeholder="Surname" x:Name="surname" />
 
-        <Entry Placeholder="E-mail" x:Name="eMail">
+        <Entry Placeholder="Email" x:Name="eMail">
             <!--<Entry.Behaviors>
                 <validator:EmailValidatorBehavior x:Name="emailValidator"/>
             </Entry.Behaviors>-->
         </Entry> 
  
-        <Button Text="PIN an E-Mail-Adresse senden." Command="{Binding SendVoucherCommand}" />
+        <Button Text="Send PIN to email address." Command="{Binding SendVoucherCommand}" />
     </StackLayout>
     
 </ContentPage>
