@@ -3,6 +3,7 @@ using System.Linq;
 using MimeKit.Cryptography;
 using ModernEncryption.BusinessLogic.Crypto;
 using ModernEncryption.BusinessLogic.UserManagement;
+using ModernEncryption.DataAccess;
 using ModernEncryption.Interfaces;
 using ModernEncryption.Model;
 using ModernEncryption.Presentation.View;
@@ -19,6 +20,8 @@ namespace ModernEncryption
         public App()
         {
             InitializeComponent();
+
+            new LocalDatabase(LocalDatabase.ConnectionMode.DropAndRecreate);
 
             var mml = new MathematicalMappingLogic();
             mml.InitalizeIntervalTable();

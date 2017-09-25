@@ -1,6 +1,6 @@
 ﻿namespace ModernEncryption.Model
 {
-    internal class Constants
+    public class Constants
     {
         public static string RestUrlGetMessage = "http://me.sfzlab.de/ServerApp/api/message/{0}";
         public static string RestUrlSendMessage = "http://me.sfzlab.de/ServerApp/api/message/new";

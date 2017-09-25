@@ -1,7 +1,13 @@
-﻿namespace ModernEncryption.Interfaces
+﻿using SQLite.Net;
+using SQLite.Net.Async;
+
+namespace ModernEncryption.Interfaces
 {
     public interface IStorage
     {
-        string Path();
+        void CloseConnection();
+        SQLiteConnection GetConnection();
+        SQLiteAsyncConnection GetAsyncConnection();
+        void DeleteDatabase();
     }
 }

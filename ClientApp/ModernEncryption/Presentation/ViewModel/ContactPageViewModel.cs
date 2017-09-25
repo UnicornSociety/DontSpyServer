@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows.Input;
@@ -6,6 +7,8 @@ using ModernEncryption.Interfaces;
 using ModernEncryption.Model;
 using ModernEncryption.Presentation.View;
 using ModernEncryption.Service;
+using SQLite.Net;
+using SQLiteNetExtensions.Extensions;
 using Xamarin.Forms;
 
 namespace ModernEncryption.Presentation.ViewModel
@@ -13,6 +16,7 @@ namespace ModernEncryption.Presentation.ViewModel
     public class ContactPageViewModel : INotifyPropertyChanged
     {
         private ContactPage _view;
+        private SQLiteConnection Database { get; } = DependencyService.Get<IStorage>().GetConnection();
 
         public string Title { get; set; } = "Kontakte";
         public ObservableCollection<User> Contacts { get; }
@@ -39,18 +43,24 @@ namespace ModernEncryption.Presentation.ViewModel
             {
                 var user = (User) param;
 
-                Debug.WriteLine("es tuttuttut" + user.Email);
-                //user aus dem param casten
-                /*var channelOpened = DependencyHandler.Db().Get<User>("SELECT * FROM channel WHERE members='" + user.Id + "'");//muss noch so machen das Grupppen wo auch der user drin ist nicht gezählt werden
+                // DEBUGGING: Creating a channel
+                var channel = new Channel(43, new List<User> { user });
+                Database.InsertWithChildren(channel);
+
+                var xy1 = Database.GetWithChildren<User>(user.Id);
+                var xy2 = Database.GetWithChildren<Channel>(channel.Id);
+                // var result = Database.GetAllWithChildren<Channel>(x => x.Members.Contains(user));
+                // DEBUGGING END
+
+                /*var channelOpened = Database.Query<Channel>("SELECT * FROM channel WHERE members='" + user.Id + "'"); //muss noch so machen das Grupppen wo auch der user drin ist nicht gezählt werden
                 if (channelOpened.Count > 0)
                 {
-                    _view.Navigation.PushAsync(new ChatPage(channelOpened));//channel casten
+                    _view.Navigation.PushAsync(new ChatPage(channelOpened[0]));//channel casten
                 }
                 else
                 {
                     
                 }*/
-
             });
         }
 
@@ -61,7 +71,7 @@ namespace ModernEncryption.Presentation.ViewModel
 
         private void LoadContacts()
         {
-            var contacts = DependencyHandler.Db().Get<User>("SELECT * FROM user");
+            var contacts = Database.Query<User>("SELECT * FROM user");
             foreach (var contact in contacts)
             {
                 Contacts.Add(contact);
@@ -70,10 +80,10 @@ namespace ModernEncryption.Presentation.ViewModel
 
         private void SaveContact(User user)
         {
-            var userByEmail = DependencyHandler.Db().Get<User>("SELECT * FROM user WHERE email='" + user.Email + "'");
+            var userByEmail = Database.Query<User>("SELECT * FROM user WHERE email='?'", user.Email);
             if (userByEmail.Count > 0) return;
 
-            DependencyHandler.Db().Save(user);
+            Database.Insert(user);
             Contacts.Add(user); // Add user to current visible view
         }
 

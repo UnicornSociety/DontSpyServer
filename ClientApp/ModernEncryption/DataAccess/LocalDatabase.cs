@@ -1,46 +1,46 @@
-﻿using System.Collections.Generic;
-using System.IO;
+﻿using System;
 using ModernEncryption.Interfaces;
 using ModernEncryption.Model;
-using SQLite;
+using Xamarin.Forms;
 
 namespace ModernEncryption.DataAccess
 {
     internal class LocalDatabase
     {
-        private readonly SQLiteConnection _db;
-
-        public LocalDatabase(string dbPath)
+        public LocalDatabase(ConnectionMode connMode)
         {
-            _db = new SQLiteConnection(Path.Combine(dbPath, Constants.LocalDatabaseName));
-            _db.CreateTable<User>();
-            //_db.CreateTable<Channel>();
+            switch (connMode)
+            {
+                case ConnectionMode.Create:
+                    CreateTables();
+                    break;
+                case ConnectionMode.DropAndRecreate:
+                    DropTables();
+                    CreateTables();
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(connMode), connMode, null);
+            }
         }
 
-        public int Save<T>(T obj)
+        public enum ConnectionMode
         {
-            _db.Insert(obj);
-            return ((IEntity)obj).Id;
+            Create, DropAndRecreate
         }
 
-        public T Get<T>(int primaryKey) where T : new()
+        private static void CreateTables()
         {
-            return _db.Get<T>(primaryKey);
+            var db = DependencyService.Get<IStorage>().GetConnection();
+            db.CreateTable<User>();
+            db.CreateTable<Channel>();
+            db.CreateTable<UserChannel>();
         }
 
-        public List<T> Get<T>(string sql) where T : new()
+        private static void DropTables()
         {
-            return _db.Query<T>(sql);
-        }
-
-        public int Delete<T>(int primaryKey)
-        {
-            return _db.Delete<T>(primaryKey);
-        }
-
-        public int Delete<T>(T obj)
-        {
-            return _db.Delete(obj);
+            var db = DependencyService.Get<IStorage>().GetConnection();
+            db.DropTable<User>();
+            db.DropTable<Channel>();
         }
     }
 }

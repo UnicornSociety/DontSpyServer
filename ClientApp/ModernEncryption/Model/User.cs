@@ -1,10 +1,13 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
 using ModernEncryption.Interfaces;
 using Newtonsoft.Json;
-using SQLite;
+using SQLite.Net.Attributes;
+using SQLiteNetExtensions.Attributes;
 
 namespace ModernEncryption.Model
 {
+    [Table("User")]
     public class User : IEntity, INotifyPropertyChanged
     {
         private int _id;
@@ -12,8 +15,7 @@ namespace ModernEncryption.Model
         private string _surname;
         private string _email;
 
-        [PrimaryKey, AutoIncrement, Column("id")]
-        [JsonIgnore]
+        [PrimaryKey, AutoIncrement, JsonIgnore]
         public int Id
         {
             set
@@ -25,8 +27,7 @@ namespace ModernEncryption.Model
             get => _id;
         }
 
-        [MaxLength(18), Column("firstname")]
-        [JsonProperty(PropertyName = "firstname")]
+        [MaxLength(18), JsonProperty(PropertyName = "firstname")]
         public string Firstname
         {
             set
@@ -38,8 +39,7 @@ namespace ModernEncryption.Model
             get => _firstname;
         }
 
-        [MaxLength(18), Column("surname")]
-        [JsonProperty(PropertyName = "surname")]
+        [MaxLength(18), JsonProperty(PropertyName = "surname")]
         public string Surname
         {
             set
@@ -51,8 +51,7 @@ namespace ModernEncryption.Model
             get => _surname;
         }
 
-        [MaxLength(32), Unique, Column("email")]
-        [JsonProperty(PropertyName = "eMail")]
+        [MaxLength(32), Unique, JsonProperty(PropertyName = "eMail")]
         public string Email
         {
             set
@@ -64,7 +63,9 @@ namespace ModernEncryption.Model
             get => _email;
         }
 
-        // Used to signalize that type T must be a reference type
+        [ManyToMany(typeof(UserChannel)), JsonIgnore]
+        public List<Channel> Channels { get; set; }
+
         public User()
         {
         }

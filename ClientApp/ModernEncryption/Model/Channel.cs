@@ -1,29 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using ModernEncryption.Interfaces;
-using Newtonsoft.Json;
-using SQLite;
+using SQLite.Net.Attributes;
+using SQLiteNetExtensions.Attributes;
 
 namespace ModernEncryption.Model
 {
+    [Table("Channel")]
     public class Channel : IEntity
     {
-        [PrimaryKey, Column("id")]
+        [PrimaryKey]
         public int Id { get; set; }
 
-        [Column("members")]
-        public LinkedList<User> Members { get; set; }
+        public string test { get; set; }
+
+        [ManyToMany(typeof(UserChannel))]
+        public List<User> Members { get; set; }
 
         public Channel()
         {
-            
         }
 
-        public Channel(int id, LinkedList<User> members)
+        public Channel(int id, List<User> members)
         {
             Id = id;
             Members = members;
-        }
+        } 
     }
 }
