@@ -37,7 +37,9 @@ namespace ModernEncryption.Presentation.ViewModel
 
             TabbedContactCommand = new Command<object>(param =>
             {
-                Debug.WriteLine("es tuttuttut");
+                var user = (User) param;
+
+                Debug.WriteLine("es tuttuttut" + user.Email);
                 //user aus dem param casten
                 /*var channelOpened = DependencyHandler.Db().Get<User>("SELECT * FROM channel WHERE members='" + user.Id + "'");//muss noch so machen das Grupppen wo auch der user drin ist nicht gezählt werden
                 if (channelOpened.Count > 0)
