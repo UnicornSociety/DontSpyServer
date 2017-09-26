@@ -33,7 +33,7 @@ namespace ModernEncryption
 
             // DEBUGGING START
             CrossSecureStorage.Current.DeleteKey("RegistrationProcess");
-            MainPage = new AnchorPage();
+            MainPage = new LoginPage();
             // DEBUGGING END
 
             /*if (!CrossSecureStorage.Current.HasKey("RegistrationProcess"))
