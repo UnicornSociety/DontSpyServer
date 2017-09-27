@@ -6,6 +6,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Translation\AppRecource.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="Translation\AppRecource.resx" />
+    <EmbeddedResource Remove="Translation\AppResources.de.resx" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="App.xaml" />
     <None Remove="Presentation\View\AnchorPage.xaml" />
     <None Remove="Presentation\View\ChatPage.xaml" />
@@ -59,21 +68,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Translation\AppRecource.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>AppRecource.resx</DependentUpon>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Update="Translation\AppRecource.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>AppRecource.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Translation\AppResources.de.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-    </EmbeddedResource>
+    <Folder Include="Translation\" />
   </ItemGroup>
 
 </Project>
