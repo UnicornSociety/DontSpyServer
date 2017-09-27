@@ -17,13 +17,14 @@ class MessageMapper extends Mapper
 
     public function save(MessageEntity $message)
     {
-        $stmt = $this->db->prepare("INSERT INTO message(message, timestamp, sender, receiver,keyNumber) VALUES (:message, :timestamp, :sender, :receiver, :keyNumber)");
+        $stmt = $this->db->prepare("INSERT INTO message(message, timestamp, sender, receiver,keyNumber, channel) VALUES (:message, :timestamp, :sender, :receiver, :keyNumber, :channel)");
         $result = $stmt->execute([
             "message" => $message->getMessage(),
             "timestamp" => $message->getTimestamp(),
             "sender" => $message->getSender(),
             "receiver" => $message->getReceiver(),
-            "keyNumber" => $message->getKeyNumber()
+            "keyNumber" => $message->getKeyNumber(),
+            "channel" => $channel->getChannel(),
         ]);
         if (!$result) {
             throw new Exception("Could not save record");

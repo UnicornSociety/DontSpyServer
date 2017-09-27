@@ -1,8 +1,9 @@
 ﻿using Newtonsoft.Json;
+using SQLiteNetExtensions.Attributes;
 
 namespace ModernEncryption.Model
 {
-    internal class Message
+    public class Message
     {
         [JsonProperty(PropertyName = "sender")]
         public int Sender { get; }
@@ -12,6 +13,8 @@ namespace ModernEncryption.Model
         public int Timestamp { get; }
         [JsonProperty(PropertyName = "receiver")]
         public int Receiver { get; }
+        [ForeignKey(typeof(Channel)), JsonIgnore]
+        public int ChannelId{get; set; }
 
         public Message(int sender, int keyNumber, int timestamp, int receiver)
         {
