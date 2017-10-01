@@ -59,20 +59,20 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Translation\AppRecource.Designer.cs">
+    <Compile Update="Translation\AppResource.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>AppRecource.resx</DependentUpon>
+      <DependentUpon>AppResource.resx</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Translation\AppRecource.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>AppRecource.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Translation\AppResources.de.resx">
+    <EmbeddedResource Update="Translation\AppResource.de.resx">
       <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Translation\AppResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
 

@@ -1,45 +1,43 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.InteropServices.ComTypes;
-using System.Text;
 
 namespace ModernEncryption.BusinessLogic.Crypto
 {
     class GenerateKeys
     {
-        private int j;
-        private int[] L, H;
+        private readonly int[] _l = { };
+        private readonly int[] _h = { };
 
-        public String ProduceKeys(int n)
+        public string ProduceKeys(int n)
 
         {
             for (var i = 0; i<n; i++)
             {
-                H[i] = i;
+                _h[i] = i;
             }
             for (var i = 0; i < n; i++)
             {
-                var rnd = new Random();//hier muss noch ein eigener Algoithmus hin
+                var rnd = new Random();//hier kann noch ein eigener Algoithmus hin
                 var next = rnd.Next(1, n-1 + 1);
-                L[i] = H[next];
+                _l[i] = _h[next];
                 for (var j = next; j < n - i;j++)
                 {
-                    H[j] = H[j + 1];
+                    _h[j] = _h[j + 1];
                 }
             }
-            return L.ToString();
+            return _l.ToString();
         }
 
         public Dictionary<int, int> TableOfKeys = new Dictionary<int, int>();
     
-        public Dictionary<int, int> KeyTable(int numberOfSigns, String key)
+        public Dictionary<int, int> KeyTable(int numberOfSigns, string key)
         {
-            int[] intKey = new int[] {};
-            for (int i=0; i< key.ToCharArray().Length;i++)
+            int[] intKey = {};
+            for (var i=0; i< key.ToCharArray().Length;i++)
             {
-                intKey[i] = (int)key[i];
+                intKey[i] = key[i];
             }
-                for (int i = 1; i <= numberOfSigns; i++)
+                for (var i = 1; i <= numberOfSigns; i++)
                 {
                     TableOfKeys.Add(i, intKey[i]);
                 }

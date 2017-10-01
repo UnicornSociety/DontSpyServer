@@ -117,17 +117,66 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="AppRecource" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>AppRecource.resx;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  <data name="ChatOverview" xml:space="preserve">
+    <value>Chat Übersicht</value>
+    <comment>Titeling ChatOverviewPage</comment>
   </data>
-  <data name="AppRecource1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>AppRecource.resx;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  <data name="ConfirmButton" xml:space="preserve">
+    <value>Bestätigen</value>
+    <comment>Conforming password in DefinePasswordPage</comment>
   </data>
-  <data name="AppResources.de" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>AppResources.de.resx;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  <data name="Contacts" xml:space="preserve">
+    <value>Kontakte</value>
+    <comment>Titeling ContactPage</comment>
   </data>
-  <data name="ChatOverview	Chat Overview	Titeling ChatOverviewPage&#xD;&#xA;ConfirmButton	Confirm	Conforming password in DefinePasswordPage&#xD;&#xA;Contacts	Contacts	Titeling ContactPage&#xD;&#xA;EmailPlaceholder	Search by Email	Searching Contact by using Email in ContactPage&#xD;&#xA;EnterPasswordAgainPlaceholder	Enter password again	Entering password in DefinePasswordPage again&#xD;&#xA;EnterPasswordPlaceholder	Enter password	Entering password in DefinePasswordPage&#xD;&#xA;EnterValidationPlaceholder	Enter validation code	Entering PIN from Email&#xD;&#xA;FirstnamePlaceholder	Firstname	&#xD;&#xA;LoginPage	Login Page	Title of LoginPage&#xD;&#xA;LoginText	Login	Login advice in LoginPage&#xD;&#xA;NewChatButton	New Chat	New Group Button for ChatOverviewPage&#xD;&#xA;NewGroupButton	New Group	New Group Button for ChatOverviewPage&#xD;&#xA;RegisterText	Please register	Advise for user in RegistrationPage&#xD;&#xA;SendPinButton	Send PIN to my Email account	Sending PIN to Email&#xD;&#xA;SurnamePlaceholder	Surname	&#xD;&#xA;WelcomeText	Welcome to Modern Encryption" xml:space="preserve">
-    <value />
+  <data name="EmailPlaceholder" xml:space="preserve">
+    <value>Per E-Mail suchen</value>
+    <comment>Searching Contact by using Email in ContactPage</comment>
+  </data>
+  <data name="EnterPasswordAgainPlaceholder" xml:space="preserve">
+    <value>Passwort erneut eingeben</value>
+    <comment>Entering password in DefinePasswordPage again</comment>
+  </data>
+  <data name="EnterPasswordPlaceholder" xml:space="preserve">
+    <value>Bitte Passwort eingeben</value>
+    <comment>Entering password in DefinePasswordPage</comment>
+  </data>
+  <data name="EnterValidationPlaceholder" xml:space="preserve">
+    <value>Bitte Validierungscode eingeben</value>
+    <comment>Entering PIN from Email</comment>
+  </data>
+  <data name="FirstnamePlaceholder" xml:space="preserve">
+    <value>Vorname</value>
+  </data>
+  <data name="LoginPage" xml:space="preserve">
+    <value>Login Seite</value>
+    <comment>Title of LoginPage</comment>
+  </data>
+  <data name="LoginText" xml:space="preserve">
+    <value>Login</value>
+    <comment>Login advice in LoginPage</comment>
+  </data>
+  <data name="NewChatButton" xml:space="preserve">
+    <value>Neuer Chat</value>
+    <comment>New Group Button for ChatOverviewPage</comment>
+  </data>
+  <data name="NewGroupButton" xml:space="preserve">
+    <value>Neue Gruppe</value>
+    <comment>New Group Button for ChatOverviewPage</comment>
+  </data>
+  <data name="RegisterText" xml:space="preserve">
+    <value>Bitte registrieren Sie sich</value>
+    <comment>Advise for user in RegistrationPage</comment>
+  </data>
+  <data name="SendPinButton" xml:space="preserve">
+    <value>PIN zu meiner E-Mail Adresse senden</value>
+    <comment>Sending PIN to Email</comment>
+  </data>
+  <data name="SurnamePlaceholder" xml:space="preserve">
+    <value>Nachname</value>
+  </data>
+  <data name="WelcomeText" xml:space="preserve">
+    <value>Willkommen zu Modern Encryption</value>
+    <comment>Title of RegistrationPage</comment>
   </data>
 </root>
