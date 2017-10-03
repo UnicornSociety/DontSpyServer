@@ -4,12 +4,12 @@
             xmlns:local="clr-namespace:ModernEncryption.Presentation.View;assembly=ModernEncryption"
             x:Class="ModernEncryption.Presentation.View.AnchorPage">
 
-    <NavigationPage Title="Chat overview" Icon="{Binding Icon}" >
+    <NavigationPage  Icon="chat.png" Title="Chat Overview" >
         <x:Arguments>
             <local:ChatOverviewPage />
         </x:Arguments>
     </NavigationPage>
-    <NavigationPage Title="Contacts" Icon="{Binding Icon}">
+    <NavigationPage Icon="contact.png" Title="Contacts">
         <x:Arguments>
             <local:ContactPage />
         </x:Arguments>
