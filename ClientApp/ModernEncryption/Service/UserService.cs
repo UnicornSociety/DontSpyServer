@@ -51,6 +51,9 @@ namespace ModernEncryption.Service
                 var voucherCode = new VoucherCode(user);
                 voucherCode.SendVoucherCode();
 
+                // TODO: Save user in User-Table (local db)
+                // TODO: Create CrossSecureStorage field with key 'userId' and the id of the user as value
+
                 return true;
             }
 
@@ -66,8 +69,8 @@ namespace ModernEncryption.Service
         {
             var voucher = Convert.ToInt32(CrossSecureStorage.Current.GetValue("Voucher", "-1"));
             var voucherTimestamp = Convert.ToInt32(CrossSecureStorage.Current.GetValue("VoucherTimestamp", "-1"));
-            Int32 CurrentVoucherTimestamp = (Int32) (DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
-            if (voucherTimestamp > CurrentVoucherTimestamp) return false;
+            var currentVoucherTimestamp = (int) DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
+            if (voucherTimestamp > currentVoucherTimestamp) return false;
             if (voucher != userVoucher) return false;
             CrossSecureStorage.Current.DeleteKey("VoucherTimestamp");
             CrossSecureStorage.Current.DeleteKey("Voucher");

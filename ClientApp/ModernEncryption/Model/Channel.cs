@@ -1,15 +1,19 @@
 ﻿using System.Collections.Generic;
 using ModernEncryption.BusinessLogic.Crypto;
 using ModernEncryption.Interfaces;
+using ModernEncryption.Presentation.View;
 using Plugin.SecureStorage;
 using SQLite.Net.Attributes;
 using SQLiteNetExtensions.Attributes;
+using Xamarin.Forms;
 
 namespace ModernEncryption.Model
 {
     [Table("Channel")]
     public class Channel : IEntity
     {
+        private Dictionary<int, int> _keyTable;
+
         [PrimaryKey]
         public int Id { get; set; }
 
@@ -21,29 +25,33 @@ namespace ModernEncryption.Model
 
         public GroupIndicator ChannelType { get; set; }
 
-        public int KeyReference { get; set; }
-        
-        private Dictionary<int, int> _keyTable = null;
+        private int _keyReference = -1;
+
+        public int KeyReference
+        {
+            get { return _keyReference; }
+            set
+            {
+                ChannelPage = new ChatPage(this);
+            }
+        }
+
+        [Ignore]
+        public Page ChannelPage { get; private set; } = null; // TODO: Instead of null, set a new Page of the page in which user enter the key
+
         [Ignore]
         public Dictionary<int, int> KeyTable
         {
             get
             {
-                if (_keyTable != null)
-                {
-                    return _keyTable;
-                }
-                GenerateKeys keyTableGenerator = new GenerateKeys();
+                if (KeyReference.Equals(-1)) return null;
+                if (_keyTable != null) return _keyTable;
+
+                var keyTableGenerator = new GenerateKeys();
                 _keyTable = keyTableGenerator.KeyTable(1600, CrossSecureStorage.Current.GetValue(KeyReference.ToString()));
                 return _keyTable;
             }
         }
-
-
-
-
-
-
 
         public enum GroupIndicator
         {
@@ -53,34 +61,12 @@ namespace ModernEncryption.Model
         public Channel()
         {
         }
-         
+
         public Channel(int id, List<User> members, GroupIndicator channelType)
         {
             Id = id;
             Members = members;
             ChannelType = channelType;
-            KeyReference = CreateKey();
-        }
-
-        private int CreateKey()
-        {
-            var generateKey = new GenerateKeys();
-            var key = generateKey.ProduceKeys(1600);
-            var numberKey = 1;
-            if (CrossSecureStorage.Current.HasKey("Number"))
-            {
-                var number = CrossSecureStorage.Current.GetValue("Number");
-                numberKey = int.Parse(number);
-                numberKey++;
-                CrossSecureStorage.Current.SetValue("Number", numberKey.ToString());
-            }
-            else
-            {
-                CrossSecureStorage.Current.SetValue("Number", "1");
-            }
-
-            CrossSecureStorage.Current.SetValue(numberKey.ToString(), key);
-            return numberKey;
         }
     }
 }

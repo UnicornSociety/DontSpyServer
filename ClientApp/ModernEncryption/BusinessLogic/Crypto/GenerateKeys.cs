@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using Plugin.SecureStorage;
 
 namespace ModernEncryption.BusinessLogic.Crypto
 {
-    class GenerateKeys
+    internal class GenerateKeys
     {
         private readonly int[] _l = { };
         private readonly int[] _h = { };
@@ -43,6 +44,27 @@ namespace ModernEncryption.BusinessLogic.Crypto
                 }
 
         return TableOfKeys;
+        }
+
+        public int CreateKey()
+        {
+            var generateKey = new GenerateKeys();
+            var key = generateKey.ProduceKeys(1600);
+            var numberKey = 1;
+            if (CrossSecureStorage.Current.HasKey("Number"))
+            {
+                var number = CrossSecureStorage.Current.GetValue("Number");
+                numberKey = int.Parse(number);
+                numberKey++;
+                CrossSecureStorage.Current.SetValue("Number", numberKey.ToString());
+            }
+            else
+            {
+                CrossSecureStorage.Current.SetValue("Number", "1");
+            }
+
+            CrossSecureStorage.Current.SetValue(numberKey.ToString(), key);
+            return numberKey;
         }
     }
     

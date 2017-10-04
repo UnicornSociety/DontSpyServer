@@ -51,7 +51,7 @@ namespace ModernEncryption
             }*/
 
             // Input -> Encryption -> Send to server
-            var plainMessage = new DecryptedMessage("krypto", 1, 23535); // Incoming from View: DecryptedMessage obj which is validated
+            var plainMessage = new DecryptedMessage("krypto", "1", 23535); // Incoming from View: DecryptedMessage obj which is validated
             IEncrypt encryptionLogic = new EncryptionLogic(plainMessage);
             IMessage encryptedMessage = encryptionLogic.Encrypt();
             IMessageService messageService = new MessageService();

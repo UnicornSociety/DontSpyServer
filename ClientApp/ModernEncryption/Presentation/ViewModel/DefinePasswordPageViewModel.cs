@@ -20,7 +20,7 @@ namespace ModernEncryption.Presentation.ViewModel
             CheckPasswordCommand = new Command<object>(param =>
             {
                 var userService = new UserService();
-                var voucherCode = Int32.Parse(_view.FindByName<Entry>("VoucherCode").Text);
+                var voucherCode = int.Parse(_view.FindByName<Entry>("VoucherCode").Text);
                 if (userService.ValidateVoucherCode(voucherCode))
                 {
                     CrossSecureStorage.Current.SetValue("VoucherProcess", "1");

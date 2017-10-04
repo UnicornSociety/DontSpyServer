@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows.Input;
+using ModernEncryption.BusinessLogic.Crypto;
 using ModernEncryption.Interfaces;
 using ModernEncryption.Model;
 using ModernEncryption.Presentation.View;
@@ -43,7 +44,7 @@ namespace ModernEncryption.Presentation.ViewModel
 
             TabbedContactCommand = new Command<object>(param =>
             {
-                var user = (User) param;
+                var user = (User)param;
 
                 // DEBUGGING: Creating a channel
                 /*var channel = new Channel(43, new List<User> { user }, Channel.GroupIndicator.Single);
@@ -76,9 +77,13 @@ namespace ModernEncryption.Presentation.ViewModel
                 }
                 else
                 {
-                    var channel = new Channel(user.Id+channelIdPart,new List<User>{ user}, Channel.GroupIndicator.Single);
+                    var channel = new Channel(user.Id + channelIdPart, new List<User> { user },
+                        Channel.GroupIndicator.Single)
+                    {
+                        KeyReference = new GenerateKeys().CreateKey()
+                    };
                     Database.InsertWithChildren(channel);
-                    _view.Navigation.PushAsync(new ChatPage(channel));
+                    _view.Navigation.PushAsync(channel.ChannelPage);
                 }
             });
         }

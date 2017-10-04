@@ -12,44 +12,45 @@ using Xamarin.Forms;
 
 namespace ModernEncryption.Service
 {
-    class RequestorService : IRequestorService
+    internal class RequestorService : IRequestorService
     {
+        private readonly IMessageService _messageService;
         private SQLiteConnection Database { get; } = DependencyService.Get<IStorage>().GetConnection();
+
+
+        public RequestorService()
+        {
+            _messageService = new MessageService();
+        }
 
         public async void Start()
         {
-            
+            // TODO: Get the id of the user (me), by calling CrossSecureStorage with key "userId" and take it as parameter (PullMessagesByUserId)
+            PullMessagesByUserId(); // TODO: Call every X seconds
+            PullMessagesByExistingChannel(); // TODO: Call every X seconds
         }
 
+        /* Messages with channelId == userId are new PullRequests */
         private void PullMessagesByUserId(int userId)
         {
-            // Get from Server -> Decryption -> Output
-            IMessageService messageService = new MessageService();
-            var encryptedMessages = messageService.GetMessage(userId).Result;
+            foreach (var message in _messageService.GetMessage(userId).Result)
+            {
+                var senderSplit = message.Sender.Split(';');
+                var sender = senderSplit[0];
+                var channelId = int.Parse(senderSplit[1]);
+                var groupIndicator = senderSplit[2] == "true" ? Channel.GroupIndicator.Group : Channel.GroupIndicator.Single;
+
+                var user = Database.GetWithChildren<User>(sender); // TODO: If null, add User to local database and recall to get the user
+                var channel = new Channel(channelId, new List<User> { user }, groupIndicator);
+                channel.Messages.Add(message);
+                Database.InsertWithChildren(channel);
+                // TODO: Add Channel to ObservableCollection of ChatOverviewPageViewModel
+            }
         }
 
-        private Channel GetChannel(Message message)
+        private void PullMessagesByExistingChannel()
         {
-            var result = Database.GetAllWithChildren<Channel>(c => c.Id == message.Channel);
-            if (result.Count > 0)
-            {
-                return Database.GetWithChildren<Channel>(result[0]);
-            }
-            var senderString = message.Sender;
-            var senderSplit = senderString.Split(';');
-            var user = Database.GetWithChildren<User>(senderSplit[0]);
-            //TODO user abspeichern wenn noch nicht da entspricht hoffentlichn null als rückgabe
-            var channel = new Channel(Int32.Parse(senderSplit[1]), new List<User> { user }, Channel.GroupIndicator.Single);
-            Database.InsertWithChildren(channel);
-        }
-
-        private void DecryptMessages(List<EncryptedMessage> encryptedMessages)
-        {
-            foreach (var message in encryptedMessages)
-            {
-                IDecrypt decryptionLogic = new DecryptionLogic(message);
-                Debug.WriteLine(decryptionLogic.Decrypt().Text);//TODO wenns funktioniert die Zeile löschen
-            }
+            // TODO: Get all Channels from DB and pull with channelId
         }
     }
 }
