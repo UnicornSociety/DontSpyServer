@@ -7,6 +7,8 @@ using ModernEncryption.Interfaces;
 using ModernEncryption.Model;
 using ModernEncryption.Presentation.View;
 using ModernEncryption.Service;
+using Org.BouncyCastle.Utilities;
+using Plugin.SecureStorage;
 using SQLite.Net;
 using SQLiteNetExtensions.Extensions;
 using Xamarin.Forms;
@@ -44,23 +46,40 @@ namespace ModernEncryption.Presentation.ViewModel
                 var user = (User) param;
 
                 // DEBUGGING: Creating a channel
-                var channel = new Channel(43, new List<User> { user });
+                /*var channel = new Channel(43, new List<User> { user }, Channel.GroupIndicator.Single);
                 Database.InsertWithChildren(channel);
 
                 var xy1 = Database.GetWithChildren<User>(user.Id);
                 var xy2 = Database.GetWithChildren<Channel>(channel.Id);
                 // var result = Database.GetAllWithChildren<Channel>(x => x.Members.Contains(user));
-                // DEBUGGING END
+                // DEBUGGING END*/
 
-                /*var channelOpened = Database.Query<Channel>("SELECT * FROM channel WHERE members='" + user.Id + "'"); //muss noch so machen das Grupppen wo auch der user drin ist nicht gezählt werden
-                if (channelOpened.Count > 0)
+                var Result = Database.GetAllWithChildren<Channel>(c => c.Members.Contains(user) && c.ChannelType == Channel.GroupIndicator.Single); //muss noch so machen das Grupppen wo auch der user drin ist nicht gezählt werden
+
+                int channelIdPart = 1;
+                if (CrossSecureStorage.Current.HasKey("channelID"))
                 {
-                    _view.Navigation.PushAsync(new ChatPage(channelOpened[0]));//channel casten
+                    var channelId = CrossSecureStorage.Current.GetValue("channelID");
+                    channelIdPart = int.Parse(channelId);
+                    channelIdPart++;
+                    CrossSecureStorage.Current.SetValue(channelId, channelIdPart.ToString());
                 }
                 else
                 {
-                    
-                }*/
+                    CrossSecureStorage.Current.SetValue("channelID", "1");
+                }
+
+
+                if (Result.Count > 0)
+                {
+                    _view.Navigation.PushAsync(new ChatPage(Result[0]));//channel casten
+                }
+                else
+                {
+                    var channel = new Channel(user.Id+channelIdPart,new List<User>{ user}, Channel.GroupIndicator.Single);
+                    Database.InsertWithChildren(channel);
+                    _view.Navigation.PushAsync(new ChatPage(channel));
+                }
             });
         }
 

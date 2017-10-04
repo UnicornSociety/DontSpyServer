@@ -6,12 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Translation\AppRecource.Designer.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Remove="Translation\AppRecource.resx" />
-    <EmbeddedResource Remove="Translation\AppResources.de.resx" />
+    <Compile Remove="Presentation\View\NewGroupPage.xaml.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,6 +16,7 @@
     <None Remove="Presentation\View\ContactPage.xaml" />
     <None Remove="Presentation\View\DefinePasswordPage.xaml" />
     <None Remove="Presentation\View\LoginPage.xaml" />
+    <None Remove="Presentation\View\NewGroupPage.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -68,7 +64,21 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Translation\" />
+    <Compile Update="Translation\AppResource.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AppResource.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Translation\AppResource.de.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Translation\AppResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

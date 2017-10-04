@@ -32,17 +32,18 @@ CREATE TABLE `message` (
   `timestamp` int(11) NOT NULL,
   `sender` int(11) NOT NULL,
   `receiver` int(11) NOT NULL,
-  `keyNumber` int(11) NOT NULL
+  `keyNumber` int(11) NOT NULL,
+  `channel` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Daten für Tabelle `message`
 --
 
-INSERT INTO `message` (`id`, `message`, `timestamp`, `sender`, `receiver`, `keyNumber`) VALUES
-(1, 'qzxwg8w5dfwg', 1500639171, 1, 2, 4),
-(2, 'q2yug8w9d9wu', 1500639171, 2, 1, 2),
-(3, 'q1ypg8w8d5ws', 1500639171, 1, 2, 3);
+INSERT INTO `message` (`id`, `message`, `timestamp`, `sender`, `receiver`, `keyNumber`, `channel`) VALUES
+(1, 'qzxwg8w5dfwg', 1500639171, 1, 2, 4, 1),
+(2, 'q2yug8w9d9wu', 1500639171, 2, 1, 2, 2),
+(3, 'q1ypg8w8d5ws', 1500639171, 1, 2, 3, 1);
 
 -- --------------------------------------------------------
 
