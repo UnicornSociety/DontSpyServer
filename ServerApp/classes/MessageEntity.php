@@ -32,6 +32,7 @@ class MessageEntity implements JsonSerializable
     }
     public function getChannel()
     {
+      print_r($this->$channel);
         return $this->channel;
     }
     public function jsonSerialize()
