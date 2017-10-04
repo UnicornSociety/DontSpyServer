@@ -37,51 +37,8 @@ namespace ModernEncryption.Presentation.ViewModel
 
             Messages = new ObservableCollection<Message>();
 
-            Messages.Add(new Message(5, 6, 7, 8));
-            Messages.Add(new Message(1, 6, 2, 3));
-            Messages.Add(new Message(12, 6, 23, 34));
-            Messages.Add(new Message(7, 45, 56, 67));
-            Messages.Add(new Message(89, 45, 67, 78));
-            Messages.Add(new Message(5, 6, 7, 8));
-            Messages.Add(new Message(1, 6, 2, 3));
-            Messages.Add(new Message(12, 6, 23, 34));
-            Messages.Add(new Message(7, 45, 56, 67));
-            Messages.Add(new Message(89, 45, 67, 78));
-            Messages.Add(new Message(5, 6, 7, 8));
-            Messages.Add(new Message(1, 6, 2, 3));
-            Messages.Add(new Message(12, 6, 23, 34));
-            Messages.Add(new Message(7, 45, 56, 67));
-            Messages.Add(new Message(89, 45, 67, 78));
-            Messages.Add(new Message(5, 6, 7, 8));
-            Messages.Add(new Message(1, 6, 2, 3));
-            Messages.Add(new Message(12, 6, 23, 34));
-            Messages.Add(new Message(7, 45, 56, 67));
-            Messages.Add(new Message(89, 45, 67, 78));
-            Messages.Add(new Message(5, 6, 7, 8));
-            Messages.Add(new Message(1, 6, 2, 3));
-            Messages.Add(new Message(12, 6, 23, 34));
-            Messages.Add(new Message(7, 45, 56, 67));
-            Messages.Add(new Message(89, 45, 67, 78));
-            Messages.Add(new Message(5, 6, 7, 8));
-            Messages.Add(new Message(1, 6, 2, 3));
-            Messages.Add(new Message(12, 6, 23, 34));
-            Messages.Add(new Message(7, 45, 56, 67));
-            Messages.Add(new Message(89, 45, 67, 78));
-            Messages.Add(new Message(5, 6, 7, 8));
-            Messages.Add(new Message(1, 6, 2, 3));
-            Messages.Add(new Message(12, 6, 23, 34));
-            Messages.Add(new Message(7, 45, 56, 67));
-            Messages.Add(new Message(89, 45, 67, 78));
-            Messages.Add(new Message(5, 6, 7, 8));
-            Messages.Add(new Message(1, 6, 2, 3));
-            Messages.Add(new Message(12, 6, 23, 34));
-            Messages.Add(new Message(7, 45, 56, 67));
-            Messages.Add(new Message(89, 45, 67, 78));
-            Messages.Add(new Message(5, 6, 7, 8));
-            Messages.Add(new Message(1, 6, 2, 3));
-            Messages.Add(new Message(12, 6, 23, 34));
-            Messages.Add(new Message(7, 45, 56, 67));
-            Messages.Add(new Message(89, 45, 67, 78));
+            Messages.Add(new Message(5, 6));
+            Messages.Add(new Message(1, 6));
         }
 
         public void SetView(ChatOverviewPage view)

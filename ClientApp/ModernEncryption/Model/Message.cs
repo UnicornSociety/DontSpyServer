@@ -6,22 +6,16 @@ namespace ModernEncryption.Model
     public class Message
     {
         [JsonProperty(PropertyName = "sender")]
-        public int Sender { get; }
-        [JsonProperty(PropertyName = "keyNumber")]
-        public int KeyNumber { get; }
+        public string Sender { get; }
         [JsonProperty(PropertyName = "timestamp")]
         public int Timestamp { get; }
-        [JsonProperty(PropertyName = "receiver")]
-        public int Receiver { get; }
-        [ForeignKey(typeof(Channel)), JsonIgnore]
-        public int ChannelId{get; set; }
+        [ForeignKey(typeof(Channel)), JsonProperty(PropertyName = "channel")]
+        public int Channel{get; set; }
 
-        public Message(int sender, int keyNumber, int timestamp, int receiver)
+        public Message(string sender, int timestamp)
         {
             Sender = sender;
-            KeyNumber = keyNumber;
             Timestamp = timestamp;
-            Receiver = receiver;
         }
     }
 }

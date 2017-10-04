@@ -9,12 +9,12 @@ namespace ModernEncryption.Model
         public string Text { get; }
 
         [JsonConstructor]
-        public EncryptedMessage(string text, int sender, int keyNumber, int timestamp, int receiver) : base(sender, keyNumber, timestamp, receiver)
+        public EncryptedMessage(string text, string sender, int timestamp) : base(sender, timestamp)
         {
             Text = text;
         }
 
-        public EncryptedMessage(string text, DecryptedMessage decryptedMessage) : base(decryptedMessage.Sender, decryptedMessage.KeyNumber, decryptedMessage.Timestamp, decryptedMessage.Receiver)
+        public EncryptedMessage(string text, DecryptedMessage decryptedMessage) : base(decryptedMessage.Sender, decryptedMessage.Timestamp)
         {
             Text = text;
         }

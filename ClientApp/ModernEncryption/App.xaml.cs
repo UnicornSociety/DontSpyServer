@@ -25,11 +25,14 @@ namespace ModernEncryption
 
             var mml = new MathematicalMappingLogic();
             mml.InitalizeIntervalTable();
-            mml.InitializeKeyTable();
             mml.InitalizeTransformationTable();
 
             // Create reverse table for the transformation table
             MathematicalMappingLogic.BackTransformationTable = MathematicalMappingLogic.TransformationTable.ToDictionary(x => x.Value, x => x.Key);
+
+            //Start polling messages
+            IRequestorService RequestorService = new RequestorService();
+            RequestorService.Start();
 
             // DEBUGGING START
             CrossSecureStorage.Current.DeleteKey("RegistrationProcess");
@@ -48,20 +51,12 @@ namespace ModernEncryption
             }*/
 
             // Input -> Encryption -> Send to server
-            var plainMessage = new DecryptedMessage("krypto", 1, 2, 23535, 3); // Incoming from View: DecryptedMessage obj which is validated
+            var plainMessage = new DecryptedMessage("krypto", 1, 23535); // Incoming from View: DecryptedMessage obj which is validated
             IEncrypt encryptionLogic = new EncryptionLogic(plainMessage);
             IMessage encryptedMessage = encryptionLogic.Encrypt();
             IMessageService messageService = new MessageService();
             messageService.SendMessage(encryptedMessage);
             
-            // Get from Server -> Decryption -> Output
-            IMessageService messageService2 = new MessageService();
-            /*var encryptedMessages = messageService2.GetMessage(3).Result; // Incoming from internal drive
-            foreach (var message in encryptedMessages)
-            {
-                IDecrypt decryptionLogic = new DecryptionLogic(message);
-                Debug.WriteLine(decryptionLogic.Decrypt().Text);
-            }*/
         }
 
         protected override void OnStart()

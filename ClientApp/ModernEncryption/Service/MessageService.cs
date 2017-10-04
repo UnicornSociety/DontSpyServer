@@ -19,10 +19,10 @@ namespace ModernEncryption.Service
             _client = new HttpClient {MaxResponseContentBufferSize = 256000};
         }
 
-        public async Task<List<EncryptedMessage>> GetMessage(int userId) {
+        public async Task<List<EncryptedMessage>> GetMessage(int channelId) {
             var items = new List<EncryptedMessage>();
 
-            var uri = new Uri(string.Format(Constants.RestUrlGetMessage, userId));
+            var uri = new Uri(string.Format(Constants.RestUrlGetMessage, channelId));
             var response = await _client.GetAsync(uri).ConfigureAwait(false);
             if (response.IsSuccessStatusCode) {
                 var content = await response.Content.ReadAsStringAsync();

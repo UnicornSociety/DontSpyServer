@@ -22,11 +22,28 @@ namespace ModernEncryption.Model
         public GroupIndicator ChannelType { get; set; }
 
         public int KeyReference { get; set; }
-
         
+        private Dictionary<int, int> _keyTable = null;
+        [Ignore]
+        public Dictionary<int, int> KeyTable
+        {
+            get
+            {
+                if (_keyTable != null)
+                {
+                    return _keyTable;
+                }
+                GenerateKeys keyTableGenerator = new GenerateKeys();
+                _keyTable = keyTableGenerator.KeyTable(1600, CrossSecureStorage.Current.GetValue(KeyReference.ToString()));
+                return _keyTable;
+            }
+        }
 
-        
-          
+
+
+
+
+
 
         public enum GroupIndicator
         {

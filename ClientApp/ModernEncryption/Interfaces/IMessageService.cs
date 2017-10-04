@@ -6,7 +6,7 @@ namespace ModernEncryption.Interfaces
 {
     internal interface IMessageService
     {
-        Task<List<EncryptedMessage>> GetMessage(int userId);
+        Task<List<EncryptedMessage>> GetMessage(int channelId);
         Task<bool> SendMessage(IMessage message);
     }
 }
