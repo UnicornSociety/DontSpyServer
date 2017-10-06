@@ -4,11 +4,13 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using ModernEncryption.BusinessLogic.UserManagement;
+using ModernEncryption.DataAccess;
 using ModernEncryption.Interfaces;
 using ModernEncryption.Model;
 using Newtonsoft.Json;
 using Org.BouncyCastle.Crypto;
 using Plugin.SecureStorage;
+using Xamarin.Forms;
 
 namespace ModernEncryption.Service
 {
@@ -50,6 +52,8 @@ namespace ModernEncryption.Service
 
                 var voucherCode = new VoucherCode(user);
                 voucherCode.SendVoucherCode();
+
+                CrossSecureStorage.Current.SetValue("userId", user.Email);
 
                 // TODO: Save user in User-Table (local db)
                 // TODO: Create CrossSecureStorage field with key 'userId' and the id of the user as value

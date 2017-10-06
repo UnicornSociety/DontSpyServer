@@ -6,6 +6,7 @@ using ModernEncryption.Interfaces;
 using System.Threading;
 using ModernEncryption.BusinessLogic.Crypto;
 using ModernEncryption.Model;
+using Plugin.SecureStorage;
 using SQLite.Net;
 using SQLiteNetExtensions.Extensions;
 using Xamarin.Forms;
@@ -25,8 +26,8 @@ namespace ModernEncryption.Service
 
         public async void Start()
         {
-            // TODO: Get the id of the user (me), by calling CrossSecureStorage with key "userId" and take it as parameter (PullMessagesByUserId)
-            PullMessagesByUserId(); // TODO: Call every X seconds
+            var userId = CrossSecureStorage.Current.GetValue("userId");
+            PullMessagesByUserId(int.Parse(userId)); // TODO: Call every X seconds
             PullMessagesByExistingChannel(); // TODO: Call every X seconds
         }
 

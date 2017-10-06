@@ -37,8 +37,8 @@ namespace ModernEncryption.Presentation.ViewModel
 
             Messages = new ObservableCollection<Message>();
 
-            Messages.Add(new Message(5, 6));
-            Messages.Add(new Message(1, 6));
+            Messages.Add(new Message("5", 6));
+            Messages.Add(new Message("1", 6));
         }
 
         public void SetView(ChatOverviewPage view)
