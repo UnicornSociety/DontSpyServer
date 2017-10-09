@@ -53,7 +53,7 @@ namespace ModernEncryption.Service
                 var voucherCode = new VoucherCode(user);
                 voucherCode.SendVoucherCode();
 
-                CrossSecureStorage.Current.SetValue("userId", user.Email);
+                CrossSecureStorage.Current.SetValue("userId", user.Id.ToString());
 
                 // TODO: Save user in User-Table (local db)
                 // TODO: Create CrossSecureStorage field with key 'userId' and the id of the user as value
