@@ -6,12 +6,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Presentation\View\NewGroupPage.xaml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="App.xaml" />
     <None Remove="Presentation\View\AnchorPage.xaml" />
     <None Remove="Presentation\View\ChatPage.xaml" />
     <None Remove="Presentation\View\ContactPage.xaml" />
     <None Remove="Presentation\View\DefinePasswordPage.xaml" />
+    <None Remove="Presentation\View\EnterKeyPage.xaml" />
     <None Remove="Presentation\View\LoginPage.xaml" />
+    <None Remove="Presentation\View\NewGroupPage.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,6 +37,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\View\DefinePasswordPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\View\EnterKeyPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\View\LoginPage.xaml">

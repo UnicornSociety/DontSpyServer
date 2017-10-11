@@ -98,6 +98,15 @@ namespace ModernEncryption.Translation {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Please enter your key. ähnelt.
+        /// </summary>
+        public static string EnterKeyText {
+            get {
+                return ResourceManager.GetString("EnterKeyText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Enter password again ähnelt.
         /// </summary>
         public static string EnterPasswordAgainPlaceholder {
