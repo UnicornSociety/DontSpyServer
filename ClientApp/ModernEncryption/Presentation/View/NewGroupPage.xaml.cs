@@ -9,15 +9,15 @@ namespace ModernEncryption.Presentation.View
     public partial class NewGroupPage : ContentPage
     {
 
-        public NewGroupPage ContactPageViewModel { get; set; }
+        public ContactPageViewModel ContactPageViewModel { get; set; }
 
-        public NewGroupPage(NewGroupPage viewModel)
+        public NewGroupPage(ContactPageViewModel viewModel)
         {
             ContactPageViewModel = viewModel;
 
             InitializeComponent();
 
-            viewModel.SetView(ContactPageViewModel);
+            viewModel.SetView(this);
             BindingContext = viewModel;
         }
 
