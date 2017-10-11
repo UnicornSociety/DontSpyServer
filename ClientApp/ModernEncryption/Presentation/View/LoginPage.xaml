@@ -2,10 +2,12 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ModernEncryption.Presentation.View.LoginPage"
-             Title="{Binding Title}">
+             Title="{Binding Title}"
+             xmlns:i18n="clr-namespace:UsingResxLocalization;assembly=UsingResxLocalization">
+
 
     <StackLayout HorizontalOptions="Center" VerticalOptions="Start">
-        <Label Text="Welcome to Modern Encryption" FontSize="45"></Label>
+        <Label Text="{WelcomeText}" FontSize="45"></Label> <!--TODO: ist das so korrekt?-->
         <StackLayout VerticalOptions="FillAndExpand">
             <Entry IsPassword="true" Placeholder="PIN"/>
             <Button Text="Confirm"/>

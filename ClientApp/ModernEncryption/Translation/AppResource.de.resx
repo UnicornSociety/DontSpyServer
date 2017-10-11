@@ -133,6 +133,9 @@
     <value>Per E-Mail suchen</value>
     <comment>Searching Contact by using Email in ContactPage</comment>
   </data>
+  <data name="EnterKeyText" xml:space="preserve">
+    <value>Bitte den Schlüssel eingeben.</value>
+  </data>
   <data name="EnterPasswordAgainPlaceholder" xml:space="preserve">
     <value>Passwort erneut eingeben</value>
     <comment>Entering password in DefinePasswordPage again</comment>
