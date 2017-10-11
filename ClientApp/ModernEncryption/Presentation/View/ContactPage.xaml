@@ -13,10 +13,10 @@
     </ContentPage.Resources>
 
     <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start">
-        <Label Text="Contacts" FontSize="30" TextColor="White"  BackgroundColor="Green" HorizontalTextAlignment="Center" ></Label>
 
         <ListView ItemsSource="{Binding Contacts}">
-            <ListView.Behaviors>
+            
+           <ListView.Behaviors>
                 <behavior:EventToCommandBehavior EventName="ItemTapped" Command="{Binding TabbedContactCommand}" Converter="{StaticResource ItemTappedConverter}" />
             </ListView.Behaviors>
 
@@ -24,16 +24,14 @@
                 <StackLayout>
                     <SearchBar x:Name="email" Placeholder="Email" HorizontalTextAlignment="Center" BackgroundColor="White" SearchCommand="{Binding AddContactViaEmailCommand}" />
                 </StackLayout>
-                
             </ListView.Header>
             
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout Orientation="Vertical">
-                            <StackLayout Orientation="Horizontal" BackgroundColor="#0000ff">
-                                <!--<CheckBox x:Name = "cb1"   Content = "ContactSelection"  Checked = "HandleCheck"  Unchecked = "HandleUnchecked"  Margin = "10" />-->
-                                <Label Text="{Binding Surname}" BackgroundColor="#f35e20" />
+                        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Horizontal" BackgroundColor="#ff00ff">
+                                <Label Text="Max Mustermann" BackgroundColor="#f35e20" />
                             </StackLayout>
                         </StackLayout>
                     </ViewCell>

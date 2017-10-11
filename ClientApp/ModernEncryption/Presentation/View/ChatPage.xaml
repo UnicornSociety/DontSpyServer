@@ -5,14 +5,34 @@
              Title="{Binding Title}">
     
     <StackLayout VerticalOptions="FillAndExpand">
-        
-    <StackLayout  VerticalOptions="Start">
-            <Button Text="zurück" HorizontalOptions="Start" VerticalOptions="Start"  BackgroundColor="White"  BorderColor="Gray" Command="{Binding BackToChatOverviewPageCommand}"></Button>
-            <Label Text="Petra Fischer" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="20" TextColor="White"  BackgroundColor="Green"></Label>
-    </StackLayout>
+        <ListView x:Name="listView" ItemsSource="{Binding Messages}" >
 
-        
-           <!-- <Frame OutlineColor="Gray" HasShadow="True" HorizontalOptions="Start" VerticalOptions="Start">
+            <ListView.Header>
+                <StackLayout>
+                    <Label Text="Petra Fischer" HorizontalTextAlignment="Center"/>
+                </StackLayout>
+            </ListView.Header>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                            
+                            <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="#fff">
+                                <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                                    <Label Text="Max" Font="Bold"  BackgroundColor="#fff" />
+                                    <Label Text="Mustermann" Font="Bold"  BackgroundColor="#fff" />
+                                    <Label Text="12:34 1.2.3456" HorizontalOptions="EndAndExpand"/>
+                                </StackLayout>
+                                <Label Text="Nachricht bla bla" BackgroundColor="#fff" />
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <!-- <Frame OutlineColor="Gray" HasShadow="True" HorizontalOptions="Start" VerticalOptions="Start">
                 <Label Text="Nachricht 1"></Label>
             </Frame>-->
 

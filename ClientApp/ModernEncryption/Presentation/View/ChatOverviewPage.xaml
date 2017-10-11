@@ -8,15 +8,16 @@
     
     <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start">
 
-        <!--<Label Text="Chatübersicht" FontSize="30" TextColor="White"  BackgroundColor="Green" HorizontalTextAlignment="Center" ></Label>-->
-
+       
+       <!-- <Entry Placeholder="Search"   HorizontalTextAlignment="Center" />-->
+        
         <ListView x:Name="listView" ItemsSource="{Binding Messages}" >
    
                 <ListView.Header>
                    <!-- <controls:ScrollHeader Mode="Sticky" TargetListViewBase="{x:Bind listView}">-->
                 <StackLayout Orientation="Horizontal">
-                    <Button Text="New Chat" HorizontalOptions="FillAndExpand" Command ="{Binding NewChatCommand}"></Button>
-                    <Button Text="New Group" HorizontalOptions="FillAndExpand" Command ="{Binding NewGroupChatCommand}"></Button>
+                    <Button Text="New Chat" HorizontalOptions="FillAndExpand" Command ="{Binding NewChatCommand}"   TextColor="Black" BorderRadius="0"></Button>
+                    <Button Text="New Group" HorizontalOptions="FillAndExpand" Command ="{Binding NewGroupChatCommand}" TextColor="Black" BorderRadius="0"></Button>
                 </StackLayout>
                 <!--  </controls:ScrollHeader>-->
             </ListView.Header>
@@ -27,8 +28,7 @@
                         <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
                             <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" HorizontalOptions="Start" BackgroundColor="#fff">
                                 <Image Source="{local:ImageResource ModernEncryption.avatar.png}" Aspect=" AspectFit" HeightRequest ="50" VerticalOptions="CenterAndExpand" />
-                                    
-                                </StackLayout>
+                            </StackLayout>
                             <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="#fff">
                                 <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
                                     <Label Text="Max" Font="Bold"  BackgroundColor="#fff" />
