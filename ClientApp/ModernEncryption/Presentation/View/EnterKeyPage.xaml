@@ -4,7 +4,7 @@
              x:Class="ModernEncryption.Presentation.View.EnterKeyPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin Forms!" />
+            <Entry x:Name ="EnterKeyPlaceholder" Placeholder ="Please enter your key." />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

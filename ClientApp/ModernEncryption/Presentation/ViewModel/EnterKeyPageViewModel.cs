@@ -9,6 +9,7 @@ namespace ModernEncryption.Presentation.ViewModel
     class EnterKeyPageViewModel : INotifyPropertyChanged
     {
         public string Title { get; set; } = "EnterKeyPage";
+        public string Channel { get; set; }
         private EnterKeyPage _view;
 
         public void SetView(EnterKeyPage view)
