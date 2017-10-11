@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <None Remove="App.xaml" />
+    <None Remove="avatar.png" />
     <None Remove="Presentation\View\AnchorPage.xaml" />
     <None Remove="Presentation\View\ChatPage.xaml" />
     <None Remove="Presentation\View\ContactPage.xaml" />
@@ -24,6 +25,7 @@
     <EmbeddedResource Include="App.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="avatar.png" />
     <EmbeddedResource Include="Presentation\View\AnchorPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

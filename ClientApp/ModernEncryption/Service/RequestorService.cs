@@ -27,7 +27,7 @@ namespace ModernEncryption.Service
         public async void Start()
         {
             var userId = CrossSecureStorage.Current.GetValue("userId");
-            PullMessagesByUserId(int.Parse(userId)); // TODO: Call every X seconds
+            //PullMessagesByUserId(int.Parse(userId)); // TODO: Call every X seconds
             PullMessagesByExistingChannel(); // TODO: Call every X seconds
         }
 

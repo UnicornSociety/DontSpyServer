@@ -7,7 +7,7 @@
 
 
     <StackLayout HorizontalOptions="Center" VerticalOptions="Start">
-        <Label Text="{WelcomeText}" FontSize="45"></Label> <!--TODO: ist das so korrekt?-->
+        <Label Text="WelcomeText" FontSize="45"></Label> <!--TODO: ist das so korrekt?-->
         <StackLayout VerticalOptions="FillAndExpand">
             <Entry IsPassword="true" Placeholder="PIN"/>
             <Button Text="Confirm"/>

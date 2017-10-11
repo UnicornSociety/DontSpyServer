@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ModernEncryption.Presentation.View.ChatOverviewPage"
+             xmlns:local="clr-namespace:ModernEncryption.Utils;assembly=ModernEncryption"
              Title="{Binding Title}">
 
     
@@ -23,12 +24,20 @@
             <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Orientation="Vertical">
-                                <StackLayout Orientation="Horizontal" BackgroundColor="#0000ff">
-                                    <Label Text="{Binding Sender}" BackgroundColor="#f35e20" />
-                                    <Label Text="{Binding Timestamp}" HorizontalOptions="Center" BackgroundColor="#503026" />
+                        <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" HorizontalOptions="Start" BackgroundColor="#fff">
+                                <Image Source="{local:ImageResource ModernEncryption.avatar.png}" Aspect=" AspectFit" HeightRequest ="50" VerticalOptions="CenterAndExpand" />
+                                    
                                 </StackLayout>
+                            <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="#fff">
+                                <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                                    <Label Text="Max" Font="Bold"  BackgroundColor="#fff" />
+                                    <Label Text="Mustermann" Font="Bold"  BackgroundColor="#fff" />
+                                    <Label Text="12:34 1.2.3456" HorizontalOptions="EndAndExpand"/>
+                                </StackLayout>
+                                <Label Text="Nachricht bla bla" BackgroundColor="#fff" />
                             </StackLayout>
+                        </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

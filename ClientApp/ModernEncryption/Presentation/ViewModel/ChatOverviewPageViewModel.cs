@@ -12,7 +12,7 @@ namespace ModernEncryption.Presentation.ViewModel
     {
         private ChatOverviewPage _view;
 
-        public string Title { get; set; } = "Chatübersicht";
+        public string Title { get; set; } = "Inbox";
         public string Surname { get; set; }
         public string Firstname { get; set; }
         public int Sender { get; set; }
