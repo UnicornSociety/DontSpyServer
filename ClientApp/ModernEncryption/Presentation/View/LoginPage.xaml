@@ -9,14 +9,9 @@
 
     <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
         <StackLayout>
-            <Label Text="Welcome to" FontSize="45" HorizontalTextAlignment="Center"></Label>
-
-            <Image Source="{local:ImageResource ModernEncryption.logo.png}" Aspect=" AspectFit" HeightRequest ="500" HorizontalOptions="Center"  VerticalOptions="CenterAndExpand" />
-
-            <!-- Logo nur Platzhalter-->
-        </StackLayout>
-        
-        <StackLayout VerticalOptions="Start">
+            <Label Text="Welcome to" FontSize="45" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+            <Image Source="{local:ImageResource ModernEncryption.logo.png}"  HeightRequest ="300" HorizontalOptions="Center"  VerticalOptions="Center" />
+ <!-- Logo ist nur Platzhalter-->
             <Entry IsPassword="true" Placeholder="PIN"/>
             <Button Text="Confirm" TextColor="White"  BorderRadius="15" BackgroundColor="#3A99D8" HorizontalOptions="Center"/>
         </StackLayout>

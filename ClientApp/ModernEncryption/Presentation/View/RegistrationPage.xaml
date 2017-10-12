@@ -2,10 +2,14 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ModernEncryption.Presentation.View.RegistrationPage"
-             Title="{Binding Title}">
+             Title="{Binding Title}"
+             xmlns:i18n="clr-namespace:UsingResxLocalization;assembly=UsingResxLocalization"
+             xmlns:local="clr-namespace:ModernEncryption.Utils;assembly=ModernEncryption">
 
-    <StackLayout HorizontalOptions="Center" VerticalOptions="Start">
-        <Label Text="Welcome to Modern Encryption" FontSize="45"></Label>
+    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+        <Label Text="Welcome to" FontSize="45" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+        <Image Source="{local:ImageResource ModernEncryption.logo.png}"  HeightRequest ="300" HorizontalOptions="Center"  VerticalOptions="Center" />
+        <!-- Logo ist nur Platzhalter-->
         <Label Text="l" FontSize="10" TextColor="White"></Label>
         <Label Text="Please register." FontSize="20"></Label>
 
@@ -16,9 +20,9 @@
             <!--<Entry.Behaviors>
                 <validator:EmailValidatorBehavior x:Name="emailValidator"/>
             </Entry.Behaviors>-->
-        </Entry> 
- 
-        <Button Text="Send PIN to email address." Command="{Binding SendVoucherCommand}" />
+        </Entry>
+
+        <Button Text="Send PIN to email address." TextColor="White"  BorderRadius="15" BackgroundColor="#3A99D8" Command="{Binding SendVoucherCommand}" />
     </StackLayout>
     
 </ContentPage>

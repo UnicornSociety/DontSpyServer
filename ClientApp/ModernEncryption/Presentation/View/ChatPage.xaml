@@ -7,73 +7,23 @@
     <StackLayout VerticalOptions="FillAndExpand">
         <ListView x:Name="listView" ItemsSource="{Binding Messages}" >
 
-            <ListView.Header>
-                <StackLayout>
-                    <Label Text="Petra Fischer" HorizontalTextAlignment="Center"/>
-                </StackLayout>
-            </ListView.Header>
-
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-                            
-                            <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="#fff">
-                                <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-                                    <Label Text="Max" Font="Bold"  BackgroundColor="#fff" />
-                                    <Label Text="Mustermann" Font="Bold"  BackgroundColor="#fff" />
-                                    <Label Text="12:34 1.2.3456" HorizontalOptions="EndAndExpand"/>
+                        <StackLayout Orientation="Horizontal" VerticalOptions="End" HorizontalOptions="Start" >
+                            <StackLayout Orientation="Vertical" VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand"   Padding="12" >
+                                <StackLayout Orientation="Horizontal" VerticalOptions="End" HorizontalOptions="StartAndExpand" >
+                                    <Label Text="Message"  BackgroundColor="#fff" FontSize="Medium" />
+                                    <Label Text="10000"   BackgroundColor="#fff" FontSize="Medium" />
                                 </StackLayout>
-                                <Label Text="Nachricht bla bla" BackgroundColor="#fff" />
+                                <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand"  Padding="5">
+                                    <Label Text="12:34 01.02.3456"  FontSize="Micro" TextColor="Gray"/>
+                                </StackLayout>
                             </StackLayout>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-
-        <!-- <Frame OutlineColor="Gray" HasShadow="True" HorizontalOptions="Start" VerticalOptions="Start">
-                <Label Text="Nachricht 1"></Label>
-            </Frame>-->
-
-           <!-- <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-                <Button Text = "{Binding Surname}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" BackgroundColor="LimeGreen"  BorderRadius="8" />
-                <Button Text = "Nachricht an Petra" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="1" BackgroundColor="LightBlue"  BorderRadius="8" />
-
-            </Grid>-->
-        
-            <ListView ItemsSource="{Binding Messages}">
-
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout Orientation="Vertical">
-                            <StackLayout Orientation="Horizontal" BackgroundColor="#0000ff">
-                                <Label Text="{Binding Sender}" BackgroundColor="#f35e20" />
-                                <Label Text="{Binding Timestamp}" HorizontalOptions="Center" BackgroundColor="#503026" />
-                            </StackLayout>
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-
-            <ListView.Footer>
-                <StackLayout Orientation="Horizontal">
-                    <Entry Placeholder="Input message" HorizontalOptions="FillAndExpand"/>
-                    <Button Text="Send" HorizontalOptions="End"/>
-                </StackLayout>
-                
-
-            </ListView.Footer>
-        </ListView>
-        
-        
-       
-        <!--TODO: Command missing-->
-
     </StackLayout>
 </ContentPage>

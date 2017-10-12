@@ -12,19 +12,17 @@
        <!-- <Entry Placeholder="Search"   HorizontalTextAlignment="Center" />-->
         
         <ListView x:Name="listView" ItemsSource="{Binding Messages}" >
-   
-                <ListView.Header>
-                   <!-- <controls:ScrollHeader Mode="Sticky" TargetListViewBase="{x:Bind listView}">-->
+            
+            <ListView.Header>
                 <StackLayout Orientation="Horizontal">
                     <Button Text="New Chat" HorizontalOptions="FillAndExpand" Command ="{Binding NewChatCommand}"   TextColor="Black" BorderRadius="0"></Button>
                     <Button Text="New Group" HorizontalOptions="FillAndExpand" Command ="{Binding NewGroupChatCommand}" TextColor="Black" BorderRadius="0"></Button>
                 </StackLayout>
-                <!--  </controls:ScrollHeader>-->
             </ListView.Header>
-
+            
             <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
+                <DataTemplate>
+                    <ViewCell>
                         <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
                             <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" HorizontalOptions="Start" BackgroundColor="#fff">
                                 <Image Source="{local:ImageResource ModernEncryption.avatar.png}" Aspect=" AspectFit" HeightRequest ="50" VerticalOptions="CenterAndExpand" />
@@ -38,11 +36,12 @@
                                 <Label Text="Nachricht bla bla" BackgroundColor="#fff" />
                             </StackLayout>
                         </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate> 
+            
+        </ListView>
 
     </StackLayout>
+    
 </ContentPage>
