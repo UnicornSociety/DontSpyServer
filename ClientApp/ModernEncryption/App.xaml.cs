@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using MimeKit.Cryptography;
 using ModernEncryption.BusinessLogic.Crypto;
@@ -36,7 +37,8 @@ namespace ModernEncryption
 
             // DEBUGGING START
             CrossSecureStorage.Current.DeleteKey("RegistrationProcess");
-            MainPage = new ChatPage();
+            var test = new List<User>();//um Chat Page als Main Page zu nehmen
+            MainPage = new AnchorPage();
             // DEBUGGING END
 
             /*if (!CrossSecureStorage.Current.HasKey("RegistrationProcess"))

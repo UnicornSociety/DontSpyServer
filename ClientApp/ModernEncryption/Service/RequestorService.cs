@@ -6,6 +6,8 @@ using ModernEncryption.Interfaces;
 using System.Threading;
 using ModernEncryption.BusinessLogic.Crypto;
 using ModernEncryption.Model;
+using ModernEncryption.Presentation.View;
+using ModernEncryption.Presentation.ViewModel;
 using Plugin.SecureStorage;
 using SQLite.Net;
 using SQLiteNetExtensions.Extensions;
@@ -27,7 +29,7 @@ namespace ModernEncryption.Service
         public async void Start()
         {
             var userId = CrossSecureStorage.Current.GetValue("userId");
-            //PullMessagesByUserId(int.Parse(userId)); // TODO: Call every X seconds
+            //PullMessagesByUserId(int.Parse(userId)); // TODO: Call every X seconds//sagt momentan can not be null liegt aber nur daran da noch kein user in der datenbank abgespeichert wird
             PullMessagesByExistingChannel(); // TODO: Call every X seconds
         }
 
@@ -45,6 +47,9 @@ namespace ModernEncryption.Service
                 var channel = new Channel(channelId, new List<User> { user }, groupIndicator);
                 channel.Messages.Add(message);
                 Database.InsertWithChildren(channel);
+                var chatOverviewPageViewModel = new ChatOverviewPageViewModel();
+                var channelOverview = chatOverviewPageViewModel.Messages;
+                channelOverview.Add(new Message("5", 1));//TODO muss eigentlich der channel sein
                 // TODO: Add Channel to ObservableCollection of ChatOverviewPageViewModel
             }
         }

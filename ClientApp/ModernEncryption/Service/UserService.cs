@@ -56,7 +56,6 @@ namespace ModernEncryption.Service
                 CrossSecureStorage.Current.SetValue("userId", user.Id.ToString());
 
                 // TODO: Save user in User-Table (local db)
-                // TODO: Create CrossSecureStorage field with key 'userId' and the id of the user as value
 
                 return true;
             }

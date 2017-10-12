@@ -16,12 +16,12 @@ using Xamarin.Forms;
 
 namespace ModernEncryption.Presentation.ViewModel
 {
-    public class ContactPageViewModel : INotifyPropertyChanged
+    public class ContactPageViewModel// : INotifyPropertyChanged
     {
         private ContactPage _view;
         private SQLiteConnection Database { get; } = DependencyService.Get<IStorage>().GetConnection();
 
-        public string Title { get; set; } = "Kontakte";
+        public string Title { get; set; } = "Contacts";
         public ObservableCollection<User> Contacts { get; }
         public ICommand AddContactViaEmailCommand { protected set; get; }
         public ICommand TabbedContactCommand { protected set; get; }
@@ -29,6 +29,8 @@ namespace ModernEncryption.Presentation.ViewModel
         public ContactPageViewModel()
         {
             Contacts = new ObservableCollection<User>();
+            Contacts.Add(new User("Max", "Muster", "emailmax"));
+
             LoadContacts();
 
             AddContactViaEmailCommand = new Command<object>(param =>
@@ -54,7 +56,7 @@ namespace ModernEncryption.Presentation.ViewModel
                 var xy2 = Database.GetWithChildren<Channel>(channel.Id);
                 // var result = Database.GetAllWithChildren<Channel>(x => x.Members.Contains(user));
                 // DEBUGGING END*/
-
+                
                 var Result = Database.GetAllWithChildren<Channel>(c => c.Members.Contains(user) && c.ChannelType == Channel.GroupIndicator.Single); //muss noch so machen das Grupppen wo auch der user drin ist nicht gezählt werden
 
                 int channelIdPart = 1;
