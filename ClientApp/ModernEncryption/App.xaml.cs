@@ -38,7 +38,7 @@ namespace ModernEncryption
             // DEBUGGING START
             CrossSecureStorage.Current.DeleteKey("RegistrationProcess");
             var test = new List<User>();//um Chat Page als Main Page zu nehmen
-            MainPage = new RegistrationPage();
+            MainPage = new AnchorPage();
             // DEBUGGING END
 
             /*if (!CrossSecureStorage.Current.HasKey("RegistrationProcess"))

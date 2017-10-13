@@ -5,7 +5,20 @@
              Title="{Binding Title}">
     
     <StackLayout VerticalOptions="FillAndExpand">
-        <ListView x:Name="listView" ItemsSource="{Binding Messages}" >
+        <ListView x:Name="listView" ItemsSource="{Binding Messages}">
+
+            <ListView.Header>
+                <StackLayout HorizontalOptions="FillAndExpand">
+                    <Label Text="Max Mustermann" Font="Bold" HorizontalTextAlignment="Center"/>
+                </StackLayout>
+            </ListView.Header>
+
+            <ListView.Footer>
+                <StackLayout Orientation="Horizontal">
+                    <Entry Placeholder="Input message" HorizontalOptions="FillAndExpand"/>
+                    <Button Text="Send" TextColor="#fff"  HorizontalOptions="End" BackgroundColor="#3A99D8" BorderRadius="10"/>
+                </StackLayout>
+            </ListView.Footer>
 
             <ListView.ItemTemplate>
                 <DataTemplate>
