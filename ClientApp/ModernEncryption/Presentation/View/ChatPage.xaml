@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ModernEncryption.Presentation.View.ChatPage"
              Title="{Binding Title}">
-    
+
     <StackLayout VerticalOptions="FillAndExpand">
         <ListView x:Name="listView" ItemsSource="{Binding Messages}">
 
@@ -15,8 +15,8 @@
 
             <ListView.Footer>
                 <StackLayout Orientation="Horizontal">
-                    <Entry Placeholder="Input message" HorizontalOptions="FillAndExpand"/>
-                    <Button Text="Send" TextColor="#fff"  HorizontalOptions="End" BackgroundColor="#3A99D8" BorderRadius="10"/>
+                    <Entry Placeholder="Input message" HorizontalOptions="FillAndExpand" x:Name="inputMessage"/>
+                    <Button Text="Send" TextColor="#fff"  HorizontalOptions="End" BackgroundColor="#3A99D8" BorderRadius="10" Command="SendMessageCommand"/>
                 </StackLayout>
             </ListView.Footer>
 

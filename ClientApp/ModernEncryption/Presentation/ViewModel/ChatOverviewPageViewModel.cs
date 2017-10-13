@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows.Input;
@@ -13,7 +11,6 @@ namespace ModernEncryption.Presentation.ViewModel
     internal class ChatOverviewPageViewModel : INotifyPropertyChanged
     {
         private ChatOverviewPage _view;
-        private Channel _channel;
 
         public string Title { get; set; } = "Inbox";
         public string Surname { get; set; }
@@ -22,14 +19,13 @@ namespace ModernEncryption.Presentation.ViewModel
         public int Receiver { get; set; }
         public int Timestamp { get; set; }
 
-        public ObservableCollection<Channel> Channel { get; }
+        public ObservableCollection<Message> Messages { get; }
         public ICommand NewChatCommand { protected set; get; }
         public ICommand NewGroupChatCommand { protected set; get; }
+        public ICommand TabbedChannelCommand { protected set; get; }
 
-        public ChatOverviewPageViewModel(Channel channel)
+        public ChatOverviewPageViewModel()
         {
-            _channel = channel;
-
             NewChatCommand = new Command<object>(param =>
             {
                 _view.Navigation.PushAsync(new ContactPage());
@@ -40,19 +36,27 @@ namespace ModernEncryption.Presentation.ViewModel
                 _view.Navigation.PushAsync(new ContactPage());
             });
 
-            Channel = new ObservableCollection<Channel>();
+            TabbedChannelCommand = new Command<object>(param =>
+            {
+                var channel = (Channel)param;
+                _view.Navigation.PushAsync(channel.ChannelPage);
+            });
 
-            var test = new List<User>();
-            test.Add(new User("max", "muster", "email"));
-            Channel.Add(new Channel(1, test, Model.Channel.GroupIndicator.Single));
+            Messages = new ObservableCollection<Message>();
+
+            Messages.Add(new Message("5", 6));
+            Messages.Add(new Message("1", 6));
         }
+
+
 
         public void SetView(ChatOverviewPage view)
         {
             _view = view;
         }
 
-        
+
+
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged(string propertyName)
@@ -65,3 +69,4 @@ namespace ModernEncryption.Presentation.ViewModel
         }
     }
 }
+

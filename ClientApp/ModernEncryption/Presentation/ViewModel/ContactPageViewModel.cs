@@ -56,7 +56,7 @@ namespace ModernEncryption.Presentation.ViewModel
                 var xy2 = Database.GetWithChildren<Channel>(channel.Id);
                 // var result = Database.GetAllWithChildren<Channel>(x => x.Members.Contains(user));
                 // DEBUGGING END*/
-                
+
                 var Result = Database.GetAllWithChildren<Channel>(c => c.Members.Contains(user) && c.ChannelType == Channel.GroupIndicator.Single); //muss noch so machen das Grupppen wo auch der user drin ist nicht gezählt werden
 
                 int channelIdPart = 1;
@@ -124,3 +124,4 @@ namespace ModernEncryption.Presentation.ViewModel
         }
     }
 }
+

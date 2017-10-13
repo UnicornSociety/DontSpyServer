@@ -8,6 +8,9 @@ using System.Windows.Input;
 using ModernEncryption.Model;
 using ModernEncryption.Presentation.View;
 using Xamarin.Forms;
+using ModernEncryption.Service;
+using ModernEncryption.Interfaces;
+using ModernEncryption.BusinessLogic.Crypto;
 
 namespace ModernEncryption.Presentation.ViewModel
 {
@@ -23,6 +26,8 @@ namespace ModernEncryption.Presentation.ViewModel
 
         public ICommand NewChatoverviewPageCommand { protected set; get; }
 
+        public ICommand SendMessageCommand { protected set; get; }
+
         public ObservableCollection<Message> Messages { get; }
 
         public ChatPageViewModel(Channel channel)
@@ -32,6 +37,17 @@ namespace ModernEncryption.Presentation.ViewModel
             NewChatoverviewPageCommand = new Command<object>(param =>
             {
                 _view.Navigation.PushAsync(new ChatOverviewPage());
+            });
+
+            SendMessageCommand = new Command<object>(param =>
+            {
+                var inputMessage = _view.FindByName<Entry>("inputMessage").Text;
+                Int32 unixTimestamp = (Int32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
+                var plainMessage = new DecryptedMessage(inputMessage, "1", unixTimestamp);
+                IEncrypt encryptionLogic = new EncryptionLogic(plainMessage);
+                IMessage encryptedMessage = encryptionLogic.Encrypt();
+                IMessageService messageService = new MessageService();
+                messageService.SendMessage(encryptedMessage);
             });
 
             Messages = new ObservableCollection<Message>();

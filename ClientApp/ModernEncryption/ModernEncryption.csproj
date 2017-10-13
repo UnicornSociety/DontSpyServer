@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Presentation\View\ContactPage.xaml.cs" />
     <Compile Remove="Presentation\View\NewGroupPage.xaml.cs" />
   </ItemGroup>
 
@@ -42,6 +43,7 @@
     <EmbeddedResource Include="Presentation\View\ContactPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\View\ContactPage.xaml.cs" />
     <EmbeddedResource Include="Presentation\View\DefinePasswordPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

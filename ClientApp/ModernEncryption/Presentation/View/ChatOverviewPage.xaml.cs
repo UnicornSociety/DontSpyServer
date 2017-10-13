@@ -1,5 +1,4 @@
 ﻿using System.Collections.ObjectModel;
-using ModernEncryption.Model;
 using ModernEncryption.Presentation.ViewModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -11,13 +10,13 @@ namespace ModernEncryption.Presentation.View
     {
         private ChatOverviewPageViewModel _viewModel;
 
-        public ChatOverviewPage(Channel channel)
+        public ChatOverviewPage()
         {
             InitializeComponent();
-            _viewModel = new ChatOverviewPageViewModel(channel);
+            _viewModel = new ChatOverviewPageViewModel();
             _viewModel.SetView(this);
             BindingContext = _viewModel;
         }
-        
+
     }
 }

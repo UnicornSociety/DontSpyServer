@@ -6,20 +6,20 @@
              x:Class="ModernEncryption.Presentation.View.ContactPage"
              xmlns:local="clr-namespace:ModernEncryption.Utils;assembly=ModernEncryption"
              Title="{Binding Title}">
-    <!--
+
     <ContentPage.Resources>
         <ResourceDictionary>
             <converter:ItemTappedEventArgsToItemTappedConverter x:Key="ItemTappedConverter" />
         </ResourceDictionary>
     </ContentPage.Resources>
--->
+
     <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 
         <ListView ItemsSource="{Binding Contacts}">
-           <!-- 
-           <ListView.Behaviors>
+
+            <ListView.Behaviors>
                 <behavior:EventToCommandBehavior EventName="ItemTapped" Command="{Binding TabbedContactCommand}" Converter="{StaticResource ItemTappedConverter}" />
-            </ListView.Behaviors> -->
+            </ListView.Behaviors>
 
             <ListView.Header>
                 <StackLayout>

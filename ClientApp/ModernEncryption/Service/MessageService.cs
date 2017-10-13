@@ -16,15 +16,17 @@ namespace ModernEncryption.Service
 
         public MessageService()
         {
-            _client = new HttpClient {MaxResponseContentBufferSize = 256000};
+            _client = new HttpClient { MaxResponseContentBufferSize = 256000 };
         }
 
-        public async Task<List<EncryptedMessage>> GetMessage(int channelId) {
+        public async Task<List<EncryptedMessage>> GetMessage(int channelId)
+        {
             var items = new List<EncryptedMessage>();
 
             var uri = new Uri(string.Format(Constants.RestUrlGetMessage, channelId));
             var response = await _client.GetAsync(uri).ConfigureAwait(false);
-            if (response.IsSuccessStatusCode) {
+            if (response.IsSuccessStatusCode)
+            {
                 var content = await response.Content.ReadAsStringAsync();
                 items = JsonConvert.DeserializeObject<List<EncryptedMessage>>(content);
             }
@@ -53,3 +55,4 @@ namespace ModernEncryption.Service
         }
     }
 }
+

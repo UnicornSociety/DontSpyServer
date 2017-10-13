@@ -20,7 +20,7 @@ namespace ModernEncryption.Service
 
         public UserService()
         {
-            _client = new HttpClient {MaxResponseContentBufferSize = 256000};
+            _client = new HttpClient { MaxResponseContentBufferSize = 256000 };
         }
 
         public async Task<User> GetUser(string eMail)
@@ -65,14 +65,14 @@ namespace ModernEncryption.Service
                 Debug.WriteLine("Server antwortet nicht");
                 return false;
             }
-           
+
         }
 
         public bool ValidateVoucherCode(int userVoucher)
         {
             var voucher = Convert.ToInt32(CrossSecureStorage.Current.GetValue("Voucher", "-1"));
             var voucherTimestamp = Convert.ToInt32(CrossSecureStorage.Current.GetValue("VoucherTimestamp", "-1"));
-            var currentVoucherTimestamp = (int) DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
+            var currentVoucherTimestamp = (int)DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
             if (voucherTimestamp > currentVoucherTimestamp) return false;
             if (voucher != userVoucher) return false;
             CrossSecureStorage.Current.DeleteKey("VoucherTimestamp");
