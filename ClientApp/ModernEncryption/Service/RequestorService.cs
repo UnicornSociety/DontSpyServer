@@ -47,9 +47,9 @@ namespace ModernEncryption.Service
                 var channel = new Channel(channelId, new List<User> { user }, groupIndicator);
                 channel.Messages.Add(message);
                 Database.InsertWithChildren(channel);
-                var chatOverviewPageViewModel = new ChatOverviewPageViewModel();
-                var channelOverview = chatOverviewPageViewModel.Messages;
-                channelOverview.Add(new Message("5", 1));//TODO muss eigentlich der channel sein
+                var chatOverviewPageViewModel = new ChatOverviewPage(channel);
+                var channelOverview = chatOverviewPageViewModel;
+                //channelOverview.Add(new Message("5", 1));//TODO muss eigentlich der channel sein
                 // TODO: Add Channel to ObservableCollection of ChatOverviewPageViewModel
             }
         }

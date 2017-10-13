@@ -7,7 +7,6 @@
 
   <ItemGroup>
     <Compile Remove="Presentation\View\ContactPage.xaml.cs" />
-    <Compile Remove="Presentation\View\NewGroupPage.xaml.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -51,6 +50,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\View\LoginPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\View\NewGroupPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\View\RegistrationPage.xaml">
