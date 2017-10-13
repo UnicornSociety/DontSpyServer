@@ -1,4 +1,6 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows.Input;
@@ -11,6 +13,7 @@ namespace ModernEncryption.Presentation.ViewModel
     internal class ChatOverviewPageViewModel : INotifyPropertyChanged
     {
         private ChatOverviewPage _view;
+        private Channel _channel;
 
         public string Title { get; set; } = "Inbox";
         public string Surname { get; set; }
@@ -19,12 +22,14 @@ namespace ModernEncryption.Presentation.ViewModel
         public int Receiver { get; set; }
         public int Timestamp { get; set; }
 
-        public ObservableCollection<Message> Messages { get; }
+        public ObservableCollection<Channel> Channel { get; }
         public ICommand NewChatCommand { protected set; get; }
         public ICommand NewGroupChatCommand { protected set; get; }
 
-        public ChatOverviewPageViewModel()
+        public ChatOverviewPageViewModel(Channel channel)
         {
+            _channel = channel;
+
             NewChatCommand = new Command<object>(param =>
             {
                 _view.Navigation.PushAsync(new ContactPage());
@@ -35,10 +40,11 @@ namespace ModernEncryption.Presentation.ViewModel
                 _view.Navigation.PushAsync(new ContactPage());
             });
 
-            Messages = new ObservableCollection<Message>();
+            Channel = new ObservableCollection<Channel>();
 
-            Messages.Add(new Message("5", 6));
-            Messages.Add(new Message("1", 6));
+            var test = new List<User>();
+            test.Add(new User("max", "muster", "email"));
+            Channel.Add(new Channel(1, test, Model.Channel.GroupIndicator.Single));
         }
 
         public void SetView(ChatOverviewPage view)
