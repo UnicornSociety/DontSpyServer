@@ -36,7 +36,7 @@ namespace ModernEncryption.Presentation.ViewModel
 
             NewChatoverviewPageCommand = new Command<object>(param =>
             {
-                _view.Navigation.PushAsync(new ChatOverviewPage());
+                _view.Navigation.PushAsync(new ChatOverviewPage(_channel));//TODO nicht sicher ob channel hier der richtige Parameter
             });
 
             SendMessageCommand = new Command<object>(param =>

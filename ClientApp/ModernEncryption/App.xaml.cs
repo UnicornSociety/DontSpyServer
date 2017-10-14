@@ -37,6 +37,9 @@ namespace ModernEncryption
 
             // DEBUGGING START
             CrossSecureStorage.Current.DeleteKey("RegistrationProcess");
+            var userService = new UserService();
+            var max = new User("Max", "Mustermann", "muster@gmx.de");
+            userService.CreateUser(max);
             var test = new List<User>();//um Chat Page als Main Page zu nehmen
             MainPage = new AnchorPage();
             // DEBUGGING END

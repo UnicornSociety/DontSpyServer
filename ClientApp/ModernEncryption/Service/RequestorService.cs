@@ -29,7 +29,7 @@ namespace ModernEncryption.Service
         public async void Start()
         {
             var userId = CrossSecureStorage.Current.GetValue("userId");
-            //PullMessagesByUserId(int.Parse(userId)); // TODO: Call every X seconds//sagt momentan can not be null liegt aber nur daran da noch kein user in der datenbank abgespeichert wird
+            PullMessagesByUserId(int.Parse(userId)); // TODO: Call every X seconds//sagt momentan can not be null liegt aber nur daran da noch kein user in der datenbank abgespeichert wird
             PullMessagesByExistingChannel(); // TODO: Call every X seconds
         }
 
@@ -54,8 +54,18 @@ namespace ModernEncryption.Service
             }
         }
 
-        private void PullMessagesByExistingChannel()
+        private void PullMessagesByExistingChannel(int[] channelIds)
         {
+            foreach (var channelId in channelIds)
+            {
+                foreach (var message in _messageService.GetMessage(channelId).Result)
+                {
+                    var senderSplit = message.Sender.Split(';');
+                    var sender = senderSplit[0];
+                    var channelId = int.Parse(senderSplit[1]);
+                    var groupIndicator = senderSplit[2] == "true" ? Channel.GroupIndicator.Group : Channel.GroupIndicator.Single;
+                }
+            }
             // TODO: Get all Channels from DB and pull with channelId
         }
     }
