@@ -62,7 +62,6 @@ namespace ModernEncryption.Service
                 {
                     var senderSplit = message.Sender.Split(';');
                     var sender = senderSplit[0];
-                    var channelId = int.Parse(senderSplit[1]);
                     var groupIndicator = senderSplit[2] == "true" ? Channel.GroupIndicator.Group : Channel.GroupIndicator.Single;
                 }
             }

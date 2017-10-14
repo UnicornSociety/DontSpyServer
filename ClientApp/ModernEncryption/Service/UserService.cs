@@ -17,6 +17,7 @@ namespace ModernEncryption.Service
     internal class UserService : IUserService
     {
         private readonly HttpClient _client;
+        private SQLiteConnection Database { get; } = DependencyService.Get<IStorage>().GetConnection();
 
         public UserService()
         {
@@ -55,7 +56,7 @@ namespace ModernEncryption.Service
 
                 CrossSecureStorage.Current.SetValue("userId", user.Id.ToString());
 
-                Database
+                Database.InsertWithAllChildren(user);//stimmt des so?
 
                 // TODO: Save user in User-Table (local db)
 
