@@ -30,7 +30,8 @@ namespace ModernEncryption.Service
         {
             var userId = CrossSecureStorage.Current.GetValue("userId");
             PullMessagesByUserId(int.Parse(userId)); // TODO: Call every X seconds//sagt momentan can not be null liegt aber nur daran da noch kein user in der datenbank abgespeichert wird
-            PullMessagesByExistingChannel(); // TODO: Call every X seconds
+            int[] channelIds = new int[] {1,2,3};
+            PullMessagesByExistingChannel(channelIds); // TODO: Call every X seconds
         }
 
         /* Messages with channelId == userId are new PullRequests */

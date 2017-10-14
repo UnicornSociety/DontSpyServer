@@ -35,11 +35,14 @@ namespace ModernEncryption
             IRequestorService RequestorService = new RequestorService();
             RequestorService.Start();
 
+            //Create an list of all channels for chatOverviewPage and RequestorService
+            Channel[] allChannels = new Channel[] {};
+
             // DEBUGGING START
             CrossSecureStorage.Current.DeleteKey("RegistrationProcess");
             var userService = new UserService();
             var max = new User("Max", "Mustermann", "muster@gmx.de");
-            userService.CreateUser(max);
+            userService.CreateUser(max);//damit ein User angelegt ist auch wenn keine Registration stattgefunden hat
             var test = new List<User>();//um Chat Page als Main Page zu nehmen
             MainPage = new AnchorPage();
             // DEBUGGING END

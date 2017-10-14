@@ -7,6 +7,8 @@ using ModernEncryption.BusinessLogic.UserManagement;
 using ModernEncryption.DataAccess;
 using ModernEncryption.Interfaces;
 using ModernEncryption.Model;
+using SQLite.Net;
+using SQLiteNetExtensions.Extensions;
 using Newtonsoft.Json;
 using Org.BouncyCastle.Crypto;
 using Plugin.SecureStorage;
@@ -56,7 +58,7 @@ namespace ModernEncryption.Service
 
                 CrossSecureStorage.Current.SetValue("userId", user.Id.ToString());
 
-                Database.InsertWithAllChildren(user);//stimmt des so?
+                //Database.InsertWithAllChildren(user);//stimmt des so?
 
                 // TODO: Save user in User-Table (local db)
 

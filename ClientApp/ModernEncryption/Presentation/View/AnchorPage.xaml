@@ -5,7 +5,7 @@
             x:Class="ModernEncryption.Presentation.View.AnchorPage">
 
     <NavigationPage  Icon="chat.png" Title="Inbox" BackgroundColor="Blue">
-        <x:Arguments>
+        <x:Arguments >
             <local:ChatOverviewPage />
         </x:Arguments>
     </NavigationPage>
