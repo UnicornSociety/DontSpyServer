@@ -58,9 +58,7 @@ namespace ModernEncryption.Service
 
                 CrossSecureStorage.Current.SetValue("userId", user.Id.ToString());
 
-                //Database.InsertWithAllChildren(user);//stimmt des so?
-
-                // TODO: Save user in User-Table (local db)
+                Database.InsertWithChildren(user);//stimmt des so?
 
                 return true;
             }

@@ -29,8 +29,13 @@ namespace ModernEncryption.Service
         public async void Start()
         {
             var userId = CrossSecureStorage.Current.GetValue("userId");
-            PullMessagesByUserId(int.Parse(userId)); // TODO: Call every X seconds//sagt momentan can not be null liegt aber nur daran da noch kein user in der datenbank abgespeichert wird
-            int[] channelIds = new int[] {1,2,3};
+            PullMessagesByUserId(int.Parse(userId)); // TODO: Call every X seconds
+            int[] channelIds = { 1, 2, 3 };//TODO channelIds von der Liste in der App Klasse holen
+            /*var test = new App();
+            foreach (var i in test.AllChannels)
+            {
+                channelIds[Int32.Parse(i)] = test.AllChannels.GetValue(Int32.Parse(i));
+            }*/
             PullMessagesByExistingChannel(channelIds); // TODO: Call every X seconds
         }
 
@@ -48,9 +53,7 @@ namespace ModernEncryption.Service
                 var channel = new Channel(channelId, new List<User> { user }, groupIndicator);
                 channel.Messages.Add(message);
                 Database.InsertWithChildren(channel);
-                var chatOverviewPageViewModel = new ChatOverviewPage(channel);
-                var channelOverview = chatOverviewPageViewModel;
-                //channelOverview.Add(new Message("5", 1));//TODO muss eigentlich der channel sein
+                
                 // TODO: Add Channel to ObservableCollection of ChatOverviewPageViewModel
             }
         }

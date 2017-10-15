@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
+using System.Dynamic;
 using System.Linq;
 using MimeKit.Cryptography;
 using ModernEncryption.BusinessLogic.Crypto;
@@ -36,7 +37,7 @@ namespace ModernEncryption
             RequestorService.Start();
 
             //Create an list of all channels for chatOverviewPage and RequestorService
-            Channel[] allChannels = new Channel[] {};
+            public Channel[] AllChannels = {get; set;};
 
             // DEBUGGING START
             CrossSecureStorage.Current.DeleteKey("RegistrationProcess");

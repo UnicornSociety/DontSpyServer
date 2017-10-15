@@ -37,7 +37,7 @@ namespace ModernEncryption.Model
         }
 
         [Ignore]
-        public Page ChannelPage { get; private set; } = null; // TODO: Instead of null, set a new Page of the page in which user enter the key
+        public Page ChannelPage { get; private set; } = new ChatPage(new Channel(2, new List<User>(), GroupIndicator.Single)); //new Channel(Id, Members, ChannelType) TODO: Instead of null, set a new Page of the page in which user enter the key
 
         [Ignore]
         public Dictionary<int, int> KeyTable
