@@ -19,6 +19,14 @@ namespace ModernEncryption
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class App : Application
     {
+        //Create an list of all channels for chatOverviewPage and RequestorService
+        public Channel[] AllChannels { get; set; }
+
+        public App(bool placeholder)
+        {
+            
+        }
+
         public App()
         {
             InitializeComponent();
@@ -30,14 +38,12 @@ namespace ModernEncryption
             mml.InitalizeTransformationTable();
 
             // Create reverse table for the transformation table
-            MathematicalMappingLogic.BackTransformationTable = MathematicalMappingLogic.TransformationTable.ToDictionary(x => x.Value, x => x.Key);
+            MathematicalMappingLogic.BackTransformationTable =
+                MathematicalMappingLogic.TransformationTable.ToDictionary(x => x.Value, x => x.Key);
 
             //Start polling messages
             IRequestorService RequestorService = new RequestorService();
             RequestorService.Start();
-
-            //Create an list of all channels for chatOverviewPage and RequestorService
-            public Channel[] AllChannels = {get; set;};
 
             // DEBUGGING START
             CrossSecureStorage.Current.DeleteKey("RegistrationProcess");

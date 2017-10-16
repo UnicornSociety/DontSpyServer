@@ -30,12 +30,12 @@ namespace ModernEncryption.Service
         {
             var userId = CrossSecureStorage.Current.GetValue("userId");
             PullMessagesByUserId(int.Parse(userId)); // TODO: Call every X seconds
-            int[] channelIds = { 1, 2, 3 };//TODO channelIds von der Liste in der App Klasse holen
-            /*var test = new App();
-            foreach (var i in test.AllChannels)
-            {
-                channelIds[Int32.Parse(i)] = test.AllChannels.GetValue(Int32.Parse(i));
-            }*/
+            int[] channelIds = {};
+            var app= new App(true);
+            for (int i = 0; i < app.AllChannels.Length; i++) { 
+                Channel channel = app.AllChannels[i];
+                channelIds[i] = channel.Id;
+            }
             PullMessagesByExistingChannel(channelIds); // TODO: Call every X seconds
         }
 
@@ -53,8 +53,8 @@ namespace ModernEncryption.Service
                 var channel = new Channel(channelId, new List<User> { user }, groupIndicator);
                 channel.Messages.Add(message);
                 Database.InsertWithChildren(channel);
-                
-                // TODO: Add Channel to ObservableCollection of ChatOverviewPageViewModel
+                var app = new App(true);
+                app.AllChannels[app.AllChannels.Length + 1] = channel;
             }
         }
 
