@@ -13,7 +13,6 @@ namespace ModernEncryption.Presentation.ViewModel
     internal class ChatOverviewPageViewModel : INotifyPropertyChanged
     {
         private ChatOverviewPage _view;
-        private Channel _channel;
 
 
         public string Title { get; set; } = "Inbox";
@@ -48,9 +47,11 @@ namespace ModernEncryption.Presentation.ViewModel
             });
 
             Channel = new ObservableCollection<Channel>();
-            var test = new List<User>();
-            test.Add(new User("max", "muster", "email"));
-            Channel.Add(new Channel(1, test, Model.Channel.GroupIndicator.Single));
+            var app = new App(true);
+            foreach (var channel in app.AllChannels)
+            {
+                Channel.Add(channel);
+            }
         }
 
         public void SetView(ChatOverviewPage view)
