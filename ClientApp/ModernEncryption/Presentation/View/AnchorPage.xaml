@@ -4,7 +4,7 @@
             xmlns:local="clr-namespace:ModernEncryption.Presentation.View;assembly=ModernEncryption"
             x:Class="ModernEncryption.Presentation.View.AnchorPage">
 
-    <NavigationPage  Icon="chat.png" Title="Inbox" BackgroundColor="Blue">
+    <NavigationPage  Icon="chat.png" Title="Inbox" >
         <x:Arguments>
             <local:ChatOverviewPage />
         </x:Arguments>

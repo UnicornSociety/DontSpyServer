@@ -5,6 +5,7 @@
     <ContentPage.Content>
         <StackLayout>
             <Entry x:Name ="EnterKeyPlaceholder" Placeholder ="Please enter your key." />
+            <Button Text="Submit" TextColor="White"  BorderRadius="15" BackgroundColor="#3A99D8" HorizontalOptions="Center"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
