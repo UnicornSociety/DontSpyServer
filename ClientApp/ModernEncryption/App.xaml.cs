@@ -22,6 +22,8 @@ namespace ModernEncryption
         //Create an list of all channels for chatOverviewPage and RequestorService
         public Channel[] AllChannels { get; set; }
 
+        public TabbedPage[] AllPages { get; set; }
+
         public App(bool placeholder)
         {
             

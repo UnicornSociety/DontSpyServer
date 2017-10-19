@@ -14,7 +14,7 @@ using ModernEncryption.BusinessLogic.Crypto;
 
 namespace ModernEncryption.Presentation.ViewModel
 {
-    class ChatPageViewModel : INotifyPropertyChanged
+    public class ChatPageViewModel : INotifyPropertyChanged
     {
         private ChatPage _view;
 
@@ -22,6 +22,7 @@ namespace ModernEncryption.Presentation.ViewModel
         public string Surname { get; set; }
         public string Firstname { get; set; }
         public int Receiver { get; set; }
+
         private Channel _channel;
 
         public ICommand NewChatoverviewPageCommand { protected set; get; }
