@@ -46,12 +46,12 @@ namespace ModernEncryption.Presentation.ViewModel
                 _view.Navigation.PushAsync(channel.ChannelPage);
             });
 
-            Channel = new ObservableCollection<Channel>();
+            /* TODO Channel = new ObservableCollection<Channel>();
             var app = new App(true);
             foreach (var channel in app.AllChannels)
             {
                 Channel.Add(channel);
-            }
+            }*/
         }
 
         public void SetView(ChatOverviewPage view)
