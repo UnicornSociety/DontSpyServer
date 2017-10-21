@@ -1,4 +1,5 @@
 ﻿using ModernEncryption.Interfaces;
+using ModernEncryption.Model;
 using ModernEncryption.Presentation.View;
 using ModernEncryption.Service;
 using SQLite.Net;
@@ -12,5 +13,6 @@ namespace ModernEncryption
         public static ChannelsPage ChannelsPage { get; } = new ChannelsPage();
         public static ContactsPage ContactsPage { get; } = new ContactsPage();
         public static IChannelService ChannelService { get; } = new ChannelService();
+        public static User Me { get; } = new User("Tobias", "Straub", "hello@tobiasstraub.com"); // TODO: Load from database
     }
 }

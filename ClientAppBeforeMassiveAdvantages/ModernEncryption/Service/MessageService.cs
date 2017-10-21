@@ -12,12 +12,6 @@ namespace ModernEncryption.Service
 {
     internal class MessageService : IMessageService
     {
-        private readonly HttpClient _client;
-
-        public MessageService()
-        {
-            _client = new HttpClient { MaxResponseContentBufferSize = 256000 };
-        }
 
         public async Task<List<EncryptedMessage>> GetMessage(int channelId)
         {
@@ -32,26 +26,6 @@ namespace ModernEncryption.Service
             }
 
             return items;
-        }
-
-        public async Task<bool> SendMessage(IMessage message)
-        {
-            try
-            {
-                var uri = new Uri(string.Format(Constants.RestUrlSendMessage));
-                var json = JsonConvert.SerializeObject(message);
-                var content = new StringContent(json, Encoding.UTF8, "application/json");
-
-                HttpResponseMessage response = null;
-                response = await _client.PostAsync(uri, content);
-                return true;
-            }
-
-            catch
-            {
-                Debug.WriteLine("Server antwortet nicht");
-                return false;
-            }
         }
     }
 }

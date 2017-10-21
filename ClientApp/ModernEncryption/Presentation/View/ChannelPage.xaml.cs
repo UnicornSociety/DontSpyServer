@@ -13,7 +13,7 @@ namespace ModernEncryption.Presentation.View
         public ChannelPage(Channel channel)
         {
             InitializeComponent();
-            ViewModel = new ChannelPageViewModel { Channel = channel };
+            ViewModel = new ChannelPageViewModel(channel);
             ViewModel.SetView(this);
             BindingContext = ViewModel;
         }

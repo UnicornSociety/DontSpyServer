@@ -1,6 +1,9 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
+using System.Windows.Input;
 using ModernEncryption.Model;
 using ModernEncryption.Presentation.View;
+using Xamarin.Forms;
 
 namespace ModernEncryption.Presentation.ViewModel
 {
@@ -8,7 +11,19 @@ namespace ModernEncryption.Presentation.ViewModel
     {
         private ChannelPage _view;
         public ObservableCollection<Message> Messages { get; } = new ObservableCollection<Message>();
-        public Channel Channel { get; set; }
+        private Channel Channel { get; }
+        public ICommand SendMessageCommand { protected set; get; }
+
+        public ChannelPageViewModel(Channel channel)
+        {
+            Channel = channel;
+
+            SendMessageCommand = new Command<object>(param =>
+            {
+                var message = _view.FindByName<Entry>("inputMessage").Text;
+                DependencyManager.ChannelService.SendMessage(message, channel);
+            });
+        }
 
         public void SetView(ChannelPage view)
         {

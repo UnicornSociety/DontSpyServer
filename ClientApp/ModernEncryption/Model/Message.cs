@@ -8,13 +8,13 @@ namespace ModernEncryption.Model
     [Table("Message")]
     public class Message : IEntity
     {
-        [PrimaryKey, JsonProperty(PropertyName = "id")]
+        [PrimaryKey, AutoIncrement, JsonIgnore]
         public int Id { get; set; }
 
-        [ForeignKey(typeof(Channel))]
+        [ForeignKey(typeof(Channel)), JsonProperty(PropertyName = "receivingChannel")]
         public int ChannelId { get; set; }
 
-        [ManyToOne(CascadeOperations = CascadeOperation.All)]
+        [ManyToOne(CascadeOperations = CascadeOperation.All), JsonIgnore]
         public Channel Channel { get; set; }
 
         [JsonProperty(PropertyName = "messageHeader")]
@@ -30,9 +30,8 @@ namespace ModernEncryption.Model
         {
         }
 
-        public Message(int id, string messageHeader, string message)
+        public Message(string messageHeader, string message)
         {
-            Id = id;
             MessageHeader = messageHeader;
             // TODO: Generate timestamp and NOW() and initialize Timestamp-property with it
             Text = message;
