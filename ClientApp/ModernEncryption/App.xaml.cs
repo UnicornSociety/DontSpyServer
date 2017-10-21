@@ -1,16 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics;
-using System.Dynamic;
-using System.Linq;
-using MimeKit.Cryptography;
+﻿using System.Linq;
 using ModernEncryption.BusinessLogic.Crypto;
-using ModernEncryption.BusinessLogic.UserManagement;
 using ModernEncryption.DataAccess;
-using ModernEncryption.Interfaces;
-using ModernEncryption.Model;
 using ModernEncryption.Presentation.View;
-using ModernEncryption.Service;
-using Plugin.SecureStorage;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -19,16 +10,6 @@ namespace ModernEncryption
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class App : Application
     {
-        //Create an list of all channels for chatOverviewPage and RequestorService
-        public Channel[] AllChannels { get; set; }
-
-        public TabbedPage[] AllPages { get; set; }
-
-        public App(bool placeholder)
-        {
-            
-        }
-
         public App()
         {
             InitializeComponent();
