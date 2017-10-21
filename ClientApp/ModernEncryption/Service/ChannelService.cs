@@ -42,5 +42,15 @@ namespace ModernEncryption.Service
 
             return user;
         }
+
+        public List<User> LoadContacts()
+        {
+            return DependencyManager.Database.GetAllWithChildren<User>();
+        }
+
+        public List<Channel> LoadChannels()
+        {
+            return DependencyManager.Database.GetAllWithChildren<Channel>();
+        }
     }
 }

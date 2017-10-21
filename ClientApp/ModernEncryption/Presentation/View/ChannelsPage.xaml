@@ -21,8 +21,8 @@
 
                 <ListView.Header>
                     <StackLayout Orientation="Horizontal">
-                        <Button Text="New Chat" HorizontalOptions="FillAndExpand" Command ="{Binding NewChatCommand}"   TextColor="Black" BorderRadius="0"></Button>
-                        <Button Text="New Group" HorizontalOptions="FillAndExpand" Command ="{Binding NewGroupChatCommand}" TextColor="Black" BorderRadius="0"></Button>
+                        <Button Text="New Chat" HorizontalOptions="FillAndExpand" Command ="{Binding NewSingleChannelCommand}"   TextColor="Black" BorderRadius="0"></Button>
+                        <Button Text="New Group" HorizontalOptions="FillAndExpand" Command ="{Binding NewGroupChannelCommand}" TextColor="Black" BorderRadius="0"></Button>
                     </StackLayout>
                 </ListView.Header>
 

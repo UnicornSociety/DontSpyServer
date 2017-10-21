@@ -8,5 +8,7 @@ namespace ModernEncryption.Interfaces
         Channel CreateChannel(User member, string channelName = null);
         Channel CreateChannel(List<User> members, string channelName = null);
         User AddUserBy(string email);
+        List<User> LoadContacts();
+        List<Channel> LoadChannels();
     }
 }

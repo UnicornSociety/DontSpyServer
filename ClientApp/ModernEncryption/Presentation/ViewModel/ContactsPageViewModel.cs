@@ -17,7 +17,7 @@ namespace ModernEncryption.Presentation.ViewModel
         public ContactsPageViewModel()
         {
             // Load all contact from local database
-            foreach (var contact in DependencyManager.Database.GetAllWithChildren<User>()) Contacts.Add(contact);
+            foreach (var contact in DependencyManager.ChannelService.LoadContacts()) Contacts.Add(contact);
 
             TabbedContactCommand = new Command<object>(param =>
             {

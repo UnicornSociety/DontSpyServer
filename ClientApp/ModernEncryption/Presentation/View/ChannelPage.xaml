@@ -3,8 +3,39 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ModernEncryption.Presentation.View.ChannelPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin Forms!" />
+        <StackLayout VerticalOptions="FillAndExpand">
+            <ListView x:Name="listView" ItemsSource="{Binding Messages}">
+                <ListView.Header>
+                    <StackLayout HorizontalOptions="FillAndExpand">
+                        <Label Text="Max Mustermann" Font="Bold" HorizontalTextAlignment="Center"/>
+                    </StackLayout>
+                </ListView.Header>
+
+                <ListView.Footer>
+                    <StackLayout Orientation="Horizontal">
+                        <Entry Placeholder="Input message" HorizontalOptions="FillAndExpand" x:Name="inputMessage"/>
+                        <Button Text="Send" TextColor="#fff"  HorizontalOptions="End" BackgroundColor="#3A99D8" BorderRadius="10" Command="SendMessageCommand"/>
+                    </StackLayout>
+                </ListView.Footer>
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" VerticalOptions="End" HorizontalOptions="Start" >
+                                <StackLayout Orientation="Vertical" VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand"   Padding="12" >
+                                    <StackLayout Orientation="Horizontal" VerticalOptions="End" HorizontalOptions="StartAndExpand" >
+                                        <Label Text="Message"  BackgroundColor="#fff" FontSize="Medium" />
+                                        <Label Text="10000"   BackgroundColor="#fff" FontSize="Medium" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand"  Padding="5">
+                                        <Label Text="12:34 01.02.3456"  FontSize="Micro" TextColor="Gray"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
