@@ -1,4 +1,5 @@
 ﻿using ModernEncryption.Interfaces;
+using ModernEncryption.Utils;
 using Newtonsoft.Json;
 using SQLite.Net.Attributes;
 using SQLiteNetExtensions.Attributes;
@@ -8,11 +9,11 @@ namespace ModernEncryption.Model
     [Table("Message")]
     public class Message : IEntity
     {
-        [PrimaryKey, AutoIncrement, JsonIgnore]
-        public int Id { get; set; }
+        [PrimaryKey, JsonIgnore]
+        public string Id { get; set; }
 
         [ForeignKey(typeof(Channel)), JsonProperty(PropertyName = "receivingChannel")]
-        public int ChannelId { get; set; }
+        public string ChannelId { get; set; }
 
         [ManyToOne(CascadeOperations = CascadeOperation.All), JsonIgnore]
         public Channel Channel { get; set; }
@@ -32,8 +33,9 @@ namespace ModernEncryption.Model
 
         public Message(string messageHeader, string message)
         {
+            Id = IdentifierCreator.UniqueDigits();
             MessageHeader = messageHeader;
-            // TODO: Generate timestamp and NOW() and initialize Timestamp-property with it
+            Timestamp = TimeManagement.UnixTimestampNow;
             Text = message;
         }
     }

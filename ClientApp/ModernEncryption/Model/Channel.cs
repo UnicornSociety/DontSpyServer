@@ -12,7 +12,7 @@ namespace ModernEncryption.Model
         private ChannelPage _channelView;
 
         [PrimaryKey]
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         [ManyToMany(typeof(ChannelUser), CascadeOperations = CascadeOperation.All)]
         public List<User> Members { get; set; }
@@ -29,7 +29,7 @@ namespace ModernEncryption.Model
         {
         }
 
-        public Channel(int id, List<User> members, string name = null)
+        public Channel(string id, List<User> members, string name = null)
         {
             Id = id;
             Members = members;

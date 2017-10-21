@@ -9,10 +9,15 @@ namespace ModernEncryption
 {
     internal class DependencyManager
     {
-        public static SQLiteConnection Database { get; } = DependencyService.Get<IStorage>().GetConnection();
-        public static ChannelsPage ChannelsPage { get; } = new ChannelsPage();
-        public static ContactsPage ContactsPage { get; } = new ContactsPage();
-        public static IChannelService ChannelService { get; } = new ChannelService();
+        private static ChannelsPage _channelsPage;
+        private static ContactsPage _contactPage;
+        private static SQLiteConnection _database;
+        private static IChannelService _channelService;
+
+        public static SQLiteConnection Database => _database ?? (_database = DependencyService.Get<IStorage>().GetConnection());
+        public static ChannelsPage ChannelsPage => _channelsPage ?? (_channelsPage = new ChannelsPage());
+        public static ContactsPage ContactsPage => _contactPage ?? (_contactPage = new ContactsPage());
+        public static IChannelService ChannelService => _channelService ?? (_channelService = new ChannelService());
         public static User Me { get; } = new User("Tobias", "Straub", "hello@tobiasstraub.com"); // TODO: Load from database
     }
 }

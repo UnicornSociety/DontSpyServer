@@ -3,6 +3,7 @@ using System.Linq;
 using ModernEncryption.Interfaces;
 using ModernEncryption.Model;
 using ModernEncryption.Rest;
+using ModernEncryption.Utils;
 using SQLiteNetExtensions.Extensions;
 
 namespace ModernEncryption.Service
@@ -23,7 +24,7 @@ namespace ModernEncryption.Service
 
         public Channel CreateChannel(List<User> members, string channelName = null)
         {
-            var channelIdentifier = 242352; // TODO!
+            var channelIdentifier = IdentifierCreator.UniqueDigits();
             var channel = new Channel(channelIdentifier, members, channelName);
             DependencyManager.ChannelsPage.ViewModel.Channels.Add(channel);
             DependencyManager.Database.InsertWithChildren(channel);
@@ -31,7 +32,7 @@ namespace ModernEncryption.Service
             var memberList = members.Aggregate("", (current, member) => current + member.Email);
             foreach (var member in members)
             {
-                var preparedMessage = new Message(DependencyManager.Me.Id.ToString() + channelIdentifier + memberList,
+                var preparedMessage = new Message(DependencyManager.Me.Id + channelIdentifier + memberList,
                     "OnBoardingMessage")
                 {
                     ChannelId = member.Id // Manipulated to call pull broadcast by receiver
@@ -108,7 +109,7 @@ namespace ModernEncryption.Service
                     members.Add(member);
                 }
 
-                var channel = new Channel(int.Parse(newChannelIdentifier), members);
+                var channel = new Channel(newChannelIdentifier, members);
                 channel.Messages.Add(new Message(sender, message.Text) { Timestamp = message.Timestamp });
                 DependencyManager.ChannelsPage.ViewModel.Channels.Add(channel);
                 DependencyManager.Database.InsertWithChildren(channel);

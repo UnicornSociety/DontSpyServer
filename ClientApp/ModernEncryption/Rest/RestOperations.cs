@@ -50,7 +50,7 @@ namespace ModernEncryption.Rest
             }
         }
 
-        public async Task<List<Message>> GetMessageBy(int channelId)
+        public async Task<List<Message>> GetMessageBy(string channelId)
         {
             var messages = new List<Message>();
 

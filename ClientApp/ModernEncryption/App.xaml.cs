@@ -14,16 +14,14 @@ namespace ModernEncryption
         {
             InitializeComponent();
             new LocalDatabaseOptions(LocalDatabaseOptions.ConnectionMode.DropAndRecreate);
-            var channel = new Channel(123, new List<User> { new User("Tobias", "Straub", "hello@tobiasstraub.com") }, new Message(53553, "hh", "msg"));
 
-
+            /*var channel = new Channel(123, new List<User> { new User("Tobias", "Straub", "hello@tobiasstraub.com") }, new Message(53553, "hh", "msg"));
             DependencyManager.Database.InsertWithChildren(channel);
-
             var x = DependencyManager.Database.GetAllWithChildren<Channel>(recursive:true);
             var y = DependencyManager.Database.GetAllWithChildren<User>(recursive: true);
-            var z = DependencyManager.Database.GetAllWithChildren<Message>(recursive: true);
+            var z = DependencyManager.Database.GetAllWithChildren<Message>(recursive: true);*/
 
-            MainPage = new ChannelPage();
+            MainPage = new AnchorPage();
         }
 
         protected override void OnStart()
