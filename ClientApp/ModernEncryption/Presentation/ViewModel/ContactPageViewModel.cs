@@ -19,7 +19,6 @@ namespace ModernEncryption.Presentation.ViewModel
     public class ContactPageViewModel// : INotifyPropertyChanged
     {
         private ContactPage _view;
-        private SQLiteConnection Database { get; } = DependencyService.Get<IStorage>().GetConnection();
 
         public string Title { get; set; } = "Contacts";
         public ObservableCollection<User> Contacts { get; }
@@ -57,7 +56,7 @@ namespace ModernEncryption.Presentation.ViewModel
                 // var result = Database.GetAllWithChildren<Channel>(x => x.Members.Contains(user));
                 // DEBUGGING END*/
 
-                var Result = Database.GetAllWithChildren<Channel>(c => c.Members.Contains(user) && c.ChannelType == Channel.GroupIndicator.Single); //muss noch so machen das Grupppen wo auch der user drin ist nicht gezählt werden
+                var Result = App.Database.GetAllWithChildren<Channel>(c => c.Members.Contains(user) && c.ChannelType == Channel.GroupIndicator.Single); //muss noch so machen das Grupppen wo auch der user drin ist nicht gezählt werden
 
                 int channelIdPart = 1;
                 if (CrossSecureStorage.Current.HasKey("channelID"))
@@ -84,7 +83,7 @@ namespace ModernEncryption.Presentation.ViewModel
                     {
                         KeyReference = new GenerateKeys().CreateKey()
                     };
-                    Database.InsertWithChildren(channel);
+                    App.Database.InsertWithChildren(channel);
                     _view.Navigation.PushAsync(channel.ChannelPage);
                 }
             });
@@ -97,7 +96,7 @@ namespace ModernEncryption.Presentation.ViewModel
 
         private void LoadContacts()
         {
-            var contacts = Database.Query<User>("SELECT * FROM user");
+            var contacts = App.Database.Query<User>("SELECT * FROM user");
             foreach (var contact in contacts)
             {
                 Contacts.Add(contact);
@@ -106,10 +105,10 @@ namespace ModernEncryption.Presentation.ViewModel
 
         private void SaveContact(User user)
         {
-            var userByEmail = Database.Query<User>("SELECT * FROM user WHERE email='?'", user.Email);
+            var userByEmail = App.Database.Query<User>("SELECT * FROM user WHERE email='?'", user.Email);
             if (userByEmail.Count > 0) return;
 
-            Database.Insert(user);
+            App.Database.Insert(user);
             Contacts.Add(user); // Add user to current visible view
         }
 

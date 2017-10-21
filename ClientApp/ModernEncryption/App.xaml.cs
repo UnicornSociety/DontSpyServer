@@ -1,7 +1,9 @@
 ﻿using System.Linq;
 using ModernEncryption.BusinessLogic.Crypto;
 using ModernEncryption.DataAccess;
+using ModernEncryption.Interfaces;
 using ModernEncryption.Presentation.View;
+using SQLite.Net;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,6 +12,8 @@ namespace ModernEncryption
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class App : Application
     {
+        public static SQLiteConnection Database { get; } = DependencyService.Get<IStorage>().GetConnection();
+
         public App()
         {
             InitializeComponent();
