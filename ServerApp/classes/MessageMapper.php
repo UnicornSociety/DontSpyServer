@@ -2,12 +2,12 @@
 
 class MessageMapper extends Mapper
 {
-    public function getMessageByChannel($channel, $params)
+    public function getMessageByReceiver($receivingChannel, $params)
     {
         $row_limit = array_key_exists('limit', $params) ? $params['limit'] : "50";
         $offset = array_key_exists('offset', $params) ? $params['offset'] : "0";
-        $stmt = $this->db->prepare("SELECT * FROM message WHERE channel = :channel LIMIT $offset, $row_limit");
-        $stmt->execute(["channel" => $channel]);
+        $stmt = $this->db->prepare("SELECT * FROM message WHERE receivingChannel = :receivingChannel LIMIT $offset, $row_limit");
+        $stmt->execute(["receivingChannel" => $receivingChannel]);
         $results = [];
         while ($row = $stmt->fetch()) {
             $results[] = new MessageEntity($row);
@@ -17,12 +17,13 @@ class MessageMapper extends Mapper
 
     public function save(MessageEntity $message)
     {
-        $stmt = $this->db->prepare("INSERT INTO message(message, timestamp, sender, channel) VALUES (:message, :timestamp, :sender, :channel)");
+        $stmt = $this->db->prepare("INSERT INTO message(id, messageHeader, receivingChannel, timestamp, message) VALUES (:id, :messageHeader, :receivingChannel, :timestamp, :message)");
         $result = $stmt->execute([
-            "message" => $message->getMessage(),
+            "id" => $message->getId(),
+            "messageHeader" => $message->getMessageHeader(),
+            "receivingChannel" => $message->getReceivingChannel(),
             "timestamp" => $message->getTimestamp(),
-            "sender" => $message->getSender(),
-            "channel" => $channel->getChannel(),
+            "message" => $message->getMessage()
         ]);
         if (!$result) {
             throw new Exception("Could not save record");

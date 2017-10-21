@@ -1,28 +1,27 @@
 <?php
 // Routes
-$app->get('/user/{eMail}', function ($request, $response, $args) {
-      $user_eMail = (string)$args['eMail'];
+$app->get('/user/{email}', function ($request, $response, $args) {
+      $user_eMail = (string)$args['email'];
       $mapper = new UserMapper($this->db);
       $user = $mapper->getUserByEMail($user_eMail);
       return $response->withJson($user);
   });
 
-
-  $app->get('/message/{channel}', function ($request, $response, $args) {
-      $channel = (int)$args['channel'];
+  $app->get('/message/{receivingChannel}', function ($request, $response, $args) {
+      $receiver = (string)$args['receivingChannel'];
       $mapper = new MessageMapper($this->db);
-      $message = $mapper->getMessageByChannel($channel, $request->getQueryParams());
+      $message = $mapper->getMessageByReceiver($receiver, $request->getQueryParams());
       return $response->withJson($message);
   });
 
 $app->post('/message/new', function ($request, $response) {
     $data = $request->getParsedBody();
     $message_data = [];
+    $message_data['id'] = filter_var($data['id'], FILTER_SANITIZE_STRING);
+    $message_data['messageHeader'] = filter_var($data['messageHeader'], FILTER_SANITIZE_STRING);
+    $message_data['receivingChannel'] = filter_var($data['receivingChannel'], FILTER_SANITIZE_STRING);
     $message_data['timestamp'] = $data['timestamp'];
-    //print_r($data['sender']);
-    $message_data['sender'] = $data['sender'];
     $message_data['message'] = filter_var($data['message'], FILTER_SANITIZE_STRING);
-    $message_data['channel'] = $data['channel'];
     $message = new MessageEntity($message_data);
     $mapper = new MessageMapper($this->db);
     $mapper->save($message);
@@ -33,10 +32,10 @@ $app->post('/message/new', function ($request, $response) {
 $app->post('/user/new', function ($request, $response) {
     $data = $request->getParsedBody();
     $user_data = [];
+    $user_data['id'] = filter_var($data['id'], FILTER_SANITIZE_STRING);
     $user_data['firstname'] = filter_var($data['firstname'], FILTER_SANITIZE_STRING);
     $user_data['surname'] = filter_var($data['surname'], FILTER_SANITIZE_STRING);
-    $user_data['eMail'] = filter_var($data['eMail'], FILTER_SANITIZE_STRING);
-    print_r("Hello".$data);
+    $user_data['email'] = filter_var($data['email'], FILTER_SANITIZE_STRING);
     $user = new UserEntity($user_data);
     $mapper = new UserMapper($this->db);
     $mapper->save($user);

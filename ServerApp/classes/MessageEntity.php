@@ -2,46 +2,51 @@
 
 class MessageEntity implements JsonSerializable
 {
-    protected $sender;
-    protected $message;
+    protected $id;
+    protected $messageHeader;
+    protected $receivingChannel;
     protected $timestamp;
-    protected $channel;
+    protected $message;
 
     public function __construct(array $data)
     {
-        $this->sender = $data['sender'];
-        $this->message = $data['message'];
+        $this->id = $data['id'];
+        $this->messageHeader = $data['messageHeader'];
+        $this->receivingChannel = $data['receivingChannel'];
         $this->timestamp = $data['timestamp'];
-        $this->channel = $channel['channel'];
+        $this->message = $data['message'];
     }
 
 // saving data from post message routes
 
+    public function getId()
+    {
+        return $this->id;
+    }
+    public function getMessageHeader()
+    {
+        return $this->messageHeader;
+    }
+    public function getReceivingChannel()
+    {
+        return $this->receivingChannel;
+    }
     public function getTimestamp()
     {
         return $this->timestamp;
-    }
-    public function getSender()
-    {
-        //print_r($this->sender);
-        return $this->sender;
     }
     public function getMessage()
     {
         return $this->message;
     }
-    public function getChannel()
-    {
-      print_r($this->$channel);
-        return $this->channel;
-    }
     public function jsonSerialize()
     {
         return [
-            'sender' => $this->getSender(),
+            'id' => $this->getId(),
+            'messageHeader' => $this->getMessageHeader(),
+            'receivingChannel' => $this->getReceivingChannel(),
             'timestamp' => $this->getTimestamp(),
             'message' => $this->getMessage(),
-            'channel' => $this->getChannel(),
         ];
     }
 
