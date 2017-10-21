@@ -6,11 +6,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Presentation\View\ContactPage.xaml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="App.xaml" />
     <None Remove="avatar.png" />
     <None Remove="LockScreenLogo.scale-200.png" />
     <None Remove="logo.png" />
-    <None Remove="Presentation\View\ChannelPage.xaml" />
+    <None Remove="Presentation\View\AnchorPage.xaml" />
+    <None Remove="Presentation\View\ChatPage.xaml" />
+    <None Remove="Presentation\View\ContactPage.xaml" />
+    <None Remove="Presentation\View\DefinePasswordPage.xaml" />
+    <None Remove="Presentation\View\EnterKeyPage.xaml" />
+    <None Remove="Presentation\View\LoginPage.xaml" />
+    <None Remove="Presentation\View\NewGroupPage.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,7 +30,32 @@
     <EmbeddedResource Include="avatar.png" />
     <EmbeddedResource Include="LockScreenLogo.scale-200.png" />
     <EmbeddedResource Include="logo.png" />
-    <EmbeddedResource Include="Presentation\View\ChannelPage.xaml">
+    <EmbeddedResource Include="Presentation\View\AnchorPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\View\ChatOverviewPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\View\ChatPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\View\ContactPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\View\ContactPage.xaml.cs" />
+    <EmbeddedResource Include="Presentation\View\DefinePasswordPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\View\EnterKeyPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\View\LoginPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\View\NewGroupPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\View\RegistrationPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

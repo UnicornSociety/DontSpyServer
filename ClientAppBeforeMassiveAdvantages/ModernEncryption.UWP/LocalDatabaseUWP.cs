@@ -35,16 +35,12 @@ namespace ModernEncryption.UWP
         {
             var path = GetDatabasePath();
 
-            try
-            {
+            try {
                 _conn?.Close();
-            }
-            catch
-            {
+            } catch {
             }
 
-            if (File.Exists(path))
-            {
+            if (File.Exists(path)) {
                 File.Delete(path);
             }
 

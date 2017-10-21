@@ -3,11 +3,11 @@ using ModernEncryption.Interfaces;
 using ModernEncryption.Model;
 using Xamarin.Forms;
 
-namespace ModernEncryption.DataAccess
+namespace ModernEncryption
 {
-    internal class LocalDatabase
+    internal class LocalDatabaseOptions
     {
-        public LocalDatabase(ConnectionMode connMode)
+        public LocalDatabaseOptions(ConnectionMode connMode)
         {
             switch (connMode)
             {
@@ -32,15 +32,18 @@ namespace ModernEncryption.DataAccess
         {
             var db = DependencyService.Get<IStorage>().GetConnection();
             db.CreateTable<User>();
+            db.CreateTable<Message>();
             db.CreateTable<Channel>();
-            db.CreateTable<UserChannel>();
+            db.CreateTable<ChannelUser>();
         }
 
         private static void DropTables()
         {
             var db = DependencyService.Get<IStorage>().GetConnection();
             db.DropTable<User>();
+            db.DropTable<Message>();
             db.DropTable<Channel>();
+            db.DropTable<ChannelUser>();
         }
     }
 }

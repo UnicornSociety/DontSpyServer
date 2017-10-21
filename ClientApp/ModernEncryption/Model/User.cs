@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel;
 using ModernEncryption.Interfaces;
 using Newtonsoft.Json;
 using SQLite.Net.Attributes;
@@ -8,63 +7,22 @@ using SQLiteNetExtensions.Attributes;
 namespace ModernEncryption.Model
 {
     [Table("User")]
-    public class User : IEntity, INotifyPropertyChanged
+    public class User : IEntity
     {
-        private int _id;
-        private string _firstname;
-        private string _surname;
-        private string _email;
+        [PrimaryKey, JsonProperty(PropertyName = "id")]
+        public int Id { get; set; }
 
-        [PrimaryKey, AutoIncrement, JsonIgnore]
-        public int Id
-        {
-            set
-            {
-                if (_id == value) return;
-                _id = value;
-                OnPropertyChanged("Id");
-            }
-            get => _id;
-        }
+        [ManyToMany(typeof(ChannelUser), CascadeOperations = CascadeOperation.All), JsonIgnore]
+        public List<Channel> Channels { get; set; }
 
         [MaxLength(18), JsonProperty(PropertyName = "firstname")]
-        public string Firstname
-        {
-            set
-            {
-                if (_firstname == value) return;
-                _firstname = value;
-                OnPropertyChanged("Firstname");
-            }
-            get => _firstname;
-        }
+        public string Firstname { get; set; }
 
         [MaxLength(18), JsonProperty(PropertyName = "surname")]
-        public string Surname
-        {
-            set
-            {
-                if (_surname == value) return;
-                _surname = value;
-                OnPropertyChanged("Surname");
-            }
-            get => _surname;
-        }
+        public string Surname { get; set; }
 
-        [MaxLength(32), Unique, JsonProperty(PropertyName = "eMail")]
-        public string Email
-        {
-            set
-            {
-                if (_email == value) return;
-                _email = value;
-                OnPropertyChanged("Email");
-            }
-            get => _email;
-        }
-
-        [ManyToMany(typeof(UserChannel)), JsonIgnore]
-        public List<Channel> Channels { get; set; }
+        [Unique, MaxLength(32), JsonProperty(PropertyName = "eMail")]
+        public string Email { get; set; }
 
         public User()
         {
@@ -75,17 +33,6 @@ namespace ModernEncryption.Model
             Firstname = firstname;
             Surname = surname;
             Email = email;
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this,
-                    new PropertyChangedEventArgs(propertyName));
-            }
         }
     }
 }
