@@ -7,7 +7,8 @@ namespace ModernEncryption.Presentation.ViewModel
     public class ChannelPageViewModel
     {
         private ChannelPage _view;
-        public ObservableCollection<Channel> Channels { get; } = new ObservableCollection<Channel>();
+        public ObservableCollection<Message> Messages { get; } = new ObservableCollection<Message>();
+        public Channel Channel { get; set; }
 
         public void SetView(ChannelPage view)
         {

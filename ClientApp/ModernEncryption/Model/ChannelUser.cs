@@ -9,9 +9,5 @@ namespace ModernEncryption.Model
 
         [ForeignKey(typeof(User))]
         public int UserId { get; set; }
-
-        public ChannelUser()
-        {
-        }
     }
 }

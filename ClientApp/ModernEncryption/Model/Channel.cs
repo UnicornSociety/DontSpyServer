@@ -10,6 +10,8 @@ namespace ModernEncryption.Model
     [Table("Channel")]
     public class Channel : IEntity
     {
+        private ChannelPage _channelView;
+
         [PrimaryKey]
         public int Id { get; set; }
 
@@ -22,23 +24,19 @@ namespace ModernEncryption.Model
         public string Name { get; set; }
 
         [Ignore]
-        public ChannelPage View { get; set; }
+        public ChannelPage View => _channelView ?? (_channelView = new ChannelPage(this));
 
         public Channel()
         {
         }
 
-        public Channel(int id, List<User> members, Message message, string name = null)
+        public Channel(int id, List<User> members, string name = null)
         {
             Id = id;
             Members = members;
-            Messages = new List<Message> { message };
 
-            if (name == null) Name = members[0].Firstname + " and " + members.Count + " more members";
+            if (name == null) Name = members[0].Firstname + " and " + (members.Count - 1) + " more members";
             else Name = name;
-
-            View = new ChannelPage(); // TODO: Should called by DB.Get, too
-            View.ViewModel.Channels.Add(this);
         }
 
         public void AddMessage(Message message)

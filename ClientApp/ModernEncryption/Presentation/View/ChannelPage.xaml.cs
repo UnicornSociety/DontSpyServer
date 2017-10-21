@@ -1,20 +1,21 @@
-﻿using ModernEncryption.Presentation.ViewModel;
+﻿using ModernEncryption.Model;
+using ModernEncryption.Presentation.ViewModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace ModernEncryption.Presentation.View
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class ChannelPage : ContentPage
-	{
-	    public ChannelPageViewModel ViewModel { get; }
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class ChannelPage : ContentPage
+    {
+        public ChannelPageViewModel ViewModel { get; }
 
-        public ChannelPage ()
-		{
-			InitializeComponent ();
-		    ViewModel = new ChannelPageViewModel();
-		    ViewModel.SetView(this);
-		    BindingContext = ViewModel;
+        public ChannelPage(Channel channel)
+        {
+            InitializeComponent();
+            ViewModel = new ChannelPageViewModel { Channel = channel };
+            ViewModel.SetView(this);
+            BindingContext = ViewModel;
         }
-	}
+    }
 }
