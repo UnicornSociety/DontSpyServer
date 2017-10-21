@@ -14,10 +14,6 @@
     </ContentPage.Resources>
 
     <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start">
-
-
-        <!-- <Entry Placeholder="Search"   HorizontalTextAlignment="Center" />-->
-
         <ListView x:Name="listView" ItemsSource="{Binding Messages}" >
             <ListView.Behaviors>
                 <behavior:EventToCommandBehavior EventName="ItemTapped" Command="{Binding TabbedChannelCommand}" CommandParameter="."  Converter="{StaticResource ItemTappedConverter}" />
@@ -34,16 +30,16 @@
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-                            <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" HorizontalOptions="Start" BackgroundColor="#fff">
+                            <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" HorizontalOptions="Start">
                                 <Image Source="{local:ImageResource ModernEncryption.avatar.png}" Aspect=" AspectFit" HeightRequest ="50" VerticalOptions="CenterAndExpand" />
                             </StackLayout>
-                            <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="#fff">
+                            <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
                                 <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-                                    <Label Text="Max" Font="Bold"  BackgroundColor="#fff" />
-                                    <Label Text="Mustermann" Font="Bold"  BackgroundColor="#fff" />
+                                    <Label Text="Max" Font="Bold"  BackgroundColor="#000" />
+                                    <Label Text="Mustermann" Font="Bold"  BackgroundColor="#000" />
                                     <Label Text="12:34 1.2.3456" HorizontalOptions="EndAndExpand"/>
                                 </StackLayout>
-                                <Label Text="Nachricht bla bla" BackgroundColor="#fff" />
+                                <Label Text="Nachricht bla bla" BackgroundColor="#000" />
                             </StackLayout>
                         </StackLayout>
                     </ViewCell>

@@ -13,7 +13,6 @@ namespace ModernEncryption
         public App()
         {
             InitializeComponent();
-
             new LocalDatabase(LocalDatabase.ConnectionMode.DropAndRecreate);
 
             var mml = new MathematicalMappingLogic();
