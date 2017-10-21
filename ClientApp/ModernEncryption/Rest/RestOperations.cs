@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
 using System.Text;
@@ -47,6 +48,21 @@ namespace ModernEncryption.Rest
                 Debug.WriteLine("Server antwortet nicht");
                 return false;
             }
+        }
+
+        public async Task<List<Message>> GetMessageBy(int channelId)
+        {
+            var messages = new List<Message>();
+
+            var uri = new Uri(string.Format(Constants.RestUrlGetMessage, channelId));
+            var response = await _client.GetAsync(uri).ConfigureAwait(false);
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                messages = JsonConvert.DeserializeObject<List<Message>>(content);
+            }
+
+            return messages;
         }
     }
 }

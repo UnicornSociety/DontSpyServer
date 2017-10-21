@@ -11,7 +11,7 @@ namespace ModernEncryption.Interfaces
         List<User> LoadContacts();
         List<Channel> LoadChannels();
         bool SendMessage(string message, Channel channel);
-        List<Message> PullNewMessages();
-        List<Message> PullChannelRequests();
+        List<Channel> PullNewMessages();
+        List<Channel> PullChannelRequests();
     }
 }
