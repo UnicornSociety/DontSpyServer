@@ -21,7 +21,7 @@
 
                 <ListView.Header>
                     <StackLayout>
-                        <SearchBar x:Name="email" Placeholder="Email" HorizontalTextAlignment="Center" BackgroundColor="White" SearchCommand="{Binding AddContactViaEmailCommand}" />
+                        <SearchBar x:Name="email" Placeholder="Email" HorizontalTextAlignment="Center" BackgroundColor="#000" SearchCommand="{Binding AddContactViaEmailCommand}" />
                     </StackLayout>
                 </ListView.Header>
 
@@ -34,11 +34,10 @@
                                 </StackLayout>
                                 <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="#fff">
                                     <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-                                        <Label Text="Max" Font="Bold"  BackgroundColor="#fff" />
-                                        <Label Text="Mustermann" Font="Bold"  BackgroundColor="#fff" />
-                                        <Label Text="Id: 1" Font="Bold" HorizontalOptions="EndAndExpand"/>
+                                        <Label Text="{Binding Firstname}" Font="Bold"  BackgroundColor="#fff" />
+                                        <Label Text="{Binding Surname}" Font="Bold"  BackgroundColor="#fff" />
                                     </StackLayout>
-                                    <Label Text="max.musterman@gmx.de" BackgroundColor="#fff" />
+                                    <Label Text="{Binding Email}" BackgroundColor="#fff" />
                                 </StackLayout>
                             </StackLayout>
                         </ViewCell>

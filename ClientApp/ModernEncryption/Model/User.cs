@@ -16,13 +16,13 @@ namespace ModernEncryption.Model
         [ManyToMany(typeof(ChannelUser), CascadeOperations = CascadeOperation.All), JsonIgnore]
         public List<Channel> Channels { get; set; }
 
-        [MaxLength(18), JsonProperty(PropertyName = "firstname")]
+        [JsonProperty(PropertyName = "firstname")]
         public string Firstname { get; set; }
 
-        [MaxLength(18), JsonProperty(PropertyName = "surname")]
+        [JsonProperty(PropertyName = "surname")]
         public string Surname { get; set; }
 
-        [Unique, MaxLength(32), JsonProperty(PropertyName = "eMail")]
+        [Unique, MaxLength(32), JsonProperty(PropertyName = "email")]
         public string Email { get; set; }
 
         public User()

@@ -6,17 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Presentation\View\ContactPage.xaml.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Remove="App.xaml" />
-    <None Remove="avatar.png" />
-    <None Remove="LockScreenLogo.scale-200.png" />
-    <None Remove="logo.png" />
-    <None Remove="Presentation\View\AnchorPage.xaml" />
-    <None Remove="Presentation\View\ChatPage.xaml" />
-    <None Remove="Presentation\View\ContactPage.xaml" />
     <None Remove="Presentation\View\DefinePasswordPage.xaml" />
     <None Remove="Presentation\View\EnterKeyPage.xaml" />
     <None Remove="Presentation\View\LoginPage.xaml" />
@@ -24,25 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="App.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="avatar.png" />
-    <EmbeddedResource Include="LockScreenLogo.scale-200.png" />
-    <EmbeddedResource Include="logo.png" />
-    <EmbeddedResource Include="Presentation\View\AnchorPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\View\ChatOverviewPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\View\ChatPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\View\ContactPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\View\ContactPage.xaml.cs" />
     <EmbeddedResource Include="Presentation\View\DefinePasswordPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -75,24 +45,6 @@
     <Reference Include="System.Web">
       <HintPath>..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.Web.dll</HintPath>
     </Reference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="Translation\AppResource.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>AppResource.resx</DependentUpon>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Update="Translation\AppResource.de.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Translation\AppResource.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>AppResource.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

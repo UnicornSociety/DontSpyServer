@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Threading.Tasks;
 using ModernEncryption.Interfaces;
 using ModernEncryption.Model;
 using ModernEncryption.Rest;
@@ -27,18 +29,18 @@ namespace ModernEncryption.Service
             var channelIdentifier = IdentifierCreator.UniqueDigits();
             var channel = new Channel(channelIdentifier, members, channelName);
             DependencyManager.ChannelsPage.ViewModel.Channels.Add(channel);
-            DependencyManager.Database.InsertWithChildren(channel);
+            DependencyManager.Database.UpdateWithChildren(channel);
 
-            var memberList = members.Aggregate("", (current, member) => current + member.Email);
+            var memberList = members.Aggregate("", (current, member) => current + member.Email + ";");
             foreach (var member in members)
             {
-                var preparedMessage = new Message(DependencyManager.Me.Id + channelIdentifier + memberList,
+                var preparedMessage = new Message(DependencyManager.Me.Id + ";" + channelIdentifier + ";" + memberList,
                     "OnBoardingMessage")
                 {
                     ChannelId = member.Id // Manipulated to call pull broadcast by receiver
                 };
 
-                var result = RestOperations.SendMessage(preparedMessage).Result; // TODO: Handle in future if request is not succeeded
+                new Task(() => { RestOperations.SendMessage(preparedMessage); }).Start(); // TODO: Handle in future if request is not succeeded
             }
 
             return channel;

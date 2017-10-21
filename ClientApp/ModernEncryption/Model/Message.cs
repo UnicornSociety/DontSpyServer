@@ -9,7 +9,7 @@ namespace ModernEncryption.Model
     [Table("Message")]
     public class Message : IEntity
     {
-        [PrimaryKey, JsonIgnore]
+        [PrimaryKey, JsonProperty(PropertyName = "id")]
         public string Id { get; set; }
 
         [ForeignKey(typeof(Channel)), JsonProperty(PropertyName = "receivingChannel")]

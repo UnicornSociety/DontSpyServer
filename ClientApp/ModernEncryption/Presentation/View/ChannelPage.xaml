@@ -14,7 +14,7 @@
                 <ListView.Footer>
                     <StackLayout Orientation="Horizontal">
                         <Entry Placeholder="Input message" HorizontalOptions="FillAndExpand" x:Name="inputMessage"/>
-                        <Button Text="Send" TextColor="#fff"  HorizontalOptions="End" BackgroundColor="#3A99D8" BorderRadius="10" Command="SendMessageCommand"/>
+                        <Button Text="Send" TextColor="#fff"  HorizontalOptions="End" BackgroundColor="#3A99D8" BorderRadius="10" Command="{Binding SendMessageCommand}"/>
                     </StackLayout>
                 </ListView.Footer>
 
