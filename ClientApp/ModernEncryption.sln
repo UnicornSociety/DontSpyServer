@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.12
+VisualStudioVersion = 15.0.26430.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModernEncryption", "ModernEncryption\ModernEncryption.csproj", "{196F66D6-75DE-482F-90EA-4703ADABD923}"
 EndProject
@@ -48,6 +48,8 @@ Global
 		{958A8018-A52C-45E7-B539-1C2E8657F304}.Debug|x86.Build.0 = Debug|x86
 		{958A8018-A52C-45E7-B539-1C2E8657F304}.Debug|x86.Deploy.0 = Debug|x86
 		{958A8018-A52C-45E7-B539-1C2E8657F304}.Release|Any CPU.ActiveCfg = Release|x86
+		{958A8018-A52C-45E7-B539-1C2E8657F304}.Release|Any CPU.Build.0 = Release|x86
+		{958A8018-A52C-45E7-B539-1C2E8657F304}.Release|Any CPU.Deploy.0 = Release|x86
 		{958A8018-A52C-45E7-B539-1C2E8657F304}.Release|ARM.ActiveCfg = Release|ARM
 		{958A8018-A52C-45E7-B539-1C2E8657F304}.Release|ARM.Build.0 = Release|ARM
 		{958A8018-A52C-45E7-B539-1C2E8657F304}.Release|ARM.Deploy.0 = Release|ARM

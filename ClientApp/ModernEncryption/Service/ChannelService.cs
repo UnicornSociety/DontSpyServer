@@ -54,10 +54,11 @@ namespace ModernEncryption.Service
             DependencyManager.Database.UpdateWithChildren(channel);
 
             var memberList = members.Aggregate("", (current, member) => current + member.Email + ";");
+            memberList = memberList.Remove(memberList.Length - 1); // Remove last semicolon
             foreach (var member in members)
             {
                 var preparedMessage = new Message(DependencyManager.Me.Id + ";" + channelIdentifier + ";" + memberList,
-                    "OnBoardingMessage")
+                    "onboarding")
                 {
                     ChannelId = member.Id // Manipulated to call pull broadcast by receiver
                 };
@@ -108,9 +109,12 @@ namespace ModernEncryption.Service
             {
                 foreach (var channel in DependencyManager.ChannelsPage.ViewModel.Channels)
                 {
+                    //Debug.WriteLine("Looking new messages for channel " + channel.Id);
                     foreach (var message in RestOperations.GetMessageBy(channel.Id).Result)
                     {
+                        //Debug.WriteLine("msg id " + message.Id);
                         if (channel.Messages.Exists(item => item.Id == message.Id)) continue; // If message exists
+                        //Debug.WriteLine("adding msg " + message.Id);
                         channel.View.ViewModel.Messages.Add(new DecryptionLogic(message).Decrypt());
                         channel.Messages.Add(message);
                         DependencyManager.Database.UpdateWithChildren(channel);
@@ -129,19 +133,24 @@ namespace ModernEncryption.Service
                     var receivingChannelSplit = message.MessageHeader.Split(';');
                     var sender = receivingChannelSplit[0];
                     var newChannelIdentifier = receivingChannelSplit[1];
+                    Debug.WriteLine("!!!!");
 
                     var members = new List<User>();
-                    for (var i = 2; i < receivingChannelSplit.Length - 1; i++) // -1 because last Split is empty
+                    for (var i = 2; i < receivingChannelSplit.Length; i++)
                     {
                         var member = AddUserBy(receivingChannelSplit[i]);
                         if (member == null) continue;
                         members.Add(member);
                     }
+                    Debug.WriteLine("????");
 
                     var channel = new Channel(newChannelIdentifier, members);
                     channel.Messages.Add(new Message(sender, message.Text) { Timestamp = message.Timestamp });
                     DependencyManager.ChannelsPage.ViewModel.Channels.Add(channel);
-                    DependencyManager.Database.InsertWithChildren(channel);
+                    DependencyManager.Database.UpdateWithChildren(channel);
+
+                    // TODO: Handle REST return
+                    new Task(() => { RestOperations.DeleteMessageBy(message.Id); }).Start();
                 }
                 await Task.Delay(10000); // 10 seconds
             }

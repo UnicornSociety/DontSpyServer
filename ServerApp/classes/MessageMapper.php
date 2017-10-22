@@ -29,4 +29,13 @@ class MessageMapper extends Mapper
             throw new Exception("Could not save record");
         }
     }
+
+    public function delete($id)
+    {
+        $stmt = $this->db->prepare("DELETE FROM message WHERE id = :id");
+        $result = $stmt->execute(["id" => $id]);
+        if (!$result) {
+            throw new Exception("Could not delete record");
+        }
+    }
 }

@@ -14,6 +14,13 @@ $app->get('/user/{email}', function ($request, $response, $args) {
       return $response->withJson($message);
   });
 
+  $app->delete('/message/{id}', function ($request, $response, $args) {
+      $id = (string)$args['id'];
+      $mapper = new MessageMapper($this->db);
+      $mapper->delete($id);
+      return $response;
+  });
+
 $app->post('/message/new', function ($request, $response) {
     $data = $request->getParsedBody();
     $message_data = [];

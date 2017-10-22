@@ -21,6 +21,7 @@ namespace ModernEncryption.Presentation.ViewModel
             {
                 var message = _view.FindByName<Entry>("inputMessage").Text;
                 DependencyManager.ChannelService.SendMessage(message, channel);
+                _view.FindByName<Entry>("inputMessage").Text = ""; // Clear field
             });
         }
 

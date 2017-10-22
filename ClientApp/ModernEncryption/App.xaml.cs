@@ -16,11 +16,11 @@ namespace ModernEncryption
         public App()
         {
             InitializeComponent();
-            new LocalDatabaseOptions(LocalDatabaseOptions.ConnectionMode.DropAndRecreate);
+            new LocalDatabaseOptions(LocalDatabaseOptions.ConnectionMode.Create);
 
             // DEBUGGING START
             CrossSecureStorage.Current.SetValue("VoucherValidated", "true"); // TODO: DELETE THIS, IT'S A DEBUGGING FLAG
-            CrossSecureStorage.Current.DeleteKey("OwnUser"); // TODO: DELETE THIS, IT'S A DEBUGGING FLAG
+            //CrossSecureStorage.Current.DeleteKey("OwnUser"); // TODO: DELETE THIS, IT'S A DEBUGGING FLAG
 
             
 

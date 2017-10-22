@@ -6,7 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 using ModernEncryption.Model;
 using Newtonsoft.Json;
-using Plugin.SecureStorage;
 
 namespace ModernEncryption.Rest
 {
@@ -84,6 +83,13 @@ namespace ModernEncryption.Rest
             }
 
             return messages;
+        }
+
+        public async Task<bool> DeleteMessageBy(string id)
+        {
+            var uri = new Uri(string.Format(Constants.RestUrlDeleteMessage, id));
+            var response = await _client.DeleteAsync(uri);
+            return true;
         }
     }
 }
