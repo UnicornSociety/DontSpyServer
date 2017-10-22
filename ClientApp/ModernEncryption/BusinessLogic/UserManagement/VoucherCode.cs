@@ -16,8 +16,8 @@ namespace ModernEncryption.BusinessLogic.UserManagement
         {
             _user = user;
             _voucherCode = CreateVoucherCode();
-            Int32 VoucherTimestamp = (Int32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds + 86400 +3600;//36600 ist 1h die wir hinter UTC sind in welcher der Timestamp angegeben wird
-            CrossSecureStorage.Current.SetValue("VoucherTimestamp", VoucherTimestamp.ToString());
+            var voucherTimestamp = (int)DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1)).TotalSeconds + 86400 + 3600;//36600 ist 1h die wir hinter UTC sind in welcher der Timestamp angegeben wird
+            CrossSecureStorage.Current.SetValue("VoucherTimestamp", voucherTimestamp.ToString());
             CrossSecureStorage.Current.SetValue("Voucher", _voucherCode.ToString());
         }
 
@@ -51,13 +51,25 @@ namespace ModernEncryption.BusinessLogic.UserManagement
                 }
                 return true;
             }
-
-            catch
+            catch // TODO: Improve error management
             {
                 Debug.WriteLine("Server antwortet nicht");
                 return false;
             }
-           
+
+        }
+
+        public bool ValidateVoucherCode(int userVoucher)
+        {
+            var voucher = Convert.ToInt32(CrossSecureStorage.Current.GetValue("Voucher", "-1"));
+            var voucherTimestamp = Convert.ToInt32(CrossSecureStorage.Current.GetValue("VoucherTimestamp", "-1"));
+            var currentVoucherTimestamp = (int)DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
+            if (voucherTimestamp > currentVoucherTimestamp) return false;
+            if (voucher != userVoucher) return false;
+            CrossSecureStorage.Current.DeleteKey("VoucherTimestamp");
+            CrossSecureStorage.Current.DeleteKey("Voucher");
+            CrossSecureStorage.Current.SetValue("VoucherValidated", "true");
+            return true;
         }
     }
 

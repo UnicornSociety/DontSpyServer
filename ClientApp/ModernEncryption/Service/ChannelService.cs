@@ -1,12 +1,21 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 using ModernEncryption.BusinessLogic.Crypto;
+using ModernEncryption.BusinessLogic.UserManagement;
 using ModernEncryption.Interfaces;
 using ModernEncryption.Model;
+using ModernEncryption.Presentation.View;
 using ModernEncryption.Rest;
 using ModernEncryption.Utils;
+using Newtonsoft.Json;
+using Plugin.SecureStorage;
 using SQLiteNetExtensions.Extensions;
+using Xamarin.Forms;
 
 namespace ModernEncryption.Service
 {
@@ -17,6 +26,19 @@ namespace ModernEncryption.Service
         public ChannelService()
         {
             RestOperations = new RestOperations();
+        }
+
+        public bool CreateOwnUser(User user)
+        {
+            new Task(() => { RestOperations.CreateOwnUser(user); }).Start(); // TODO: Handle in future if request is not succeeded
+
+            DependencyManager.Database.Insert(user);
+            CrossSecureStorage.Current.SetValue("OwnUser", user.Id);
+            DependencyManager.Me = user;
+
+            new VoucherCode(user).SendVoucherCode();
+
+            return true;
         }
 
         public Channel CreateChannel(User member, string channelName = null)

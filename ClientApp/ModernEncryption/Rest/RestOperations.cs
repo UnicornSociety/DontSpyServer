@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ModernEncryption.Model;
 using Newtonsoft.Json;
+using Plugin.SecureStorage;
 
 namespace ModernEncryption.Rest
 {
@@ -18,6 +19,27 @@ namespace ModernEncryption.Rest
             _client = new HttpClient { MaxResponseContentBufferSize = 256000 };
         }
 
+        public async Task<bool> CreateOwnUser(User user)
+        {
+            try
+            {
+                var validateEmail = GetUserBy(user.Email).Result;
+                if (validateEmail != null) return false;
+                var uri = new Uri(string.Format(Constants.RestUrlNewUser));
+                var json = JsonConvert.SerializeObject(user);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                HttpResponseMessage response = null;
+                response = await _client.PostAsync(uri, content);
+                return true;
+            }
+            catch // TODO: Improve error management
+            {
+                Debug.WriteLine("Server antwortet nicht");
+                return false;
+            }
+        }
+
         public async Task<User> GetUserBy(string eMail)
         {
             var uri = new Uri(string.Format(Constants.RestUrlGetUser, eMail));
@@ -27,7 +49,6 @@ namespace ModernEncryption.Rest
                 var content = await response.Content.ReadAsStringAsync();
                 return JsonConvert.DeserializeObject<User>(content);
             }
-            Debug.WriteLine("Server antwortet nicht"); // TODO: Improve error management
             return null;
         }
 

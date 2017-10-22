@@ -1,6 +1,9 @@
 ﻿using System.Linq;
 using ModernEncryption.BusinessLogic.Crypto;
+using ModernEncryption.Model;
 using ModernEncryption.Presentation.View;
+using Plugin.SecureStorage;
+using SQLiteNetExtensions.Extensions;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -14,6 +17,9 @@ namespace ModernEncryption
             InitializeComponent();
             new LocalDatabaseOptions(LocalDatabaseOptions.ConnectionMode.DropAndRecreate);
 
+            CrossSecureStorage.Current.SetValue("VoucherValidated", "true"); // TODO: DELETE THIS, IT'S A DEBUGGING FLAG
+            CrossSecureStorage.Current.DeleteKey("OwnUser"); // TODO: DELETE THIS, IT'S A DEBUGGING FLAG
+
             var mml = new MathematicalMappingLogic();
             mml.InitalizeIntervalTable();
             mml.InitalizeTransformationTable();
@@ -21,17 +27,34 @@ namespace ModernEncryption
             MathematicalMappingLogic.BackTransformationTable =
             MathematicalMappingLogic.TransformationTable.ToDictionary(x => x.Value, x => x.Key);
 
+            if (CrossSecureStorage.Current.HasKey("OwnUser"))
+            {
+                var ownUser = DependencyManager.Database.GetWithChildren<User>(
+                    CrossSecureStorage.Current.GetValue("OwnUser"));
 
-            DependencyManager.ChannelService.PullChannelRequests();
-            DependencyManager.ChannelService.PullNewMessages();
+                DependencyManager.Me = ownUser;
+
+                if (CrossSecureStorage.Current.HasKey("VoucherValidated"))
+                {
+                    MainPage = new AnchorPage();
+                    DependencyManager.ChannelService.PullChannelRequests();
+                    DependencyManager.ChannelService.PullNewMessages();
+                }
+                // TODO: Else MainPage=EnterVoucherPage
+            }
+            else
+            {
+                MainPage = new RegistrationPage();
+            }
+
+
+            
 
             /*var channel = new Channel(123, new List<User> { new User("Tobias", "Straub", "hello@tobiasstraub.com") }, new Message(53553, "hh", "msg"));
             DependencyManager.Database.InsertWithChildren(channel);
             var x = DependencyManager.Database.GetAllWithChildren<Channel>(recursive:true);
             var y = DependencyManager.Database.GetAllWithChildren<User>(recursive: true);
             var z = DependencyManager.Database.GetAllWithChildren<Message>(recursive: true);*/
-
-            MainPage = new AnchorPage();
         }
 
         protected override void OnStart()
