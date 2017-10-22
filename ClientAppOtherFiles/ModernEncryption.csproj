@@ -6,28 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Presentation\View\DefinePasswordPage.xaml" />
-    <None Remove="Presentation\View\EnterKeyPage.xaml" />
-    <None Remove="Presentation\View\LoginPage.xaml" />
-    <None Remove="Presentation\View\NewGroupPage.xaml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="Presentation\View\DefinePasswordPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\View\EnterKeyPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\View\LoginPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\View\NewGroupPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\View\RegistrationPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
+    <Compile Remove="Presentation\**" />
+    <EmbeddedResource Remove="Presentation\**" />
+    <None Remove="Presentation\**" />
   </ItemGroup>
 
   <ItemGroup>
