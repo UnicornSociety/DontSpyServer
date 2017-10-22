@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using ModernEncryption.BusinessLogic.Crypto;
 using ModernEncryption.Model;
 using Xamarin.Forms;
 
@@ -13,9 +14,9 @@ namespace ModernEncryption.Presentation.Converter
         {
             var messages = (List<Message>)value;
             if (messages.Count < 1) return ""; // If no messages, do not show a snippet
-            var messageToBeSnip = messages.Last().Text;
+            var messageToBeSnip = new DecryptionLogic(messages.Last()).Decrypt().Text;
             if (messageToBeSnip.Length > 10) return messages.Last().Text.Substring(0, 10) + " ...";
-            return messageToBeSnip + " ...";
+            return messageToBeSnip;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Presentation\View\ContactsPageMultipleSelection.xaml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="App.xaml" />
     <None Remove="avatar.png" />
     <None Remove="LockScreenLogo.scale-200.png" />
@@ -14,6 +18,7 @@
     <None Remove="Presentation\View\ChannelPage.xaml" />
     <None Remove="Presentation\View\ChannelsPage.xaml" />
     <None Remove="Presentation\View\ContactsPage.xaml" />
+    <None Remove="Presentation\View\ContactsPageMultipleSelection.xaml" />
     <None Remove="Presentation\View\RegistrationPage.xaml" />
   </ItemGroup>
 

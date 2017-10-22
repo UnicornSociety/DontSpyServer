@@ -2,7 +2,6 @@
 using System.Windows.Input;
 using ModernEncryption.Model;
 using ModernEncryption.Presentation.View;
-using SQLiteNetExtensions.Extensions;
 using Xamarin.Forms;
 
 namespace ModernEncryption.Presentation.ViewModel

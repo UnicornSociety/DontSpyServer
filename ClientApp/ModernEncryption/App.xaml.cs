@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Diagnostics;
+using System.Linq;
 using ModernEncryption.BusinessLogic.Crypto;
 using ModernEncryption.Model;
 using ModernEncryption.Presentation.View;
@@ -17,8 +18,13 @@ namespace ModernEncryption
             InitializeComponent();
             new LocalDatabaseOptions(LocalDatabaseOptions.ConnectionMode.DropAndRecreate);
 
+            // DEBUGGING START
             CrossSecureStorage.Current.SetValue("VoucherValidated", "true"); // TODO: DELETE THIS, IT'S A DEBUGGING FLAG
-            //CrossSecureStorage.Current.DeleteKey("OwnUser"); // TODO: DELETE THIS, IT'S A DEBUGGING FLAG
+            CrossSecureStorage.Current.DeleteKey("OwnUser"); // TODO: DELETE THIS, IT'S A DEBUGGING FLAG
+
+            
+
+            // DEBUGGING END
 
             var mml = new MathematicalMappingLogic();
             mml.InitalizeIntervalTable();
@@ -47,14 +53,21 @@ namespace ModernEncryption
                 MainPage = new RegistrationPage();
             }
 
+            // DEBUGGING
+            foreach (var channel in DependencyManager.Database.GetAllWithChildren<Channel>(recursive: true))
+            {
+                Debug.WriteLine("Channel: " + channel.Id);
+            }
 
-            
+            foreach (var user in DependencyManager.Database.GetAllWithChildren<User>(recursive: true))
+            {
+                Debug.WriteLine("User: " + user.Id);
+            }
 
-            /*var channel = new Channel(123, new List<User> { new User("Tobias", "Straub", "hello@tobiasstraub.com") }, new Message(53553, "hh", "msg"));
-            DependencyManager.Database.InsertWithChildren(channel);
-            var x = DependencyManager.Database.GetAllWithChildren<Channel>(recursive:true);
-            var y = DependencyManager.Database.GetAllWithChildren<User>(recursive: true);
-            var z = DependencyManager.Database.GetAllWithChildren<Message>(recursive: true);*/
+            foreach (var message in DependencyManager.Database.GetAllWithChildren<Message>(recursive: true))
+            {
+                Debug.WriteLine("Message: " + message.Id);
+            }
         }
 
         protected override void OnStart()
