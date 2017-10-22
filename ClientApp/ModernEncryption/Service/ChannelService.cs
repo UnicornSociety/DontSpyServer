@@ -69,12 +69,15 @@ namespace ModernEncryption.Service
 
         public bool SendMessage(string message, Channel channel)
         {
-            var preparedMessage = new Message(DependencyManager.Me.Id.ToString(), message);
+            var preparedMessage = new Message(DependencyManager.Me.Id, message);
             channel.View.ViewModel.Messages.Add(preparedMessage);
             channel.Messages.Add(preparedMessage);
             DependencyManager.Database.UpdateWithChildren(channel);
 
-            return RestOperations.SendMessage(preparedMessage).Result;
+            // TODO: Handle REST return
+            new Task(() => { RestOperations.SendMessage(preparedMessage); }).Start();
+            return true;
+            //return RestOperations.SendMessage(preparedMessage).Result;
         }
 
         public List<Channel> PullNewMessages()

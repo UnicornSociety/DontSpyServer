@@ -9,14 +9,16 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <converter:ItemTappedEventArgsToItemTappedConverter x:Key="ItemTappedConverter" />
+            <converter:TimestampConverter x:Key="TimestampConverter" />
+            <converter:MessageSnippetConverter x:Key="MessageSnippetConverter" />
         </ResourceDictionary>
     </ContentPage.Resources>
 
     <ContentPage.Content>
         <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start">
-            <ListView x:Name="listView" ItemsSource="{Binding Messages}" >
+            <ListView x:Name="listView" ItemsSource="{Binding Channels}" >
                 <ListView.Behaviors>
-                    <behavior:EventToCommandBehavior EventName="ItemTapped" Command="{Binding TabbedChannelCommand}" CommandParameter="."  Converter="{StaticResource ItemTappedConverter}" />
+                    <behavior:EventToCommandBehavior EventName="ItemTapped" Command="{Binding TabbedChannelCommand}"  Converter="{StaticResource ItemTappedConverter}" />
                 </ListView.Behaviors>
 
                 <ListView.Header>
@@ -35,11 +37,10 @@
                                 </StackLayout>
                                 <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
                                     <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-                                        <Label Text="Max" Font="Bold"  BackgroundColor="#000" />
-                                        <Label Text="Mustermann" Font="Bold"  BackgroundColor="#000" />
-                                        <Label Text="12:34 1.2.3456" HorizontalOptions="EndAndExpand"/>
+                                        <Label Text="{Binding Name}" Font="Bold"  BackgroundColor="#fff" />
+                                        <Label Text="{Binding Messages, Converter={StaticResource TimestampConverter}}" HorizontalOptions="EndAndExpand" />
                                     </StackLayout>
-                                    <Label Text="Nachricht bla bla" BackgroundColor="#000" />
+                                    <Label Text="{Binding Messages, Converter={StaticResource MessageSnippetConverter}}" BackgroundColor="#fff" />
                                 </StackLayout>
                             </StackLayout>
                         </ViewCell>

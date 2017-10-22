@@ -24,11 +24,11 @@
                             <StackLayout Orientation="Horizontal" VerticalOptions="End" HorizontalOptions="Start" >
                                 <StackLayout Orientation="Vertical" VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand"   Padding="12" >
                                     <StackLayout Orientation="Horizontal" VerticalOptions="End" HorizontalOptions="StartAndExpand" >
-                                        <Label Text="Message"  BackgroundColor="#fff" FontSize="Medium" />
-                                        <Label Text="10000"   BackgroundColor="#fff" FontSize="Medium" />
+                                        <Label Text="{Binding Text}"  BackgroundColor="#fff" FontSize="Medium" />
+                                        <!-- <Label Text="10000"   BackgroundColor="#fff" FontSize="Medium" /> -->
                                     </StackLayout>
                                     <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand"  Padding="5">
-                                        <Label Text="12:34 01.02.3456"  FontSize="Micro" TextColor="Gray"/>
+                                        <Label Text="{Binding Timestamp}"  FontSize="Micro" TextColor="Gray"/>
                                     </StackLayout>
                                 </StackLayout>
                             </StackLayout>
