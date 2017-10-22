@@ -1,19 +1,17 @@
 ﻿using System.Diagnostics;
-using ModernEncryption.Interfaces;
 using ModernEncryption.Model;
-using Newtonsoft.Json.Serialization;
 
 namespace ModernEncryption.BusinessLogic.Crypto
 {
-    internal class DecryptionLogic : IDecrypt
+    internal class DecryptionLogic
     {
         private readonly char[] _messageTextSymbols;
-        private readonly EncryptedMessage _message;
+        private Message _message;
 
-        public DecryptionLogic(EncryptedMessage message)
+        public DecryptionLogic(Message message)
         {
-            _messageTextSymbols = message.Text.ToCharArray();
             _message = message;
+            _messageTextSymbols = message.Text.ToCharArray();
         }
 
         public DecryptedMessage Decrypt()
@@ -31,7 +29,7 @@ namespace ModernEncryption.BusinessLogic.Crypto
                 }
             }
 
-            return new DecryptedMessage(concatenatedDecryptedSymbols, _message);
+            return new DecryptedMessage(_message.Id, _message.Timestamp, concatenatedDecryptedSymbols);
         }
 
         private int RevertCharacterPair(char concatenatedSymbolPartA, char concatenatedSymbolPartB)

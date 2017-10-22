@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.ObjectModel;
-using System.Diagnostics;
+﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
 using ModernEncryption.Model;
 using ModernEncryption.Presentation.View;
@@ -11,7 +9,7 @@ namespace ModernEncryption.Presentation.ViewModel
     public class ChannelPageViewModel
     {
         private ChannelPage _view;
-        public ObservableCollection<Message> Messages { get; } = new ObservableCollection<Message>();
+        public ObservableCollection<DecryptedMessage> Messages { get; } = new ObservableCollection<DecryptedMessage>();
         private Channel Channel { get; }
         public ICommand SendMessageCommand { protected set; get; }
 

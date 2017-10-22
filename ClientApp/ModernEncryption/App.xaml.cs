@@ -1,4 +1,6 @@
-﻿using ModernEncryption.Presentation.View;
+﻿using System.Linq;
+using ModernEncryption.BusinessLogic.Crypto;
+using ModernEncryption.Presentation.View;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -11,6 +13,15 @@ namespace ModernEncryption
         {
             InitializeComponent();
             new LocalDatabaseOptions(LocalDatabaseOptions.ConnectionMode.DropAndRecreate);
+
+            var mml = new MathematicalMappingLogic();
+            mml.InitalizeIntervalTable();
+            mml.InitalizeTransformationTable();
+            // Create reverse table for the transformation table
+            MathematicalMappingLogic.BackTransformationTable =
+            MathematicalMappingLogic.TransformationTable.ToDictionary(x => x.Value, x => x.Key);
+
+
             DependencyManager.ChannelService.PullChannelRequests();
             DependencyManager.ChannelService.PullNewMessages();
 

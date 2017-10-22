@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ModernEncryption.BusinessLogic.Crypto;
 using ModernEncryption.Interfaces;
 using ModernEncryption.Model;
 using ModernEncryption.Rest;
@@ -68,8 +69,8 @@ namespace ModernEncryption.Service
 
         public bool SendMessage(string message, Channel channel)
         {
-            var preparedMessage = new Message(DependencyManager.Me.Id, message);
-            channel.View.ViewModel.Messages.Add(preparedMessage);
+            var preparedMessage = new EncryptionLogic(new Message(DependencyManager.Me.Id, message)).Encrypt();
+            channel.View.ViewModel.Messages.Add(new DecryptionLogic(preparedMessage).Decrypt());
             channel.Messages.Add(preparedMessage);
             DependencyManager.Database.UpdateWithChildren(channel);
 
@@ -88,7 +89,7 @@ namespace ModernEncryption.Service
                     foreach (var message in RestOperations.GetMessageBy(channel.Id).Result)
                     {
                         if (channel.Messages.Exists(item => item.Id == message.Id)) continue; // If message exists
-                        channel.View.ViewModel.Messages.Add(message);
+                        channel.View.ViewModel.Messages.Add(new DecryptionLogic(message).Decrypt());
                         channel.Messages.Add(message);
                         DependencyManager.Database.UpdateWithChildren(channel);
                     }

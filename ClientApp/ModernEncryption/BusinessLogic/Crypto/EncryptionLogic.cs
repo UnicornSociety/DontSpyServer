@@ -1,22 +1,20 @@
 ﻿using System;
-using System.Diagnostics;
-using ModernEncryption.Interfaces;
 using ModernEncryption.Model;
 
 namespace ModernEncryption.BusinessLogic.Crypto
 {
-    internal class EncryptionLogic : IEncrypt
+    internal class EncryptionLogic
     {
         private readonly char[] _messageTextSymbols;
-        private readonly DecryptedMessage _message;
+        private Message _message;
 
-        public EncryptionLogic(DecryptedMessage message)
+        public EncryptionLogic(Message message)
         {
             _message = message;
             _messageTextSymbols = message.Text.ToCharArray();
         }
 
-        public EncryptedMessage Encrypt()
+        public Message Encrypt()
         {
             var concatenatedEncryptedSymbols = string.Empty;
 
@@ -28,7 +26,8 @@ namespace ModernEncryption.BusinessLogic.Crypto
                 concatenatedEncryptedSymbols += CreateCharacterPair(permutedChipher);
             }
 
-            return new EncryptedMessage(concatenatedEncryptedSymbols, _message);
+            _message.Text = concatenatedEncryptedSymbols;
+            return _message;
         }
 
         private int CreateChipher(char symbol)
