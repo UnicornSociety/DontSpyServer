@@ -18,7 +18,7 @@ namespace ModernEncryption
             new LocalDatabaseOptions(LocalDatabaseOptions.ConnectionMode.DropAndRecreate);
 
             CrossSecureStorage.Current.SetValue("VoucherValidated", "true"); // TODO: DELETE THIS, IT'S A DEBUGGING FLAG
-            CrossSecureStorage.Current.DeleteKey("OwnUser"); // TODO: DELETE THIS, IT'S A DEBUGGING FLAG
+            //CrossSecureStorage.Current.DeleteKey("OwnUser"); // TODO: DELETE THIS, IT'S A DEBUGGING FLAG
 
             var mml = new MathematicalMappingLogic();
             mml.InitalizeIntervalTable();
@@ -36,7 +36,7 @@ namespace ModernEncryption
 
                 if (CrossSecureStorage.Current.HasKey("VoucherValidated"))
                 {
-                    MainPage = new AnchorPage();
+                    MainPage = DependencyManager.AnchorPage;
                     DependencyManager.ChannelService.PullChannelRequests();
                     DependencyManager.ChannelService.PullNewMessages();
                 }

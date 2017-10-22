@@ -21,12 +21,12 @@ namespace ModernEncryption.Presentation.ViewModel
 
             NewSingleChannelCommand = new Command<object>(param =>
             {
-                _view.Navigation.PushAsync(DependencyManager.ContactsPage);
+                DependencyManager.AnchorPage.CurrentPage = DependencyManager.AnchorPage.Children[1]; // Switch tab
             });
 
             NewGroupChannelCommand = new Command<object>(param =>
             {
-                _view.Navigation.PushAsync(DependencyManager.ContactsPage);
+                //_view.Navigation.PushAsync(DependencyManager.ContactsPage);
             });
 
             TabbedChannelCommand = new Command<object>(param =>

@@ -19,7 +19,7 @@ namespace ModernEncryption.Presentation.ViewModel
                 var eMail = _view.FindByName<Entry>("eMail").Text;
                 var result = DependencyManager.ChannelService.CreateOwnUser(new User(firstname, surname, eMail));
                 // TODO: Now redirect to enter the voucher and validate it
-                if (result) Application.Current.MainPage = new AnchorPage(); // TODO: Insted of MainPage
+                if (result) Application.Current.MainPage = DependencyManager.AnchorPage; // TODO: Insted of MainPage
             });
         }
 
