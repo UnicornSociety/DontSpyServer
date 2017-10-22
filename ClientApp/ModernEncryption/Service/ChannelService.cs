@@ -109,12 +109,9 @@ namespace ModernEncryption.Service
             {
                 foreach (var channel in DependencyManager.ChannelsPage.ViewModel.Channels)
                 {
-                    //Debug.WriteLine("Looking new messages for channel " + channel.Id);
                     foreach (var message in RestOperations.GetMessageBy(channel.Id).Result)
                     {
-                        //Debug.WriteLine("msg id " + message.Id);
                         if (channel.Messages.Exists(item => item.Id == message.Id)) continue; // If message exists
-                        //Debug.WriteLine("adding msg " + message.Id);
                         channel.View.ViewModel.Messages.Add(new DecryptionLogic(message).Decrypt());
                         channel.Messages.Add(message);
                         DependencyManager.Database.UpdateWithChildren(channel);
@@ -133,7 +130,6 @@ namespace ModernEncryption.Service
                     var receivingChannelSplit = message.MessageHeader.Split(';');
                     var sender = receivingChannelSplit[0];
                     var newChannelIdentifier = receivingChannelSplit[1];
-                    Debug.WriteLine("!!!!");
 
                     var members = new List<User>();
                     for (var i = 2; i < receivingChannelSplit.Length; i++)
@@ -142,7 +138,6 @@ namespace ModernEncryption.Service
                         if (member == null) continue;
                         members.Add(member);
                     }
-                    Debug.WriteLine("????");
 
                     var channel = new Channel(newChannelIdentifier, members);
                     channel.Messages.Add(new Message(sender, message.Text) { Timestamp = message.Timestamp });

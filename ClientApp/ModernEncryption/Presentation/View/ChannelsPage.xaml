@@ -9,7 +9,7 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <converter:ItemTappedEventArgsToItemTappedConverter x:Key="ItemTappedConverter" />
-            <converter:TimestampConverter x:Key="TimestampConverter" />
+            <converter:MessagesTimestampsConverter x:Key="MessagesTimestampsConverter" />
             <converter:MessageSnippetConverter x:Key="MessageSnippetConverter" />
         </ResourceDictionary>
     </ContentPage.Resources>
@@ -38,7 +38,7 @@
                                 <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
                                     <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
                                         <Label Text="{Binding Name}" Font="Bold"  BackgroundColor="#fff" />
-                                        <Label Text="{Binding Messages, Converter={StaticResource TimestampConverter}}" HorizontalOptions="EndAndExpand" />
+                                        <Label Text="{Binding Messages, Converter={StaticResource MessagesTimestampsConverter}}" HorizontalOptions="EndAndExpand" />
                                     </StackLayout>
                                     <Label Text="{Binding Messages, Converter={StaticResource MessageSnippetConverter}}" BackgroundColor="#fff" />
                                 </StackLayout>

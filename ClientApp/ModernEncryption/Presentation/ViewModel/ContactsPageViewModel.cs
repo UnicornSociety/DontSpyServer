@@ -40,6 +40,7 @@ namespace ModernEncryption.Presentation.ViewModel
             {
                 var email = _view.FindByName<SearchBar>("email").Text;
                 Contacts.Add(DependencyManager.ChannelService.AddUserBy(email));
+                _view.FindByName<SearchBar>("email").Text = "";
             });
         }
 

@@ -1,7 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ModernEncryption.Presentation.View.ChannelPage">
+             x:Class="ModernEncryption.Presentation.View.ChannelPage"
+             xmlns:converter="clr-namespace:ModernEncryption.Presentation.Converter">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:TimestampConverter x:Key="TimestampConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <ContentPage.Content>
         <StackLayout VerticalOptions="FillAndExpand">
             <ListView x:Name="listView" ItemsSource="{Binding Messages}">
@@ -28,7 +36,7 @@
                                         <!-- <Label Text="10000"   BackgroundColor="#fff" FontSize="Medium" /> -->
                                     </StackLayout>
                                     <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand"  Padding="5">
-                                        <Label Text="{Binding Timestamp}"  FontSize="Micro" TextColor="Gray"/>
+                                        <Label Text="{Binding Timestamp, Converter={StaticResource TimestampConverter}}"  FontSize="Micro" TextColor="Gray"/>
                                     </StackLayout>
                                 </StackLayout>
                             </StackLayout>
