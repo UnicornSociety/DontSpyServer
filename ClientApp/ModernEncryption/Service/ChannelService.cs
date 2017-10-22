@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using ModernEncryption.Interfaces;
@@ -80,48 +79,49 @@ namespace ModernEncryption.Service
             //return RestOperations.SendMessage(preparedMessage).Result;
         }
 
-        public List<Channel> PullNewMessages()
+        public async void PullNewMessages()
         {
-            var channels = new List<Channel>();
-            foreach (var channel in DependencyManager.ChannelsPage.ViewModel.Channels)
+            while (true)
             {
-                foreach (var message in RestOperations.GetMessageBy(channel.Id).Result)
+                foreach (var channel in DependencyManager.ChannelsPage.ViewModel.Channels)
                 {
-                    channel.View.ViewModel.Messages.Add(message);
-                    channel.Messages.Add(message);
-                    DependencyManager.Database.UpdateWithChildren(channel);
+                    foreach (var message in RestOperations.GetMessageBy(channel.Id).Result)
+                    {
+                        if (channel.Messages.Exists(item => item.Id == message.Id)) continue; // If message exists
+                        channel.View.ViewModel.Messages.Add(message);
+                        channel.Messages.Add(message);
+                        DependencyManager.Database.UpdateWithChildren(channel);
+                    }
                 }
-
-                channels.Add(channel);
+                await Task.Delay(5000); // 5 seconds
             }
-            return channels;
         }
 
-        public List<Channel> PullChannelRequests()
+        public async void PullChannelRequests()
         {
-            var channels = new List<Channel>();
-            foreach (var message in RestOperations.GetMessageBy(DependencyManager.Me.Id).Result)
+            while (true)
             {
-                var receivingChannelSplit = message.MessageHeader.Split(';');
-                var sender = receivingChannelSplit[0];
-                var newChannelIdentifier = receivingChannelSplit[1];
-
-                var members = new List<User>();
-                for (var i = 2; i < receivingChannelSplit.Length; i++)
+                foreach (var message in RestOperations.GetMessageBy(DependencyManager.Me.Id).Result)
                 {
-                    var member = AddUserBy(receivingChannelSplit[i]);
-                    if (member == null) continue;
-                    members.Add(member);
+                    var receivingChannelSplit = message.MessageHeader.Split(';');
+                    var sender = receivingChannelSplit[0];
+                    var newChannelIdentifier = receivingChannelSplit[1];
+
+                    var members = new List<User>();
+                    for (var i = 2; i < receivingChannelSplit.Length - 1; i++) // -1 because last Split is empty
+                    {
+                        var member = AddUserBy(receivingChannelSplit[i]);
+                        if (member == null) continue;
+                        members.Add(member);
+                    }
+
+                    var channel = new Channel(newChannelIdentifier, members);
+                    channel.Messages.Add(new Message(sender, message.Text) { Timestamp = message.Timestamp });
+                    DependencyManager.ChannelsPage.ViewModel.Channels.Add(channel);
+                    DependencyManager.Database.InsertWithChildren(channel);
                 }
-
-                var channel = new Channel(newChannelIdentifier, members);
-                channel.Messages.Add(new Message(sender, message.Text) { Timestamp = message.Timestamp });
-                DependencyManager.ChannelsPage.ViewModel.Channels.Add(channel);
-                DependencyManager.Database.InsertWithChildren(channel);
-
-                channels.Add(channel);
+                await Task.Delay(10000); // 10 seconds
             }
-            return channels;
         }
     }
 }

@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using ModernEncryption.Model;
-using ModernEncryption.Presentation.View;
-using SQLiteNetExtensions.Extensions;
+﻿using ModernEncryption.Presentation.View;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -14,6 +11,8 @@ namespace ModernEncryption
         {
             InitializeComponent();
             new LocalDatabaseOptions(LocalDatabaseOptions.ConnectionMode.DropAndRecreate);
+            DependencyManager.ChannelService.PullChannelRequests();
+            DependencyManager.ChannelService.PullNewMessages();
 
             /*var channel = new Channel(123, new List<User> { new User("Tobias", "Straub", "hello@tobiasstraub.com") }, new Message(53553, "hh", "msg"));
             DependencyManager.Database.InsertWithChildren(channel);

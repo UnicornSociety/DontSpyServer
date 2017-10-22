@@ -35,8 +35,15 @@ namespace ModernEncryption.Model
             Id = id;
             Members = members;
 
-            if (name == null) Name = members[0].Firstname + " and " + (members.Count - 1) + " more members";
-            else Name = name;
+            if (name == null)
+            {
+                if (members.Count > 1)
+                    Name = members[0].Firstname + " and " + (members.Count - 1) + " more members";
+                else
+                    Name = members[0].Firstname + " " + members[0].Surname;
+            }
+            else
+                Name = name;
         }
     }
 }
