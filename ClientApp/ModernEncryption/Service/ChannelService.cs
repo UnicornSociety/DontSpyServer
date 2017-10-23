@@ -82,7 +82,7 @@ namespace ModernEncryption.Service
 
         public List<User> LoadContacts()
         {
-            return DependencyManager.Database.GetAllWithChildren<User>();
+            return DependencyManager.Database.GetAllWithChildren<User>().Where(user => user.Id != DependencyManager.Me.Id).ToList();
         }
 
         public List<Channel> LoadChannels()
