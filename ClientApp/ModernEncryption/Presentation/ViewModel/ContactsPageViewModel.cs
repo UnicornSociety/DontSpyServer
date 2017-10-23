@@ -91,6 +91,11 @@ namespace ModernEncryption.Presentation.ViewModel
             MultipleSelectionVisibility = true; // Activate switches and create group button
         }
 
+        public void DeactivateMultipleSelectionSupport()
+        {
+            MultipleSelectionVisibility = false; // Deactivate switches and create group button
+        }
+
         public void SetView(ContactsPage view)
         {
             _view = view;
