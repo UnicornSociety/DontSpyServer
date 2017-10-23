@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Windows.Input;
 using ModernEncryption.Model;
 using ModernEncryption.Presentation.View;
@@ -60,11 +61,12 @@ namespace ModernEncryption.Presentation.ViewModel
                 ChannelPage channelPage = null;
                 foreach (var channel in DependencyManager.ChannelsPage.ViewModel.Channels)
                 {
-                    if (!channel.Members.Contains(user)) return;
-                    if (channel.Members.Count > 1) return;
+                    if (!channel.Members.Contains(user)) continue;
+                    if (channel.Members.Count > 1) continue;
                     // Is existing
                     channelPage = channel.View;
                 }
+
                 if (channelPage == null) channelPage = DependencyManager.ChannelService.CreateChannel(user).View;
 
                 _view.Navigation.PushAsync(channelPage);
