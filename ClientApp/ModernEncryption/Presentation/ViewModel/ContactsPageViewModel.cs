@@ -81,7 +81,8 @@ namespace ModernEncryption.Presentation.ViewModel
 
                 // TODO: Check, if a channel exists with the same members
 
-                _view.Navigation.PushAsync(DependencyManager.ChannelService.CreateChannel(members).View);
+                if (members.Count > 0)
+                    _view.Navigation.PushAsync(DependencyManager.ChannelService.CreateChannel(members).View);
             });
         }
 
