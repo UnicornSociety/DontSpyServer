@@ -1,11 +1,12 @@
-﻿using System.Windows.Input;
+﻿using System.ComponentModel;
+using System.Windows.Input;
 using ModernEncryption.Model;
 using ModernEncryption.Presentation.View;
 using Xamarin.Forms;
 
 namespace ModernEncryption.Presentation.ViewModel
 {
-    public class RegistrationPageViewModel
+    public class RegistrationPageViewModel : INotifyPropertyChanged
     {
         private RegistrationPage _view;
         public ICommand SendVoucherCommand { protected set; get; }
@@ -26,6 +27,12 @@ namespace ModernEncryption.Presentation.ViewModel
         public void SetView(RegistrationPage view)
         {
             _view = view;
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Windows.Input;
 using ModernEncryption.Model;
 using ModernEncryption.Presentation.View;
@@ -6,7 +7,7 @@ using Xamarin.Forms;
 
 namespace ModernEncryption.Presentation.ViewModel
 {
-    public class ChannelPageViewModel
+    public class ChannelPageViewModel : INotifyPropertyChanged
     {
         private ChannelPage _view;
         public ObservableCollection<DecryptedMessage> Messages { get; } = new ObservableCollection<DecryptedMessage>();
@@ -28,6 +29,12 @@ namespace ModernEncryption.Presentation.ViewModel
         public void SetView(ChannelPage view)
         {
             _view = view;
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
