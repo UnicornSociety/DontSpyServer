@@ -57,6 +57,8 @@ namespace ModernEncryption.Presentation.ViewModel
 
             TabbedChannelCommand = new Command<object>(param =>
             {
+                DependencyManager.AnchorPage.Children[0].Navigation.PopToRootAsync(false);
+                DependencyManager.AnchorPage.Children[1].Navigation.PopToRootAsync(false);
                 _view.Navigation.PushAsync(((Channel)param).View);
             });
         }

@@ -48,8 +48,8 @@ namespace ModernEncryption.Presentation.ViewModel
 
             AddContactViaEmailCommand = new Command<object>(param =>
             {
-                var email = _view.FindByName<SearchBar>("email").Text;
-                Contacts.Add(new SelectableData<User>(DependencyManager.ChannelService.AddUserBy(email)));
+                var user = DependencyManager.ChannelService.AddUserBy(_view.FindByName<SearchBar>("email").Text);
+                if (user != null) Contacts.Add(new SelectableData<User>(user));
                 _view.FindByName<SearchBar>("email").Text = "";
             });
 
