@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ModernEncryption.Presentation.View.ChannelPage"
-             xmlns:converter="clr-namespace:ModernEncryption.Presentation.Converter">
+             xmlns:converter="clr-namespace:ModernEncryption.Presentation.Converter"
+             Title="{Binding Title}">
 
     <ContentPage.Resources>
         <ResourceDictionary>

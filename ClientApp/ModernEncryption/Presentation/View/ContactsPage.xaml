@@ -5,6 +5,7 @@
              xmlns:local="clr-namespace:ModernEncryption.Utils;assembly=ModernEncryption"
              xmlns:behavior="clr-namespace:ModernEncryption.Presentation.Behaviors"
              xmlns:converter="clr-namespace:ModernEncryption.Presentation.Converter"
+             Title="{Binding Title}"
              x:Name="contactsPage">
 
     <ContentPage.Resources>

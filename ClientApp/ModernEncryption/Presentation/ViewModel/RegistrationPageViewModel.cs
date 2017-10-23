@@ -9,7 +9,19 @@ namespace ModernEncryption.Presentation.ViewModel
     public class RegistrationPageViewModel : INotifyPropertyChanged
     {
         private RegistrationPage _view;
+        private string _title = "Registration";
         public ICommand SendVoucherCommand { protected set; get; }
+
+        public string Title
+        {
+            get => _title;
+            set
+            {
+                if (_title == value) return;
+                _title = value;
+                OnPropertyChanged("Title");
+            }
+        }
 
         public RegistrationPageViewModel()
         {

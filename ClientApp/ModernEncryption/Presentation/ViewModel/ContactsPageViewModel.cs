@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Windows.Input;
 using ModernEncryption.Model;
 using ModernEncryption.Presentation.View;
@@ -13,10 +12,22 @@ namespace ModernEncryption.Presentation.ViewModel
     {
         private ContactsPage _view;
         private bool _multipleSelectionVisibility;
+        private string _title = "Your contacts";
         public ObservableCollection<SelectableData<User>> Contacts { get; } = new ObservableCollection<SelectableData<User>>();
         public ICommand AddContactViaEmailCommand { protected set; get; }
         public ICommand TabbedContactCommand { protected set; get; }
         public ICommand ClickedCreateGroupCommand { protected set; get; }
+
+        public string Title
+        {
+            get => _title;
+            set
+            {
+                if (_title == value) return;
+                _title = value;
+                OnPropertyChanged("Title");
+            }
+        }
 
         public bool MultipleSelectionVisibility
         {

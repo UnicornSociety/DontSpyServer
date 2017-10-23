@@ -4,7 +4,8 @@
              x:Class="ModernEncryption.Presentation.View.ChannelsPage"
              xmlns:local="clr-namespace:ModernEncryption.Utils;assembly=ModernEncryption"
              xmlns:behavior="clr-namespace:ModernEncryption.Presentation.Behaviors"
-             xmlns:converter="clr-namespace:ModernEncryption.Presentation.Converter">
+             xmlns:converter="clr-namespace:ModernEncryption.Presentation.Converter"
+             Title="{Binding Title}">
 
     <ContentPage.Resources>
         <ResourceDictionary>

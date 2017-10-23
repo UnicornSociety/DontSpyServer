@@ -10,10 +10,22 @@ namespace ModernEncryption.Presentation.ViewModel
     public class ChannelsPageViewModel : INotifyPropertyChanged
     {
         private ChannelsPage _view;
+        private string _title = "Your chats";
         public ObservableCollection<Channel> Channels { get; } = new ObservableCollection<Channel>();
         public ICommand NewSingleChannelCommand { protected set; get; }
         public ICommand NewGroupChannelCommand { protected set; get; }
         public ICommand TabbedChannelCommand { protected set; get; }
+
+        public string Title
+        {
+            get => _title;
+            set
+            {
+                if (_title == value) return;
+                _title = value;
+                OnPropertyChanged("Title");
+            }
+        }
 
         public ChannelsPageViewModel()
         {
