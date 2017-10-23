@@ -1,4 +1,7 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.Windows.Input;
 using ModernEncryption.Model;
 using ModernEncryption.Presentation.View;
@@ -6,17 +9,37 @@ using Xamarin.Forms;
 
 namespace ModernEncryption.Presentation.ViewModel
 {
-    public class ContactsPageViewModel
+    public class ContactsPageViewModel : INotifyPropertyChanged
     {
         private ContactsPage _view;
-        public ObservableCollection<User> Contacts { get; } = new ObservableCollection<User>();
-        public ICommand TabbedContactCommand { protected set; get; }
+        private bool _multipleSelectionVisibility;
+        public ObservableCollection<SelectableData<User>> Contacts { get; } = new ObservableCollection<SelectableData<User>>();
         public ICommand AddContactViaEmailCommand { protected set; get; }
+        public ICommand TabbedContactCommand { protected set; get; }
+        public ICommand ClickedCreateGroupCommand { protected set; get; }
+
+        public bool MultipleSelectionVisibility
+        {
+            get => _multipleSelectionVisibility;
+            private set
+            {
+                if (_multipleSelectionVisibility == value) return;
+                _multipleSelectionVisibility = value;
+                OnPropertyChanged("MultipleSelectionVisibility");
+            }
+        }
 
         public ContactsPageViewModel()
         {
             // Load all contact from local database
-            foreach (var contact in DependencyManager.ChannelService.LoadContacts()) Contacts.Add(contact);
+            foreach (var contact in DependencyManager.ChannelService.LoadContacts()) Contacts.Add(new SelectableData<User>(contact));
+
+            AddContactViaEmailCommand = new Command<object>(param =>
+            {
+                var email = _view.FindByName<SearchBar>("email").Text;
+                Contacts.Add(new SelectableData<User>(DependencyManager.ChannelService.AddUserBy(email)));
+                _view.FindByName<SearchBar>("email").Text = "";
+            });
 
             TabbedContactCommand = new Command<object>(param =>
             {
@@ -36,17 +59,35 @@ namespace ModernEncryption.Presentation.ViewModel
                 _view.Navigation.PushAsync(channelPage);
             });
 
-            AddContactViaEmailCommand = new Command<object>(param =>
+            ClickedCreateGroupCommand = new Command<object>(param =>
             {
-                var email = _view.FindByName<SearchBar>("email").Text;
-                Contacts.Add(DependencyManager.ChannelService.AddUserBy(email));
-                _view.FindByName<SearchBar>("email").Text = "";
+                var members = new List<User>();
+                foreach (var contact in Contacts)
+                {
+                    if (!contact.Selected) continue;
+                    members.Add(contact.Data);
+                }
+
+                // TODO: Check, if a channel exists with the same members
+
+                _view.Navigation.PushAsync(DependencyManager.ChannelService.CreateChannel(members).View);
             });
+        }
+
+        public void ActivateMultipleSelectionSupport()
+        {
+            MultipleSelectionVisibility = true; // Activate switches and create group button
         }
 
         public void SetView(ContactsPage view)
         {
             _view = view;
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

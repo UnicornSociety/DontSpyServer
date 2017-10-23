@@ -21,12 +21,19 @@ namespace ModernEncryption.Presentation.ViewModel
 
             NewSingleChannelCommand = new Command<object>(param =>
             {
+                DependencyManager.AnchorPage.Children[1].Navigation.PopToRootAsync(true);
                 DependencyManager.AnchorPage.CurrentPage = DependencyManager.AnchorPage.Children[1]; // Switch tab
             });
 
             NewGroupChannelCommand = new Command<object>(param =>
             {
-                //_view.Navigation.PushAsync(DependencyManager.ContactsPage);
+                // Hack, because layout do not update by changing visibility status
+                var anchorPageContactsChild = DependencyManager.AnchorPage.Children[1];
+                DependencyManager.AnchorPage.Children.RemoveAt(1);
+                DependencyManager.ContactsPage.ViewModel.ActivateMultipleSelectionSupport();
+                DependencyManager.AnchorPage.Children.Add(anchorPageContactsChild);
+                DependencyManager.AnchorPage.CurrentPage = DependencyManager.AnchorPage.Children[1]; // Switch tab
+
             });
 
             TabbedChannelCommand = new Command<object>(param =>
