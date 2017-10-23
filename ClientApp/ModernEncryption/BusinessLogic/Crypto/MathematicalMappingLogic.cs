@@ -12,57 +12,109 @@ namespace ModernEncryption.BusinessLogic.Crypto
 
         public void InitalizeIntervalTable()
         {
-            var a = new Interval(1, 84);
+            var A = new Interval(1, 8);
 
-            var b = new Interval(85, 108);
+            var a = new Interval(9, 84);
 
-            var c = new Interval(109, 147);
+            var B = new Interval(85, 86);
 
-            var d = new Interval(148, 213);
+            var b = new Interval(87, 108);
 
-            var e = new Interval(214, 439);
+            var C = new Interval(109, 111);
 
-            var f = new Interval(440, 460);
+            var c = new Interval(112, 147);
 
-            var g = new Interval(461, 499);
+            var D = new Interval(148, 153);
 
-            var h = new Interval(500, 561);
+            var d = new Interval(154, 213);
 
-            var i = new Interval(562, 659);
+            var E = new Interval(214, 235);
 
-            var j = new Interval(660, 662);
+            var e = new Interval(236, 439);
 
-            var k = new Interval(663, 677);
+            var F = new Interval(440, 441);
 
-            var l = new Interval(678, 721);
+            var f = new Interval(442, 460);
 
-            var m = new Interval(722, 753);
+            var G = new Interval(461, 463);
 
-            var n = new Interval(754, 880);
+            var g = new Interval(464, 499);
 
-            var o = new Interval(881, 912);
+            var H = new Interval(500, 504);
 
-            var p = new Interval(913, 922);
+            var h = new Interval(506, 561);
+
+            var I = new Interval(562, 570);
+
+            var i = new Interval(571, 659);
+
+            var J = new Interval(660, 660);
+
+            var j = new Interval(661, 662);
+
+            var K = new Interval(663, 663);
+
+            var k = new Interval(664, 677);
+
+            var L = new Interval(678, 681);
+
+            var l = new Interval(682, 721);
+
+            var M = new Interval(722, 724);
+
+            var m = new Interval(725, 753);
+
+            var N = new Interval(754, 765);
+
+            var n = new Interval(766, 880);
+
+            var O = new Interval(881, 882);
+
+            var o = new Interval(882, 912);
+
+            var P = new Interval(913, 913);
+
+            var p = new Interval(914, 922);
+
+            var Q = new Interval(505, 505);
 
             var q = new Interval(923, 923);
 
-            var r = new Interval(924, 1014);
+            var R = new Interval(924, 931);
 
-            var s = new Interval(1015, 1108);
+            var r = new Interval(933, 1014);
 
-            var t = new Interval(1109, 1188);
+            var S = new Interval(1015, 1023);
 
-            var u = new Interval(1189, 1244);
+            var s = new Interval(1024, 1108);
 
-            var v = new Interval(1245, 1252);
+            var T = new Interval(1109, 1115);
 
-            var w = new Interval(1253, 1276);
+            var t = new Interval(1117, 1188);
+
+            var U = new Interval(1189, 1193);
+
+            var u = new Interval(1194, 1244);
+
+            var V = new Interval(1245, 1245);
+
+            var v = new Interval(1246, 1252);
+
+            var W = new Interval(1253, 1254);
+
+            var w = new Interval(1255, 1276);
+
+            var X = new Interval(932, 932);
 
             var x = new Interval(1277, 1277);
 
+            var Y = new Interval(1116, 1116);
+
             var y = new Interval(1278, 1278);
 
-            var z = new Interval(1279, 1292);
+            var Z = new Interval(1279, 1279);
+
+            var z = new Interval(1280, 1292);
 
             var sharpS = new Interval(1293, 1296);
 
@@ -118,6 +170,32 @@ namespace ModernEncryption.BusinessLogic.Crypto
             IntervalTable.Add('x', x);
             IntervalTable.Add('y', y);
             IntervalTable.Add('z', z);
+            IntervalTable.Add('A', A);
+            IntervalTable.Add('B', B);
+            IntervalTable.Add('C', C);
+            IntervalTable.Add('D', D);
+            IntervalTable.Add('E', E);
+            IntervalTable.Add('F', F);
+            IntervalTable.Add('G', G);
+            IntervalTable.Add('H', H);
+            IntervalTable.Add('I', I);
+            IntervalTable.Add('J', J);
+            IntervalTable.Add('K', K);
+            IntervalTable.Add('L', L);
+            IntervalTable.Add('M', M);
+            IntervalTable.Add('N', N);
+            IntervalTable.Add('O', O);
+            IntervalTable.Add('P', P);
+            IntervalTable.Add('Q', Q);
+            IntervalTable.Add('R', R);
+            IntervalTable.Add('S', S);
+            IntervalTable.Add('T', T);
+            IntervalTable.Add('U', U);
+            IntervalTable.Add('V', V);
+            IntervalTable.Add('W', W);
+            IntervalTable.Add('X', X);
+            IntervalTable.Add('Y', Y);
+            IntervalTable.Add('Z', Z);
             IntervalTable.Add('ß', sharpS);
             IntervalTable.Add('.', dot);
             IntervalTable.Add(',', comma);
