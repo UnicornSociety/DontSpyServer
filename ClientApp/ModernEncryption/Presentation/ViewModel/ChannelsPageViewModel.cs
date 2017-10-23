@@ -42,6 +42,7 @@ namespace ModernEncryption.Presentation.ViewModel
             {
                 // Hack, because layout do not update by changing visibility status
                 var anchorPageContactsChild = DependencyManager.AnchorPage.Children[1];
+                DependencyManager.AnchorPage.Children[1].Navigation.PopToRootAsync(false);
                 DependencyManager.AnchorPage.Children.RemoveAt(1);
                 DependencyManager.ContactsPage.ViewModel.ActivateMultipleSelectionSupport();
                 DependencyManager.AnchorPage.Children.Add(anchorPageContactsChild);
