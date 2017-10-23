@@ -21,9 +21,6 @@ namespace ModernEncryption
             // DEBUGGING START
             CrossSecureStorage.Current.SetValue("VoucherValidated", "true"); // TODO: DELETE THIS, IT'S A DEBUGGING FLAG
             //CrossSecureStorage.Current.DeleteKey("OwnUser"); // TODO: DELETE THIS, IT'S A DEBUGGING FLAG
-
-            
-
             // DEBUGGING END
 
             var mml = new MathematicalMappingLogic();
@@ -46,7 +43,7 @@ namespace ModernEncryption
                     DependencyManager.ChannelService.PullChannelRequests();
                     DependencyManager.ChannelService.PullNewMessages();
                 }
-                // TODO: Else MainPage=EnterVoucherPage
+                // TODO: Else MainPage=EnterVoucherPage and then pull to channel and new messages
             }
             else
             {

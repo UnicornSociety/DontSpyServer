@@ -51,7 +51,7 @@ namespace ModernEncryption.Service
             var channelIdentifier = IdentifierCreator.UniqueDigits();
             var channel = new Channel(channelIdentifier, members, channelName);
             DependencyManager.ChannelsPage.ViewModel.Channels.Add(channel);
-            DependencyManager.Database.UpdateWithChildren(channel);
+            DependencyManager.Database.InsertOrReplaceWithChildren(channel);
 
             var memberList = members.Aggregate("", (current, member) => current + member.Email + ";");
             memberList = memberList.Remove(memberList.Length - 1); // Remove last semicolon
@@ -125,8 +125,10 @@ namespace ModernEncryption.Service
         {
             while (true)
             {
+                Debug.WriteLine("pull now to receiving channel " + DependencyManager.Me.Id);
                 foreach (var message in RestOperations.GetMessageBy(DependencyManager.Me.Id).Result)
                 {
+                    Debug.WriteLine("pull msg " + message.Id);
                     var receivingChannelSplit = message.MessageHeader.Split(';');
                     var sender = receivingChannelSplit[0];
                     var newChannelIdentifier = receivingChannelSplit[1];
@@ -142,7 +144,7 @@ namespace ModernEncryption.Service
                     var channel = new Channel(newChannelIdentifier, members);
                     channel.Messages.Add(new Message(sender, message.Text) { Timestamp = message.Timestamp });
                     DependencyManager.ChannelsPage.ViewModel.Channels.Add(channel);
-                    DependencyManager.Database.UpdateWithChildren(channel);
+                    DependencyManager.Database.InsertWithChildren(channel);
 
                     // TODO: Handle REST return
                     new Task(() => { RestOperations.DeleteMessageBy(message.Id); }).Start();
