@@ -13,13 +13,17 @@ namespace ModernEncryption.Presentation.View
             var channelsPage = new NavigationPage(DependencyManager.ChannelsPage)
             {
                 Icon = "chat.png",
-                Title = "Channels"
+                Title = "Channels",
+                BarBackgroundColor = Color.CornflowerBlue,
+                BarTextColor = Color.Black
             };
 
             var contactsPage = new NavigationPage(DependencyManager.ContactsPage)
             {
                 Icon = "contact.png",
-                Title = "Contacts"
+                Title = "Contacts",
+                BarBackgroundColor = Color.CornflowerBlue,
+                BarTextColor = Color.Black
             };
 
             BarBackgroundColor = Color.White;
