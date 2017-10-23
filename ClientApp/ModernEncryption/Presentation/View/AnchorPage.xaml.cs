@@ -29,6 +29,9 @@ namespace ModernEncryption.Presentation.View
             BarBackgroundColor = Color.White;
             BarTextColor = Color.Blue;
 
+            NavigationPage.SetHasNavigationBar(channelsPage, true);
+            NavigationPage.SetHasNavigationBar(contactsPage, true);
+
             Children.Add(channelsPage);
             Children.Add(contactsPage);
         }
