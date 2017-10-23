@@ -54,7 +54,7 @@ namespace ModernEncryption.Presentation.ViewModel
 
             TabbedContactCommand = new Command<object>(param =>
             {
-                var user = (User)param;
+                var user = ((SelectableData<User>)param).Data;
 
                 // Check if a single channel with the tabbed user is existing
                 ChannelPage channelPage = null;
