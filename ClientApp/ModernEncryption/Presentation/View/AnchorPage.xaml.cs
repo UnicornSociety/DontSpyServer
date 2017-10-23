@@ -22,6 +22,9 @@ namespace ModernEncryption.Presentation.View
                 Title = "Contacts"
             };
 
+            BarBackgroundColor = Color.White;
+            BarTextColor = Color.Blue;
+
             Children.Add(channelsPage);
             Children.Add(contactsPage);
         }
