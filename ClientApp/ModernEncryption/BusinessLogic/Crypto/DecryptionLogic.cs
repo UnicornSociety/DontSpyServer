@@ -49,7 +49,7 @@ namespace ModernEncryption.BusinessLogic.Crypto
 
         private char RevertChipher(int chiper)
         {
-            foreach (var symbol in MathematicalMappingLogic.TransformationTable.Values)
+            foreach (var symbol in MathematicalMappingLogic.IntervalTable.Keys)
             {
                 var interval = MathematicalMappingLogic.IntervalTable[symbol];
                 if (chiper >= interval.Start && chiper <= interval.End)
