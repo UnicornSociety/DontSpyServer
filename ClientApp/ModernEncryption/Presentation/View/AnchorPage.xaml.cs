@@ -15,7 +15,7 @@ namespace ModernEncryption.Presentation.View
                 Icon = "chat.png",
                 Title = "Channels",
                 BarBackgroundColor = Color.CornflowerBlue,
-                BarTextColor = Color.Black
+                BarTextColor = Color.White
             };
 
             var contactsPage = new NavigationPage(DependencyManager.ContactsPage)
@@ -23,11 +23,11 @@ namespace ModernEncryption.Presentation.View
                 Icon = "contact.png",
                 Title = "Contacts",
                 BarBackgroundColor = Color.CornflowerBlue,
-                BarTextColor = Color.Black
+                BarTextColor = Color.White
             };
 
-            BarBackgroundColor = Color.White;
-            BarTextColor = Color.Blue;
+            BarBackgroundColor = Color.FromHex("dfdfdf");
+            BarTextColor = Color.Black;
 
             NavigationPage.SetHasNavigationBar(channelsPage, true);
             NavigationPage.SetHasNavigationBar(contactsPage, true);
