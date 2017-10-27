@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using ModernEncryption.BusinessLogic.Crypto;
+using ModernEncryption.Interfaces;
 using ModernEncryption.Model;
 using ModernEncryption.Presentation.View;
 using Plugin.SecureStorage;
@@ -15,6 +16,15 @@ namespace ModernEncryption
         public App()
         {
             InitializeComponent();
+
+            // This lookup NOT required for Windows platforms - the Culture will be automatically set
+            if (Device.RuntimePlatform == Device.iOS || Device.RuntimePlatform == Device.Android)
+            {
+                var ci = DependencyService.Get<ILocalize>().GetCurrentCultureInfo();
+                Translations.AppResources.Culture = ci;
+                DependencyService.Get<ILocalize>().SetLocale(ci);
+            }
+
             new LocalDatabaseOptions(LocalDatabaseOptions.ConnectionMode.Create);
 
             var mml = new MathematicalMappingLogic();
