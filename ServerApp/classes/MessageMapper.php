@@ -32,8 +32,10 @@ class MessageMapper extends Mapper
 
     public function incrementProcessingCounter($id)
     {
+        $this->db->beginTransaction();
         $stmt = $this->db->prepare("UPDATE message SET processingCounter = processingCounter + 1 WHERE id = :id");
         $result = $stmt->execute(["id" => $id]);
+        $this->db->commit();
         if (!$result) {
             throw new Exception("Could not update record");
         }
