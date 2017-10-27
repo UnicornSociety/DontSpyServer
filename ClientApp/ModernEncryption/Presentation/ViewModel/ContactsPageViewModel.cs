@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 using System.Windows.Input;
 using ModernEncryption.Model;
 using ModernEncryption.Presentation.View;
@@ -68,7 +69,6 @@ namespace ModernEncryption.Presentation.ViewModel
                 }
 
                 if (channelPage == null) channelPage = DependencyManager.ChannelService.CreateChannel(user).View;
-
                 _view.Navigation.PushAsync(channelPage);
             });
 
@@ -81,10 +81,19 @@ namespace ModernEncryption.Presentation.ViewModel
                     members.Add(contact.Data);
                 }
 
-                // TODO: Check, if a channel exists with the same members
+                if (members.Count <= 0) return;
 
-                if (members.Count > 0)
-                    _view.Navigation.PushAsync(DependencyManager.ChannelService.CreateChannel(members).View);
+                // Check if a group channel with the selected user is existing
+                ChannelPage channelPage = null;
+                foreach (var channel in DependencyManager.ChannelsPage.ViewModel.Channels)
+                {
+                    if (channel.Members.Count != members.Count || channel.Members.Except(members).Any()) continue;
+                    // Is existing
+                    channelPage = channel.View;
+                }
+
+                if (channelPage == null) channelPage = DependencyManager.ChannelService.CreateChannel(members).View;
+                _view.Navigation.PushAsync(channelPage);
             });
         }
 
