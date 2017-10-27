@@ -53,8 +53,10 @@ namespace ModernEncryption.Service
 
         public bool SendMessage(string message, Channel channel)
         {
-            var preparedMessage = new EncryptionLogic(new Message(DependencyManager.Me.Id, message)).Encrypt();
-            channel.View.ViewModel.Messages.Add(new DecryptionLogic(preparedMessage).Decrypt());
+            IEncrypt encryption = new EncryptionLogic(new Message(DependencyManager.Me.Id, message));
+            var preparedMessage = encryption.Encrypt();
+            IDecrypt decryption = new DecryptionLogic(preparedMessage);
+            channel.View.ViewModel.Messages.Add(decryption.Decrypt());
             channel.Messages.Add(preparedMessage);
             DependencyManager.Database.UpdateWithChildren(channel);
 

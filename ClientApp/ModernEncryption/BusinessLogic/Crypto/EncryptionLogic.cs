@@ -1,12 +1,13 @@
 ﻿using System;
+using ModernEncryption.Interfaces;
 using ModernEncryption.Model;
 
 namespace ModernEncryption.BusinessLogic.Crypto
 {
-    internal class EncryptionLogic
+    internal class EncryptionLogic : IEncrypt
     {
         private readonly char[] _messageTextSymbols;
-        private Message _message;
+        private readonly Message _message;
 
         public EncryptionLogic(Message message)
         {

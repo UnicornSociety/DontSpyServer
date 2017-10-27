@@ -2,12 +2,13 @@
 using System.Diagnostics;
 using MailKit.Net.Smtp;
 using MimeKit;
+using ModernEncryption.Interfaces;
 using ModernEncryption.Model;
 using Plugin.SecureStorage;
 
 namespace ModernEncryption.BusinessLogic.UserManagement
 {
-    internal class VoucherCode
+    internal class VoucherCode : IVoucherCode
     {
         private readonly int _voucherCode;
         private readonly User _user;

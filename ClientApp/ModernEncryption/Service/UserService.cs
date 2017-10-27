@@ -26,7 +26,8 @@ namespace ModernEncryption.Service
             CrossSecureStorage.Current.SetValue("OwnUser", user.Id);
             DependencyManager.Me = user;
 
-            new VoucherCode(user).SendVoucherCode();
+            IVoucherCode voucherCode = new VoucherCode(user);
+            voucherCode.SendVoucherCode();
 
             return true;
         }
