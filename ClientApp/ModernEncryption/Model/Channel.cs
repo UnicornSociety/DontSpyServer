@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using ModernEncryption.Interfaces;
 using ModernEncryption.Presentation.View;
-using Newtonsoft.Json;
 using SQLite.Net.Attributes;
 using SQLiteNetExtensions.Attributes;
 
@@ -12,7 +11,7 @@ namespace ModernEncryption.Model
     {
         private ChannelPage _channelView;
 
-        [PrimaryKey, JsonProperty(PropertyName = "id")]
+        [PrimaryKey]
         public string Id { get; set; }
 
         [ManyToMany(typeof(ChannelUser), CascadeOperations = CascadeOperation.All)]
