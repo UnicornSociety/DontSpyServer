@@ -27,8 +27,8 @@ namespace ModernEncryption.Model
         [JsonProperty(PropertyName = "message")]
         public string Text { get; set; }
 
-        [JsonProperty(PropertyName = "processed")]
-        public int Processed { get; set; }
+        [JsonProperty(PropertyName = "processingCounter")]
+        public int ProcessingCounter { get; set; }
 
         public Message()
         {
@@ -40,7 +40,7 @@ namespace ModernEncryption.Model
             MessageHeader = messageHeader;
             Timestamp = TimeManagement.UnixTimestampNow;
             Text = message;
-            Processed = 0;
+            ProcessingCounter = 0;
         }
     }
 }

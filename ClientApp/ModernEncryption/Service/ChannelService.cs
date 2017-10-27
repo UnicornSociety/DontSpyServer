@@ -110,7 +110,9 @@ namespace ModernEncryption.Service
                         channel.Messages.Add(message);
                         DependencyManager.Database.UpdateWithChildren(channel);
 
-                        if (message.Processed + 1 >= channel.Members.Count)
+                        Debug.WriteLine("=>=> " + channel.Members.Count + " :: " + message.ProcessingCounter);
+
+                        if (message.ProcessingCounter + 1 >= channel.Members.Count)
                         {
                             // TODO: Handle REST return
                             new Task(() => { RestOperations.DeleteMessageBy(message.Id); }).Start();

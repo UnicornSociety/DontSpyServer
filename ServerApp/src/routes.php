@@ -36,6 +36,7 @@ $app->post('/message/new', function ($request, $response) {
     $message_data['receivingChannel'] = filter_var($data['receivingChannel'], FILTER_SANITIZE_STRING);
     $message_data['timestamp'] = $data['timestamp'];
     $message_data['message'] = filter_var($data['message'], FILTER_SANITIZE_STRING);
+    $message_data['processingCounter'] = $data['processingCounter'];
     $message = new MessageEntity($message_data);
     $mapper = new MessageMapper($this->db);
     $mapper->save($message);

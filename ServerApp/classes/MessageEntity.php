@@ -7,6 +7,7 @@ class MessageEntity implements JsonSerializable
     protected $receivingChannel;
     protected $timestamp;
     protected $message;
+    protected $processingCounter;
 
     public function __construct(array $data)
     {
@@ -15,6 +16,7 @@ class MessageEntity implements JsonSerializable
         $this->receivingChannel = $data['receivingChannel'];
         $this->timestamp = $data['timestamp'];
         $this->message = $data['message'];
+        $this->processingCounter = $data['processingCounter'];
     }
 
 // saving data from post message routes
@@ -39,6 +41,10 @@ class MessageEntity implements JsonSerializable
     {
         return $this->message;
     }
+    public function getProcessingCounter()
+    {
+        return $this->processingCounter;
+    }
     public function jsonSerialize()
     {
         return [
@@ -47,6 +53,7 @@ class MessageEntity implements JsonSerializable
             'receivingChannel' => $this->getReceivingChannel(),
             'timestamp' => $this->getTimestamp(),
             'message' => $this->getMessage(),
+            'processingCounter' => $this->getProcessingCounter(),
         ];
     }
 
