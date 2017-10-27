@@ -4,18 +4,17 @@ using System.Threading.Tasks;
 using ModernEncryption.BusinessLogic.Crypto;
 using ModernEncryption.Interfaces;
 using ModernEncryption.Model;
-using ModernEncryption.Rest;
 using SQLiteNetExtensions.Extensions;
 
 namespace ModernEncryption.Service
 {
     internal class PullService : IPullService
     {
-        private RestOperations RestOperations { get; }
+        private IRestService RestService { get; }
 
         public PullService()
         {
-            RestOperations = new RestOperations();
+            RestService = new RestService();
         }
 
         public async void PullNewMessages()
@@ -24,7 +23,7 @@ namespace ModernEncryption.Service
             {
                 foreach (var channel in DependencyManager.ChannelsPage.ViewModel.Channels)
                 {
-                    foreach (var message in RestOperations.GetMessageBy(channel.Id).Result)
+                    foreach (var message in RestService.GetMessageBy(channel.Id).Result)
                     {
                         if (channel.Messages.Exists(item => item.Id == message.Id)) continue; // If message exists
                         channel.View.ViewModel.Messages.Add(new DecryptionLogic(message).Decrypt());
@@ -36,12 +35,12 @@ namespace ModernEncryption.Service
                         if (message.ProcessingCounter + 1 >= channel.Members.Count)
                         {
                             // TODO: Handle REST return
-                            new Task(() => { RestOperations.DeleteMessageBy(message.Id); }).Start();
+                            new Task(() => { RestService.DeleteMessageBy(message.Id); }).Start();
                         }
                         else
                         {
                             // TODO: Handle REST return
-                            new Task(() => { RestOperations.UpdateMessageProcessingCounterBy(message.Id); }).Start();
+                            new Task(() => { RestService.UpdateMessageProcessingCounterBy(message.Id); }).Start();
                         }
                     }
                 }
@@ -54,7 +53,7 @@ namespace ModernEncryption.Service
             while (true)
             {
                 Debug.WriteLine("pull now to receiving channel " + DependencyManager.Me.Id);
-                foreach (var message in RestOperations.GetMessageBy(DependencyManager.Me.Id).Result)
+                foreach (var message in RestService.GetMessageBy(DependencyManager.Me.Id).Result)
                 {
                     Debug.WriteLine("pull msg " + message.Id);
                     var receivingChannelSplit = message.MessageHeader.Split(';');
@@ -75,7 +74,7 @@ namespace ModernEncryption.Service
                     DependencyManager.Database.InsertOrReplaceWithChildren(channel);
 
                     // TODO: Handle REST return
-                    new Task(() => { RestOperations.DeleteMessageBy(message.Id); }).Start();
+                    new Task(() => { RestService.DeleteMessageBy(message.Id); }).Start();
                 }
                 await Task.Delay(10000); // 10 seconds
             }

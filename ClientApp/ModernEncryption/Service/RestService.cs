@@ -4,16 +4,17 @@ using System.Diagnostics;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using ModernEncryption.Interfaces;
 using ModernEncryption.Model;
 using Newtonsoft.Json;
 
-namespace ModernEncryption.Rest
+namespace ModernEncryption.Service
 {
-    internal class RestOperations
+    internal class RestService : IRestService
     {
         private readonly HttpClient _client;
 
-        public RestOperations()
+        public RestService()
         {
             _client = new HttpClient { MaxResponseContentBufferSize = 256000 };
         }

@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using ModernEncryption.BusinessLogic.Crypto;
 using ModernEncryption.Interfaces;
 using ModernEncryption.Model;
-using ModernEncryption.Rest;
 using ModernEncryption.Utils;
 using SQLiteNetExtensions.Extensions;
 
@@ -12,11 +11,11 @@ namespace ModernEncryption.Service
 {
     internal class ChannelService : IChannelService
     {
-        private RestOperations RestOperations { get; }
+        private IRestService RestService { get; }
 
         public ChannelService()
         {
-            RestOperations = new RestOperations();
+            RestService = new RestService();
         }
 
         public Channel CreateChannel(User member, string channelName = null)
@@ -41,7 +40,7 @@ namespace ModernEncryption.Service
                     ChannelId = member.Id // Manipulated to call pull broadcast by receiver
                 };
 
-                new Task(() => { RestOperations.SendMessage(preparedMessage); }).Start(); // TODO: Handle in future if request is not succeeded
+                new Task(() => { RestService.SendMessage(preparedMessage); }).Start(); // TODO: Handle in future if request is not succeeded
             }
 
             return channel;
@@ -60,9 +59,9 @@ namespace ModernEncryption.Service
             DependencyManager.Database.UpdateWithChildren(channel);
 
             // TODO: Handle REST return
-            new Task(() => { RestOperations.SendMessage(preparedMessage); }).Start();
+            new Task(() => { RestService.SendMessage(preparedMessage); }).Start();
             return true;
-            //return RestOperations.SendMessage(preparedMessage).Result;
+            //return RestService.SendMessage(preparedMessage).Result;
         }
     }
 }

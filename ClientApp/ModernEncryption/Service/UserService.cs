@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using ModernEncryption.BusinessLogic.UserManagement;
 using ModernEncryption.Interfaces;
 using ModernEncryption.Model;
-using ModernEncryption.Rest;
 using Plugin.SecureStorage;
 using SQLiteNetExtensions.Extensions;
 
@@ -12,16 +11,16 @@ namespace ModernEncryption.Service
 {
     internal class UserService : IUserService
     {
-        private RestOperations RestOperations { get; }
+        private IRestService RestService { get; }
 
         public UserService()
         {
-            RestOperations = new RestOperations();
+            RestService = new RestService();
         }
 
         public bool CreateOwnUser(User user)
         {
-            new Task(() => { RestOperations.CreateOwnUser(user); }).Start(); // TODO: Handle in future if request is not succeeded
+            new Task(() => { RestService.CreateOwnUser(user); }).Start(); // TODO: Handle in future if request is not succeeded
 
             DependencyManager.Database.Insert(user);
             CrossSecureStorage.Current.SetValue("OwnUser", user.Id);
@@ -39,7 +38,7 @@ namespace ModernEncryption.Service
 
         public User AddUserBy(string email)
         {
-            var user = RestOperations.GetUserBy(email).Result;
+            var user = RestService.GetUserBy(email).Result;
             if (user == null) return null;
 
             // Insert or replace the user (replace to refresh the maybe changed user information)

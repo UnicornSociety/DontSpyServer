@@ -32,18 +32,18 @@ namespace ModernEncryption
         {
             var db = DependencyService.Get<IStorage>().GetConnection();
             db.CreateTable<User>();
-            db.CreateTable<Message>();
             db.CreateTable<Channel>();
             db.CreateTable<ChannelUser>();
+            db.CreateTable<Message>();
         }
 
         private static void DropTables()
         {
             var db = DependencyService.Get<IStorage>().GetConnection();
             db.DropTable<User>();
-            db.DropTable<Message>();
             db.DropTable<Channel>();
             db.DropTable<ChannelUser>();
+            db.DropTable<Message>();
         }
     }
 }
