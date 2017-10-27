@@ -14,7 +14,7 @@ namespace ModernEncryption.Model
         public static string EmailSenderEmailAddress = "noreply@sfzlab.de";
         public static string EmailSenderName = AppResources.VoucherValidationEmailSenderName;
         public static string EmailSubject = AppResources.VoucherValidationEmailSubject;
-        public static string EmailBodyBeforePin = AppResources.VoucherValidationEmailBodyBeforePin;
+        public static string EmailBodyBeforePin = AppResources.VoucherValidationEmailBodyBeforePin + " ";
         public static string LocalDatabaseName = "dontSpy";
     }
 }
