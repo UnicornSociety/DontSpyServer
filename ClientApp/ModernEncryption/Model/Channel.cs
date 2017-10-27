@@ -11,7 +11,7 @@ namespace ModernEncryption.Model
     {
         private ChannelPage _channelView;
 
-        [PrimaryKey]
+        [PrimaryKey, Unique, Column("id"), MaxLength(40)]
         public string Id { get; set; }
 
         [ManyToMany(typeof(ChannelUser), CascadeOperations = CascadeOperation.All)]

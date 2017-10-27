@@ -10,19 +10,19 @@ namespace ModernEncryption.Model
     [Table("User")]
     public class User : IEntity
     {
-        [PrimaryKey, JsonProperty(PropertyName = "id")]
+        [PrimaryKey, Unique, Column("id"), MaxLength(40), JsonProperty(PropertyName = "id")]
         public string Id { get; set; }
 
         [ManyToMany(typeof(ChannelUser), CascadeOperations = CascadeOperation.All), JsonIgnore]
         public List<Channel> Channels { get; set; }
 
-        [JsonProperty(PropertyName = "firstname")]
+        [Column("firstname"), MaxLength(30), JsonProperty(PropertyName = "firstname")]
         public string Firstname { get; set; }
 
-        [JsonProperty(PropertyName = "surname")]
+        [Column("surname"), MaxLength(30), JsonProperty(PropertyName = "surname")]
         public string Surname { get; set; }
 
-        [Unique, MaxLength(32), JsonProperty(PropertyName = "email")]
+        [Unique, Column("email"), MaxLength(254), JsonProperty(PropertyName = "email")]
         public string Email { get; set; }
 
         public User()

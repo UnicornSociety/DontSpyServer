@@ -9,25 +9,25 @@ namespace ModernEncryption.Model
     [Table("Message")]
     public class Message : IEntity
     {
-        [PrimaryKey, JsonProperty(PropertyName = "id")]
+        [PrimaryKey, Unique, Column("id"), MaxLength(40), JsonProperty(PropertyName = "id")]
         public string Id { get; set; }
 
-        [ForeignKey(typeof(Channel)), JsonProperty(PropertyName = "receivingChannel")]
+        [ForeignKey(typeof(Channel)), Column("channelId"), MaxLength(40), JsonProperty(PropertyName = "receivingChannel")]
         public string ChannelId { get; set; }
 
         [ManyToOne(CascadeOperations = CascadeOperation.All), JsonIgnore]
         public Channel Channel { get; set; }
 
-        [JsonProperty(PropertyName = "messageHeader")]
+        [Column("messageHeader"), MaxLength(254), JsonProperty(PropertyName = "messageHeader")]
         public string MessageHeader { get; set; }
 
-        [JsonProperty(PropertyName = "timestamp")]
+        [Column("timestamp"), MaxLength(11), JsonProperty(PropertyName = "timestamp")]
         public int Timestamp { get; set; }
 
-        [JsonProperty(PropertyName = "message")]
+        [Column("message"), JsonProperty(PropertyName = "message")]
         public string Text { get; set; }
 
-        [JsonProperty(PropertyName = "processingCounter")]
+        [Column("processingCounter"), MaxLength(11), JsonProperty(PropertyName = "processingCounter")]
         public int ProcessingCounter { get; set; }
 
         public Message()
