@@ -36,8 +36,8 @@ namespace ModernEncryption.Presentation.ViewModel
                 CrossSecureStorage.Current.SetValue("VoucherValidated", "true");
                 CrossSecureStorage.Current.DeleteKey("Voucher");
                 CrossSecureStorage.Current.DeleteKey("VoucherExpirationTimestamp");
-                DependencyManager.ChannelService.PullChannelRequests();
-                DependencyManager.ChannelService.PullNewMessages();
+                DependencyManager.PullService.PullChannelRequests();
+                DependencyManager.PullService.PullNewMessages();
 
                 Application.Current.MainPage = DependencyManager.AnchorPage;
             });

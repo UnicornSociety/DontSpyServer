@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Windows.Input;
 using ModernEncryption.Model;
 using ModernEncryption.Presentation.View;
@@ -44,11 +43,11 @@ namespace ModernEncryption.Presentation.ViewModel
         public ContactsPageViewModel()
         {
             // Load all contact from local database
-            foreach (var contact in DependencyManager.ChannelService.LoadContacts()) Contacts.Add(new SelectableData<User>(contact));
+            foreach (var contact in DependencyManager.UserService.LoadContacts()) Contacts.Add(new SelectableData<User>(contact));
 
             AddContactViaEmailCommand = new Command<object>(param =>
             {
-                var user = DependencyManager.ChannelService.AddUserBy(_view.FindByName<SearchBar>("email").Text);
+                var user = DependencyManager.UserService.AddUserBy(_view.FindByName<SearchBar>("email").Text);
                 if (user != null) Contacts.Add(new SelectableData<User>(user));
                 _view.FindByName<SearchBar>("email").Text = "";
             });

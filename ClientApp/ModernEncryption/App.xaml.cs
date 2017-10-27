@@ -34,8 +34,8 @@ namespace ModernEncryption
                 if (CrossSecureStorage.Current.HasKey("VoucherValidated"))
                 {
                     MainPage = DependencyManager.AnchorPage;
-                    DependencyManager.ChannelService.PullChannelRequests();
-                    DependencyManager.ChannelService.PullNewMessages();
+                    DependencyManager.PullService.PullChannelRequests();
+                    DependencyManager.PullService.PullNewMessages();
                 }
                 else
                 {

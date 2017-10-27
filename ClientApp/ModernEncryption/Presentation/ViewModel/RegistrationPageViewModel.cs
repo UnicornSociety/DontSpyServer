@@ -30,7 +30,7 @@ namespace ModernEncryption.Presentation.ViewModel
                 var firstname = _view.FindByName<Entry>("firstname").Text;
                 var surname = _view.FindByName<Entry>("surname").Text;
                 var eMail = _view.FindByName<Entry>("eMail").Text;
-                var result = DependencyManager.ChannelService.CreateOwnUser(new User(firstname, surname, eMail));
+                var result = DependencyManager.UserService.CreateOwnUser(new User(firstname, surname, eMail));
 
                 if (result)
                     Application.Current.MainPage = new VoucherValidationPage();
