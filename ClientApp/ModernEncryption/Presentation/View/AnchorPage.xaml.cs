@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using ModernEncryption.Translations;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace ModernEncryption.Presentation.View
@@ -13,7 +14,7 @@ namespace ModernEncryption.Presentation.View
             var channelsPage = new NavigationPage(DependencyManager.ChannelsPage)
             {
                 Icon = "chat.png",
-                Title = "Channels",
+                Title = AppResources.Channels,
                 BarBackgroundColor = Color.CornflowerBlue,
                 BarTextColor = Color.White
             };
@@ -21,7 +22,7 @@ namespace ModernEncryption.Presentation.View
             var contactsPage = new NavigationPage(DependencyManager.ContactsPage)
             {
                 Icon = "contact.png",
-                Title = "Contacts",
+                Title = AppResources.Contacts,
                 BarBackgroundColor = Color.CornflowerBlue,
                 BarTextColor = Color.White
             };

@@ -1,11 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ModernEncryption.Presentation.View.VoucherValidationPage">
+             x:Class="ModernEncryption.Presentation.View.VoucherValidationPage"
+             xmlns:i18n="clr-namespace:ModernEncryption.Presentation.View;assembly=ModernEncryption"
+             Title="{Binding Title}">
+
     <ContentPage.Content>
         <StackLayout>
-            <Entry x:Name="voucher" Placeholder="Please enter validation code." />
-            <Button Text="Confirm" Command="{Binding ValidateVoucherCommand}" />
+            <Entry x:Name="voucher" Placeholder="{i18n:Translate EnterVoucherRequest}" />
+            <Button Text="{i18n:Translate Confirm}" Command="{Binding ValidateVoucherCommand}" />
         </StackLayout>
     </ContentPage.Content>
+
 </ContentPage>

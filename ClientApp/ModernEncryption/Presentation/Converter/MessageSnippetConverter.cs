@@ -5,6 +5,7 @@ using System.Linq;
 using ModernEncryption.BusinessLogic.Crypto;
 using ModernEncryption.Interfaces;
 using ModernEncryption.Model;
+using ModernEncryption.Translations;
 using Xamarin.Forms;
 
 namespace ModernEncryption.Presentation.Converter
@@ -17,7 +18,7 @@ namespace ModernEncryption.Presentation.Converter
             if (messages.Count < 1) return ""; // If no messages, do not show a snippet
             IDecrypt decryption = new DecryptionLogic(messages.Last());
             var messageToBeSnip = decryption.Decrypt().Text;
-            if (messageToBeSnip.Length > 10) return messages.Last().Text.Substring(0, 10) + " ...";
+            if (messageToBeSnip.Length > 10) return messages.Last().Text.Substring(0, 10) + AppResources.MessageSnippetMoreSign;
             return messageToBeSnip;
         }
 

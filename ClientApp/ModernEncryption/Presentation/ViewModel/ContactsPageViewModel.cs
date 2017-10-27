@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Windows.Input;
 using ModernEncryption.Model;
 using ModernEncryption.Presentation.View;
+using ModernEncryption.Translations;
 using Xamarin.Forms;
 
 namespace ModernEncryption.Presentation.ViewModel
@@ -12,7 +13,7 @@ namespace ModernEncryption.Presentation.ViewModel
     {
         private ContactsPage _view;
         private bool _multipleSelectionVisibility;
-        private string _title = "Your contacts";
+        private string _title = AppResources.ContactsHeading;
         public ObservableCollection<SelectableData<User>> Contacts { get; } = new ObservableCollection<SelectableData<User>>();
         public ICommand AddContactViaEmailCommand { protected set; get; }
         public ICommand TabbedContactCommand { protected set; get; }

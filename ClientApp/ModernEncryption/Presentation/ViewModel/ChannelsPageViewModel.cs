@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Windows.Input;
 using ModernEncryption.Model;
 using ModernEncryption.Presentation.View;
+using ModernEncryption.Translations;
 using Xamarin.Forms;
 
 namespace ModernEncryption.Presentation.ViewModel
@@ -10,7 +11,7 @@ namespace ModernEncryption.Presentation.ViewModel
     public class ChannelsPageViewModel : INotifyPropertyChanged
     {
         private ChannelsPage _view;
-        private string _title = "Your chats";
+        private string _title = AppResources.ChannelsHeading;
         public ObservableCollection<Channel> Channels { get; } = new ObservableCollection<Channel>();
         public ICommand NewSingleChannelCommand { protected set; get; }
         public ICommand NewGroupChannelCommand { protected set; get; }

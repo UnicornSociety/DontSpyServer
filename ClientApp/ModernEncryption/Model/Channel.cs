@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using ModernEncryption.Interfaces;
 using ModernEncryption.Presentation.View;
+using ModernEncryption.Translations;
 using SQLite.Net.Attributes;
 using SQLiteNetExtensions.Attributes;
 
@@ -37,7 +38,7 @@ namespace ModernEncryption.Model
             if (name == null)
             {
                 if (members.Count > 1)
-                    Name = members[0].Firstname + " and " + (members.Count - 1) + " more members";
+                    Name = members[0].Firstname + " " + AppResources.And + " " + (members.Count - 1) + " " + AppResources.MoreMembers;
                 else
                     Name = members[0].Firstname + " " + members[0].Surname;
             }

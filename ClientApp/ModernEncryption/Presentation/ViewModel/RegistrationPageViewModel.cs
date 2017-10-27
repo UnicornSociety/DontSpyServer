@@ -2,6 +2,7 @@
 using System.Windows.Input;
 using ModernEncryption.Model;
 using ModernEncryption.Presentation.View;
+using ModernEncryption.Translations;
 using Xamarin.Forms;
 
 namespace ModernEncryption.Presentation.ViewModel
@@ -9,7 +10,7 @@ namespace ModernEncryption.Presentation.ViewModel
     public class RegistrationPageViewModel : INotifyPropertyChanged
     {
         private RegistrationPage _view;
-        private string _title = "Registration";
+        private string _title = AppResources.RegistrationHeading;
         public ICommand SendVoucherCommand { protected set; get; }
 
         public string Title

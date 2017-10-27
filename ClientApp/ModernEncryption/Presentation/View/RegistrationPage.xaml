@@ -3,22 +3,23 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ModernEncryption.Presentation.View.RegistrationPage"
              xmlns:local="clr-namespace:ModernEncryption.Utils;assembly=ModernEncryption"
+             xmlns:i18n="clr-namespace:ModernEncryption.Presentation.View;assembly=ModernEncryption"
              Title="{Binding Title}">
 
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
                 <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-                    <Label Text="Welcome to" FontSize="45" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    <Label Text="{i18n:Translate WelcomeTo}" FontSize="45" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
                     <Image Source="{local:ImageResource ModernEncryption.logo.png}" HeightRequest ="300" HorizontalOptions="Center"  VerticalOptions="Center" />
                     <!-- Logo ist nur Platzhalter-->
                     <Label Text="l" FontSize="10" TextColor="White"></Label>
-                    <Label Text="Please register." FontSize="20"></Label>
-                    <Entry Placeholder="Firstname" x:Name="firstname" />
-                    <Entry Placeholder="Surname" x:Name="surname" />
-                    <Entry Placeholder="Email" x:Name="eMail" />
+                    <Label Text="{i18n:Translate RegisterRequest}" FontSize="20"></Label>
+                    <Entry Placeholder="{i18n:Translate Firstname}" x:Name="firstname" />
+                    <Entry Placeholder="{i18n:Translate Surname}" x:Name="surname" />
+                    <Entry Placeholder="{i18n:Translate Email}" x:Name="eMail" />
 
-                    <Button Text="Send PIN to email address." TextColor="White"  BorderRadius="15" BackgroundColor="#3A99D8" Command="{Binding SendVoucherCommand}" />
+                    <Button Text="{i18n:Translate SendPinToEmailCallToAction}" TextColor="White"  BorderRadius="15" BackgroundColor="#3A99D8" Command="{Binding SendVoucherCommand}" />
                 </StackLayout>
             </StackLayout>
         </ScrollView>

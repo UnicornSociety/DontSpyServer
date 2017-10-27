@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using ModernEncryption.BusinessLogic.Crypto;
 using ModernEncryption.Interfaces;
 using ModernEncryption.Model;
+using ModernEncryption.Translations;
 using ModernEncryption.Utils;
 using SQLiteNetExtensions.Extensions;
 
@@ -35,7 +36,7 @@ namespace ModernEncryption.Service
             foreach (var member in members)
             {
                 var preparedMessage = new Message(DependencyManager.Me.Id + ";" + channelIdentifier + ";" + memberList,
-                    "onboarding")
+                    AppResources.CryptedOnBoardingMessage)
                 {
                     ChannelId = member.Id // Manipulated to call pull broadcast by receiver
                 };

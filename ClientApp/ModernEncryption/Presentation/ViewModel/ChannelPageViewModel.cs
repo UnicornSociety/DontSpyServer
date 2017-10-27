@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Windows.Input;
 using ModernEncryption.Model;
 using ModernEncryption.Presentation.View;
+using ModernEncryption.Translations;
 using Xamarin.Forms;
 
 namespace ModernEncryption.Presentation.ViewModel
@@ -10,7 +11,7 @@ namespace ModernEncryption.Presentation.ViewModel
     public class ChannelPageViewModel : INotifyPropertyChanged
     {
         private ChannelPage _view;
-        private string _title = "Conversation";
+        private string _title = AppResources.ChannelHeading;
         public ObservableCollection<DecryptedMessage> Messages { get; } = new ObservableCollection<DecryptedMessage>();
         private Channel Channel { get; }
         public ICommand SendMessageCommand { protected set; get; }

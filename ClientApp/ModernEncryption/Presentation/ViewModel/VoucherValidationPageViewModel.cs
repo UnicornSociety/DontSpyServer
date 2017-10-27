@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Windows.Input;
 using ModernEncryption.Presentation.View;
+using ModernEncryption.Translations;
 using ModernEncryption.Utils;
 using Plugin.SecureStorage;
 using Xamarin.Forms;
@@ -10,7 +11,7 @@ namespace ModernEncryption.Presentation.ViewModel
     public class VoucherValidationPageViewModel : INotifyPropertyChanged
     {
         private VoucherValidationPage _view;
-        private string _title = "Voucher Validation";
+        private string _title = AppResources.VoucherValidationHeading;
         public ICommand ValidateVoucherCommand { protected set; get; }
 
         public string Title

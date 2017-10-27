@@ -68,6 +68,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Translations\AppResources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AppResources.resx</DependentUpon>
+    </Compile>
     <Compile Update="Translation\AppResource.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -76,6 +81,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Translations\AppResources.de.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Translations\AppResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Update="Translation\AppResource.de.resx">
       <Generator>ResXFileCodeGenerator</Generator>
     </EmbeddedResource>

@@ -5,6 +5,7 @@
              xmlns:local="clr-namespace:ModernEncryption.Utils;assembly=ModernEncryption"
              xmlns:behavior="clr-namespace:ModernEncryption.Presentation.Behaviors"
              xmlns:converter="clr-namespace:ModernEncryption.Presentation.Converter"
+             xmlns:i18n="clr-namespace:ModernEncryption.Presentation.View;assembly=ModernEncryption"
              Title="{Binding Title}">
 
     <ContentPage.Resources>
@@ -24,9 +25,9 @@
 
                 <ListView.Header>
                     <StackLayout Orientation="Horizontal" Padding="3">
-                        <Button Text="New Chat" HorizontalOptions="FillAndExpand" Command ="{Binding NewSingleChannelCommand}"   TextColor="Gray" BorderColor="Gray"  BorderRadius="0"></Button>
-                        <Button Text="New Group" HorizontalOptions="FillAndExpand" Command ="{Binding NewGroupChannelCommand}" TextColor="Gray" BorderColor="Gray" BorderRadius="0"></Button>
-                        </StackLayout>
+                        <Button Text="{i18n:Translate NewChatCallToAction}" HorizontalOptions="FillAndExpand" Command ="{Binding NewSingleChannelCommand}"   TextColor="Gray" BorderColor="Gray"  BorderRadius="0"></Button>
+                        <Button Text="{i18n:Translate NewGroupCallToAction}" HorizontalOptions="FillAndExpand" Command ="{Binding NewGroupChannelCommand}" TextColor="Gray" BorderColor="Gray" BorderRadius="0"></Button>
+                    </StackLayout>
                 </ListView.Header>
 
                 <ListView.ItemTemplate>

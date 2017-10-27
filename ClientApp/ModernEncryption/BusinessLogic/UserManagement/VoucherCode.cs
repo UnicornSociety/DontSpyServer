@@ -33,13 +33,13 @@ namespace ModernEncryption.BusinessLogic.UserManagement
             try
             {
                 var message = new MimeMessage();
-                message.From.Add(new MailboxAddress(Constants.NameEMailAddress, Constants.SendingEMailAddress));
+                message.From.Add(new MailboxAddress(Constants.EmailSenderName, Constants.EmailSenderEmailAddress));
                 message.To.Add(new MailboxAddress(_user.Firstname + " " + _user.Surname, _user.Email));
-                message.Subject = Constants.EMailHeader;
+                message.Subject = Constants.EmailSubject;
 
                 message.Body = new TextPart("plain")
                 {
-                    Text = Constants.EMailText + _voucherCode
+                    Text = Constants.EmailBodyBeforePin + _voucherCode
                 };
 
                 using (var client = new SmtpClient())
@@ -60,7 +60,7 @@ namespace ModernEncryption.BusinessLogic.UserManagement
 
         }
 
-        public bool ValidateVoucherCode(int userVoucher)
+        public bool ValidateVoucherCode(int userVoucher) // TODO: Use or delete it
         {
             var voucher = Convert.ToInt32(CrossSecureStorage.Current.GetValue("Voucher", "-1"));
             var voucherTimestamp = Convert.ToInt32(CrossSecureStorage.Current.GetValue("VoucherTimestamp", "-1"));
