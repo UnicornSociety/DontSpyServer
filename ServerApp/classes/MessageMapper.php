@@ -30,6 +30,15 @@ class MessageMapper extends Mapper
         }
     }
 
+    public function incrementProcessingCounter($id)
+    {
+        $stmt = $this->db->prepare("UPDATE message SET processingCounter = processingCounter + 1 WHERE id = :id");
+        $result = $stmt->execute(["id" => $id]);
+        if (!$result) {
+            throw new Exception("Could not update record");
+        }
+    }
+
     public function delete($id)
     {
         $stmt = $this->db->prepare("DELETE FROM message WHERE id = :id");

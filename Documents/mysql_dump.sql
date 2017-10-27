@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Erstellungszeit: 23. Okt 2017 um 19:09
+-- Erstellungszeit: 27. Okt 2017 um 15:45
 -- Server-Version: 10.0.31-MariaDB-cll-lve
 -- PHP-Version: 5.6.30
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Datenbank: `DontSpy`
+-- Datenbank: `kd34167_Crypto`
 --
 
 -- --------------------------------------------------------
@@ -33,7 +33,8 @@ CREATE TABLE `message` (
   `messageHeader` varchar(254) NOT NULL,
   `receivingChannel` varchar(40) NOT NULL,
   `timestamp` int(11) NOT NULL,
-  `message` text NOT NULL
+  `message` text NOT NULL,
+  `processingCounter` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------

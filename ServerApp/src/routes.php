@@ -14,6 +14,13 @@ $app->get('/user/{email}', function ($request, $response, $args) {
       return $response->withJson($message);
   });
 
+  $app->get('/message/processed/{id}', function ($request, $response, $args) {
+      $id = (string)$args['id'];
+      $mapper = new MessageMapper($this->db);
+      $mapper->incrementProcessingCounter($id);
+      return $response;
+  });
+
   $app->delete('/message/{id}', function ($request, $response, $args) {
       $id = (string)$args['id'];
       $mapper = new MessageMapper($this->db);

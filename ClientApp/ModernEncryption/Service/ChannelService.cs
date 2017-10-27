@@ -109,6 +109,17 @@ namespace ModernEncryption.Service
                         channel.View.ViewModel.Messages.Add(new DecryptionLogic(message).Decrypt());
                         channel.Messages.Add(message);
                         DependencyManager.Database.UpdateWithChildren(channel);
+
+                        if (message.Processed + 1 >= channel.Members.Count)
+                        {
+                            // TODO: Handle REST return
+                            new Task(() => { RestOperations.DeleteMessageBy(message.Id); }).Start();
+                        }
+                        else
+                        {
+                            // TODO: Handle REST return
+                            new Task(() => { RestOperations.UpdateMessageProcessingCounterBy(message.Id); }).Start();
+                        }
                     }
                 }
                 await Task.Delay(5000); // 5 seconds

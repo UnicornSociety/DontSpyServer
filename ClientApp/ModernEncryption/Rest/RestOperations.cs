@@ -85,6 +85,18 @@ namespace ModernEncryption.Rest
             return messages;
         }
 
+        public async Task<bool> UpdateMessageProcessingCounterBy(string id)
+        {
+            var uri = new Uri(string.Format(Constants.RestUrlUpdateMessageProcessingCounter, id));
+            var response = await _client.GetAsync(uri).ConfigureAwait(false);
+            if (response.IsSuccessStatusCode)
+            {
+                // Do nothing
+            }
+
+            return true;
+        }
+
         public async Task<bool> DeleteMessageBy(string id)
         {
             var uri = new Uri(string.Format(Constants.RestUrlDeleteMessage, id));
