@@ -1,21 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 using ModernEncryption.BusinessLogic.Crypto;
 using ModernEncryption.BusinessLogic.UserManagement;
 using ModernEncryption.Interfaces;
 using ModernEncryption.Model;
-using ModernEncryption.Presentation.View;
 using ModernEncryption.Rest;
 using ModernEncryption.Utils;
-using Newtonsoft.Json;
 using Plugin.SecureStorage;
 using SQLiteNetExtensions.Extensions;
-using Xamarin.Forms;
 
 namespace ModernEncryption.Service
 {

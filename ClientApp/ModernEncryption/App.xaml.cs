@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using System.Linq;
+﻿using System.Linq;
 using ModernEncryption.BusinessLogic.Crypto;
 using ModernEncryption.Model;
 using ModernEncryption.Presentation.View;
@@ -17,11 +16,6 @@ namespace ModernEncryption
         {
             InitializeComponent();
             new LocalDatabaseOptions(LocalDatabaseOptions.ConnectionMode.Create);
-
-            // DEBUGGING START
-            CrossSecureStorage.Current.SetValue("VoucherValidated", "true"); // TODO: DELETE THIS, IT'S A DEBUGGING FLAG
-            //CrossSecureStorage.Current.DeleteKey("OwnUser"); // TODO: DELETE THIS, IT'S A DEBUGGING FLAG
-            // DEBUGGING END
 
             var mml = new MathematicalMappingLogic();
             mml.InitalizeIntervalTable();
@@ -43,27 +37,14 @@ namespace ModernEncryption
                     DependencyManager.ChannelService.PullChannelRequests();
                     DependencyManager.ChannelService.PullNewMessages();
                 }
-                // TODO: Else MainPage=EnterVoucherPage and then pull to channel and new messages
+                else
+                {
+                    MainPage = new VoucherValidationPage();
+                }
             }
             else
             {
                 MainPage = new RegistrationPage();
-            }
-
-            // DEBUGGING
-            foreach (var channel in DependencyManager.Database.GetAllWithChildren<Channel>(recursive: true))
-            {
-                Debug.WriteLine("Channel: " + channel.Id);
-            }
-
-            foreach (var user in DependencyManager.Database.GetAllWithChildren<User>(recursive: true))
-            {
-                Debug.WriteLine("User: " + user.Id);
-            }
-
-            foreach (var message in DependencyManager.Database.GetAllWithChildren<Message>(recursive: true))
-            {
-                Debug.WriteLine("Message: " + message.Id);
             }
         }
 

@@ -17,7 +17,7 @@ namespace ModernEncryption.BusinessLogic.UserManagement
             _user = user;
             _voucherCode = CreateVoucherCode();
             var voucherTimestamp = (int)DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1)).TotalSeconds + 86400 + 3600;//36600 ist 1h die wir hinter UTC sind in welcher der Timestamp angegeben wird
-            CrossSecureStorage.Current.SetValue("VoucherTimestamp", voucherTimestamp.ToString());
+            CrossSecureStorage.Current.SetValue("VoucherExpirationTimestamp", voucherTimestamp.ToString());
             CrossSecureStorage.Current.SetValue("Voucher", _voucherCode.ToString());
         }
 
