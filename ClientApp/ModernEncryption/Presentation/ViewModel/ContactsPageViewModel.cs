@@ -6,6 +6,7 @@ using System.Windows.Input;
 using ModernEncryption.Model;
 using ModernEncryption.Presentation.View;
 using ModernEncryption.Translations;
+using Plugin.SecureStorage;
 using Xamarin.Forms;
 
 namespace ModernEncryption.Presentation.ViewModel
@@ -49,7 +50,9 @@ namespace ModernEncryption.Presentation.ViewModel
 
             AddContactViaEmailCommand = new Command<object>(param =>
             {
-                var user = DependencyManager.UserService.AddUserBy(_view.FindByName<SearchBar>("email").Text);
+                var email = _view.FindByName<SearchBar>("email").Text;
+                if (DependencyManager.Me.Email.Equals(email)) return; // Prevent to add the own user
+                var user = DependencyManager.UserService.AddUserBy(email);
                 if (user != null) Contacts.Add(new SelectableData<User>(user));
                 _view.FindByName<SearchBar>("email").Text = "";
             });
