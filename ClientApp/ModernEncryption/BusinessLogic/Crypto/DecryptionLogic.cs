@@ -30,7 +30,7 @@ namespace ModernEncryption.BusinessLogic.Crypto
                 }
             }
 
-            return new DecryptedMessage(_message.Id, _message.Timestamp, concatenatedDecryptedSymbols);
+            return new DecryptedMessage(_message.Id, _message.Timestamp, concatenatedDecryptedSymbols, _message.MessageHeader);
         }
 
         private int RevertCharacterPair(char concatenatedSymbolPartA, char concatenatedSymbolPartB)
