@@ -17,6 +17,7 @@ namespace ModernEncryption.Presentation.ViewModel
         private ValidatableObject<string> _message = new ValidatableObject<string>();
         public ObservableCollection<DecryptedMessage> Messages { get; } = new ObservableCollection<DecryptedMessage>();
         public ICommand SendMessageCommand { protected set; get; }
+        public ICommand ValidateMessageCommand { protected set; get; }
 
         public string Title
         {
@@ -50,6 +51,11 @@ namespace ModernEncryption.Presentation.ViewModel
 
                 DependencyManager.ChannelService.SendMessage(Message.Value, channel);
                 Message.Value = string.Empty; // Clear field
+            });
+
+            ValidateMessageCommand = new Command<object>(param =>
+            {
+                Validate();
             });
         }
 

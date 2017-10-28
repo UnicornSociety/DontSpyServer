@@ -4,6 +4,7 @@
              x:Class="ModernEncryption.Presentation.View.ChannelPage"
              xmlns:converter="clr-namespace:ModernEncryption.Presentation.Converter"
              xmlns:i18n="clr-namespace:ModernEncryption.Presentation.View;assembly=ModernEncryption"
+             xmlns:behavior="clr-namespace:ModernEncryption.Presentation.Behaviors"
              Title="{Binding Title}">
 
     <ContentPage.Resources>
@@ -22,8 +23,23 @@
                 </ListView.Header>
 
                 <ListView.Footer>
-                    <StackLayout Orientation="Horizontal">
-                        <Entry Text="{Binding Message.Value}" Placeholder="{i18n:Translate InputMessage}" HorizontalOptions="FillAndExpand" FontSize="20" />
+                    <StackLayout Orientation="Horizontal" Padding="5,5,5,5">
+                        <Entry Text="{Binding Message.Value, Mode=TwoWay}" Placeholder="{i18n:Translate InputMessage}" HorizontalOptions="FillAndExpand" FontSize="20">
+                            <Entry.Style>
+                                <OnPlatform x:TypeArguments="Style"  
+                                            iOS="{StaticResource EntryStyle}"  
+                                            Android="{StaticResource EntryStyle}"  
+                                            WinPhone="{StaticResource EntryStyle}"/>
+                            </Entry.Style>
+                            <Entry.Behaviors>
+                                <behavior:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateMessageCommand}" />
+                            </Entry.Behaviors>
+                            <Entry.Triggers>
+                                <DataTrigger TargetType="Entry" Binding="{Binding Message.IsValid}" Value="False">
+                                    <Setter Property="behavior:LineColorBehavior.LineColor" Value="{StaticResource ErrorColor}" />
+                                </DataTrigger>
+                            </Entry.Triggers>
+                        </Entry>
                         <Button Text="{i18n:Translate SendCallToAction}" TextColor="White"  HorizontalOptions="End" FontSize="20" BackgroundColor="#3A99D8" BorderRadius="10" Command="{Binding SendMessageCommand}"/>
                     </StackLayout>
                 </ListView.Footer>

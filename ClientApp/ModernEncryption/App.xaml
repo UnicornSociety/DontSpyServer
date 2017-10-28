@@ -1,5 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ModernEncryption.App">
+             x:Class="ModernEncryption.App"
+             xmlns:behavior="clr-namespace:ModernEncryption.Presentation.Behaviors">
+
+    <Application.Resources>
+        <ResourceDictionary>
+
+            <!-- COLORS -->
+            <Color x:Key="BlackColor">#000000</Color>
+            <Color x:Key="ErrorColor">#ff5252</Color>
+
+            <!-- STYLES -->
+            <Style x:Key="EntryStyle" TargetType="{x:Type Entry}">
+                <Setter Property="behavior:LineColorBehavior.ApplyLineColor" Value="True" />
+                <Setter Property="behavior:LineColorBehavior.LineColor" Value="{StaticResource BlackColor}" />
+            </Style>
+
+        </ResourceDictionary>
+    </Application.Resources>
 </Application>
