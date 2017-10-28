@@ -5,6 +5,7 @@
              xmlns:local="clr-namespace:ModernEncryption.Utils;assembly=ModernEncryption"
              xmlns:behavior="clr-namespace:ModernEncryption.Presentation.Behaviors"
              xmlns:converter="clr-namespace:ModernEncryption.Presentation.Converter"
+             xmlns:i18n="clr-namespace:ModernEncryption.Presentation.View;assembly=ModernEncryption"
              Title="{Binding Title}"
              x:Name="contactsPage">
 
@@ -22,32 +23,32 @@
                 </ListView.Behaviors>
 
                 <ListView.Header>
-                    <StackLayout>
-                        <SearchBar x:Name="email" Placeholder="Email" HorizontalTextAlignment="Center" BackgroundColor="#000" SearchCommand="{Binding AddContactViaEmailCommand}" />
+                    <StackLayout Padding="5">
+                        <SearchBar x:Name="email" Placeholder="Email" HorizontalTextAlignment="Center" BackgroundColor="#000" FontSize="20" SearchCommand="{Binding AddContactViaEmailCommand}" />
                     </StackLayout>
                 </ListView.Header>
 
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="11">
+                            <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" >
                                 <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" HorizontalOptions="Start" BackgroundColor="#fff">
                                     <Image Source="{local:ImageResource ModernEncryption.avatar.png}" Aspect=" AspectFit" HeightRequest ="50" VerticalOptions="CenterAndExpand" />
                                 </StackLayout>
-                                <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="#fff">
+                                <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="FillAndExpand" BackgroundColor="#fff" Padding="11">
                                     <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
                                         <Label Text="{Binding Data.Firstname}" Font="Bold"  BackgroundColor="#fff" />
                                         <Label Text="{Binding Data.Surname}" Font="Bold"  BackgroundColor="#fff" />
                                         <Switch IsToggled="{Binding Selected}" IsVisible="{Binding BindingContext.MultipleSelectionVisibility,Source={x:Reference contactsPage}}" />
                                     </StackLayout>
-                                    <Label Text="{Binding Data.Email}" BackgroundColor="#fff" />
+                                    <Label Text="{Binding Data.Email}" BackgroundColor="#fff" TextColor="Black" />
                                 </StackLayout>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Button Text="Create group" IsVisible="{Binding BindingContext.MultipleSelectionVisibility,Source={x:Reference contactsPage}}" Command="{Binding ClickedCreateGroupCommand}" />
+            <Button Text="{i18n:Translate CreateGroup}" FontSize="20" TextColor="White" BackgroundColor="CornflowerBlue" BorderRadius="10"  IsVisible="{Binding BindingContext.MultipleSelectionVisibility,Source={x:Reference contactsPage}}" Command="{Binding ClickedCreateGroupCommand}" />
         </StackLayout>
     </ContentPage.Content>
 

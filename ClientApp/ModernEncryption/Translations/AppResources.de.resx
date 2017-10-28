@@ -121,13 +121,13 @@
     <value>und</value>
   </data>
   <data name="ChannelHeading" xml:space="preserve">
-    <value>Konversation</value>
+    <value>K o n v e r s a t i o n</value>
   </data>
   <data name="Channels" xml:space="preserve">
     <value>Kanaele</value>
   </data>
   <data name="ChannelsHeading" xml:space="preserve">
-    <value>Deine Chats</value>
+    <value>D e i n e   C h a t s</value>
   </data>
   <data name="Confirm" xml:space="preserve">
     <value>Bestätigen</value>
@@ -136,7 +136,10 @@
     <value>Kontakte</value>
   </data>
   <data name="ContactsHeading" xml:space="preserve">
-    <value>Deine Kontakte</value>
+    <value>D e i n e   K o n t a k t e</value>
+  </data>
+  <data name="CreateGroup" xml:space="preserve">
+    <value>Gruppe erstellen</value>
   </data>
   <data name="CryptedOnBoardingMessage" xml:space="preserve">
     <value>onboarding</value>
@@ -157,13 +160,13 @@
     <value>...</value>
   </data>
   <data name="MoreMembers" xml:space="preserve">
-    <value>weitere Teilneher</value>
+    <value>weitere Teilnehmer</value>
   </data>
   <data name="NewChatCallToAction" xml:space="preserve">
-    <value>Neuer Chat</value>
+    <value>N e u e r   C h a t</value>
   </data>
   <data name="NewGroupCallToAction" xml:space="preserve">
-    <value>Neue Gruppe</value>
+    <value>N e u e   G r u p p e</value>
   </data>
   <data name="RegisterRequest" xml:space="preserve">
     <value>Bitte registrieren.</value>
@@ -190,7 +193,7 @@
     <value>Einmaliger Pin zur Verifizierung bei DontSpy</value>
   </data>
   <data name="VoucherValidationHeading" xml:space="preserve">
-    <value>Voucher Validierung</value>
+    <value>Voucher-Validierung</value>
   </data>
   <data name="WelcomeTo" xml:space="preserve">
     <value>Wilkommen zu</value>

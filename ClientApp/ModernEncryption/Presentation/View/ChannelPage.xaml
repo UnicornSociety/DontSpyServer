@@ -23,8 +23,8 @@
 
                 <ListView.Footer>
                     <StackLayout Orientation="Horizontal">
-                        <Entry Placeholder="{i18n:Translate InputMessage}" HorizontalOptions="FillAndExpand" x:Name="inputMessage"/>
-                        <Button Text="{i18n:Translate SendCallToAction}" TextColor="#fff"  HorizontalOptions="End" BackgroundColor="#3A99D8" BorderRadius="10" Command="{Binding SendMessageCommand}"/>
+                        <Entry Placeholder="{i18n:Translate InputMessage}" HorizontalOptions="FillAndExpand" FontSize="20" x:Name="inputMessage"/>
+                        <Button Text="{i18n:Translate SendCallToAction}" TextColor="White"  HorizontalOptions="End" FontSize="20" BackgroundColor="#3A99D8" BorderRadius="10" Command="{Binding SendMessageCommand}"/>
                     </StackLayout>
                 </ListView.Footer>
 
@@ -35,10 +35,10 @@
                                 <StackLayout Orientation="Vertical" VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand"   Padding="12" >
                                     <StackLayout Orientation="Horizontal" VerticalOptions="End" HorizontalOptions="StartAndExpand" >
                                         <Label Text="{Binding Text}"  BackgroundColor="#fff" FontSize="Medium" />
-                                        <!-- <Label Text="10000"   BackgroundColor="#fff" FontSize="Medium" /> -->
                                     </StackLayout>
                                     <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand"  Padding="5">
                                         <Label Text="{Binding Timestamp, Converter={StaticResource TimestampConverter}}"  FontSize="Micro" TextColor="Gray"/>
+                                        <!--<Label Text="{Binding Sender}"  FontSize="Micro" TextColor="Gray"/>-->
                                     </StackLayout>
                                 </StackLayout>
                             </StackLayout>

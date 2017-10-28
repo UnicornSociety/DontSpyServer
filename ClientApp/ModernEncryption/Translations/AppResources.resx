@@ -127,7 +127,7 @@
     <value>Channels</value>
   </data>
   <data name="ChannelsHeading" xml:space="preserve">
-    <value>Your chats</value>
+    <value>Y o u r   c h a t s</value>
   </data>
   <data name="Confirm" xml:space="preserve">
     <value>Confirm</value>
@@ -136,7 +136,10 @@
     <value>Contacts</value>
   </data>
   <data name="ContactsHeading" xml:space="preserve">
-    <value>Your contacts</value>
+    <value>Y o u r   c o n t a c t s</value>
+  </data>
+  <data name="CreateGroup" xml:space="preserve">
+    <value>Create Group</value>
   </data>
   <data name="CryptedOnBoardingMessage" xml:space="preserve">
     <value>onboarding</value>
@@ -145,7 +148,7 @@
     <value>Email</value>
   </data>
   <data name="EnterVoucherRequest" xml:space="preserve">
-    <value>Please enter validation code.</value>
+    <value>Please enter your validation code.</value>
   </data>
   <data name="Firstname" xml:space="preserve">
     <value>Firstname</value>
@@ -160,10 +163,10 @@
     <value>more members</value>
   </data>
   <data name="NewChatCallToAction" xml:space="preserve">
-    <value>New Chat</value>
+    <value>N e w   C h a t</value>
   </data>
   <data name="NewGroupCallToAction" xml:space="preserve">
-    <value>New Group</value>
+    <value>N e w   G r o u p</value>
   </data>
   <data name="RegisterRequest" xml:space="preserve">
     <value>Please register.</value>

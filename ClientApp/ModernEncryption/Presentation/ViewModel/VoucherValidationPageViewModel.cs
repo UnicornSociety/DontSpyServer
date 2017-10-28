@@ -32,7 +32,7 @@ namespace ModernEncryption.Presentation.ViewModel
                 var userInputVoucher = _view.FindByName<Entry>("voucher").Text;
                 var voucher = CrossSecureStorage.Current.GetValue("Voucher");
                 var voucherExpirationTimestamp = int.Parse(CrossSecureStorage.Current.GetValue("VoucherExpirationTimestamp"));
-                if (!userInputVoucher.Equals(voucher) || TimeManagement.UnixTimestampNow > voucherExpirationTimestamp) return;
+                if (!userInputVoucher.Equals(voucher) || TimeManagement.UnixTimestampNow > voucherExpirationTimestamp) return; 
 
                 CrossSecureStorage.Current.SetValue("VoucherValidated", "true");
                 CrossSecureStorage.Current.DeleteKey("Voucher");
