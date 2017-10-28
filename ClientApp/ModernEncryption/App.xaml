@@ -12,6 +12,11 @@
             <Color x:Key="ErrorColor">#ff5252</Color>
 
             <!-- STYLES -->
+            <Style x:Key="ValidationErrorLabelStyle" TargetType="{x:Type Label}">
+                <Setter Property="TextColor" Value="{StaticResource ErrorColor}" />
+                <Setter Property="FontSize" Value="14" />
+            </Style>
+
             <Style x:Key="EntryStyle" TargetType="{x:Type Entry}">
                 <Setter Property="behavior:LineColorBehavior.ApplyLineColor" Value="True" />
                 <Setter Property="behavior:LineColorBehavior.LineColor" Value="{StaticResource BlackColor}" />
