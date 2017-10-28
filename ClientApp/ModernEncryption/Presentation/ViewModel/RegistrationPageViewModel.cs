@@ -95,10 +95,10 @@ namespace ModernEncryption.Presentation.ViewModel
 
         protected sealed override void AddValidations()
         {
-            _firstname.Validations.Add(new StringLengthRule<string>(3, 30) { ValidationMessage = "error." });
-            _surname.Validations.Add(new StringLengthRule<string>(3, 30) { ValidationMessage = "error." });
-            _email.Validations.Add(new StringLengthRule<string>(6, 254) { ValidationMessage = "error." });
-            _email.Validations.Add(new EmailRule<string> { ValidationMessage = "error." });
+            _firstname.Validations.Add(new StringLengthRule<string>(3, 30) { ValidationMessage = AppResources.ErrorMsgFirstnameLength });
+            _surname.Validations.Add(new StringLengthRule<string>(3, 30) { ValidationMessage = AppResources.ErrorMsgSurnameLength });
+            _email.Validations.Add(new StringLengthRule<string>(6, 254) { ValidationMessage = AppResources.ErrorMsgEmailLength });
+            _email.Validations.Add(new EmailRule<string> { ValidationMessage = AppResources.ErrorMsgNotEmail });
         }
 
         protected override bool Validate()

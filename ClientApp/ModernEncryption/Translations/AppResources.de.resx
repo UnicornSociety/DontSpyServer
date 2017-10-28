@@ -150,6 +150,18 @@
   <data name="EnterVoucherRequest" xml:space="preserve">
     <value>Bitte Validierungscode eingeben.</value>
   </data>
+  <data name="ErrorMsgEmailLength" xml:space="preserve">
+    <value>E-Mail zu kurz oder zu lange.</value>
+  </data>
+  <data name="ErrorMsgFirstnameLength" xml:space="preserve">
+    <value>Vorname zu kurz oder zu lange.</value>
+  </data>
+  <data name="ErrorMsgNotEmail" xml:space="preserve">
+    <value>Keine E-Mail.</value>
+  </data>
+  <data name="ErrorMsgSurnameLength" xml:space="preserve">
+    <value>Nachname zu kurz oder zu lange.</value>
+  </data>
   <data name="Firstname" xml:space="preserve">
     <value>Vorname</value>
   </data>
