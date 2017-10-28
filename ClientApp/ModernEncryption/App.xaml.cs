@@ -27,9 +27,8 @@ namespace ModernEncryption
 
             new LocalDatabaseOptions(LocalDatabaseOptions.ConnectionMode.Create);
 
-            var mml = new MathematicalMappingLogic();
-            mml.InitalizeIntervalTable();
-            mml.InitalizeTransformationTable();
+            DependencyManager.MathematicalMappingLogic.InitalizeIntervalTable();
+            DependencyManager.MathematicalMappingLogic.InitalizeTransformationTable();
             // Create reverse table for the transformation table
             MathematicalMappingLogic.BackTransformationTable =
             MathematicalMappingLogic.TransformationTable.ToDictionary(x => x.Value, x => x.Key);

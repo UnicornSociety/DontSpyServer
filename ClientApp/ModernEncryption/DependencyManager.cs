@@ -1,4 +1,5 @@
-﻿using ModernEncryption.Interfaces;
+﻿using ModernEncryption.BusinessLogic.Crypto;
+using ModernEncryption.Interfaces;
 using ModernEncryption.Model;
 using ModernEncryption.Presentation.View;
 using ModernEncryption.Service;
@@ -16,6 +17,7 @@ namespace ModernEncryption
         private static IChannelService _channelService;
         private static IPullService _pullService;
         private static AnchorPage _anchorPage;
+        private static MathematicalMappingLogic _mathematicalMappingLogic;
 
         public static SQLiteConnection Database => _database ?? (_database = DependencyService.Get<IStorage>().GetConnection());
         public static ChannelsPage ChannelsPage => _channelsPage ?? (_channelsPage = new ChannelsPage());
@@ -25,5 +27,6 @@ namespace ModernEncryption
         public static IUserService UserService => _userService ?? (_userService = new UserService());
         public static User Me { get; set; }
         public static AnchorPage AnchorPage => _anchorPage ?? (_anchorPage = new AnchorPage());
+        public static MathematicalMappingLogic MathematicalMappingLogic => _mathematicalMappingLogic ?? (_mathematicalMappingLogic = new MathematicalMappingLogic());
     }
 }
