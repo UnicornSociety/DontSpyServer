@@ -25,7 +25,7 @@ namespace ModernEncryption.BusinessLogic.UserManagement
         private int CreateVoucherCode()
         {
             var random = new Random();
-            return random.Next(1000, 10000);
+            return random.Next(1000, 9999);
         }
 
         public bool SendVoucherCode()

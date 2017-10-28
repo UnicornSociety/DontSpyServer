@@ -162,6 +162,12 @@
   <data name="ErrorMsgSurnameLength" xml:space="preserve">
     <value>Nachname zu kurz oder zu lange.</value>
   </data>
+  <data name="ErrorMsgVoucher" xml:space="preserve">
+    <value>Voucher ungueltig.</value>
+  </data>
+  <data name="ErrorMsgVoucherExpired" xml:space="preserve">
+    <value>Voucher abgelaufen.</value>
+  </data>
   <data name="Firstname" xml:space="preserve">
     <value>Vorname</value>
   </data>

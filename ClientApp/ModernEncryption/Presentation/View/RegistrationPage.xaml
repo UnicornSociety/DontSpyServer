@@ -34,7 +34,7 @@
                             <behavior:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateFirstnameCommand}" />
                         </Entry.Behaviors>
                         <Entry.Triggers>
-                            <DataTrigger TargetType="Entry" Binding="{Binding Message.IsValid}" Value="False">
+                            <DataTrigger TargetType="Entry" Binding="{Binding Firstname.IsValid}" Value="False">
                                 <Setter Property="behavior:LineColorBehavior.LineColor" Value="{StaticResource ErrorColor}" />
                             </DataTrigger>
                         </Entry.Triggers>
@@ -50,7 +50,7 @@
                             <behavior:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateSurnameCommand}" />
                         </Entry.Behaviors>
                         <Entry.Triggers>
-                            <DataTrigger TargetType="Entry" Binding="{Binding Message.IsValid}" Value="False">
+                            <DataTrigger TargetType="Entry" Binding="{Binding Surname.IsValid}" Value="False">
                                 <Setter Property="behavior:LineColorBehavior.LineColor" Value="{StaticResource ErrorColor}" />
                             </DataTrigger>
                         </Entry.Triggers>
@@ -66,7 +66,7 @@
                             <behavior:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateEmailCommand}" />
                         </Entry.Behaviors>
                         <Entry.Triggers>
-                            <DataTrigger TargetType="Entry" Binding="{Binding Message.IsValid}" Value="False">
+                            <DataTrigger TargetType="Entry" Binding="{Binding Email.IsValid}" Value="False">
                                 <Setter Property="behavior:LineColorBehavior.LineColor" Value="{StaticResource ErrorColor}" />
                             </DataTrigger>
                         </Entry.Triggers>

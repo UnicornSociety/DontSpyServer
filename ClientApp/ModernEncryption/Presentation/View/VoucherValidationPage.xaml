@@ -3,12 +3,36 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ModernEncryption.Presentation.View.VoucherValidationPage"
              xmlns:i18n="clr-namespace:ModernEncryption.Presentation.View;assembly=ModernEncryption"
+             xmlns:behavior="clr-namespace:ModernEncryption.Presentation.Behaviors"
+             xmlns:converter="clr-namespace:ModernEncryption.Presentation.Converter"
              Title="{Binding Title}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:FirstValidationErrorConverter x:Key="FirstValidationErrorConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
     <ContentPage.Content>
         <StackLayout>
-            <Entry x:Name="voucher" Placeholder="{i18n:Translate EnterVoucherRequest}" />
+            <Entry Text="{Binding Voucher.Value, Mode=TwoWay}" Placeholder="{i18n:Translate EnterVoucherRequest}">
+                <Entry.Style>
+                    <OnPlatform x:TypeArguments="Style"  
+                                iOS="{StaticResource EntryStyle}"  
+                                Android="{StaticResource EntryStyle}"  
+                                WinPhone="{StaticResource EntryStyle}"/>
+                </Entry.Style>
+                <Entry.Behaviors>
+                    <behavior:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateVoucherTextCommand}" />
+                </Entry.Behaviors>
+                <Entry.Triggers>
+                    <DataTrigger TargetType="Entry" Binding="{Binding Voucher.IsValid}" Value="False">
+                        <Setter Property="behavior:LineColorBehavior.LineColor" Value="{StaticResource ErrorColor}" />
+                    </DataTrigger>
+                </Entry.Triggers>
+            </Entry>
             <Button Text="{i18n:Translate Confirm}" Command="{Binding ValidateVoucherCommand}" />
+            <Label Text="{Binding Voucher.Errors, Converter={StaticResource FirstValidationErrorConverter}" Style="{StaticResource ValidationErrorLabelStyle}" />
         </StackLayout>
     </ContentPage.Content>
 

@@ -197,6 +197,24 @@ namespace ModernEncryption.Translations {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Voucher invalid..
+        /// </summary>
+        public static string ErrorMsgVoucher {
+            get {
+                return ResourceManager.GetString("ErrorMsgVoucher", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Voucher expired..
+        /// </summary>
+        public static string ErrorMsgVoucherExpired {
+            get {
+                return ResourceManager.GetString("ErrorMsgVoucherExpired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Firstname.
         /// </summary>
         public static string Firstname {
