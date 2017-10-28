@@ -192,6 +192,9 @@
   <data name="RegistrationHeading" xml:space="preserve">
     <value>Registrierung</value>
   </data>
+  <data name="SearchCallToAction" xml:space="preserve">
+    <value>Suchen</value>
+  </data>
   <data name="SendCallToAction" xml:space="preserve">
     <value>Senden</value>
   </data>

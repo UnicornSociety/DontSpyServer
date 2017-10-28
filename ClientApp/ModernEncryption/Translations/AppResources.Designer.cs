@@ -287,6 +287,15 @@ namespace ModernEncryption.Translations {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Search.
+        /// </summary>
+        public static string SearchCallToAction {
+            get {
+                return ResourceManager.GetString("SearchCallToAction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Send.
         /// </summary>
         public static string SendCallToAction {

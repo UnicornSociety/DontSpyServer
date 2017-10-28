@@ -24,7 +24,23 @@
 
                 <ListView.Header>
                     <StackLayout Padding="5">
-                        <SearchBar x:Name="email" Placeholder="Email" HorizontalTextAlignment="Center" BackgroundColor="#000" FontSize="20" SearchCommand="{Binding AddContactViaEmailCommand}" />
+                        <Entry Text="{Binding Email.Value, Mode=TwoWay}" Placeholder="Email" HorizontalTextAlignment="Center" FontSize="20">
+                            <Entry.Style>
+                                <OnPlatform x:TypeArguments="Style"  
+                                            iOS="{StaticResource EntryStyle}"  
+                                            Android="{StaticResource EntryStyle}"  
+                                            WinPhone="{StaticResource EntryStyle}"/>
+                            </Entry.Style>
+                            <Entry.Behaviors>
+                                <behavior:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateEmailCommand}" />
+                            </Entry.Behaviors>
+                            <Entry.Triggers>
+                                <DataTrigger TargetType="Entry" Binding="{Binding Email.IsValid}" Value="False">
+                                    <Setter Property="behavior:LineColorBehavior.LineColor" Value="{StaticResource ErrorColor}" />
+                                </DataTrigger>
+                            </Entry.Triggers>
+                        </Entry>
+                        <Button Text="{i18n:Translate SearchCallToAction}" HorizontalOptions="FillAndExpand" Command ="{Binding AddContactViaEmailCommand}" TextColor="Gray" BorderColor="Gray" BorderRadius="0" />
                     </StackLayout>
                 </ListView.Header>
 

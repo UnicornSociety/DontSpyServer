@@ -4,22 +4,25 @@ using System.ComponentModel;
 using System.Linq;
 using System.Windows.Input;
 using ModernEncryption.Model;
+using ModernEncryption.Presentation.Validation;
+using ModernEncryption.Presentation.Validation.Rules;
 using ModernEncryption.Presentation.View;
 using ModernEncryption.Translations;
-using Plugin.SecureStorage;
 using Xamarin.Forms;
 
 namespace ModernEncryption.Presentation.ViewModel
 {
-    public class ContactsPageViewModel : INotifyPropertyChanged
+    public class ContactsPageViewModel : ValidationBase, INotifyPropertyChanged
     {
         private ContactsPage _view;
         private bool _multipleSelectionVisibility;
         private string _title = AppResources.ContactsHeading;
+        private ValidatableObject<string> _email = new ValidatableObject<string>();
         public ObservableCollection<SelectableData<User>> Contacts { get; } = new ObservableCollection<SelectableData<User>>();
         public ICommand AddContactViaEmailCommand { protected set; get; }
         public ICommand TabbedContactCommand { protected set; get; }
         public ICommand ClickedCreateGroupCommand { protected set; get; }
+        public ICommand ValidateEmailCommand { protected set; get; }
 
         public string Title
         {
@@ -29,6 +32,17 @@ namespace ModernEncryption.Presentation.ViewModel
                 if (_title == value) return;
                 _title = value;
                 OnPropertyChanged("Title");
+            }
+        }
+
+        public ValidatableObject<string> Email
+        {
+            get => _email;
+            set
+            {
+                if (_email == value) return;
+                _email = value;
+                OnPropertyChanged("Email");
             }
         }
 
@@ -45,16 +59,19 @@ namespace ModernEncryption.Presentation.ViewModel
 
         public ContactsPageViewModel()
         {
+            AddValidations();
+
             // Load all contact from local database
             foreach (var contact in DependencyManager.UserService.LoadContacts()) Contacts.Add(new SelectableData<User>(contact));
 
             AddContactViaEmailCommand = new Command<object>(param =>
             {
-                var email = _view.FindByName<SearchBar>("email").Text;
-                if (DependencyManager.Me.Email.Equals(email)) return; // Prevent to add the own user
-                var user = DependencyManager.UserService.AddUserBy(email);
+                if (!Validate()) return;
+
+                if (DependencyManager.Me.Email.Equals(Email.Value)) return; // Prevent to add the own user
+                var user = DependencyManager.UserService.AddUserBy(Email.Value);
                 if (user != null) Contacts.Add(new SelectableData<User>(user));
-                _view.FindByName<SearchBar>("email").Text = "";
+                Email.Value = "";
             });
 
             TabbedContactCommand = new Command<object>(param =>
@@ -98,6 +115,11 @@ namespace ModernEncryption.Presentation.ViewModel
                 if (channelPage == null) channelPage = DependencyManager.ChannelService.CreateChannel(members).View;
                 _view.Navigation.PushAsync(channelPage);
             });
+
+            ValidateEmailCommand = new Command<object>(param =>
+            {
+                Validate();
+            });
         }
 
         public void ActivateMultipleSelectionSupport()
@@ -108,6 +130,16 @@ namespace ModernEncryption.Presentation.ViewModel
         public void DeactivateMultipleSelectionSupport()
         {
             MultipleSelectionVisibility = false; // Deactivate switches and create group button
+        }
+
+        protected sealed override void AddValidations()
+        {
+            _email.Validations.Add(new EmailRule<string>());
+        }
+
+        protected override bool Validate()
+        {
+            return _email.Validate();
         }
 
         public void SetView(ContactsPage view)
