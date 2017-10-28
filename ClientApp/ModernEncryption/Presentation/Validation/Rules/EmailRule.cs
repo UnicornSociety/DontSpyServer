@@ -1,7 +1,7 @@
 ﻿using System.Text.RegularExpressions;
 using ModernEncryption.Interfaces;
 
-namespace ModernEncryption.Presentation.Validation
+namespace ModernEncryption.Presentation.Validation.Rules
 {
     internal class EmailRule<T> : IValidationRule<T>
     {

@@ -23,7 +23,7 @@
 
                 <ListView.Footer>
                     <StackLayout Orientation="Horizontal">
-                        <Entry Placeholder="{i18n:Translate InputMessage}" HorizontalOptions="FillAndExpand" FontSize="20" x:Name="inputMessage"/>
+                        <Entry Text="{Binding Message.Value}" Placeholder="{i18n:Translate InputMessage}" HorizontalOptions="FillAndExpand" FontSize="20" />
                         <Button Text="{i18n:Translate SendCallToAction}" TextColor="White"  HorizontalOptions="End" FontSize="20" BackgroundColor="#3A99D8" BorderRadius="10" Command="{Binding SendMessageCommand}"/>
                     </StackLayout>
                 </ListView.Footer>
