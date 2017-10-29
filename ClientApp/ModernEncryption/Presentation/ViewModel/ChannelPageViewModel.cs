@@ -62,7 +62,7 @@ namespace ModernEncryption.Presentation.ViewModel
         protected sealed override void AddValidations()
         {
             _message.Validations.Add(new IsNullOrEmptyRule<string>());
-            _message.Validations.Add(new IsSupportedCharacterRule<string>());
+            _message.Validations.Add(new HasSupportedCharacterRule<string>());
         }
 
         protected override bool Validate()

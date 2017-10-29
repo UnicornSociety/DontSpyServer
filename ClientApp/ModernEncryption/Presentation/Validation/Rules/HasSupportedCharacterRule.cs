@@ -4,7 +4,7 @@ using ModernEncryption.Interfaces;
 
 namespace ModernEncryption.Presentation.Validation.Rules
 {
-    internal class IsSupportedCharacterRule<T> : IValidationRule<T>
+    internal class HasSupportedCharacterRule<T> : IValidationRule<T>
     {
         public string ValidationMessage { get; set; }
         public bool Check(T value)
