@@ -67,7 +67,7 @@ namespace ModernEncryption.Presentation.ViewModel
             _voucher.Validations.Add(new EqualsRule<string>(voucher) { ValidationMessage = AppResources.ErrorMsgVoucher });
 
             var unixTimestampNowValidatable = new ValidatableObject<int> { Value = TimeManagement.UnixTimestampNow };
-            unixTimestampNowValidatable.Validations.Add(new WithinRangeRule<int>(
+            unixTimestampNowValidatable.Validations.Add(new WithinNumberRangeRule<int>(
                 TimeManagement.UnixTimestampNow, int.Parse(CrossSecureStorage.Current.GetValue(
                     "VoucherExpirationTimestamp")))
             {

@@ -3,12 +3,12 @@ using ModernEncryption.Interfaces;
 
 namespace ModernEncryption.Presentation.Validation.Rules
 {
-    internal class WithinRangeRule<T> : IValidationRule<T>
+    internal class WithinNumberRangeRule<T> : IValidationRule<T>
     {
         private readonly int _min;
         private readonly int _max;
 
-        public WithinRangeRule(int minInclude, int maxInclude)
+        public WithinNumberRangeRule(int minInclude, int maxInclude)
         {
             _min = minInclude;
             _max = maxInclude;
