@@ -134,7 +134,7 @@ namespace ModernEncryption.Translations {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to onboarding.
+        ///   Looks up a localized string similar to wyvmcwwybzy5e9p8vmmk.
         /// </summary>
         public static string CryptedOnBoardingMessage {
             get {
