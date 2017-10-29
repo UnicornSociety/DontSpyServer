@@ -52,6 +52,11 @@ namespace ModernEncryption.Service
             return DependencyManager.Database.GetAllWithChildren<Channel>();
         }
 
+        public List<DecryptedMessage> LoadDecryptedMessagesForChannel(Channel channel)
+        {
+            return channel.Messages.Select(encryptedMessage => new DecryptionLogic(encryptedMessage)).Select(decryption => ((IDecrypt)decryption).Decrypt()).ToList();
+        }
+
         public bool SendMessage(string message, Channel channel)
         {
             IEncrypt encryption = new EncryptionLogic(new Message(DependencyManager.Me.Id, message));
@@ -59,6 +64,7 @@ namespace ModernEncryption.Service
             IDecrypt decryption = new DecryptionLogic(preparedMessage);
             channel.View.ViewModel.Messages.Add(decryption.Decrypt());
             channel.Messages.Add(preparedMessage);
+            DependencyManager.Database.InsertWithChildren(preparedMessage);
             DependencyManager.Database.UpdateWithChildren(channel);
 
             // TODO: Handle REST return

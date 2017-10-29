@@ -29,6 +29,7 @@ namespace ModernEncryption.Service
                         IDecrypt decryption = new DecryptionLogic(message);
                         channel.View.ViewModel.Messages.Add(decryption.Decrypt());
                         channel.Messages.Add(message);
+                        DependencyManager.Database.InsertWithChildren(message);
                         DependencyManager.Database.UpdateWithChildren(channel);
 
                         if (message.ProcessingCounter + 1 >= channel.Members.Count)

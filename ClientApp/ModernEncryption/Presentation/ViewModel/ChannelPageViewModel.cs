@@ -45,6 +45,10 @@ namespace ModernEncryption.Presentation.ViewModel
         {
             AddValidations();
 
+            // Load all messages from local database
+            foreach (var decryptedMessage in DependencyManager.ChannelService.LoadDecryptedMessagesForChannel(channel))
+                Messages.Add(decryptedMessage);
+
             SendMessageCommand = new Command<object>(param =>
             {
                 if (!Validate()) return;
