@@ -4,20 +4,17 @@ namespace ModernEncryption.Presentation.Validation.Rules
 {
     internal class EqualsRule<T> : IValidationRule<T>
     {
-        private readonly T _str;
+        private readonly T _comparativeObj;
 
-        public EqualsRule(T str)
+        public EqualsRule(T comparativeObj)
         {
-            _str = str;
+            _comparativeObj = comparativeObj;
         }
 
         public string ValidationMessage { get; set; }
         public bool Check(T value)
         {
-            if (value == null) return false;
-
-            var text = value as string;
-            return text != null && text.Equals(_str);
+            return value != null && value.Equals(_comparativeObj);
         }
     }
 }
