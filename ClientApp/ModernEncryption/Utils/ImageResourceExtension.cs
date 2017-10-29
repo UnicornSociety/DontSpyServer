@@ -16,7 +16,7 @@ namespace ModernEncryption.Utils
                 return null;
             }
             // Do your translation lookup here, using whatever method you require
-            var imageSource = ImageSource.FromResource(Source);
+            var imageSource = ImageSource.FromResource(Source, typeof(ImageResourceExtension));
 
             return imageSource;
         }
