@@ -219,4 +219,7 @@
   <data name="WelcomeTo" xml:space="preserve">
     <value>Wilkommen zu</value>
   </data>
+  <data name="Yesterday" xml:space="preserve">
+    <value>Gestern</value>
+  </data>
 </root>

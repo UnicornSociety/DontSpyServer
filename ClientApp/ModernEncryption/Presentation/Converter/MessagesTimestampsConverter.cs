@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using ModernEncryption.Model;
-using ModernEncryption.Utils;
 using Xamarin.Forms;
 
 namespace ModernEncryption.Presentation.Converter
@@ -14,7 +13,7 @@ namespace ModernEncryption.Presentation.Converter
         {
             var messages = (List<Message>)value;
             if (messages.Count < 1) return ""; // If no message, do not show a timestamp
-            return TimeManagement.UnixTimestampToDateTime(messages.Last().Timestamp).ToString(culture);
+            return new TimestampConverter().Convert(messages.Last().Timestamp, targetType, parameter, culture);
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

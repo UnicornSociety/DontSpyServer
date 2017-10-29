@@ -366,5 +366,14 @@ namespace ModernEncryption.Translations {
                 return ResourceManager.GetString("WelcomeTo", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yesterday.
+        /// </summary>
+        public static string Yesterday {
+            get {
+                return ResourceManager.GetString("Yesterday", resourceCulture);
+            }
+        }
     }
 }
