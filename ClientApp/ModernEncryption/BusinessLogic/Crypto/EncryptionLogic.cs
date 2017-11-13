@@ -9,7 +9,7 @@ namespace ModernEncryption.BusinessLogic.Crypto
         private readonly char[] _messageTextSymbols;
         private readonly Message _message;
 
-        public EncryptionLogic(Message message)
+        public EncryptionLogic(Message message)//+ key table
         {
             _message = message;
             _messageTextSymbols = message.Text.ToCharArray();

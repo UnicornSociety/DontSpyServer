@@ -26,6 +26,8 @@ namespace ModernEncryption.Model
         [Ignore]
         public ChannelPage View => _channelView ?? (_channelView = new ChannelPage(this));
 
+        //public Dictionary<int, int> KeyTable;
+
         public Channel()
         {
         }
