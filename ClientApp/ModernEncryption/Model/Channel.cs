@@ -26,16 +26,17 @@ namespace ModernEncryption.Model
         [Ignore]
         public ChannelPage View => _channelView ?? (_channelView = new ChannelPage(this));
 
-        //public Dictionary<int, int> KeyTable;
+        public Dictionary<int, int> KeyTable;
 
         public Channel()
         {
         }
 
-        public Channel(string id, List<User> members, string name = null)
+        public Channel(string id, List<User> members, Dictionary<int, int> keyTable, string name = null)
         {
             Id = id;
             Members = members;
+            KeyTable = keyTable;
 
             if (name == null)
             {

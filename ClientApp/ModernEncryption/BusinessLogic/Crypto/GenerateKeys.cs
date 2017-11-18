@@ -46,10 +46,9 @@ namespace ModernEncryption.BusinessLogic.Crypto
         return TableOfKeys;
         }
 
-        public int CreateKey()
+        public Dictionary<int, int> CreateKey(int n)
         {
-            var generateKey = new GenerateKeys();
-            var key = generateKey.ProduceKeys(1600);
+            var key = ProduceKeys(n);
             var numberKey = 1;
             if (CrossSecureStorage.Current.HasKey("Number"))
             {
@@ -64,7 +63,7 @@ namespace ModernEncryption.BusinessLogic.Crypto
             }
 
             CrossSecureStorage.Current.SetValue(numberKey.ToString(), key);
-            return numberKey;
+            return KeyTable(n, key);
         }
     }
     
