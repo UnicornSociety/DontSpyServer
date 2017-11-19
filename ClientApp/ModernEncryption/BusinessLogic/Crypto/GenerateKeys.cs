@@ -1,10 +1,11 @@
 using System;
 using System.Collections.Generic;
+using ModernEncryption.Interfaces;
 using Plugin.SecureStorage;
 
 namespace ModernEncryption.BusinessLogic.Crypto
 {
-    internal class GenerateKeys
+    internal class GenerateKeys: IGenerateKey
     {
         private readonly int[] _l = { };
         private readonly int[] _h = { };
@@ -31,14 +32,14 @@ namespace ModernEncryption.BusinessLogic.Crypto
 
         public Dictionary<int, int> TableOfKeys = new Dictionary<int, int>();
     
-        public Dictionary<int, int> KeyTable(int numberOfSigns, string key)
+        public Dictionary<int, int> KeyTable(string key)
         {
             int[] intKey = {};
             for (var i=0; i< key.ToCharArray().Length;i++)
             {
                 intKey[i] = key[i];
             }
-                for (var i = 1; i <= numberOfSigns; i++)
+                for (var i = 1; i <= key.Length; i++)
                 {
                     TableOfKeys.Add(i, intKey[i]);
                 }
@@ -46,24 +47,11 @@ namespace ModernEncryption.BusinessLogic.Crypto
         return TableOfKeys;
         }
 
-        public Dictionary<int, int> CreateKey(int n)
+        public Dictionary<int, int> CreateKey(int n, String channelId)
         {
             var key = ProduceKeys(n);
-            var numberKey = 1;
-            if (CrossSecureStorage.Current.HasKey("Number"))
-            {
-                var number = CrossSecureStorage.Current.GetValue("Number");
-                numberKey = int.Parse(number);
-                numberKey++;
-                CrossSecureStorage.Current.SetValue("Number", numberKey.ToString());
-            }
-            else
-            {
-                CrossSecureStorage.Current.SetValue("Number", "1");
-            }
-
-            CrossSecureStorage.Current.SetValue(numberKey.ToString(), key);
-            return KeyTable(n, key);
+            CrossSecureStorage.Current.SetValue(channelId, key);
+            return KeyTable(key);
         }
     }
     

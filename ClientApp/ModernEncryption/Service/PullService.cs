@@ -68,7 +68,7 @@ namespace ModernEncryption.Service
                         members.Add(member);
                     }
                     var generateKeys = new GenerateKeys();
-                    var keyTable = generateKeys.CreateKey(1600);
+                    var keyTable = generateKeys.CreateKey(1600, newChannelIdentifier);
                     var channel = new Channel(newChannelIdentifier, members, keyTable);
                     channel.Messages.Add(new Message(sender, message.Text) { Timestamp = message.Timestamp });
                     DependencyManager.ChannelsPage.ViewModel.Channels.Add(channel);
