@@ -18,7 +18,7 @@ namespace ModernEncryption.Model
         [ManyToOne(CascadeOperations = CascadeOperation.All), JsonIgnore]
         public Channel Channel { get; set; }
 
-        [Column("messageHeader"), MaxLength(254), JsonProperty(PropertyName = "messageHeader")]
+        [Column("messageHeader"), JsonProperty(PropertyName = "messageHeader")]
         public string MessageHeader { get; set; }
 
         [Column("timestamp"), MaxLength(11), JsonProperty(PropertyName = "timestamp")]
