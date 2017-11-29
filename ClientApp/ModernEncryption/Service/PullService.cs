@@ -12,6 +12,8 @@ namespace ModernEncryption.Service
     {
         private IRestService RestService { get; }
 
+        public IGenerateKey GenerateKeys;
+
         public PullService()
         {
             RestService = new RestService();
@@ -67,8 +69,7 @@ namespace ModernEncryption.Service
                         if (member == null) continue;
                         members.Add(member);
                     }
-                    var generateKeys = new GenerateKeys();
-                    var keyTable = generateKeys.CreateKey(1600, newChannelIdentifier);
+                    var keyTable = GenerateKeys.CreateKey(1600, newChannelIdentifier);
                     var channel = new Channel(newChannelIdentifier, members, keyTable);
                     channel.Messages.Add(new Message(sender, message.Text) { Timestamp = message.Timestamp });
                     DependencyManager.ChannelsPage.ViewModel.Channels.Add(channel);
