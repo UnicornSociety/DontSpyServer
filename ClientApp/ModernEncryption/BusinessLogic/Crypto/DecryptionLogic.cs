@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System.Collections.Generic;
+using System.Diagnostics;
 using ModernEncryption.Interfaces;
 using ModernEncryption.Model;
 
@@ -8,11 +9,13 @@ namespace ModernEncryption.BusinessLogic.Crypto
     {
         private readonly char[] _messageTextSymbols;
         private readonly Message _message;
+        private readonly Dictionary<int, int> _keyTable;
 
-        public DecryptionLogic(Message message)
+        public DecryptionLogic(Message message, Dictionary<int, int> keyTable)
         {
             _message = message;
             _messageTextSymbols = message.Text.ToCharArray();
+            _keyTable = keyTable;
         }
 
         public DecryptedMessage Decrypt()
@@ -22,7 +25,7 @@ namespace ModernEncryption.BusinessLogic.Crypto
             for (var i = 0; i < _messageTextSymbols.Length; i++)
             {
                 var permutedChipher = RevertCharacterPair(_messageTextSymbols[i], _messageTextSymbols[++i]);
-                var chiper = RevertPermutationFor(permutedChipher);
+                var chiper = RevertPermutationFor(permutedChipher, _keyTable);
                 concatenatedDecryptedSymbols += RevertChipher(chiper);
                 if (chiper == '-')
                 {
@@ -41,10 +44,10 @@ namespace ModernEncryption.BusinessLogic.Crypto
             return (keyA - 1) * 40 + keyB;
         }
 
-        private int RevertPermutationFor(int permutedChipher)
+        private int RevertPermutationFor(int permutedChipher, Dictionary<int, int> keyTable)
         {
-            if (MathematicalMappingLogic.KeyTable.ContainsKey(permutedChipher))
-                return MathematicalMappingLogic.KeyTable[permutedChipher];
+            if (keyTable.ContainsKey(permutedChipher))
+                return keyTable[permutedChipher];
             return permutedChipher;
         }
 

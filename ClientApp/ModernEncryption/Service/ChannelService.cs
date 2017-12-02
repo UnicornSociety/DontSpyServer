@@ -14,6 +14,8 @@ namespace ModernEncryption.Service
     {
         private IRestService RestService { get; }
 
+        public IGenerateKey GenerateKeys;
+
         public ChannelService()
         {
             RestService = new RestService();
@@ -27,8 +29,7 @@ namespace ModernEncryption.Service
         public Channel CreateChannel(List<User> members, string channelName = null)
         {
             var channelIdentifier = IdentifierCreator.UniqueDigits();
-            var generateKeys = new GenerateKeys();
-            var keyTable = generateKeys.CreateKey(1600, channelIdentifier);
+            var keyTable = GenerateKeys.CreateKey(1600, channelIdentifier);
             var channel = new Channel(channelIdentifier, members,keyTable, channelName);
             DependencyManager.ChannelsPage.ViewModel.Channels.Add(channel);
             DependencyManager.Database.InsertOrReplaceWithChildren(channel);
@@ -56,14 +57,14 @@ namespace ModernEncryption.Service
 
         public List<DecryptedMessage> LoadDecryptedMessagesForChannel(Channel channel)
         {
-            return channel.Messages.Select(encryptedMessage => new DecryptionLogic(encryptedMessage)).Select(decryption => ((IDecrypt)decryption).Decrypt()).ToList();
+            return channel.Messages.Select(encryptedMessage => new DecryptionLogic(encryptedMessage, channel.KeyTable)).Select(decryption => ((IDecrypt)decryption).Decrypt()).ToList();
         }
 
         public bool SendMessage(string message, Channel channel)
         {
-            IEncrypt encryption = new EncryptionLogic(new Message(DependencyManager.Me.Id, message));
+            IEncrypt encryption = new EncryptionLogic(new Message(DependencyManager.Me.Id, message), channel.KeyTable);
             var preparedMessage = encryption.Encrypt();
-            IDecrypt decryption = new DecryptionLogic(preparedMessage);
+            IDecrypt decryption = new DecryptionLogic(preparedMessage, channel.KeyTable);
             channel.View.ViewModel.Messages.Add(decryption.Decrypt());
             channel.Messages.Add(preparedMessage);
             DependencyManager.Database.InsertWithChildren(preparedMessage);

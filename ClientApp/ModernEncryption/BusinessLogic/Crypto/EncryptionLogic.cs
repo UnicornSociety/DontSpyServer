@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using ModernEncryption.Interfaces;
 using ModernEncryption.Model;
 
@@ -8,11 +9,13 @@ namespace ModernEncryption.BusinessLogic.Crypto
     {
         private readonly char[] _messageTextSymbols;
         private readonly Message _message;
+        private readonly Dictionary<int, int> _keyTable;
 
-        public EncryptionLogic(Message message)//+ key table
+        public EncryptionLogic(Message message, Dictionary<int, int> keyTable)
         {
             _message = message;
             _messageTextSymbols = message.Text.ToCharArray();
+            _keyTable = keyTable;
         }
 
         public Message Encrypt()
@@ -22,7 +25,7 @@ namespace ModernEncryption.BusinessLogic.Crypto
             foreach (var symbol in _messageTextSymbols)
             {
                 var chipher = CreateChipher(symbol);
-                var permutedChipher = RunPermutationFor(chipher);
+                var permutedChipher = RunPermutationFor(chipher, _keyTable);
 
                 concatenatedEncryptedSymbols += CreateCharacterPair(permutedChipher);
             }
@@ -38,10 +41,10 @@ namespace ModernEncryption.BusinessLogic.Crypto
             return rnd.Next(interval.Start, interval.End + 1);
         }
 
-        private int RunPermutationFor(int chipher)
+        private int RunPermutationFor(int chipher, Dictionary<int, int> KeyTable)
         {
-            if (MathematicalMappingLogic.KeyTable.ContainsKey(chipher))
-                return MathematicalMappingLogic.KeyTable[chipher];
+            if (KeyTable.ContainsKey(chipher))
+                return KeyTable[chipher];
             return chipher;
         }
 

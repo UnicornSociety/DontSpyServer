@@ -28,7 +28,7 @@ namespace ModernEncryption.Service
                     foreach (var message in RestService.GetMessageBy(channel.Id).Result)
                     {
                         if (channel.Messages.Exists(item => item.Id == message.Id)) continue; // If message exists
-                        IDecrypt decryption = new DecryptionLogic(message);
+                        IDecrypt decryption = new DecryptionLogic(message, channel.KeyTable);
                         channel.View.ViewModel.Messages.Add(decryption.Decrypt());
                         channel.Messages.Add(message);
                         DependencyManager.Database.InsertWithChildren(message);
