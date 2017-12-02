@@ -79,6 +79,21 @@ namespace ModernEncryption.Presentation.ViewModel
             _view = view;
         }
 
+        /* protected override void OnAppearing()
+        {
+            OnAppearing();
+
+            RefreshScrollDown = () => {
+                if (Messages.Count > 0)
+                {
+                    Device.BeginInvokeOnMainThread(() => {
+
+                        Messages.ScrollTo(Messages[Messages.Count - 1], ScrollToPosition.End, true);
+                    });
+                }
+            };
+        }*/
+
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged(string propertyName)
         {
