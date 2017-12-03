@@ -29,8 +29,6 @@ namespace ModernEncryption.Model
         [Ignore]
         public ChannelPage View => _channelView ?? (_channelView = new ChannelPage(this));
 
-        public string Key;
-
         public Dictionary<int, int> _keyTable;
 
         public Dictionary<int, int> KeyTable
@@ -39,7 +37,8 @@ namespace ModernEncryption.Model
             {
                 if (_keyTable != null) return _keyTable;
                 IGenerateKey generateKey = new GenerateKeys();
-                _keyTable = generateKey.KeyTable(Key);
+                var key = CrossSecureStorage.Current.GetValue(Id);
+                _keyTable = generateKey.KeyTable(key);
                 return _keyTable;
             }
         }
@@ -53,7 +52,7 @@ namespace ModernEncryption.Model
         {
             IGenerateKey generateKey = new GenerateKeys();
             var key = generateKey.ProduceKeys(1600);
-            CrossSecureStorage.Current.SetValue(Id, key);
+            CrossSecureStorage.Current.SetValue(id, key);
             Id = id;
             Members = members;
             
