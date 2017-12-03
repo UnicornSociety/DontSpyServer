@@ -4,9 +4,10 @@ using System.Text;
 
 namespace ModernEncryption.Interfaces
 {
-    internal interface IGenerateKey
+    public interface IGenerateKey
     {
         string ProduceKeys(int n);
-        Dictionary<int, int> CreateKey(int n, String channelId);
+        Dictionary<int, int> CreateKey(int n);
+        Dictionary<int, int> KeyTable(string key);
     }
 }

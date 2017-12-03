@@ -47,10 +47,9 @@ namespace ModernEncryption.BusinessLogic.Crypto
         return TableOfKeys;
         }
 
-        public Dictionary<int, int> CreateKey(int n, String channelId)
+        public Dictionary<int, int> CreateKey(int n)
         {
             var key = ProduceKeys(n);
-            CrossSecureStorage.Current.SetValue(channelId, key);
             return KeyTable(key);
         }
     }

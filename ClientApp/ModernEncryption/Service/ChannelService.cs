@@ -29,8 +29,7 @@ namespace ModernEncryption.Service
         public Channel CreateChannel(List<User> members, string channelName = null)
         {
             var channelIdentifier = IdentifierCreator.UniqueDigits();
-            var keyTable = GenerateKeys.CreateKey(1600, channelIdentifier);
-            var channel = new Channel(channelIdentifier, members,keyTable, channelName);
+            var channel = new Channel(channelIdentifier, members, channelName);
             DependencyManager.ChannelsPage.ViewModel.Channels.Add(channel);
             DependencyManager.Database.InsertOrReplaceWithChildren(channel);
 

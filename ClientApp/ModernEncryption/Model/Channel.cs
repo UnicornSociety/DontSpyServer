@@ -1,7 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using ModernEncryption.BusinessLogic.Crypto;
 using ModernEncryption.Interfaces;
 using ModernEncryption.Presentation.View;
 using ModernEncryption.Translations;
+using Plugin.SecureStorage;
 using SQLite.Net.Attributes;
 using SQLiteNetExtensions.Attributes;
 
@@ -26,17 +29,31 @@ namespace ModernEncryption.Model
         [Ignore]
         public ChannelPage View => _channelView ?? (_channelView = new ChannelPage(this));
 
-        public Dictionary<int, int> KeyTable;
+        public string Key;
+
+        public Dictionary<int, int> KeyTable
+        { 
+            get
+            {
+                if (_keyTable != null) return _keyTable;
+                IGenerateKey generateKey = new GenerateKeys();
+                return generateKey.KeyTable(Key);
+            }
+        }
+
 
         public Channel()
         {
         }
 
-        public Channel(string id, List<User> members, Dictionary<int, int> keyTable, string name = null)
+        public Channel(string id, List<User> members, string name = null)
         {
+            IGenerateKey generateKey = new GenerateKeys();
+            var key = generateKey.ProduceKeys(1600);
+            CrossSecureStorage.Current.SetValue(Id, key);
             Id = id;
             Members = members;
-            KeyTable = keyTable;
+            
 
             if (name == null)
             {
