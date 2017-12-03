@@ -31,13 +31,16 @@ namespace ModernEncryption.Model
 
         public string Key;
 
+        public Dictionary<int, int> _keyTable;
+
         public Dictionary<int, int> KeyTable
         { 
             get
             {
                 if (_keyTable != null) return _keyTable;
                 IGenerateKey generateKey = new GenerateKeys();
-                return generateKey.KeyTable(Key);
+                _keyTable = generateKey.KeyTable(Key);
+                return _keyTable;
             }
         }
 
