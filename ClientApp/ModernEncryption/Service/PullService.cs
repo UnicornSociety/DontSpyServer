@@ -12,8 +12,6 @@ namespace ModernEncryption.Service
     {
         private IRestService RestService { get; }
 
-        public IKeyHandling GenerateKeys;
-
         public PullService()
         {
             RestService = new RestService();
