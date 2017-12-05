@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ModernEncryption.BusinessLogic.UserManagement;
 using ModernEncryption.Interfaces;
 using ModernEncryption.Model;
 using Plugin.SecureStorage;
@@ -25,9 +24,6 @@ namespace ModernEncryption.Service
             DependencyManager.Database.Insert(user);
             CrossSecureStorage.Current.SetValue("OwnUser", user.Id);
             DependencyManager.Me = user;
-
-            IVoucherCode voucherCode = new VoucherCode(user);
-            voucherCode.SendVoucherCode();
 
             return true;
         }
