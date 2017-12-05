@@ -51,6 +51,7 @@
     <PackageReference Include="sameerIOTApps.Plugin.SecureStorage" Version="1.2.2" />
     <PackageReference Include="SQLiteNetExtensions.Async" Version="1.3.0" />
     <PackageReference Include="Xamarin.Forms" Version="2.3.4.267" />
+    <PackageReference Include="ZXing.Net" Version="0.16.2" />
   </ItemGroup>
 
   <ItemGroup>
