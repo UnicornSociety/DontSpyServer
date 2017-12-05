@@ -25,7 +25,7 @@ namespace ModernEncryption.BusinessLogic.Crypto
             foreach (var symbol in _messageTextSymbols)
             {
                 var chipher = CreateChipher(symbol);
-                var permutedChipher = RunPermutationFor(chipher, _keyTable);
+                var permutedChipher = RunPermutationFor(chipher);
 
                 concatenatedEncryptedSymbols += CreateCharacterPair(permutedChipher);
             }
@@ -41,10 +41,10 @@ namespace ModernEncryption.BusinessLogic.Crypto
             return rnd.Next(interval.Start, interval.End + 1);
         }
 
-        private int RunPermutationFor(int chipher, Dictionary<int, int> KeyTable)
+        private int RunPermutationFor(int chipher)
         {
-            if (KeyTable.ContainsKey(chipher))
-                return KeyTable[chipher];
+            if (_keyTable.ContainsKey(chipher))
+                return _keyTable[chipher];
             return chipher;
         }
 
