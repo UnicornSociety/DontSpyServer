@@ -42,7 +42,7 @@
                                         <Label Text="{Binding Name}" Font="Bold"  TextColor="Black" BackgroundColor="#fff" />
                                         <Label Text="{Binding Messages, Converter={StaticResource MessagesTimestampsConverter}}" HorizontalOptions="EndAndExpand" />
                                     </StackLayout>
-                                    <Label Text="{Binding Messages, Converter={StaticResource MessageSnippetConverter}}" TextColor="#a0a0af" BackgroundColor="#fff" />
+                                    <Label Text="{Binding Messages, Converter={StaticResource MessageSnippetConverter}, ConverterParameter={Binding KeyTable}}" TextColor="#a0a0af" BackgroundColor="#fff" />
                                 </StackLayout>
                             </StackLayout>
                         </ViewCell>
