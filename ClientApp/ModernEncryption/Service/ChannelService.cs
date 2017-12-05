@@ -54,7 +54,10 @@ namespace ModernEncryption.Service
 
         public List<DecryptedMessage> LoadDecryptedMessagesForChannel(Channel channel)
         {
-            return channel.Messages.Select(encryptedMessage => new DecryptionLogic(encryptedMessage, channel.KeyTable)).Select(decryption => ((IDecrypt)decryption).Decrypt()).ToList();
+            return channel.Messages.Select(encryptedMessage =>
+            new DecryptionLogic(encryptedMessage, channel.KeyTable)).Select(decryption =>
+            ((IDecrypt)decryption).Decrypt()).ToList().OrderBy(encryptedMessage =>
+            encryptedMessage.Timestamp).ToList();
         }
 
         public bool SendMessage(string message, Channel channel)
