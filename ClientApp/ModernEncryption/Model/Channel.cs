@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using ModernEncryption.BusinessLogic.Crypto;
 using ModernEncryption.Interfaces;
 using ModernEncryption.Presentation.View;
@@ -15,6 +14,8 @@ namespace ModernEncryption.Model
     {
         private ChannelPage _channelView;
 
+        private readonly IGenerateKey _keyHandler = new GenerateKeys();
+
         [PrimaryKey, Unique, Column("id"), MaxLength(40)]
         public string Id { get; set; }
 
@@ -29,16 +30,16 @@ namespace ModernEncryption.Model
         [Ignore]
         public ChannelPage View => _channelView ?? (_channelView = new ChannelPage(this));
 
-        public Dictionary<int, int> _keyTable;
+        private Dictionary<int, int> _keyTable;
 
+        [Ignore]
         public Dictionary<int, int> KeyTable
         { 
             get
             {
                 if (_keyTable != null) return _keyTable;
-                IGenerateKey generateKey = new GenerateKeys();
                 var key = CrossSecureStorage.Current.GetValue(Id);
-                _keyTable = generateKey.KeyTable(key);
+                _keyTable = _keyHandler.KeyTable(key);
                 return _keyTable;
             }
         }
@@ -50,8 +51,7 @@ namespace ModernEncryption.Model
 
         public Channel(string id, List<User> members, string name = null)
         {
-            IGenerateKey generateKey = new GenerateKeys();
-            var key = generateKey.ProduceKeys(1600);
+            var key = _keyHandler.ProduceKeys(1600);
             CrossSecureStorage.Current.SetValue(id, key);
             Id = id;
             Members = members;
