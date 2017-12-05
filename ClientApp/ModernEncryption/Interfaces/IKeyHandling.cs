@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace ModernEncryption.Interfaces
 {
-    public interface IGenerateKey
+    public interface IKeyHandling
     {
         string ProduceKeys(int n);
         Dictionary<int, int> CreateKey(int n);

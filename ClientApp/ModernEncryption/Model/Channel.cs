@@ -14,7 +14,7 @@ namespace ModernEncryption.Model
     {
         private ChannelPage _channelView;
 
-        private readonly IGenerateKey _keyHandler = new GenerateKeys();
+        private readonly IKeyHandling _keyHandler = new KeyHandling();
 
         [PrimaryKey, Unique, Column("id"), MaxLength(40)]
         public string Id { get; set; }
