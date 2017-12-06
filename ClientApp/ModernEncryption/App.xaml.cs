@@ -3,6 +3,7 @@ using ModernEncryption.BusinessLogic.Crypto;
 using ModernEncryption.Interfaces;
 using ModernEncryption.Model;
 using ModernEncryption.Presentation.View;
+using ModernEncryption.Service;
 using Plugin.SecureStorage;
 using SQLiteNetExtensions.Extensions;
 using Xamarin.Forms;
@@ -15,6 +16,8 @@ namespace ModernEncryption
     {
         public App()
         {
+            var qrcode = new QrCodeService();
+            qrcode.Encoder(); 
             InitializeComponent();
 
             // This lookup NOT required for Windows platforms - the Culture will be automatically set

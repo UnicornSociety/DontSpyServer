@@ -52,10 +52,10 @@ namespace ModernEncryption.Service
         {
             while (true)
             {
-                Debug.WriteLine("pull now to receiving channel " + DependencyManager.Me.Id);
+                //Debug.WriteLine("pull now to receiving channel " + DependencyManager.Me.Id);
                 foreach (var message in RestService.GetMessageBy(DependencyManager.Me.Id).Result)
                 {
-                    Debug.WriteLine("pull msg " + message.Id);
+                    //Debug.WriteLine("pull msg " + message.Id);
                     var receivingChannelSplit = message.MessageHeader.Split(';');
                     var sender = receivingChannelSplit[0];
                     var newChannelIdentifier = receivingChannelSplit[1];
