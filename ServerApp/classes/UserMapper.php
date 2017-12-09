@@ -23,11 +23,10 @@ class UserMapper extends Mapper
 
     public function save(UserEntity $user)
     {
-        $stmt = $this->db->prepare("INSERT INTO user(id, firstname, surname, email) VALUES (:id, :firstname, :surname, :email)");
+        $stmt = $this->db->prepare("INSERT INTO user(id, displayname, email) VALUES (:id, :displayname, :email)");
         $result = $stmt->execute([
             "id" => $user->getId(),
-            "firstname" => $user->getFirstname(),
-            "surname" => $user->getSurname(),
+            "displayname" => $user->getDisplayname(),
             "email" => $user->getEmail()
         ]);
         if (!$result) {

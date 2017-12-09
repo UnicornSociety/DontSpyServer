@@ -153,7 +153,7 @@
   <data name="ErrorMsgEmailLength" xml:space="preserve">
     <value>E-Mail zu kurz oder zu lange.</value>
   </data>
-  <data name="ErrorMsgFirstnameLength" xml:space="preserve">
+  <data name="ErrorMsgDisplaynameLength" xml:space="preserve">
     <value>Vorname zu kurz oder zu lange.</value>
   </data>
   <data name="ErrorMsgNotEmail" xml:space="preserve">
@@ -168,7 +168,7 @@
   <data name="ErrorMsgVoucherExpired" xml:space="preserve">
     <value>Voucher abgelaufen.</value>
   </data>
-  <data name="Firstname" xml:space="preserve">
+  <data name="Displayname" xml:space="preserve">
     <value>Vorname</value>
   </data>
   <data name="InputMessage" xml:space="preserve">

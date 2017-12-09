@@ -53,8 +53,7 @@
                                 </StackLayout>
                                 <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="FillAndExpand" BackgroundColor="#fff" Padding="11">
                                     <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-                                        <Label Text="{Binding Data.Firstname}" Font="Bold"  BackgroundColor="#fff" />
-                                        <Label Text="{Binding Data.Surname}" Font="Bold"  BackgroundColor="#fff" />
+                                        <Label Text="{Binding Data.Displayname}" Font="Bold"  BackgroundColor="#fff" />
                                         <Switch IsToggled="{Binding Selected}" IsVisible="{Binding BindingContext.MultipleSelectionVisibility,Source={x:Reference contactsPage}}" />
                                     </StackLayout>
                                     <Label Text="{Binding Data.Email}" BackgroundColor="#fff" TextColor="Black" />

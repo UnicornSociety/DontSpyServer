@@ -16,11 +16,8 @@ namespace ModernEncryption.Model
         [ManyToMany(typeof(ChannelUser), CascadeOperations = CascadeOperation.All), JsonIgnore]
         public List<Channel> Channels { get; set; }
 
-        [Column("firstname"), MaxLength(30), JsonProperty(PropertyName = "firstname")]
-        public string Firstname { get; set; }
-
-        [Column("surname"), MaxLength(30), JsonProperty(PropertyName = "surname")]
-        public string Surname { get; set; }
+        [Column("displayname"), MaxLength(30), JsonProperty(PropertyName = "displayname")]
+        public string Displayname { get; set; }
 
         [Unique, Column("email"), MaxLength(254), JsonProperty(PropertyName = "email")]
         public string Email { get; set; }
@@ -29,11 +26,10 @@ namespace ModernEncryption.Model
         {
         }
 
-        public User(string firstname, string surname, string email)
+        public User(string displayname, string email)
         {
             Id = IdentifierCreator.UniqueDigits();
-            Firstname = firstname;
-            Surname = surname;
+            Displayname = displayname;
             Email = email;
         }
     }

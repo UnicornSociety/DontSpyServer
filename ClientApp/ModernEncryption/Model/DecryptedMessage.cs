@@ -5,7 +5,7 @@
         public string Id { get; set; }
         public int Timestamp { get; }
         public string Text { get; }
-        public User Sender { get; } = new User("Unknown", "Unknown", null);
+        public User Sender { get; } = new User("Unknown", null);
 
         public DecryptedMessage(string id, int timestamp, string text, string sender)
         {
