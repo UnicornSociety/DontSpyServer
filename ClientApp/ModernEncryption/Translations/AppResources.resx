@@ -159,9 +159,6 @@
   <data name="ErrorMsgNotEmail" xml:space="preserve">
     <value>Not an email.</value>
   </data>
-  <data name="ErrorMsgSurnameLength" xml:space="preserve">
-    <value>Surname too short or too long.</value>
-  </data>
   <data name="ErrorMsgVoucher" xml:space="preserve">
     <value>Voucher invalid.</value>
   </data>
@@ -200,9 +197,6 @@
   </data>
   <data name="SendPinToEmailCallToAction" xml:space="preserve">
     <value>Send PIN to email address.</value>
-  </data>
-  <data name="Surname" xml:space="preserve">
-    <value>Surname</value>
   </data>
   <data name="VoucherValidationEmailBodyBeforePin" xml:space="preserve">
     <value>Your one-time PIN is:</value>

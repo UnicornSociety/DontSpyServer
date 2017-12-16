@@ -197,15 +197,6 @@ namespace ModernEncryption.Translations {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Surname too short or too long. ähnelt.
-        /// </summary>
-        public static string ErrorMsgSurnameLength {
-            get {
-                return ResourceManager.GetString("ErrorMsgSurnameLength", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Voucher invalid. ähnelt.
         /// </summary>
         public static string ErrorMsgVoucher {
@@ -310,15 +301,6 @@ namespace ModernEncryption.Translations {
         public static string SendPinToEmailCallToAction {
             get {
                 return ResourceManager.GetString("SendPinToEmailCallToAction", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Surname ähnelt.
-        /// </summary>
-        public static string Surname {
-            get {
-                return ResourceManager.GetString("Surname", resourceCulture);
             }
         }
         

@@ -14,11 +14,9 @@ namespace ModernEncryption.Presentation.ViewModel
         private RegistrationPage _view;
         private string _title = AppResources.RegistrationHeading;
         private ValidatableObject<string> _displayname = new ValidatableObject<string>();
-        private ValidatableObject<string> _surname = new ValidatableObject<string>();
         private ValidatableObject<string> _email = new ValidatableObject<string>();
         public ICommand SendVoucherCommand { protected set; get; }
         public ICommand ValidateDisplaynameCommand { protected set; get; }
-        public ICommand ValidateSurnameCommand { protected set; get; }
         public ICommand ValidateEmailCommand { protected set; get; }
 
         public string Title
@@ -40,17 +38,6 @@ namespace ModernEncryption.Presentation.ViewModel
                 if (_displayname == value) return;
                 _displayname = value;
                 OnPropertyChanged("Displayname");
-            }
-        }
-
-        public ValidatableObject<string> Surname
-        {
-            get => _surname;
-            set
-            {
-                if (_surname == value) return;
-                _surname = value;
-                OnPropertyChanged("Surname");
             }
         }
 
@@ -86,11 +73,6 @@ namespace ModernEncryption.Presentation.ViewModel
                 ValidateDisplayname();
             });
 
-            ValidateSurnameCommand = new Command<object>(param =>
-            {
-                ValidateSurname();
-            });
-
             ValidateEmailCommand = new Command<object>(param =>
             {
                 ValidateEmail();
@@ -100,14 +82,13 @@ namespace ModernEncryption.Presentation.ViewModel
         protected sealed override void AddValidations()
         {
             _displayname.Validations.Add(new StringLengthRule<string>(3, 30) { ValidationMessage = AppResources.ErrorMsgDisplaynameLength });
-            _surname.Validations.Add(new StringLengthRule<string>(3, 30) { ValidationMessage = AppResources.ErrorMsgSurnameLength });
             _email.Validations.Add(new StringLengthRule<string>(6, 254) { ValidationMessage = AppResources.ErrorMsgEmailLength });
             _email.Validations.Add(new EmailRule<string> { ValidationMessage = AppResources.ErrorMsgNotEmail });
         }
 
         protected override bool Validate()
         {
-            return ValidateDisplayname() && ValidateSurname() && ValidateEmail();
+            return ValidateDisplayname() && ValidateEmail();
         }
 
         private bool ValidateDisplayname()
@@ -115,10 +96,6 @@ namespace ModernEncryption.Presentation.ViewModel
             return _displayname.Validate();
         }
 
-        private bool ValidateSurname()
-        {
-            return _surname.Validate();
-        }
 
         private bool ValidateEmail()
         {
