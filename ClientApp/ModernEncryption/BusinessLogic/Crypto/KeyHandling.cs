@@ -12,11 +12,11 @@ namespace ModernEncryption.BusinessLogic.Crypto
         public string ProduceKeys(int n)
 
         {
-            for (var i = 0; i < n; i++)
+            for (var i = 1; i <= n; i++)
             {
                 _h[i] = i;
             }
-            for (var i = 0; i < n; i++)
+            for (var i = 1; i <= n; i++)
             {
                 var rnd = new Random(); //hier kann noch ein eigener Algoithmus hin
                 var next = rnd.Next(1, n - 1 + 1);
@@ -34,7 +34,7 @@ namespace ModernEncryption.BusinessLogic.Crypto
         public Dictionary<int, int> KeyTable(string key)
         {
             int[] intKey = { };
-            for (var i = 0; i < key.ToCharArray().Length; i++)
+            for (var i = 1; i <= key.ToCharArray().Length; i++)
             {
                 intKey[i] = key[i];
             }
