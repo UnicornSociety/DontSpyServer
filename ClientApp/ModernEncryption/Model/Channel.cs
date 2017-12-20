@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using ModernEncryption.BusinessLogic.Crypto;
 using ModernEncryption.Interfaces;
 using ModernEncryption.Presentation.View;
@@ -40,7 +42,8 @@ namespace ModernEncryption.Model
             {
                 if (_keyTable != null) return _keyTable;
                 var key = CrossSecureStorage.Current.GetValue(Id);
-                _keyTable = _keyHandler.KeyTable(key);
+                int[] _key = key.Split(';').Select(n => Convert.ToInt32(n)).ToArray();
+                _keyTable = _keyHandler.KeyTable(_key);
                 return _keyTable;
             }
         }
@@ -53,7 +56,8 @@ namespace ModernEncryption.Model
         public Channel(string id, List<User> members, string name = null)
         {
             var key = _keyHandler.ProduceKeys(1600);
-            CrossSecureStorage.Current.SetValue(id, key);
+            Debug.WriteLine(key);
+            CrossSecureStorage.Current.SetValue(id, key.ToString());
             Id = id;
             Members = members;
             

@@ -6,41 +6,36 @@ namespace ModernEncryption.BusinessLogic.Crypto
 {
     internal class KeyHandling : IKeyHandling
     {
-        private readonly int[] _l = { };
-        private readonly int[] _h = { };
+        private int[] _l = new int[1600];
+        private int[] _h = new int[1600];
 
-        public string ProduceKeys(int n)
+        public int[] ProduceKeys(int n)
 
         {
-            for (var i = 1; i <= n; i++)
+            for (var i = 0; i < n; i++)
             {
                 _h[i] = i;
             }
-            for (var i = 1; i <= n; i++)
+            for (var i = 0; i < n; i++)
             {
-                var rnd = new Random(); //hier kann noch ein eigener Algoithmus hin
-                var next = rnd.Next(1, n - 1 + 1);
+                var rnd = new Random(); //hier kann noch ein eigener Algorithmus hin
+                var next = rnd.Next(0, n - 2 + 1);
                 _l[i] = _h[next];
-                for (var j = next; j < n - i; j++)
+                for (var j = next; j < n - i-1; j++)
                 {
-                    _h[j] = _h[j + 1];
+                    _h[j] = _h[j+1];
                 }
             }
-            return _l.ToString();
+            return _l;
         }
 
         public Dictionary<int, int> TableOfKeys = new Dictionary<int, int>();
 
-        public Dictionary<int, int> KeyTable(string key)
+        public Dictionary<int, int> KeyTable(int[] key)
         {
-            int[] intKey = { };
-            for (var i = 1; i <= key.ToCharArray().Length; i++)
-            {
-                intKey[i] = key[i];
-            }
             for (var i = 1; i <= key.Length; i++)
             {
-                TableOfKeys.Add(i, intKey[i]);
+                TableOfKeys.Add(i, key[i]);
             }
 
             return TableOfKeys;
