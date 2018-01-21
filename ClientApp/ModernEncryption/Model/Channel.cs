@@ -55,7 +55,7 @@ namespace ModernEncryption.Model
 
         public Channel(string id, List<User> members, string name = null)
         {
-            var key = _keyHandler.ProduceKeys(1600);
+            var key = _keyHandler.ProduceKeys(8100);
             Debug.WriteLine(key);
             CrossSecureStorage.Current.SetValue(id, key.ToString());
             Id = id;

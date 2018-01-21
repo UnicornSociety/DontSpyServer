@@ -6,8 +6,8 @@ namespace ModernEncryption.BusinessLogic.Crypto
 {
     internal class KeyHandling : IKeyHandling
     {
-        private int[] _l = new int[1600];
-        private int[] _h = new int[1600];
+        private int[] _l = new int[8100];
+        private int[] _h = new int[8100];
 
         public int[] ProduceKeys(int n)
 
