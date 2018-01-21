@@ -41,7 +41,7 @@ namespace ModernEncryption.BusinessLogic.Crypto
             var keyA = MathematicalMappingLogic.BackTransformationTable[concatenatedSymbolPartA];
             var keyB = MathematicalMappingLogic.BackTransformationTable[concatenatedSymbolPartB];
 
-            return (keyA - 1) * 40 + keyB;
+            return (keyA - 1) * 90 + keyB;
         }
 
         private int RevertPermutationFor(int permutedChipher)

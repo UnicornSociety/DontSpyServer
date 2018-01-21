@@ -33,7 +33,7 @@ namespace ModernEncryption.BusinessLogic.Crypto
 
         public Dictionary<int, int> KeyTable(int[] key)
         {
-            for (var i = 1; i <= key.Length; i++)
+            for (var i = 1; i < key.Length; i++)
             {
                 TableOfKeys.Add(i, key[i]);
             }

@@ -42,7 +42,8 @@ namespace ModernEncryption.Model
             {
                 if (_keyTable != null) return _keyTable;
                 var key = CrossSecureStorage.Current.GetValue(Id);
-                int[] _key = key.Split(';').Select(n => Convert.ToInt32(n)).ToArray();
+                int[] _key = key.Split(';').Select(int.Parse).ToArray();
+                //int[] _key = key.Split(';').Select(n => Convert.ToInt32(n)).ToArray();
                 _keyTable = _keyHandler.KeyTable(_key);
                 return _keyTable;
             }
@@ -57,7 +58,14 @@ namespace ModernEncryption.Model
         {
             var key = _keyHandler.ProduceKeys(8100);
             Debug.WriteLine(key);
-            CrossSecureStorage.Current.SetValue(id, key.ToString());
+            var empty = "";
+            for (int number = 1; number < key.Length-1; number++)
+            {
+                var _key = empty + key[number] + ";";
+                empty = _key;
+            }
+            empty = empty + key[key.Length-1];
+            CrossSecureStorage.Current.SetValue(id, empty);
             Id = id;
             Members = members;
             
