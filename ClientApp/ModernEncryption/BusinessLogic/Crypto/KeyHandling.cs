@@ -19,7 +19,7 @@ namespace ModernEncryption.BusinessLogic.Crypto
             for (var i = 0; i < n; i++)
             {
                 var rnd = new Random(); //hier kann noch ein eigener Algorithmus hin
-                var next = rnd.Next(0, n - 2 + 1);
+                var next = rnd.Next(0, n - 1);
                 _l[i] = _h[next];
                 for (var j = next; j < n - i-1; j++)
                 {
@@ -33,7 +33,7 @@ namespace ModernEncryption.BusinessLogic.Crypto
 
         public Dictionary<int, int> KeyTable(int[] key)
         {
-            for (var i = 1; i < key.Length; i++)
+            for (var i = 0; i < key.Length; i++)
             {
                 TableOfKeys.Add(i, key[i]);
             }

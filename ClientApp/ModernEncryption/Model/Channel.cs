@@ -59,7 +59,7 @@ namespace ModernEncryption.Model
             var key = _keyHandler.ProduceKeys(8100);
             Debug.WriteLine(key);
             var empty = "";
-            for (int number = 1; number < key.Length-1; number++)
+            for (int number = 0; number < key.Length-1; number++)
             {
                 var _key = empty + key[number] + ";";
                 empty = _key;
