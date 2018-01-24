@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using ModernEncryption.Interfaces;
 using ModernEncryption.Model;
 
@@ -46,8 +47,10 @@ namespace ModernEncryption.BusinessLogic.Crypto
 
         private int RevertPermutationFor(int permutedChipher)
         {
-            if (_keyTable.ContainsKey(permutedChipher))
-                return _keyTable[permutedChipher];
+            if (_keyTable.ContainsValue(permutedChipher))
+            {
+               return _keyTable.FirstOrDefault(x => x.Value == permutedChipher).Key;
+            }
             return permutedChipher;
         }
 
