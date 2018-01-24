@@ -43,7 +43,7 @@ namespace ModernEncryption.BusinessLogic.Crypto
 
         private int RunPermutationFor(int chipher)
         {
-            if (_keyTable.ContainsKey(chipher))
+            if (_keyTable.ContainsKey(chipher-1))//KeyTable geht von 0 bis 8099, deshlab -1 weil cipher von 1 bis 8100 ist
                 return _keyTable[chipher];
             return chipher;
         }

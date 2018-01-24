@@ -12,16 +12,16 @@ namespace ModernEncryption.BusinessLogic.Crypto
         public int[] ProduceKeys(int n)
 
         {
-            for (var i = 0; i < n; i++)
+            for (var i = 0; i < n; i++)//wegen int array der bei 0 startet hier Tabelle von 0 bis 8099
             {
                 _h[i] = i;
             }
             for (var i = 0; i < n; i++)
             {
                 var rnd = new Random(); //hier kann noch ein eigener Algorithmus hin
-                var next = rnd.Next(0, n - 1);
+                var next = rnd.Next(0, n-i+1);//da der Endwert nicht mit einbezogen wird muss +1 gerechnet werden 
                 _l[i] = _h[next];
-                for (var j = next; j < n - i-1; j++)
+                for (var j = next; j < n -i -1; j++)//-i deswegen, weil i schon nach vorne geschoben wurde, deshlab die letzten i keine Rolle mehr spielen
                 {
                     _h[j] = _h[j+1];
                 }
