@@ -1,9 +1,9 @@
 <?php
 // Routes
-$app->get('/user/{email}', function ($request, $response, $args) {
-      $user_eMail = (string)$args['email'];
+$app->get('/user/{username}', function ($request, $response, $args) {
+      $user_username = (string)$args['username'];
       $mapper = new UserMapper($this->db);
-      $user = $mapper->getUserByEMail($user_eMail);
+      $user = $mapper->getUserByUsername($user_username);
       return $response->withJson($user);
   });
 
@@ -48,8 +48,7 @@ $app->post('/user/new', function ($request, $response) {
     $data = $request->getParsedBody();
     $user_data = [];
     $user_data['id'] = filter_var($data['id'], FILTER_SANITIZE_STRING);
-    $user_data['displayname'] = filter_var($data['displayname'], FILTER_SANITIZE_STRING);
-    $user_data['email'] = filter_var($data['email'], FILTER_SANITIZE_STRING);
+    $user_data['username'] = filter_var($data['username'], FILTER_SANITIZE_STRING);
     $user = new UserEntity($user_data);
     $mapper = new UserMapper($this->db);
     $mapper->save($user);

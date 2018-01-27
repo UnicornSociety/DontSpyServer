@@ -12,10 +12,10 @@ class UserMapper extends Mapper
         return $results;
     }
 
-    public function getUserByEMail($user_email)
+    public function getUserByUsername($user_username)
     {
-        $stmt = $this->db->prepare("SELECT * FROM user WHERE email = :user_email");
-        $result = $stmt->execute(["user_email" => $user_email]);
+        $stmt = $this->db->prepare("SELECT * FROM user WHERE username = :user_username");
+        $result = $stmt->execute(["user_username" => $user_username]);
         if ($result) {
             return new UserEntity($stmt->fetch());
         }
@@ -23,11 +23,10 @@ class UserMapper extends Mapper
 
     public function save(UserEntity $user)
     {
-        $stmt = $this->db->prepare("INSERT INTO user(id, displayname, email) VALUES (:id, :displayname, :email)");
+        $stmt = $this->db->prepare("INSERT INTO user(id, username) VALUES (:id, :username)");
         $result = $stmt->execute([
             "id" => $user->getId(),
-            "displayname" => $user->getDisplayname(),
-            "email" => $user->getEmail()
+            "username" => $user->getUsername(),
         ]);
         if (!$result) {
             throw new Exception("Could not save record");

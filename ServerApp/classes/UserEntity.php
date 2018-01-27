@@ -3,14 +3,12 @@
 class UserEntity implements JsonSerializable
 {
     protected $id;
-    protected $displayname;
-    protected $email;
+    protected $username;
 
     public function __construct(array $data)
     {
         $this->id = $data['id'];
-        $this->displayname = $data['displayname'];
-        $this->email = $data['email'];
+        $this->username = $data['username'];
     }
 
     public function getId()
@@ -18,22 +16,16 @@ class UserEntity implements JsonSerializable
         return $this->id;
     }
 
-    public function getDisplayname()
+    public function getUsername()
     {
-        return $this->displayname;
-    }
-
-    public function getEmail()
-    {
-        return $this->email;
+        return $this->username;
     }
 
     public function jsonSerialize()
     {
         return [
             'id' => $this->getId(),
-            'displayname' => $this->getDisplayname(),
-            'email' => $this->getEmail()
+            'displayname' => $this->getUsername()
         ];
     }
 }
