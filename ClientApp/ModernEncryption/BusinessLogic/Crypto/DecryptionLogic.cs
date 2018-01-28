@@ -49,7 +49,7 @@ namespace ModernEncryption.BusinessLogic.Crypto
         {
             if (_keyTable.ContainsValue(permutedChipher))
             {
-               return _keyTable.FirstOrDefault(x => x.Value == permutedChipher-1).Key;//KeyTable geht von 0 bis 8099, deshlab -1 weil permutedCipher von 1 bis 8100 ist
+               return _keyTable.FirstOrDefault(x => x.Value == permutedChipher).Key;//KeyTable geht von 0 bis 8099, deshlab -1 weil permutedCipher von 1 bis 8100 ist
             }
             return permutedChipher;
         }
