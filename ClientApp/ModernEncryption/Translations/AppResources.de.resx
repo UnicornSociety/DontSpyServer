@@ -154,7 +154,7 @@
     <value>E-Mail zu kurz oder zu lange.</value>
   </data>
   <data name="ErrorMsgDisplaynameLength" xml:space="preserve">
-    <value>Displayname zu kurz oder zu lange.</value>
+    <value>Anzeigename zu kurz oder zu lange.</value>
   </data>
   <data name="ErrorMsgNotEmail" xml:space="preserve">
     <value>Keine E-Mail.</value>
@@ -166,7 +166,7 @@
     <value>Voucher abgelaufen.</value>
   </data>
   <data name="Displayname" xml:space="preserve">
-    <value>Displayname</value>
+    <value>Anzeigename</value>
   </data>
   <data name="InputMessage" xml:space="preserve">
     <value>Nachricht</value>

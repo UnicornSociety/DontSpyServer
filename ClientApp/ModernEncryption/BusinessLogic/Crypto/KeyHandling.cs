@@ -6,45 +6,41 @@ namespace ModernEncryption.BusinessLogic.Crypto
 {
     internal class KeyHandling : IKeyHandling
     {
-        private int[] _l = new int[8100];
-        private int[] _h = new int[8100];
 
         public int[] ProduceKeys(int n)
 
         {
-            for (var i = 0; i < n; i++)//wegen int array der bei 0 startet hier Tabelle von 0 bis 8099
+            int[] key = new int[n];
+            int[] amountOfCiphers = new int[n];
+            for (var i = 0; i < n; i++) //wegen int array der bei 0 startet hier Tabelle von 0 bis 8099
             {
-                _h[i] = i;
+                amountOfCiphers[i] = i;
             }
             for (var i = 0; i < n; i++)
             {
                 var rnd = new Random(); //hier kann noch ein eigener Algorithmus hin
-                var next = rnd.Next(0, n-i+1);//da der Endwert nicht mit einbezogen wird muss +1 gerechnet werden 
-                _l[i] = _h[next];
-                for (var j = next; j < n -i -1; j++)//-i deswegen, weil i schon nach vorne geschoben wurde, deshlab die letzten i keine Rolle mehr spielen
+                var next = rnd.Next(0, n - i + 1); //da der Endwert nicht mit einbezogen wird muss +1 gerechnet werden 
+                key[i] = amountOfCiphers[next];
+                for (var j = next; j < n - i - 1; j++)
+                    //-i deswegen, weil i schon nach vorne geschoben wurde, deshlab die letzten i keine Rolle mehr spielen
                 {
-                    _h[j] = _h[j+1];
+                    amountOfCiphers[j] = amountOfCiphers[j + 1];
                 }
             }
-            return _l;
+            return key;
         }
 
-        public Dictionary<int, int> TableOfKeys = new Dictionary<int, int>();
-
+        
         public Dictionary<int, int> KeyTable(int[] key)
         {
+            Dictionary<int, int> tableOfKeys = new Dictionary<int, int>();
+
             for (var i = 0; i < key.Length; i++)
             {
-                TableOfKeys.Add(i, key[i]);
+                tableOfKeys.Add(i, key[i]);
             }
 
-            return TableOfKeys;
-        }
-
-        public Dictionary<int, int> CreateKey(int n)
-        {
-            var key = ProduceKeys(n);
-            return KeyTable(key);
+            return tableOfKeys;
         }
     }
 

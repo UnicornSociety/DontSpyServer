@@ -26,7 +26,7 @@ namespace ModernEncryption.BusinessLogic.Crypto
             for (var i = 0; i < _messageTextSymbols.Length; i++)
             {
                 var permutedChipher = RevertCharacterPair(_messageTextSymbols[i], _messageTextSymbols[++i]);
-                var chiper = RevertPermutationFor(permutedChipher);
+                var chiper = RevertPermutationFor(permutedChipher-1);//KeyTable geht von 0 bis 8099, deshlab -1 weil permutedCipher von 1 bis 8100 ist
                 concatenatedDecryptedSymbols += RevertChipher(chiper);
                 if (chiper == '-')
                 {
@@ -49,7 +49,7 @@ namespace ModernEncryption.BusinessLogic.Crypto
         {
             if (_keyTable.ContainsValue(permutedChipher))
             {
-               return _keyTable.FirstOrDefault(x => x.Value == permutedChipher).Key;//KeyTable geht von 0 bis 8099, deshlab -1 weil permutedCipher von 1 bis 8100 ist
+               return _keyTable.FirstOrDefault(x => x.Value == permutedChipher).Key;
             }
             return permutedChipher;
         }
