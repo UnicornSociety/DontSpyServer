@@ -1,10 +1,13 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Input;
+using FFImageLoading.Forms;
+using ModernEncryption.Interfaces;
 using ModernEncryption.Model;
 using ModernEncryption.Presentation.Validation;
 using ModernEncryption.Presentation.Validation.Rules;
 using ModernEncryption.Presentation.View;
+using ModernEncryption.Service;
 using ModernEncryption.Translations;
 using Xamarin.Forms;
 
@@ -18,6 +21,8 @@ namespace ModernEncryption.Presentation.ViewModel
         public ObservableCollection<DecryptedMessage> Messages { get; } = new ObservableCollection<DecryptedMessage>();
         public ICommand SendMessageCommand { protected set; get; }
         public ICommand ValidateMessageCommand { protected set; get; }
+        public CachedImage QrCodeImage { get; private set; }
+        public bool QrCodeVisibility { get; private set; } = false;
 
         public string Title
         {
@@ -44,6 +49,12 @@ namespace ModernEncryption.Presentation.ViewModel
         public ChannelPageViewModel(Channel channel)
         {
             AddValidations();
+
+            if (channel.QrCodeImage != null)
+            {
+                QrCodeImage = channel.QrCodeImage;
+                QrCodeVisibility = true;
+            }
 
             // Load all messages from local database
             foreach (var decryptedMessage in DependencyManager.ChannelService.LoadDecryptedMessagesForChannel(channel))

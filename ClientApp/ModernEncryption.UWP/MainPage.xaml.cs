@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using FFImageLoading.Forms.WinUWP;
 using Plugin.SecureStorage;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -27,6 +28,7 @@ namespace ModernEncryption.UWP
         {
             this.InitializeComponent();
             WinSecureStorageBase.StoragePassword = "12345";
+            CachedImageRenderer.Init();
             LoadApplication(new ModernEncryption.App());
         }
     }

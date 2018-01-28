@@ -5,6 +5,7 @@
              xmlns:converter="clr-namespace:ModernEncryption.Presentation.Converter"
              xmlns:i18n="clr-namespace:ModernEncryption.Presentation.View;assembly=ModernEncryption"
              xmlns:behavior="clr-namespace:ModernEncryption.Presentation.Behaviors"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              Title="{Binding Title}">
 
     <ContentPage.Resources>
@@ -14,7 +15,13 @@
     </ContentPage.Resources>
 
     <ContentPage.Content>
-        <StackLayout VerticalOptions="FillAndExpand">
+        <StackLayout VerticalOptions="FillAndExpand" BackgroundColor ="Black">
+            <ffimageloading:CachedImage HorizontalOptions="Center" VerticalOptions="Center"
+			WidthRequest="300" HeightRequest="300"
+			DownsampleToViewSize="true"  BackgroundColor ="Yellow"
+			Source = "{Binding QrCode}">
+            </ffimageloading:CachedImage>
+            <Image Source="{Binding QrCode}" IsVisible="{Binding QrCodeVisibility}" HorizontalOptions="Center" VerticalOptions="Center"></Image>
             <ListView x:Name="listView" ItemsSource="{Binding Messages}">
                 <ListView.Header>
                     <StackLayout HorizontalOptions="FillAndExpand">

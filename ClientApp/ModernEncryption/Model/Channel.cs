@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using FFImageLoading.Forms;
 using ModernEncryption.BusinessLogic.Crypto;
 using ModernEncryption.Interfaces;
 using ModernEncryption.Presentation.View;
+using ModernEncryption.Service;
 using ModernEncryption.Translations;
 using Plugin.SecureStorage;
 using SQLite.Net.Attributes;
 using SQLiteNetExtensions.Attributes;
+using Xamarin.Forms;
 
 namespace ModernEncryption.Model
 {
@@ -49,6 +52,9 @@ namespace ModernEncryption.Model
             }
         }
 
+        [Ignore]
+        public CachedImage QrCodeImage { get; private set; } = null;
+
 
         public Channel()
         {
@@ -57,7 +63,6 @@ namespace ModernEncryption.Model
         public Channel(string id, List<User> members, string name = null)
         {
             var key = _keyHandler.ProduceKeys(8100);
-            Debug.WriteLine(key);
             var empty = "";
             for (int number = 0; number < key.Length-1; number++)
             {
@@ -66,6 +71,8 @@ namespace ModernEncryption.Model
             }
             empty = empty + key[key.Length-1];
             CrossSecureStorage.Current.SetValue(id, empty);
+            IQrCodeService _qrCodeService = new QrCodeService();
+            QrCodeImage = _qrCodeService.Encoder();
             Id = id;
             Members = members;
             

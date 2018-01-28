@@ -1,9 +1,11 @@
 ﻿using System.ComponentModel;
 using System.Windows.Input;
+using ModernEncryption.Interfaces;
 using ModernEncryption.Model;
 using ModernEncryption.Presentation.Validation;
 using ModernEncryption.Presentation.Validation.Rules;
 using ModernEncryption.Presentation.View;
+using ModernEncryption.Service;
 using ModernEncryption.Translations;
 using Xamarin.Forms;
 
@@ -13,7 +15,6 @@ namespace ModernEncryption.Presentation.ViewModel
     {
         private RegistrationPage _view;
         private string _title = AppResources.RegistrationHeading;
-        public Image _image { get; } = new Image();
         private ValidatableObject<string> _displayname = new ValidatableObject<string>();
         private ValidatableObject<string> _email = new ValidatableObject<string>();
         public ICommand SendVoucherCommand { protected set; get; }
