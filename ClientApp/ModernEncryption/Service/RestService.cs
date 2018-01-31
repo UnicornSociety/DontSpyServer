@@ -23,8 +23,8 @@ namespace ModernEncryption.Service
         {
             try
             {
-                var validateEmail = GetUserBy(user.Email).Result;
-                if (validateEmail != null) return false;
+                var validateUsername = GetUserBy(user.Username).Result;
+                if (validateUsername != null) return false;
                 var uri = new Uri(string.Format(Constants.RestUrlNewUser));
                 var json = JsonConvert.SerializeObject(user);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");

@@ -15,11 +15,9 @@ namespace ModernEncryption.Presentation.ViewModel
     {
         private RegistrationPage _view;
         private string _title = AppResources.RegistrationHeading;
-        private ValidatableObject<string> _displayname = new ValidatableObject<string>();
-        private ValidatableObject<string> _email = new ValidatableObject<string>();
+        private ValidatableObject<string> _username = new ValidatableObject<string>();
         public ICommand SendVoucherCommand { protected set; get; }
-        public ICommand ValidateDisplaynameCommand { protected set; get; }
-        public ICommand ValidateEmailCommand { protected set; get; }
+        public ICommand ValidateUsernameCommand { protected set; get; }
 
         public string Title
         {
@@ -32,25 +30,14 @@ namespace ModernEncryption.Presentation.ViewModel
             }
         }
 
-        public ValidatableObject<string> Displayname
+        public ValidatableObject<string> Username
         {
-            get => _displayname;
+            get => _username;
             set
             {
-                if (_displayname == value) return;
-                _displayname = value;
-                OnPropertyChanged("Displayname");
-            }
-        }
-
-        public ValidatableObject<string> Email
-        {
-            get => _email;
-            set
-            {
-                if (_email == value) return;
-                _email = value;
-                OnPropertyChanged("Email");
+                if (_username == value) return;
+                _username = value;
+                OnPropertyChanged("Username");
             }
         }
 
@@ -62,7 +49,7 @@ namespace ModernEncryption.Presentation.ViewModel
             {
                 if (!Validate()) return;
 
-                var result = DependencyManager.UserService.CreateOwnUser(new User(Displayname.Value, Email.Value));
+                var result = DependencyManager.UserService.CreateOwnUser(new User(Username.Value));
                 if (!result) return;
 
                 Application.Current.MainPage = DependencyManager.AnchorPage;
@@ -70,38 +57,27 @@ namespace ModernEncryption.Presentation.ViewModel
                 DependencyManager.PullService.PullNewMessages();
             });
 
-            ValidateDisplaynameCommand = new Command<object>(param =>
+            ValidateUsernameCommand = new Command<object>(param =>
             {
-                ValidateDisplayname();
-            });
-
-            ValidateEmailCommand = new Command<object>(param =>
-            {
-                ValidateEmail();
+                ValidateUsername();
             });
         }
 
         protected sealed override void AddValidations()
         {
-            _displayname.Validations.Add(new StringLengthRule<string>(3, 30) { ValidationMessage = AppResources.ErrorMsgDisplaynameLength });
-            _email.Validations.Add(new StringLengthRule<string>(6, 254) { ValidationMessage = AppResources.ErrorMsgEmailLength });
-            _email.Validations.Add(new EmailRule<string> { ValidationMessage = AppResources.ErrorMsgNotEmail });
+            _username.Validations.Add(new StringLengthRule<string>(6, 254) { ValidationMessage = AppResources.ErrorMsgEmailLength });
+            _username.Validations.Add(new EmailRule<string> { ValidationMessage = AppResources.ErrorMsgNotEmail });
         }
 
         protected override bool Validate()
         {
-            return ValidateDisplayname() && ValidateEmail();
-        }
-
-        private bool ValidateDisplayname()
-        {
-            return _displayname.Validate();
+            return ValidateUsername();
         }
 
 
-        private bool ValidateEmail()
+        private bool ValidateUsername()
         {
-            return _email.Validate();
+            return _username.Validate();
         }
 
         public void SetView(RegistrationPage view)

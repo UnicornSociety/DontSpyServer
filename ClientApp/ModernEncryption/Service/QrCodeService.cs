@@ -33,7 +33,6 @@ namespace ModernEncryption.Service
             };
             Debug.WriteLine(qrCode.ToString());
             BarcodeWriterSvg barCode = new BarcodeWriterSvg();
-            barCode.
             return qrCode;
         }
     }
