@@ -144,29 +144,23 @@
   <data name="CryptedOnBoardingMessage" xml:space="preserve">
     <value>wyvmcwwybzy5e9p8vmmk</value>
   </data>
-  <data name="Email" xml:space="preserve">
-    <value>E-Mail</value>
+  <data name="Username" xml:space="preserve">
+    <value>Nutzername</value>
   </data>
   <data name="EnterVoucherRequest" xml:space="preserve">
     <value>Bitte Validierungscode eingeben.</value>
   </data>
-  <data name="ErrorMsgEmailLength" xml:space="preserve">
-    <value>E-Mail zu kurz oder zu lange.</value>
+  <data name="ErrorMsgUsernameLength" xml:space="preserve">
+    <value>Nutzername zu kurz oder zu lange.</value>
   </data>
-  <data name="ErrorMsgDisplaynameLength" xml:space="preserve">
-    <value>Anzeigename zu kurz oder zu lange.</value>
-  </data>
-  <data name="ErrorMsgNotEmail" xml:space="preserve">
-    <value>Keine E-Mail.</value>
+  <data name="ErrorMsgNotUsername" xml:space="preserve">
+    <value>Kein Nutzername.</value>
   </data>
   <data name="ErrorMsgVoucher" xml:space="preserve">
     <value>Voucher ungueltig.</value>
   </data>
   <data name="ErrorMsgVoucherExpired" xml:space="preserve">
     <value>Voucher abgelaufen.</value>
-  </data>
-  <data name="Displayname" xml:space="preserve">
-    <value>Anzeigename</value>
   </data>
   <data name="InputMessage" xml:space="preserve">
     <value>Nachricht</value>

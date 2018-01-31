@@ -65,8 +65,8 @@ namespace ModernEncryption.Presentation.ViewModel
 
         protected sealed override void AddValidations()
         {
-            _username.Validations.Add(new StringLengthRule<string>(6, 254) { ValidationMessage = AppResources.ErrorMsgEmailLength });
-            _username.Validations.Add(new EmailRule<string> { ValidationMessage = AppResources.ErrorMsgNotEmail });
+            _username.Validations.Add(new StringLengthRule<string>(6, 254) { ValidationMessage = AppResources.ErrorMsgUsernameLength });
+            _username.Validations.Add(new EmailRule<string> { ValidationMessage = AppResources.ErrorMsgNotUsername });
         }
 
         protected override bool Validate()

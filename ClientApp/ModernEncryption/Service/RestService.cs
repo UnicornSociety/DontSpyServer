@@ -40,9 +40,9 @@ namespace ModernEncryption.Service
             }
         }
 
-        public async Task<User> GetUserBy(string eMail)
+        public async Task<User> GetUserBy(string username)
         {
-            var uri = new Uri(string.Format(Constants.RestUrlGetUser, eMail));
+            var uri = new Uri(string.Format(Constants.RestUrlGetUser, username));
             var response = await _client.GetAsync(uri).ConfigureAwait(false);
             if (response.IsSuccessStatusCode)
             {

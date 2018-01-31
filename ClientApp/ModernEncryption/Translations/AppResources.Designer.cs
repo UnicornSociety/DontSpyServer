@@ -20,7 +20,7 @@ namespace ModernEncryption.Translations {
     // -Klasse über ein Tool wie ResGen oder Visual Studio automatisch generiert.
     // Um einen Member hinzuzufügen oder zu entfernen, bearbeiten Sie die .ResX-Datei und führen dann ResGen
     // mit der /str-Option erneut aus, oder Sie erstellen Ihr VS-Projekt neu.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class AppResources {
@@ -143,24 +143,6 @@ namespace ModernEncryption.Translations {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Displayname ähnelt.
-        /// </summary>
-        public static string Displayname {
-            get {
-                return ResourceManager.GetString("Displayname", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Email ähnelt.
-        /// </summary>
-        public static string Email {
-            get {
-                return ResourceManager.GetString("Email", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Please enter your validation code. ähnelt.
         /// </summary>
         public static string EnterVoucherRequest {
@@ -170,29 +152,20 @@ namespace ModernEncryption.Translations {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Displayname too short or too long. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Not an email. ähnelt.
         /// </summary>
-        public static string ErrorMsgDisplaynameLength {
+        public static string ErrorMsgNotUsername {
             get {
-                return ResourceManager.GetString("ErrorMsgDisplaynameLength", resourceCulture);
+                return ResourceManager.GetString("ErrorMsgNotUsername", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Email too short or too long. ähnelt.
         /// </summary>
-        public static string ErrorMsgEmailLength {
+        public static string ErrorMsgUsernameLength {
             get {
-                return ResourceManager.GetString("ErrorMsgEmailLength", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Not an email. ähnelt.
-        /// </summary>
-        public static string ErrorMsgNotEmail {
-            get {
-                return ResourceManager.GetString("ErrorMsgNotEmail", resourceCulture);
+                return ResourceManager.GetString("ErrorMsgUsernameLength", resourceCulture);
             }
         }
         
@@ -301,6 +274,15 @@ namespace ModernEncryption.Translations {
         public static string SendPinToEmailCallToAction {
             get {
                 return ResourceManager.GetString("SendPinToEmailCallToAction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Email ähnelt.
+        /// </summary>
+        public static string Username {
+            get {
+                return ResourceManager.GetString("Username", resourceCulture);
             }
         }
         

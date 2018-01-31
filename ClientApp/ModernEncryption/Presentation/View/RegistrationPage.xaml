@@ -40,7 +40,7 @@
                         </Entry.Triggers>
                     </Entry>
                     
-                    <Entry Text="{Binding Email.Value, Mode=TwoWay}" Placeholder="{i18n:Translate Email}">
+                    <Entry Text="{Binding Username.Value, Mode=TwoWay}" Placeholder="{i18n:Translate Username}">
                         <Entry.Style>
                             <OnPlatform x:TypeArguments="Style"  
                                         iOS="{StaticResource EntryStyle}"  
@@ -48,18 +48,18 @@
                                         WinPhone="{StaticResource EntryStyle}"/>
                         </Entry.Style>
                         <Entry.Behaviors>
-                            <behavior:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateEmailCommand}" />
+                            <behavior:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateUsernameCommand}" />
                         </Entry.Behaviors>
                         <Entry.Triggers>
-                            <DataTrigger TargetType="Entry" Binding="{Binding Email.IsValid}" Value="False">
+                            <DataTrigger TargetType="Entry" Binding="{Binding Username.IsValid}" Value="False">
                                 <Setter Property="behavior:LineColorBehavior.LineColor" Value="{StaticResource ErrorColor}" />
                             </DataTrigger>
                         </Entry.Triggers>
                     </Entry>
 
-                    <Button Text="{i18n:Translate SendPinToEmailCallToAction}" TextColor="White"  BorderRadius="15" BackgroundColor="#3A99D8" Command="{Binding SendVoucherCommand}" />
+                    <Button Text="{i18n:Translate SendPinToUsernameCallToAction}" TextColor="White"  BorderRadius="15" BackgroundColor="#3A99D8" Command="{Binding SendVoucherCommand}" />
                     <Label Text="{Binding Displayname.Errors, Converter={StaticResource FirstValidationErrorConverter}" Style="{StaticResource ValidationErrorLabelStyle}" />
-                    <Label Text="{Binding Email.Errors, Converter={StaticResource FirstValidationErrorConverter}" Style="{StaticResource ValidationErrorLabelStyle}" />
+                    <Label Text="{Binding Username.Errors, Converter={StaticResource FirstValidationErrorConverter}" Style="{StaticResource ValidationErrorLabelStyle}" />
                 </StackLayout>
             </StackLayout>
         </ScrollView>
