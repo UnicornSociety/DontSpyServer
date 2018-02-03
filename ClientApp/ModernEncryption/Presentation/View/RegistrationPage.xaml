@@ -23,23 +23,6 @@
                     <!-- Logo ist nur Platzhalter-->
                     <Label Text="l" FontSize="10" TextColor="White"></Label>
                     <Label Text="{i18n:Translate RegisterRequest}" FontSize="20"></Label>
-                    <Entry Text="{Binding Displayname.Value, Mode=TwoWay}" Placeholder="{i18n:Translate Displayname}">
-                        <Entry.Style>
-                            <OnPlatform x:TypeArguments="Style"  
-                                        iOS="{StaticResource EntryStyle}"  
-                                        Android="{StaticResource EntryStyle}"  
-                                        WinPhone="{StaticResource EntryStyle}"/>
-                        </Entry.Style>
-                        <Entry.Behaviors>
-                            <behavior:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateDisplaynameCommand}" />
-                        </Entry.Behaviors>
-                        <Entry.Triggers>
-                            <DataTrigger TargetType="Entry" Binding="{Binding Displayname.IsValid}" Value="False">
-                                <Setter Property="behavior:LineColorBehavior.LineColor" Value="{StaticResource ErrorColor}" />
-                            </DataTrigger>
-                        </Entry.Triggers>
-                    </Entry>
-                    
                     <Entry Text="{Binding Username.Value, Mode=TwoWay}" Placeholder="{i18n:Translate Username}">
                         <Entry.Style>
                             <OnPlatform x:TypeArguments="Style"  
@@ -57,8 +40,8 @@
                         </Entry.Triggers>
                     </Entry>
 
-                    <Button Text="{i18n:Translate SendPinToUsernameCallToAction}" TextColor="White"  BorderRadius="15" BackgroundColor="#3A99D8" Command="{Binding SendVoucherCommand}" />
-                    <Label Text="{Binding Displayname.Errors, Converter={StaticResource FirstValidationErrorConverter}" Style="{StaticResource ValidationErrorLabelStyle}" />
+
+                    <Button Text="{i18n:Translate Confirm}" TextColor="White"  BorderRadius="15" BackgroundColor="#3A99D8" Command="{Binding RegistrationCommand}" />
                     <Label Text="{Binding Username.Errors, Converter={StaticResource FirstValidationErrorConverter}" Style="{StaticResource ValidationErrorLabelStyle}" />
                 </StackLayout>
             </StackLayout>

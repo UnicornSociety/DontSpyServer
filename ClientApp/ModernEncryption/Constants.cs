@@ -11,10 +11,6 @@ namespace ModernEncryption.Model
         public static string RestUrlGetUser = "http://me.sfzlab.de/api/user/{0}";
         public static string RestUrlNewUser = "http://me.sfzlab.de/api/user/new";
 
-        public static string EmailSenderEmailAddress = "noreply@sfzlab.de";
-        public static string EmailSenderName = AppResources.VoucherValidationEmailSenderName;
-        public static string EmailSubject = AppResources.VoucherValidationEmailSubject;
-        public static string EmailBodyBeforePin = AppResources.VoucherValidationEmailBodyBeforePin + " ";
         public static string LocalDatabaseName = "dontSpy";
     }
 }

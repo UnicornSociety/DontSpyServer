@@ -143,16 +143,7 @@ namespace ModernEncryption.Translations {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Please enter your validation code. ähnelt.
-        /// </summary>
-        public static string EnterVoucherRequest {
-            get {
-                return ResourceManager.GetString("EnterVoucherRequest", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Not an email. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Not an username. ähnelt.
         /// </summary>
         public static string ErrorMsgNotUsername {
             get {
@@ -161,29 +152,11 @@ namespace ModernEncryption.Translations {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Email too short or too long. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Username too short or too long. ähnelt.
         /// </summary>
         public static string ErrorMsgUsernameLength {
             get {
                 return ResourceManager.GetString("ErrorMsgUsernameLength", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Voucher invalid. ähnelt.
-        /// </summary>
-        public static string ErrorMsgVoucher {
-            get {
-                return ResourceManager.GetString("ErrorMsgVoucher", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Voucher expired. ähnelt.
-        /// </summary>
-        public static string ErrorMsgVoucherExpired {
-            get {
-                return ResourceManager.GetString("ErrorMsgVoucherExpired", resourceCulture);
             }
         }
         
@@ -269,56 +242,11 @@ namespace ModernEncryption.Translations {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Send PIN to email address. ähnelt.
-        /// </summary>
-        public static string SendPinToEmailCallToAction {
-            get {
-                return ResourceManager.GetString("SendPinToEmailCallToAction", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Email ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Username ähnelt.
         /// </summary>
         public static string Username {
             get {
                 return ResourceManager.GetString("Username", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Your one-time PIN is: ähnelt.
-        /// </summary>
-        public static string VoucherValidationEmailBodyBeforePin {
-            get {
-                return ResourceManager.GetString("VoucherValidationEmailBodyBeforePin", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die DontSpy ähnelt.
-        /// </summary>
-        public static string VoucherValidationEmailSenderName {
-            get {
-                return ResourceManager.GetString("VoucherValidationEmailSenderName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die One-time PIN for the verification at DontSpy ähnelt.
-        /// </summary>
-        public static string VoucherValidationEmailSubject {
-            get {
-                return ResourceManager.GetString("VoucherValidationEmailSubject", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Voucher Validation ähnelt.
-        /// </summary>
-        public static string VoucherValidationHeading {
-            get {
-                return ResourceManager.GetString("VoucherValidationHeading", resourceCulture);
             }
         }
         

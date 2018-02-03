@@ -134,7 +134,7 @@ namespace ModernEncryption.Presentation.ViewModel
 
         protected sealed override void AddValidations()
         {
-            _username.Validations.Add(new EmailRule<string>());
+            _username.Validations.Add(new StringLengthRule<string>(6, 254));
         }
 
         protected override bool Validate()

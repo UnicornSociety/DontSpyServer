@@ -16,7 +16,7 @@ namespace ModernEncryption.Presentation.ViewModel
         private RegistrationPage _view;
         private string _title = AppResources.RegistrationHeading;
         private ValidatableObject<string> _username = new ValidatableObject<string>();
-        public ICommand SendVoucherCommand { protected set; get; }
+        public ICommand RegistrationCommand { protected set; get; }
         public ICommand ValidateUsernameCommand { protected set; get; }
 
         public string Title
@@ -45,10 +45,8 @@ namespace ModernEncryption.Presentation.ViewModel
         {
             AddValidations();
 
-            SendVoucherCommand = new Command<object>(param =>
+            RegistrationCommand = new Command<object>(param =>
             {
-                if (!Validate()) return;
-
                 var result = DependencyManager.UserService.CreateOwnUser(new User(Username.Value));
                 if (!result) return;
 
@@ -66,7 +64,6 @@ namespace ModernEncryption.Presentation.ViewModel
         protected sealed override void AddValidations()
         {
             _username.Validations.Add(new StringLengthRule<string>(6, 254) { ValidationMessage = AppResources.ErrorMsgUsernameLength });
-            _username.Validations.Add(new EmailRule<string> { ValidationMessage = AppResources.ErrorMsgNotUsername });
         }
 
         protected override bool Validate()
