@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Input;
 using ModernEncryption.Model;
@@ -12,6 +13,7 @@ namespace ModernEncryption.Presentation.ViewModel
     {
         private ChannelsPage _view;
         private string _title = AppResources.ChannelsHeading;
+        private Dictionary<int, int> KeyTable {set; get; }
         public ObservableCollection<Channel> Channels { get; } = new ObservableCollection<Channel>();
         public ICommand NewSingleChannelCommand { protected set; get; }
         public ICommand NewGroupChannelCommand { protected set; get; }
