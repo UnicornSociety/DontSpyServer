@@ -24,12 +24,28 @@
 
             <Style x:Key="EntryStyle" TargetType="{x:Type Entry}">
                 <Setter Property="behavior:LineColorBehavior.ApplyLineColor" Value="True" />
-                <Setter Property="behavior:LineColorBehavior.LineColor" Value="{StaticResource BlackColor}" />
+                <Setter Property="behavior:LineColorBehavior.LineColor" Value="{StaticResource BlueColor}" />
             </Style>
 
             <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
-                <Setter Property="TextColor" Value="{StaticResource GrayColor}" />
+                <Setter Property="TextColor" Value="{StaticResource BlackColor}" />
+                <Setter Property="BorderColor" Value="{StaticResource GrayColor}" />
+                <Setter Property="BackgroundColor" Value="{StaticResource WhiteColor}" />
+                <Setter Property="FontSize" Value="14" />
+            </Style>
+
+            <Style x:Key="LabelStyle" TargetType="{x:Type Label}">
+                <Setter Property="TextColor" Value="{StaticResource BlackColor}" />
+                <Setter Property="BackgroundColor" Value="{StaticResource WhiteColor}" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="Font" Value="Bold" />
+            </Style>
+
+            <Style x:Key="BlueButtonStyle" TargetType="{x:Type Button}">
+                <Setter Property="TextColor" Value="{StaticResource BlackColor}" />
+                <Setter Property="BorderColor" Value="{StaticResource YellowColor}" />
                 <Setter Property="BackgroundColor" Value="{StaticResource YellowColor}" />
+                <Setter Property="BorderRadius" Value="15" />
                 <Setter Property="FontSize" Value="14" />
             </Style>
 
@@ -46,16 +62,11 @@
             </Style>
 
             <Style x:Key="TimestampStyle" TargetType="{x:Type Label}"> <!--Timestamp in Channels-->
-                <Setter Property="TextColor" Value="{StaticResource BlackColor}" />
+                <Setter Property="TextColor" Value="{StaticResource GrayColor}" />
                 <Setter Property="BackgroundColor" Value="{StaticResource WhiteColor}" />
-                <Setter Property="FontSize" Value="14" />
+                <Setter Property="FontSize" Value="Micro" />
             </Style>
 
-            <Style x:Key="SendButtonStyle" TargetType="{x:Type Button}"> <!--Send-Button in Channel-->
-                <Setter Property="TextColor" Value="{StaticResource WhiteColor}" />
-                <Setter Property="BackgroundColor" Value="{StaticResource BlueColor}" />
-                <Setter Property="FontSize" Value="14" />
-            </Style>
 
         </ResourceDictionary>
     </Application.Resources>

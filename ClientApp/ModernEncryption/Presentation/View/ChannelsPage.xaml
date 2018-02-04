@@ -25,8 +25,22 @@
 
                 <ListView.Header>
                     <StackLayout Orientation="Horizontal" Padding="3">
-                        <Button Text="{i18n:Translate NewChatCallToAction}" HorizontalOptions="FillAndExpand" Command ="{Binding NewSingleChannelCommand}"   TextColor="Gray" BorderColor="Gray"  BorderRadius="0"></Button>
-                        <Button Text="{i18n:Translate NewGroupCallToAction}" HorizontalOptions="FillAndExpand" Command ="{Binding NewGroupChannelCommand}" TextColor="Gray" BorderColor="Gray" BorderRadius="0"></Button>
+                        <Button Text="{i18n:Translate NewChatCallToAction}" HorizontalOptions="FillAndExpand" Command ="{Binding NewSingleChannelCommand}" >
+                            <Button.Style>
+                                <OnPlatform x:TypeArguments="Style"  
+                                        iOS="{StaticResource ButtonStyle}"  
+                                        Android="{StaticResource ButtonStyle}"  
+                                        WinPhone="{StaticResource ButtonStyle}"/>
+                            </Button.Style>
+                        </Button>
+                        <Button Text="{i18n:Translate NewGroupCallToAction}" HorizontalOptions="FillAndExpand" Command ="{Binding NewGroupChannelCommand}">
+                        <Button.Style>
+                        <OnPlatform x:TypeArguments="Style"  
+                                        iOS="{StaticResource ButtonStyle}"  
+                                        Android="{StaticResource ButtonStyle}"  
+                                        WinPhone="{StaticResource ButtonStyle}"/>
+                        </Button.Style>
+                    </Button>
                     </StackLayout>
                 </ListView.Header>
 
@@ -40,7 +54,14 @@
                                 <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  Padding="11">
                                     <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
                                         <Label Text="{Binding Name}" Font="Bold"  TextColor="Black" BackgroundColor="#fff" />
-                                        <Label Text="{Binding Messages, Converter={StaticResource MessagesTimestampsConverter}}" HorizontalOptions="EndAndExpand" />
+                                        <Label Text="{Binding Messages, Converter={StaticResource MessagesTimestampsConverter}}" HorizontalOptions="EndAndExpand" >
+                                            <Label.Style>
+                                            <OnPlatform x:TypeArguments="Style"  
+                                            iOS="{StaticResource TimestampStyle}"  
+                                            Android="{StaticResource TimestampStyle}"  
+                                            WinPhone="{StaticResource TimestampStyle}"/>
+                                            </Label.Style>
+                                        </Label>
                                     </StackLayout>
                                     <Label Text="{Binding Messages, Converter={StaticResource MessageSnippetConverter}, ConverterParameter={Binding KeyTable}}" TextColor="#a0a0af" BackgroundColor="#fff" />
                                 </StackLayout>

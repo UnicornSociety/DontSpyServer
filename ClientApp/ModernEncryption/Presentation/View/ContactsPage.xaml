@@ -40,7 +40,14 @@
                                 </DataTrigger>
                             </Entry.Triggers>
                         </Entry>
-                        <Button Text="{i18n:Translate SearchCallToAction}" HorizontalOptions="FillAndExpand" Command ="{Binding AddContactViaUsernameCommand}" TextColor="Gray" BorderColor="Gray" BorderRadius="0" />
+                        <Button Text="{i18n:Translate SearchCallToAction}" HorizontalOptions="FillAndExpand" Command ="{Binding AddContactViaUsernameCommand}" >
+                            <Button.Style>
+                                <OnPlatform x:TypeArguments="Style"  
+                                        iOS="{StaticResource ButtonStyle}"  
+                                        Android="{StaticResource ButtonStyle}"  
+                                        WinPhone="{StaticResource ButtonStyle}"/>
+                            </Button.Style>
+                        </Button>
                     </StackLayout>
                 </ListView.Header>
 

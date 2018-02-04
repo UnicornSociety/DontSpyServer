@@ -20,9 +20,16 @@
                 <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
                     <Label Text="{i18n:Translate WelcomeTo}" FontSize="45" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
                     <Image Source="{local:ImageResource ModernEncryption.logo.png}" HeightRequest ="300" HorizontalOptions="Center"  VerticalOptions="Center" />
-                    <!-- Logo ist nur Platzhalter-->
+
                     <Label Text="l" FontSize="10" TextColor="White"></Label>
-                    <Label Text="{i18n:Translate RegisterRequest}" FontSize="20"></Label>
+                    <Label Text="{i18n:Translate RegisterRequest}" FontSize="20">
+                        <Label.Style>
+                            <OnPlatform x:TypeArguments="Style"  
+                                        iOS="{StaticResource LabelStyle}"  
+                                        Android="{StaticResource LabelStyle}"  
+                                        WinPhone="{StaticResource LabelStyle}"/>
+                        </Label.Style>
+                    </Label>
                     <Entry Text="{Binding Username.Value, Mode=TwoWay}" Placeholder="{i18n:Translate Username}">
                         <Entry.Style>
                             <OnPlatform x:TypeArguments="Style"  
@@ -40,9 +47,22 @@
                         </Entry.Triggers>
                     </Entry>
 
-
-                    <Button Text="{i18n:Translate Confirm}" TextColor="White"  BorderRadius="15" BackgroundColor="#3A99D8" Command="{Binding RegistrationCommand}" />
-                    <Label Text="{Binding Username.Errors, Converter={StaticResource FirstValidationErrorConverter}" Style="{StaticResource ValidationErrorLabelStyle}" />
+                    <Button Text="{i18n:Translate Confirm}" Command="{Binding RegistrationCommand}">
+                        <Button.Style>
+                        <OnPlatform x:TypeArguments="Style"  
+                                        iOS="{StaticResource ButtonStyle}"  
+                                        Android="{StaticResource ButtonStyle}"  
+                                        WinPhone="{StaticResource ButtonStyle}"/>
+                        </Button.Style>
+                    </Button>
+                    <Label Text="{Binding Username.Errors, Converter={StaticResource FirstValidationErrorConverter}" Style="{StaticResource ValidationErrorLabelStyle}">
+                        <Label.Style>
+                            <OnPlatform x:TypeArguments="Style"  
+                                        iOS="{StaticResource LabelStyle}"  
+                                        Android="{StaticResource LabelStyle}"  
+                                        WinPhone="{StaticResource LabelStyle}"/>
+                        </Label.Style>
+                        </Label>
                 </StackLayout>
             </StackLayout>
         </ScrollView>
