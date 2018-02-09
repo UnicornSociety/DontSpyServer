@@ -20,7 +20,6 @@
     <None Remove="Presentation\View\ContactsPage.xaml" />
     <None Remove="Presentation\View\ContactsPageMultipleSelection.xaml" />
     <None Remove="Presentation\View\RegistrationPage.xaml" />
-    <None Remove="Presentation\View\VoucherValidationPage.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -43,9 +42,6 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\View\RegistrationPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\View\VoucherValidationPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
@@ -95,10 +91,6 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>AppResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="BusinessLogic\UserManagement\" />
   </ItemGroup>
 
 </Project>

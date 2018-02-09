@@ -39,17 +39,9 @@ namespace ModernEncryption
                     CrossSecureStorage.Current.GetValue("OwnUser"));
 
                 DependencyManager.Me = ownUser;
-
-                if (CrossSecureStorage.Current.HasKey("VoucherValidated"))
-                {
-                    MainPage = DependencyManager.AnchorPage;
-                    DependencyManager.PullService.PullChannelRequests();
-                    DependencyManager.PullService.PullNewMessages();
-                }
-                else
-                {
-                    MainPage = new VoucherValidationPage();
-                }
+                DependencyManager.PullService.PullChannelRequests();
+                DependencyManager.PullService.PullNewMessages();
+                MainPage = DependencyManager.AnchorPage;
             }
             else
             {

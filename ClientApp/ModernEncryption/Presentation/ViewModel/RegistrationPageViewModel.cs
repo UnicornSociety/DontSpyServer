@@ -74,7 +74,11 @@ namespace ModernEncryption.Presentation.ViewModel
                 if (!Validate()) return;
 
                 var result = DependencyManager.UserService.CreateOwnUser(new User(Firstname.Value, Surname.Value, Email.Value));
-                if (result) Application.Current.MainPage = new VoucherValidationPage();
+                if (!result) return;
+
+                Application.Current.MainPage = DependencyManager.AnchorPage;
+                DependencyManager.PullService.PullChannelRequests();
+                DependencyManager.PullService.PullNewMessages();
             });
 
             ValidateFirstnameCommand = new Command<object>(param =>
