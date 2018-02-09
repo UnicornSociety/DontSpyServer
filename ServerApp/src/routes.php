@@ -48,8 +48,7 @@ $app->post('/user/new', function ($request, $response) {
     $data = $request->getParsedBody();
     $user_data = [];
     $user_data['id'] = filter_var($data['id'], FILTER_SANITIZE_STRING);
-    $user_data['firstname'] = filter_var($data['firstname'], FILTER_SANITIZE_STRING);
-    $user_data['surname'] = filter_var($data['surname'], FILTER_SANITIZE_STRING);
+    $user_data['displayname'] = filter_var($data['displayname'], FILTER_SANITIZE_STRING);
     $user_data['email'] = filter_var($data['email'], FILTER_SANITIZE_STRING);
     $user = new UserEntity($user_data);
     $mapper = new UserMapper($this->db);

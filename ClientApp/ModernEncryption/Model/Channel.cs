@@ -38,9 +38,9 @@ namespace ModernEncryption.Model
             if (name == null)
             {
                 if (members.Count > 1)
-                    Name = members[0].Firstname + " " + AppResources.And + " " + (members.Count - 1) + " " + AppResources.MoreMembers;
+                    Name = members[0].Displayname + " " + AppResources.And + " " + (members.Count - 1) + " " + AppResources.MoreMembers;
                 else
-                    Name = members[0].Firstname + " " + members[0].Surname;
+                    Name = members[0].Displayname;
             }
             else
                 Name = name;

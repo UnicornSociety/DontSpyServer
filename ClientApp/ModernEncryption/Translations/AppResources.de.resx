@@ -144,32 +144,29 @@
   <data name="CryptedOnBoardingMessage" xml:space="preserve">
     <value>wyvmcwwybzy5e9p8vmmk</value>
   </data>
+  <data name="Displayname" xml:space="preserve">
+    <value>Displayname</value>
+  </data>
   <data name="Email" xml:space="preserve">
     <value>E-Mail</value>
   </data>
   <data name="EnterVoucherRequest" xml:space="preserve">
     <value>Bitte Validierungscode eingeben.</value>
   </data>
+  <data name="ErrorMsgDisplaynameLength" xml:space="preserve">
+    <value>Displayname zu kurz oder zu lange.</value>
+  </data>
   <data name="ErrorMsgEmailLength" xml:space="preserve">
     <value>E-Mail zu kurz oder zu lange.</value>
   </data>
-  <data name="ErrorMsgFirstnameLength" xml:space="preserve">
-    <value>Vorname zu kurz oder zu lange.</value>
-  </data>
   <data name="ErrorMsgNotEmail" xml:space="preserve">
     <value>Keine E-Mail.</value>
-  </data>
-  <data name="ErrorMsgSurnameLength" xml:space="preserve">
-    <value>Nachname zu kurz oder zu lange.</value>
   </data>
   <data name="ErrorMsgVoucher" xml:space="preserve">
     <value>Voucher ungueltig.</value>
   </data>
   <data name="ErrorMsgVoucherExpired" xml:space="preserve">
     <value>Voucher abgelaufen.</value>
-  </data>
-  <data name="Firstname" xml:space="preserve">
-    <value>Vorname</value>
   </data>
   <data name="InputMessage" xml:space="preserve">
     <value>Nachricht</value>
@@ -200,9 +197,6 @@
   </data>
   <data name="SendPinToEmailCallToAction" xml:space="preserve">
     <value>PIN per E-Mail senden</value>
-  </data>
-  <data name="Surname" xml:space="preserve">
-    <value>Nachname</value>
   </data>
   <data name="VoucherValidationEmailBodyBeforePin" xml:space="preserve">
     <value>Ihr einmaliger PIN ist:</value>

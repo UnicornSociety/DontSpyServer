@@ -54,7 +54,7 @@
                                     </StackLayout>
                                     <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand"  Padding="5">
                                         <Label Text="{Binding Timestamp, Converter={StaticResource TimestampConverter}}"  FontSize="Micro" TextColor="Gray"/>
-                                        <Label Text="{Binding Sender.Firstname}" FontSize="Micro" TextColor="Gray"/>
+                                        <Label Text="{Binding Sender.Displayname}" FontSize="Micro" TextColor="Gray"/>
                                     </StackLayout>
                                 </StackLayout>
                             </StackLayout>
