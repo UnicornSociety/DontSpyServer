@@ -31,7 +31,7 @@ namespace ModernEncryption.Service
             DependencyManager.ChannelsPage.ViewModel.Channels.Add(channel);
             DependencyManager.Database.InsertOrReplaceWithChildren(channel);
 
-            var memberList = members.Aggregate("", (current, member) => current + member.Email + ";");
+            var memberList = members.Aggregate("", (current, member) => current + member.Username + ";");
             memberList = memberList.Remove(memberList.Length - 1); // Remove last semicolon
             foreach (var member in members)
             {

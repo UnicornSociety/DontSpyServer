@@ -33,9 +33,9 @@ namespace ModernEncryption.Service
             return DependencyManager.Database.GetAllWithChildren<User>().Where(user => user.Id != DependencyManager.Me.Id).ToList();
         }
 
-        public User AddUserBy(string email)
+        public User AddUserBy(string username)
         {
-            var user = RestService.GetUserBy(email).Result;
+            var user = RestService.GetUserBy(username).Result;
             if (user == null) return null;
 
             // Insert or replace the user (replace to refresh the maybe changed user information)

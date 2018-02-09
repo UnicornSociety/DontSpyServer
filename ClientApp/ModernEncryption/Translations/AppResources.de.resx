@@ -144,29 +144,14 @@
   <data name="CryptedOnBoardingMessage" xml:space="preserve">
     <value>wyvmcwwybzy5e9p8vmmk</value>
   </data>
-  <data name="Displayname" xml:space="preserve">
-    <value>Displayname</value>
+  <data name="Username" xml:space="preserve">
+    <value>Username</value>
   </data>
-  <data name="Email" xml:space="preserve">
-    <value>E-Mail</value>
+  <data name="ErrorMsgUsernameLength" xml:space="preserve">
+    <value>Username zu kurz oder zu lange.</value>
   </data>
-  <data name="EnterVoucherRequest" xml:space="preserve">
-    <value>Bitte Validierungscode eingeben.</value>
-  </data>
-  <data name="ErrorMsgDisplaynameLength" xml:space="preserve">
-    <value>Displayname zu kurz oder zu lange.</value>
-  </data>
-  <data name="ErrorMsgEmailLength" xml:space="preserve">
-    <value>E-Mail zu kurz oder zu lange.</value>
-  </data>
-  <data name="ErrorMsgNotEmail" xml:space="preserve">
-    <value>Keine E-Mail.</value>
-  </data>
-  <data name="ErrorMsgVoucher" xml:space="preserve">
-    <value>Voucher ungueltig.</value>
-  </data>
-  <data name="ErrorMsgVoucherExpired" xml:space="preserve">
-    <value>Voucher abgelaufen.</value>
+  <data name="ErrorMsgNotUsername" xml:space="preserve">
+    <value>Kein Username.</value>
   </data>
   <data name="InputMessage" xml:space="preserve">
     <value>Nachricht</value>
@@ -194,21 +179,6 @@
   </data>
   <data name="SendCallToAction" xml:space="preserve">
     <value>Senden</value>
-  </data>
-  <data name="SendPinToEmailCallToAction" xml:space="preserve">
-    <value>PIN per E-Mail senden</value>
-  </data>
-  <data name="VoucherValidationEmailBodyBeforePin" xml:space="preserve">
-    <value>Ihr einmaliger PIN ist:</value>
-  </data>
-  <data name="VoucherValidationEmailSenderName" xml:space="preserve">
-    <value>DontSpy</value>
-  </data>
-  <data name="VoucherValidationEmailSubject" xml:space="preserve">
-    <value>Einmaliger Pin zur Verifizierung bei DontSpy</value>
-  </data>
-  <data name="VoucherValidationHeading" xml:space="preserve">
-    <value>Voucher-Validierung</value>
   </data>
   <data name="WelcomeTo" xml:space="preserve">
     <value>Wilkommen zu</value>

@@ -144,29 +144,11 @@
   <data name="CryptedOnBoardingMessage" xml:space="preserve">
     <value>wyvmcwwybzy5e9p8vmmk</value>
   </data>
-  <data name="Displayname" xml:space="preserve">
-    <value>Displayname</value>
+  <data name="ErrorMsgNotUsername" xml:space="preserve">
+    <value>Not an username.</value>
   </data>
-  <data name="Email" xml:space="preserve">
-    <value>Email</value>
-  </data>
-  <data name="EnterVoucherRequest" xml:space="preserve">
-    <value>Please enter your validation code.</value>
-  </data>
-  <data name="ErrorMsgDisplaynameLength" xml:space="preserve">
-    <value>Displayname too short or too long.</value>
-  </data>
-  <data name="ErrorMsgEmailLength" xml:space="preserve">
-    <value>Email too short or too long.</value>
-  </data>
-  <data name="ErrorMsgNotEmail" xml:space="preserve">
-    <value>Not an email.</value>
-  </data>
-  <data name="ErrorMsgVoucher" xml:space="preserve">
-    <value>Voucher invalid.</value>
-  </data>
-  <data name="ErrorMsgVoucherExpired" xml:space="preserve">
-    <value>Voucher expired.</value>
+  <data name="ErrorMsgUsernameLength" xml:space="preserve">
+    <value>Username too short or too long.</value>
   </data>
   <data name="InputMessage" xml:space="preserve">
     <value>Input message</value>
@@ -195,20 +177,8 @@
   <data name="SendCallToAction" xml:space="preserve">
     <value>Send</value>
   </data>
-  <data name="SendPinToEmailCallToAction" xml:space="preserve">
-    <value>Send PIN to email address.</value>
-  </data>
-  <data name="VoucherValidationEmailBodyBeforePin" xml:space="preserve">
-    <value>Your one-time PIN is:</value>
-  </data>
-  <data name="VoucherValidationEmailSenderName" xml:space="preserve">
-    <value>DontSpy</value>
-  </data>
-  <data name="VoucherValidationEmailSubject" xml:space="preserve">
-    <value>One-time PIN for the verification at DontSpy</value>
-  </data>
-  <data name="VoucherValidationHeading" xml:space="preserve">
-    <value>Voucher Validation</value>
+  <data name="Username" xml:space="preserve">
+    <value>Username</value>
   </data>
   <data name="WelcomeTo" xml:space="preserve">
     <value>Welcome to</value>

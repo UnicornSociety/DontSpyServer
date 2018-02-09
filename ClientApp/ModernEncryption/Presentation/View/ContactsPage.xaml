@@ -24,7 +24,7 @@
 
                 <ListView.Header>
                     <StackLayout Padding="5">
-                        <Entry Text="{Binding Email.Value, Mode=TwoWay}" Placeholder="Email" HorizontalTextAlignment="Center" FontSize="20">
+                        <Entry Text="{Binding Username.Value, Mode=TwoWay}" Placeholder="Username" HorizontalTextAlignment="Center" FontSize="20">
                             <Entry.Style>
                                 <OnPlatform x:TypeArguments="Style"  
                                             iOS="{StaticResource EntryStyle}"  
@@ -32,15 +32,15 @@
                                             WinPhone="{StaticResource EntryStyle}"/>
                             </Entry.Style>
                             <Entry.Behaviors>
-                                <behavior:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateEmailCommand}" />
+                                <behavior:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateUsernameCommand}" />
                             </Entry.Behaviors>
                             <Entry.Triggers>
-                                <DataTrigger TargetType="Entry" Binding="{Binding Email.IsValid}" Value="False">
+                                <DataTrigger TargetType="Entry" Binding="{Binding Username.IsValid}" Value="False">
                                     <Setter Property="behavior:LineColorBehavior.LineColor" Value="{StaticResource ErrorColor}" />
                                 </DataTrigger>
                             </Entry.Triggers>
                         </Entry>
-                        <Button Text="{i18n:Translate SearchCallToAction}" HorizontalOptions="FillAndExpand" Command ="{Binding AddContactViaEmailCommand}" TextColor="Gray" BorderColor="Gray" BorderRadius="0" />
+                        <Button Text="{i18n:Translate SearchCallToAction}" HorizontalOptions="FillAndExpand" Command ="{Binding AddContactViaUsernameCommand}" TextColor="Gray" BorderColor="Gray" BorderRadius="0" />
                     </StackLayout>
                 </ListView.Header>
 
@@ -53,10 +53,10 @@
                                 </StackLayout>
                                 <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="FillAndExpand" BackgroundColor="#fff" Padding="11">
                                     <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-                                        <Label Text="{Binding Data.Displayname}" Font="Bold"  BackgroundColor="#fff" />
+                                        <Label Text="{Binding Data.Username}" Font="Bold"  BackgroundColor="#fff" />
                                         <Switch IsToggled="{Binding Selected}" IsVisible="{Binding BindingContext.MultipleSelectionVisibility,Source={x:Reference contactsPage}}" />
                                     </StackLayout>
-                                    <Label Text="{Binding Data.Email}" BackgroundColor="#fff" TextColor="Black" />
+                                    <Label Text="{Binding Data.Username}" BackgroundColor="#fff" TextColor="Black" />
                                 </StackLayout>
                             </StackLayout>
                         </ViewCell>

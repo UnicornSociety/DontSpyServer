@@ -23,8 +23,8 @@ namespace ModernEncryption.Service
         {
             try
             {
-                var validateEmail = GetUserBy(user.Email).Result;
-                if (validateEmail != null) return false;
+                var validateUsername = GetUserBy(user.Username).Result;
+                if (validateUsername != null) return false;
                 var uri = new Uri(string.Format(Constants.RestUrlNewUser));
                 var json = JsonConvert.SerializeObject(user);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
@@ -40,9 +40,9 @@ namespace ModernEncryption.Service
             }
         }
 
-        public async Task<User> GetUserBy(string eMail)
+        public async Task<User> GetUserBy(string username)
         {
-            var uri = new Uri(string.Format(Constants.RestUrlGetUser, eMail));
+            var uri = new Uri(string.Format(Constants.RestUrlGetUser, username));
             var response = await _client.GetAsync(uri).ConfigureAwait(false);
             if (response.IsSuccessStatusCode)
             {

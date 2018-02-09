@@ -6,7 +6,7 @@ namespace ModernEncryption.Interfaces
     internal interface IUserService
     {
         bool CreateOwnUser(User user);
-        User AddUserBy(string email);
+        User AddUserBy(string username);
         List<User> LoadContacts();
     }
 }
