@@ -12,137 +12,185 @@ namespace ModernEncryption.BusinessLogic.Crypto
 
         public void InitalizeIntervalTable()
         {
-            var A = new Interval(1, 8);
+            var a = new Interval(1, 360);
 
-            var a = new Interval(9, 84);
+            var b = new Interval(361, 469);
 
-            var B = new Interval(85, 86);
+            var c = new Interval(470, 651);
 
-            var b = new Interval(87, 108);
+            var d = new Interval(652, 947);
 
-            var C = new Interval(109, 111);
+            var e = new Interval(948, 1913);
 
-            var c = new Interval(112, 147);
+            var f = new Interval(1914, 2008);
 
-            var D = new Interval(148, 153);
+            var g = new Interval(2009, 2185);
 
-            var d = new Interval(154, 213);
+            var h = new Interval(2186, 2467);
 
-            var E = new Interval(214, 235);
+            var i = new Interval(2468, 2913);
 
-            var e = new Interval(236, 439);
+            var j = new Interval(2914, 2926);
 
-            var F = new Interval(440, 441);
+            var k = new Interval(2927, 2994);
 
-            var f = new Interval(442, 460);
+            var l = new Interval(2995, 3194);
 
-            var G = new Interval(461, 463);
+            var m = new Interval(3195, 3339);
 
-            var g = new Interval(464, 499);
+            var n = new Interval(3340, 3917);
 
-            var H = new Interval(500, 504);
+            var o = new Interval(3918, 4042);
 
-            var h = new Interval(506, 561);
+            var p = new Interval(4043, 4087);
 
-            var I = new Interval(562, 570);
+            var q = new Interval(4088, 4091);
 
-            var i = new Interval(571, 659);
+            var r = new Interval(4092, 4505);
 
-            var J = new Interval(660, 660);
+            var s = new Interval(4506, 4933);
 
-            var j = new Interval(661, 662);
+            var t = new Interval(4934, 5297);
 
-            var K = new Interval(663, 663);
+            var u = new Interval(5298, 5532);
 
-            var k = new Interval(664, 677);
+            var v = new Interval(5533, 5568);
 
-            var L = new Interval(678, 681);
+            var w = new Interval(5569, 5677);
 
-            var l = new Interval(682, 721);
+            var x = new Interval(5678, 5681);
 
-            var M = new Interval(722, 724);
+            var y = new Interval(5682, 5685);
 
-            var m = new Interval(725, 753);
+            var z = new Interval(5686, 5748);
 
-            var N = new Interval(754, 765);
+            var sharpS = new Interval(5749, 5768);
 
-            var n = new Interval(766, 880);
+            var ä = new Interval(5769, 5818);
 
-            var O = new Interval(881, 882);
+            var ö = new Interval(5819, 5868);
 
-            var o = new Interval(882, 912);
+            var ü = new Interval(5869, 5918);
 
-            var P = new Interval(913, 913);
+            var A = new Interval(5919, 5960);
 
-            var p = new Interval(914, 922);
+            var B = new Interval(5961, 5972);
 
-            var Q = new Interval(505, 505);
+            var C = new Interval(5973, 5992);
 
-            var q = new Interval(923, 923);
+            var D = new Interval(5993, 6024);
 
-            var R = new Interval(924, 931);
+            var E = new Interval(6025, 6130);
 
-            var r = new Interval(933, 1014);
+            var F = new Interval(6131, 6140);
 
-            var S = new Interval(1015, 1023);
+            var G = new Interval(6141, 6159);
 
-            var s = new Interval(1024, 1108);
+            var H = new Interval(6160, 6191);
 
-            var T = new Interval(1109, 1115);
+            var I = new Interval(6192, 6240);
 
-            var t = new Interval(1117, 1188);
+            var J = new Interval(6241, 6242);
 
-            var U = new Interval(1189, 1193);
+            var K = new Interval(6243, 6249);
 
-            var u = new Interval(1194, 1244);
+            var L = new Interval(6250, 6271);
 
-            var V = new Interval(1245, 1245);
+            var M = new Interval(6272, 6287);
 
-            var v = new Interval(1246, 1252);
+            var N = new Interval(6288, 6351);
 
-            var W = new Interval(1253, 1254);
+            var O = new Interval(6352, 6367);
 
-            var w = new Interval(1255, 1276);
+            var P = new Interval(6368, 6372);
 
-            var X = new Interval(932, 932);
+            var Q = new Interval(6373, 6374);
 
-            var x = new Interval(1277, 1277);
+            var R = new Interval(6375, 6420);
 
-            var Y = new Interval(1116, 1116);
+            var S = new Interval(6421, 6467);
 
-            var y = new Interval(1278, 1278);
+            var T = new Interval(6468, 6507);
 
-            var Z = new Interval(1279, 1279);
-
-            var z = new Interval(1280, 1292);
-
-            var sharpS = new Interval(1293, 1296);
-
-            var dot = new Interval(1297, 1312);
-
-            var comma = new Interval(1313, 1335);
-
-            var space = new Interval(1336, 1590);
-
-            var one = new Interval(1591, 1591);
-
-            var two = new Interval(1592, 1592);
-
-            var three = new Interval(1593, 1593);
-
-            var four = new Interval(1594, 1594);
-
-            var five = new Interval(1595, 1595);
-
-            var six = new Interval(1596, 1596);
-
-            var seven = new Interval(1597, 1597);
-
-            var eight = new Interval(1598, 1598);
-
-            var nine = new Interval(1599, 1599);
-
-            var zero = new Interval(1600, 1600);
+            var U = new Interval(6508, 6535);
+
+            var V = new Interval(6536, 6539);
+
+            var W = new Interval(6540, 6551);
+
+            var X = new Interval(6552, 6553);
+
+            var Y = new Interval(6554, 6555);
+
+            var Z = new Interval(6556, 6562);
+
+            var Ä = new Interval(6563, 6567);
+
+            var Ö = new Interval(6568, 6572);
+
+            var Ü = new Interval(6573, 6577);
+
+            var one = new Interval(6578, 6579);
+
+            var two = new Interval(6580, 6581);
+
+            var three = new Interval(6582, 6583);
+
+            var four = new Interval(6584, 6585);
+
+            var five = new Interval(6586, 6587);
+            
+            var six = new Interval(6588, 6589);
+            
+            var seven = new Interval(6590, 6591);
+            
+            var eight = new Interval(6592, 6593);
+            
+            var nine = new Interval(6594, 6595);
+            
+            var zero = new Interval(6596, 6597);
+            
+            var dot = new Interval(6598, 6678);
+            
+            var comma = new Interval(6679, 6794);
+            
+            var space = new Interval(6795, 8064);
+            
+            var fragez = new Interval(8065, 8066);
+            
+            var ausrufez = new Interval(8067, 8068);
+            
+            var plus = new Interval(8069, 8070);
+            
+            var minus = new Interval(8071, 8072);
+            
+            var mal = new Interval(8073, 8074);
+            
+            var slash = new Interval(8075, 8076);
+            
+            var semikolon = new Interval(8077, 8078);
+            
+            var doppelp = new Interval(8079, 8080);
+            
+            var anfuehrungsstr = new Interval(8081, 8082);
+            
+            var prozent = new Interval(8083, 8084);
+            
+            var und = new Interval(8085, 8086);
+            
+            var euro = new Interval(8087, 8088);
+            
+            var klammerAuf = new Interval(8089, 8090);
+            
+            var klammerZu = new Interval(8091, 8092);
+            
+            var gleich = new Interval(8093, 8094);
+            
+            var hashtag = new Interval(8095, 8096);
+            
+            var unterstrich = new Interval(8097, 8098);
+            
+            var at = new Interval(8099, 8100);
 
             IntervalTable.Add('a', a);
             IntervalTable.Add('b', b);
@@ -170,6 +218,10 @@ namespace ModernEncryption.BusinessLogic.Crypto
             IntervalTable.Add('x', x);
             IntervalTable.Add('y', y);
             IntervalTable.Add('z', z);
+            IntervalTable.Add('ß', sharpS);
+            IntervalTable.Add('ä', ä);
+            IntervalTable.Add('ö', ö);
+            IntervalTable.Add('ü', ü);
             IntervalTable.Add('A', A);
             IntervalTable.Add('B', B);
             IntervalTable.Add('C', C);
@@ -196,10 +248,9 @@ namespace ModernEncryption.BusinessLogic.Crypto
             IntervalTable.Add('X', X);
             IntervalTable.Add('Y', Y);
             IntervalTable.Add('Z', Z);
-            IntervalTable.Add('ß', sharpS);
-            IntervalTable.Add('.', dot);
-            IntervalTable.Add(',', comma);
-            IntervalTable.Add(' ', space);
+            IntervalTable.Add('Ä', Ä);
+            IntervalTable.Add('Ö', Ö);
+            IntervalTable.Add('Ü', Ü);
             IntervalTable.Add('1', one);
             IntervalTable.Add('2', two);
             IntervalTable.Add('3', three);
@@ -210,6 +261,27 @@ namespace ModernEncryption.BusinessLogic.Crypto
             IntervalTable.Add('8', eight);
             IntervalTable.Add('9', nine);
             IntervalTable.Add('0', zero);
+            IntervalTable.Add('.', dot);
+            IntervalTable.Add(',', comma);
+            IntervalTable.Add(' ', space);
+            IntervalTable.Add('?', fragez);
+            IntervalTable.Add('!', ausrufez);
+            IntervalTable.Add('+', plus);
+            IntervalTable.Add('-', minus);
+            IntervalTable.Add('*', mal);
+            IntervalTable.Add('/', slash);
+            IntervalTable.Add(';', semikolon);
+            IntervalTable.Add(':', doppelp);
+            IntervalTable.Add('"', anfuehrungsstr);
+            IntervalTable.Add('%', prozent);
+            IntervalTable.Add('&', und);
+            IntervalTable.Add('€', euro);
+            IntervalTable.Add('(', klammerAuf);
+            IntervalTable.Add(')', klammerZu);
+            IntervalTable.Add('=', gleich);
+            IntervalTable.Add('#', hashtag);
+            IntervalTable.Add('_', unterstrich);
+            IntervalTable.Add('@', at);
         }
 
         public void InitalizeTransformationTable()
@@ -241,19 +313,69 @@ namespace ModernEncryption.BusinessLogic.Crypto
             TransformationTable.Add(25, 'y');
             TransformationTable.Add(26, 'z');
             TransformationTable.Add(27, 'ß');
-            TransformationTable.Add(28, '.');
-            TransformationTable.Add(29, ',');
-            TransformationTable.Add(30, ' ');
-            TransformationTable.Add(31, '1');
-            TransformationTable.Add(32, '2');
-            TransformationTable.Add(33, '3');
-            TransformationTable.Add(34, '4');
-            TransformationTable.Add(35, '5');
-            TransformationTable.Add(36, '6');
-            TransformationTable.Add(37, '7');
-            TransformationTable.Add(38, '8');
-            TransformationTable.Add(39, '9');
-            TransformationTable.Add(40, '0');
+            TransformationTable.Add(28, 'ä');
+            TransformationTable.Add(29, 'ö');
+            TransformationTable.Add(30, 'ü');
+            TransformationTable.Add(31, 'A');
+            TransformationTable.Add(32, 'B');
+            TransformationTable.Add(33, 'C');
+            TransformationTable.Add(34, 'D');
+            TransformationTable.Add(35, 'E');
+            TransformationTable.Add(36, 'F');
+            TransformationTable.Add(37, 'G');
+            TransformationTable.Add(38, 'H');
+            TransformationTable.Add(39, 'I');
+            TransformationTable.Add(40, 'J');
+            TransformationTable.Add(41, 'K');
+            TransformationTable.Add(42, 'L');
+            TransformationTable.Add(43, 'M');
+            TransformationTable.Add(44, 'N');
+            TransformationTable.Add(45, 'O');
+            TransformationTable.Add(46, 'P');
+            TransformationTable.Add(47, 'Q');
+            TransformationTable.Add(48, 'R');
+            TransformationTable.Add(49, 'S');
+            TransformationTable.Add(50, 'T');
+            TransformationTable.Add(51, 'U');
+            TransformationTable.Add(52, 'V');
+            TransformationTable.Add(53, 'W');
+            TransformationTable.Add(54, 'X');
+            TransformationTable.Add(55, 'Y');
+            TransformationTable.Add(56, 'Z');
+            TransformationTable.Add(57, 'Ä');
+            TransformationTable.Add(58, 'Ö');
+            TransformationTable.Add(59, 'Ü');
+            TransformationTable.Add(60, '1');
+            TransformationTable.Add(61, '2');
+            TransformationTable.Add(62, '3');
+            TransformationTable.Add(63, '4');
+            TransformationTable.Add(64, '5');
+            TransformationTable.Add(65, '6');
+            TransformationTable.Add(66, '7');
+            TransformationTable.Add(67, '8');
+            TransformationTable.Add(68, '9');
+            TransformationTable.Add(69, '0');
+            TransformationTable.Add(70, '.');
+            TransformationTable.Add(71, ',');
+            TransformationTable.Add(72, ' ');
+            TransformationTable.Add(73, '?');
+            TransformationTable.Add(74, '!');
+            TransformationTable.Add(75, '+');
+            TransformationTable.Add(76, '-');
+            TransformationTable.Add(77, '*');
+            TransformationTable.Add(78, '/');
+            TransformationTable.Add(79, ';');
+            TransformationTable.Add(80, ':');
+            TransformationTable.Add(81, '"');
+            TransformationTable.Add(82, '%');
+            TransformationTable.Add(83, '&');
+            TransformationTable.Add(84, '€');
+            TransformationTable.Add(85, '(');
+            TransformationTable.Add(86, ')');
+            TransformationTable.Add(87, '=');
+            TransformationTable.Add(88, '#');
+            TransformationTable.Add(89, '_');
+            TransformationTable.Add(90, '@');
         }
 
         public void InitializeKeyTable()
@@ -570,317 +692,7 @@ namespace ModernEncryption.BusinessLogic.Crypto
             KeyTable.Add(309, 1309);
             KeyTable.Add(310, 1310);
 
-            KeyTable.Add(1001, 1);
-            KeyTable.Add(1002, 2);
-            KeyTable.Add(1003, 3);
-            KeyTable.Add(1004, 4);
-            KeyTable.Add(1005, 5);
-            KeyTable.Add(1006, 6);
-            KeyTable.Add(1007, 7);
-            KeyTable.Add(1008, 8);
-            KeyTable.Add(1009, 9);
-            KeyTable.Add(1010, 10);
-            KeyTable.Add(1011, 11);
-            KeyTable.Add(1012, 12);
-            KeyTable.Add(1013, 13);
-            KeyTable.Add(1014, 14);
-            KeyTable.Add(1015, 15);
-            KeyTable.Add(1016, 16);
-            KeyTable.Add(1017, 17);
-            KeyTable.Add(1018, 18);
-            KeyTable.Add(1019, 19);
-            KeyTable.Add(1020, 20);
-            KeyTable.Add(1021, 21);
-            KeyTable.Add(1022, 22);
-            KeyTable.Add(1023, 23);
-            KeyTable.Add(1024, 24);
-            KeyTable.Add(1025, 25);
-            KeyTable.Add(1026, 26);
-            KeyTable.Add(1027, 27);
-            KeyTable.Add(1028, 28);
-            KeyTable.Add(1029, 29);
-            KeyTable.Add(1030, 30);
-            KeyTable.Add(1031, 31);
-            KeyTable.Add(1032, 32);
-            KeyTable.Add(1033, 33);
-            KeyTable.Add(1034, 34);
-            KeyTable.Add(1035, 35);
-            KeyTable.Add(1036, 36);
-            KeyTable.Add(1037, 37);
-            KeyTable.Add(1038, 38);
-            KeyTable.Add(1039, 39);
-            KeyTable.Add(1040, 40);
-            KeyTable.Add(1041, 41);
-            KeyTable.Add(1042, 42);
-            KeyTable.Add(1043, 43);
-            KeyTable.Add(1044, 44);
-            KeyTable.Add(1045, 45);
-            KeyTable.Add(1046, 46);
-            KeyTable.Add(1047, 47);
-            KeyTable.Add(1048, 48);
-            KeyTable.Add(1049, 49);
-            KeyTable.Add(1050, 50);
-            KeyTable.Add(1051, 51);
-            KeyTable.Add(1052, 52);
-            KeyTable.Add(1053, 53);
-            KeyTable.Add(1054, 54);
-            KeyTable.Add(1055, 55);
-            KeyTable.Add(1056, 56);
-            KeyTable.Add(1057, 57);
-            KeyTable.Add(1058, 58);
-            KeyTable.Add(1059, 59);
-            KeyTable.Add(1060, 60);
-            KeyTable.Add(1061, 61);
-            KeyTable.Add(1062, 62);
-            KeyTable.Add(1063, 63);
-            KeyTable.Add(1064, 64);
-            KeyTable.Add(1065, 65);
-            KeyTable.Add(1066, 66);
-            KeyTable.Add(1067, 67);
-            KeyTable.Add(1068, 68);
-            KeyTable.Add(1069, 69);
-            KeyTable.Add(1070, 70);
-            KeyTable.Add(1071, 71);
-            KeyTable.Add(1072, 72);
-            KeyTable.Add(1073, 73);
-            KeyTable.Add(1074, 74);
-            KeyTable.Add(1075, 75);
-            KeyTable.Add(1076, 76);
-            KeyTable.Add(1077, 77);
-            KeyTable.Add(1078, 78);
-            KeyTable.Add(1079, 79);
-            KeyTable.Add(1080, 80);
-            KeyTable.Add(1081, 81);
-            KeyTable.Add(1082, 82);
-            KeyTable.Add(1083, 83);
-            KeyTable.Add(1084, 84);
-            KeyTable.Add(1085, 85);
-            KeyTable.Add(1086, 86);
-            KeyTable.Add(1087, 87);
-            KeyTable.Add(1088, 88);
-            KeyTable.Add(1089, 89);
-            KeyTable.Add(1090, 90);
-            KeyTable.Add(1091, 91);
-            KeyTable.Add(1092, 92);
-            KeyTable.Add(1093, 93);
-            KeyTable.Add(1094, 94);
-            KeyTable.Add(1095, 95);
-            KeyTable.Add(1096, 96);
-            KeyTable.Add(1097, 97);
-            KeyTable.Add(1098, 98);
-            KeyTable.Add(1099, 99);
-            KeyTable.Add(1100, 100);
-            KeyTable.Add(1101, 101);
-            KeyTable.Add(1102, 102);
-            KeyTable.Add(1103, 103);
-            KeyTable.Add(1104, 104);
-            KeyTable.Add(1105, 105);
-            KeyTable.Add(1106, 106);
-            KeyTable.Add(1107, 107);
-            KeyTable.Add(1108, 108);
-            KeyTable.Add(1109, 109);
-            KeyTable.Add(1110, 110);
-            KeyTable.Add(1111, 111);
-            KeyTable.Add(1112, 112);
-            KeyTable.Add(1113, 113);
-            KeyTable.Add(1114, 114);
-            KeyTable.Add(1115, 115);
-            KeyTable.Add(1116, 116);
-            KeyTable.Add(1117, 117);
-            KeyTable.Add(1118, 118);
-            KeyTable.Add(1119, 119);
-            KeyTable.Add(1120, 120);
-            KeyTable.Add(1121, 121);
-            KeyTable.Add(1122, 122);
-            KeyTable.Add(1123, 123);
-            KeyTable.Add(1124, 124);
-            KeyTable.Add(1125, 125);
-            KeyTable.Add(1126, 126);
-            KeyTable.Add(1127, 127);
-            KeyTable.Add(1128, 128);
-            KeyTable.Add(1129, 129);
-            KeyTable.Add(1130, 130);
-            KeyTable.Add(1131, 131);
-            KeyTable.Add(1132, 132);
-            KeyTable.Add(1133, 133);
-            KeyTable.Add(1134, 134);
-            KeyTable.Add(1135, 135);
-            KeyTable.Add(1136, 136);
-            KeyTable.Add(1137, 137);
-            KeyTable.Add(1138, 138);
-            KeyTable.Add(1139, 139);
-            KeyTable.Add(1140, 140);
-            KeyTable.Add(1141, 141);
-            KeyTable.Add(1142, 142);
-            KeyTable.Add(1143, 143);
-            KeyTable.Add(1144, 144);
-            KeyTable.Add(1145, 145);
-            KeyTable.Add(1146, 146);
-            KeyTable.Add(1147, 147);
-            KeyTable.Add(1148, 148);
-            KeyTable.Add(1149, 149);
-            KeyTable.Add(1150, 150);
-            KeyTable.Add(1151, 151);
-            KeyTable.Add(1152, 152);
-            KeyTable.Add(1153, 153);
-            KeyTable.Add(1154, 154);
-            KeyTable.Add(1155, 155);
-            KeyTable.Add(1156, 156);
-            KeyTable.Add(1157, 157);
-            KeyTable.Add(1158, 158);
-            KeyTable.Add(1159, 159);
-            KeyTable.Add(1160, 160);
-            KeyTable.Add(1161, 161);
-            KeyTable.Add(1162, 162);
-            KeyTable.Add(1163, 163);
-            KeyTable.Add(1164, 164);
-            KeyTable.Add(1165, 165);
-            KeyTable.Add(1166, 166);
-            KeyTable.Add(1167, 167);
-            KeyTable.Add(1168, 168);
-            KeyTable.Add(1169, 169);
-            KeyTable.Add(1170, 170);
-            KeyTable.Add(1171, 171);
-            KeyTable.Add(1172, 172);
-            KeyTable.Add(1173, 173);
-            KeyTable.Add(1174, 174);
-            KeyTable.Add(1175, 175);
-            KeyTable.Add(1176, 176);
-            KeyTable.Add(1177, 177);
-            KeyTable.Add(1178, 178);
-            KeyTable.Add(1179, 179);
-            KeyTable.Add(1180, 180);
-            KeyTable.Add(1181, 181);
-            KeyTable.Add(1182, 182);
-            KeyTable.Add(1183, 183);
-            KeyTable.Add(1184, 184);
-            KeyTable.Add(1185, 185);
-            KeyTable.Add(1186, 186);
-            KeyTable.Add(1187, 187);
-            KeyTable.Add(1188, 188);
-            KeyTable.Add(1189, 189);
-            KeyTable.Add(1190, 190);
-            KeyTable.Add(1191, 191);
-            KeyTable.Add(1192, 192);
-            KeyTable.Add(1193, 193);
-            KeyTable.Add(1194, 194);
-            KeyTable.Add(1195, 195);
-            KeyTable.Add(1196, 196);
-            KeyTable.Add(1197, 197);
-            KeyTable.Add(1198, 198);
-            KeyTable.Add(1199, 199);
-            KeyTable.Add(1200, 200);
-            KeyTable.Add(1201, 201);
-            KeyTable.Add(1202, 202);
-            KeyTable.Add(1203, 203);
-            KeyTable.Add(1204, 204);
-            KeyTable.Add(1205, 205);
-            KeyTable.Add(1206, 206);
-            KeyTable.Add(1207, 207);
-            KeyTable.Add(1208, 208);
-            KeyTable.Add(1209, 209);
-            KeyTable.Add(1210, 210);
-            KeyTable.Add(1211, 211);
-            KeyTable.Add(1212, 212);
-            KeyTable.Add(1213, 213);
-            KeyTable.Add(1214, 214);
-            KeyTable.Add(1215, 215);
-            KeyTable.Add(1216, 216);
-            KeyTable.Add(1217, 217);
-            KeyTable.Add(1218, 218);
-            KeyTable.Add(1219, 219);
-            KeyTable.Add(1220, 220);
-            KeyTable.Add(1221, 221);
-            KeyTable.Add(1222, 222);
-            KeyTable.Add(1223, 223);
-            KeyTable.Add(1224, 224);
-            KeyTable.Add(1225, 225);
-            KeyTable.Add(1226, 226);
-            KeyTable.Add(1227, 227);
-            KeyTable.Add(1228, 228);
-            KeyTable.Add(1229, 229);
-            KeyTable.Add(1230, 230);
-            KeyTable.Add(1231, 231);
-            KeyTable.Add(1232, 232);
-            KeyTable.Add(1233, 233);
-            KeyTable.Add(1234, 234);
-            KeyTable.Add(1235, 235);
-            KeyTable.Add(1236, 236);
-            KeyTable.Add(1237, 237);
-            KeyTable.Add(1238, 238);
-            KeyTable.Add(1239, 239);
-            KeyTable.Add(1240, 240);
-            KeyTable.Add(1241, 241);
-            KeyTable.Add(1242, 242);
-            KeyTable.Add(1243, 243);
-            KeyTable.Add(1244, 244);
-            KeyTable.Add(1245, 245);
-            KeyTable.Add(1246, 246);
-            KeyTable.Add(1247, 247);
-            KeyTable.Add(1248, 248);
-            KeyTable.Add(1249, 249);
-            KeyTable.Add(1250, 250);
-            KeyTable.Add(1251, 251);
-            KeyTable.Add(1252, 252);
-            KeyTable.Add(1253, 253);
-            KeyTable.Add(1254, 254);
-            KeyTable.Add(1255, 255);
-            KeyTable.Add(1256, 256);
-            KeyTable.Add(1257, 257);
-            KeyTable.Add(1258, 258);
-            KeyTable.Add(1259, 259);
-            KeyTable.Add(1260, 260);
-            KeyTable.Add(1261, 261);
-            KeyTable.Add(1262, 262);
-            KeyTable.Add(1263, 263);
-            KeyTable.Add(1264, 264);
-            KeyTable.Add(1265, 265);
-            KeyTable.Add(1266, 266);
-            KeyTable.Add(1267, 267);
-            KeyTable.Add(1268, 268);
-            KeyTable.Add(1269, 269);
-            KeyTable.Add(1270, 270);
-            KeyTable.Add(1271, 271);
-            KeyTable.Add(1272, 272);
-            KeyTable.Add(1273, 273);
-            KeyTable.Add(1274, 274);
-            KeyTable.Add(1275, 275);
-            KeyTable.Add(1276, 276);
-            KeyTable.Add(1277, 277);
-            KeyTable.Add(1278, 278);
-            KeyTable.Add(1279, 279);
-            KeyTable.Add(1280, 280);
-            KeyTable.Add(1281, 281);
-            KeyTable.Add(1282, 282);
-            KeyTable.Add(1283, 283);
-            KeyTable.Add(1284, 284);
-            KeyTable.Add(1285, 285);
-            KeyTable.Add(1286, 286);
-            KeyTable.Add(1287, 287);
-            KeyTable.Add(1288, 288);
-            KeyTable.Add(1289, 289);
-            KeyTable.Add(1290, 290);
-            KeyTable.Add(1291, 291);
-            KeyTable.Add(1292, 292);
-            KeyTable.Add(1293, 293);
-            KeyTable.Add(1294, 294);
-            KeyTable.Add(1295, 295);
-            KeyTable.Add(1296, 296);
-            KeyTable.Add(1297, 297);
-            KeyTable.Add(1298, 298);
-            KeyTable.Add(1299, 299);
-            KeyTable.Add(1300, 300);
-            KeyTable.Add(1301, 301);
-            KeyTable.Add(1302, 302);
-            KeyTable.Add(1303, 303);
-            KeyTable.Add(1304, 304);
-            KeyTable.Add(1305, 305);
-            KeyTable.Add(1306, 306);
-            KeyTable.Add(1307, 307);
-            KeyTable.Add(1308, 308);
-            KeyTable.Add(1309, 309);
-            KeyTable.Add(1310, 310);
-
+            
 
 
 

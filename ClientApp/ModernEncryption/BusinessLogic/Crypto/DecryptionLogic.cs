@@ -1,4 +1,6 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
+using System.Linq;
 using ModernEncryption.Interfaces;
 using ModernEncryption.Model;
 
@@ -38,13 +40,15 @@ namespace ModernEncryption.BusinessLogic.Crypto
             var keyA = MathematicalMappingLogic.BackTransformationTable[concatenatedSymbolPartA];
             var keyB = MathematicalMappingLogic.BackTransformationTable[concatenatedSymbolPartB];
 
-            return (keyA - 1) * 40 + keyB;
+            return (keyA - 1) * 90 + keyB;
         }
 
         private int RevertPermutationFor(int permutedChipher)
         {
-            if (MathematicalMappingLogic.KeyTable.ContainsKey(permutedChipher))
-                return MathematicalMappingLogic.KeyTable[permutedChipher];
+            if (MathematicalMappingLogic.KeyTable.ContainsValue(permutedChipher))
+                {
+                return MathematicalMappingLogic.KeyTable.FirstOrDefault(x => x.Value == permutedChipher).Key;
+                }
             return permutedChipher;
         }
 

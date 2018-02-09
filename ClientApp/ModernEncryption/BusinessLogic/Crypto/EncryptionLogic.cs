@@ -47,8 +47,8 @@ namespace ModernEncryption.BusinessLogic.Crypto
 
         private string CreateCharacterPair(int permutedChipher)
         {
-            var keyA = (permutedChipher - 1) / 40 + 1;
-            var keyB = (permutedChipher - 1) % 40 + 1;
+            var keyA = (permutedChipher - 1) / 90 + 1;
+            var keyB = (permutedChipher - 1) % 90 + 1;
             return "" + MathematicalMappingLogic.TransformationTable[keyA] + MathematicalMappingLogic.TransformationTable[keyB];
         }
     }
