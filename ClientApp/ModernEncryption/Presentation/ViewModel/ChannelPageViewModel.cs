@@ -66,7 +66,8 @@ namespace ModernEncryption.Presentation.ViewModel
 
             ShowKeyCommand = new Command<object>(param =>
             {
-                Application.Current.MainPage.Navigation.PushAsync(KeyPage);
+                DependencyManager.AnchorPage.Children[1].Navigation.PopToRootAsync(false);
+                _view.Navigation.PushAsync(new KeyPage());
             });
         }
 
