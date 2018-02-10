@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Erstellungszeit: 27. Okt 2017 um 15:45
+-- Erstellungszeit: 10. Feb 2018 um 13:33
 -- Server-Version: 10.0.31-MariaDB-cll-lve
 -- PHP-Version: 5.6.30
 
@@ -45,10 +45,17 @@ CREATE TABLE `message` (
 
 CREATE TABLE `user` (
   `id` varchar(40) NOT NULL,
-  `firstname` varchar(30) NOT NULL,
-  `surname` varchar(30) NOT NULL,
-  `email` varchar(254) NOT NULL
+  `username` varchar(254) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Daten für Tabelle `user`
+--
+
+INSERT INTO `user` (`id`, `username`) VALUES
+('24578a6a73254362a6813bc29adb7154', 'Andrea'),
+('bb95d3d9705b4a9ea07342cc3b5bbd3e', 'Anna'),
+('df2dc5a1cc5449fda8da68612bf962a9', 'Max');
 
 --
 -- Indizes der exportierten Tabellen
@@ -65,7 +72,7 @@ ALTER TABLE `message`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `email` (`email`);
+  ADD UNIQUE KEY `email` (`username`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
