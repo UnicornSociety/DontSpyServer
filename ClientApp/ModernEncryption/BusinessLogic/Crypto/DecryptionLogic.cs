@@ -15,6 +15,7 @@ namespace ModernEncryption.BusinessLogic.Crypto
         {
             _message = message;
             _messageTextSymbols = message.Text.ToCharArray();
+            Debug.WriteLine(message.Text);
         }
 
         public DecryptedMessage Decrypt()

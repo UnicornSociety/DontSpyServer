@@ -134,7 +134,7 @@ namespace ModernEncryption.Translations {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die wyvmcwwybzy5e9p8vmmk ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die 0:y-Qy;aIvmI1ömIQy;a8Fy-a6ZR;a4h1öQyh!mI;amIQyU%ZRmID1D1ZR!L ähnelt.
         /// </summary>
         public static string CryptedOnBoardingMessage {
             get {
