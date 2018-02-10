@@ -18,6 +18,8 @@ namespace ModernEncryption.Presentation.ViewModel
         public ObservableCollection<DecryptedMessage> Messages { get; } = new ObservableCollection<DecryptedMessage>();
         public ICommand SendMessageCommand { protected set; get; }
         public ICommand ValidateMessageCommand { protected set; get; }
+        public ICommand ShowKeyCommand { protected set; get; }
+        public Page KeyPage { get; set; }
 
         public string Title
         {
@@ -60,6 +62,11 @@ namespace ModernEncryption.Presentation.ViewModel
             ValidateMessageCommand = new Command<object>(param =>
             {
                 Validate();
+            });
+
+            ShowKeyCommand = new Command<object>(param =>
+            {
+                Application.Current.MainPage.Navigation.PushAsync(KeyPage);
             });
         }
 

@@ -186,4 +186,7 @@
   <data name="Yesterday" xml:space="preserve">
     <value>Gestern</value>
   </data>
+  <data name="Key" xml:space="preserve">
+    <value>Schlüssel</value>
+  </data>
 </root>

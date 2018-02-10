@@ -53,7 +53,6 @@ namespace ModernEncryption.Presentation.ViewModel
                 DependencyManager.ContactsPage.ViewModel.ActivateMultipleSelectionSupport();
                 DependencyManager.AnchorPage.Children.Add(anchorPageContactsChild);
                 DependencyManager.AnchorPage.CurrentPage = DependencyManager.AnchorPage.Children[1]; // Switch tab
-
             });
 
             TabbedChannelCommand = new Command<object>(param =>

@@ -153,6 +153,9 @@
   <data name="InputMessage" xml:space="preserve">
     <value>Input message</value>
   </data>
+  <data name="Key" xml:space="preserve">
+    <value>Key</value>
+  </data>
   <data name="MessageSnippetMoreSign" xml:space="preserve">
     <value>...</value>
   </data>
