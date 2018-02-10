@@ -24,7 +24,7 @@
 
                 <ListView.Header>
                     <StackLayout Padding="5">
-                        <Entry Text="{Binding Username.Value, Mode=TwoWay}" Placeholder="Username" HorizontalTextAlignment="Center" FontSize="20">
+                        <Entry Text="{Binding Username.Value, Mode=TwoWay}" Placeholder="{i18n:Translate Username}" HorizontalTextAlignment="Center" FontSize="20">
                             <Entry.Style>
                                 <OnPlatform x:TypeArguments="Style"  
                                             iOS="{StaticResource EntryStyle}"  

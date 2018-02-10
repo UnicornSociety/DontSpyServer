@@ -145,13 +145,13 @@
     <value>0:y-Qy;aIvmI1ömIQy;a8Fy-a6ZR;a4h1öQyh!mI;amIQyU%ZRmID1D1ZR!L</value>
   </data>
   <data name="Username" xml:space="preserve">
-    <value>Username</value>
+    <value>Benutzername</value>
   </data>
   <data name="ErrorMsgUsernameLength" xml:space="preserve">
-    <value>Username zu kurz oder zu lange.</value>
+    <value>Benutzername zu kurz oder zu lang.</value>
   </data>
   <data name="ErrorMsgNotUsername" xml:space="preserve">
-    <value>Kein Username.</value>
+    <value>Kein Benutzername.</value>
   </data>
   <data name="InputMessage" xml:space="preserve">
     <value>Nachricht</value>
