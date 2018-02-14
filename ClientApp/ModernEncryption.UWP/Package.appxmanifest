@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="b1ecc622-7a1b-4a3c-8715-73e39e12c4af" Publisher="CN=ModernEncryption Team" Version="0.9.11.0" />
+  <Identity Name="b1ecc622-7a1b-4a3c-8715-73e39e12c4ag" Publisher="CN=ModernEncryption Team" Version="0.9.11.0" />
   <mp:PhoneIdentity PhoneProductId="b1ecc622-7a1b-4a3c-8715-73e39e12c4a5" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>DontSpyUniversalWindows</DisplayName>

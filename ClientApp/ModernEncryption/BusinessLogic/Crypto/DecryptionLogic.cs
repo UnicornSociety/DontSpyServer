@@ -27,13 +27,14 @@ namespace ModernEncryption.BusinessLogic.Crypto
                 var permutedChipher = RevertCharacterPair(_messageTextSymbols[i], _messageTextSymbols[++i]);
                 var chiper = RevertPermutationFor(permutedChipher);
                 concatenatedDecryptedSymbols += RevertChipher(chiper);
-                if (chiper == '-')
+                if (chiper == '^')
                 {
                     Debug.WriteLine("Ungültiger Eingabewert");
                 }
             }
 
-            return new DecryptedMessage(_message.Id, _message.Timestamp, concatenatedDecryptedSymbols, _message.MessageHeader);
+            //return new DecryptedMessage(_message.Id, _message.Timestamp, concatenatedDecryptedSymbols, _message.MessageHeader);
+            return new DecryptedMessage(_message.Id, _message.Timestamp, _message.Text, _message.MessageHeader);
         }
 
         private int RevertCharacterPair(char concatenatedSymbolPartA, char concatenatedSymbolPartB)

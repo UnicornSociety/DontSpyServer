@@ -27,7 +27,7 @@ namespace ModernEncryption.BusinessLogic.Crypto
                 concatenatedEncryptedSymbols += CreateCharacterPair(permutedChipher);
             }
 
-            _message.Text = concatenatedEncryptedSymbols;
+            //_message.Text = concatenatedEncryptedSymbols;
             return _message;
         }
 
