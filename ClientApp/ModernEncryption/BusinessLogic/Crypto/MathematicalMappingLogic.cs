@@ -172,7 +172,7 @@ namespace ModernEncryption.BusinessLogic.Crypto
             
             var doppelp = new Interval(8079, 8080);
             
-            var anfuehrungsstr = new Interval(8081, 8082);
+            var paragraph = new Interval(8081, 8082);
             
             var prozent = new Interval(8083, 8084);
             
@@ -272,7 +272,7 @@ namespace ModernEncryption.BusinessLogic.Crypto
             IntervalTable.Add('/', slash);
             IntervalTable.Add(';', semikolon);
             IntervalTable.Add(':', doppelp);
-            IntervalTable.Add('"', anfuehrungsstr);
+            IntervalTable.Add('§', paragraph);
             IntervalTable.Add('%', prozent);
             IntervalTable.Add('&', und);
             IntervalTable.Add('€', euro);
@@ -366,7 +366,7 @@ namespace ModernEncryption.BusinessLogic.Crypto
             TransformationTable.Add(78, '/');
             TransformationTable.Add(79, ';');
             TransformationTable.Add(80, ':');
-            TransformationTable.Add(81, '"');
+            TransformationTable.Add(81, '§');
             TransformationTable.Add(82, '%');
             TransformationTable.Add(83, '&');
             TransformationTable.Add(84, '€');
