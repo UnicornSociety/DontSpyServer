@@ -16,7 +16,7 @@ namespace ModernEncryption.BusinessLogic.Crypto
         }
 
         public Message Encrypt()
-        {/*
+        {
             var concatenatedEncryptedSymbols = string.Empty;
 
             foreach (var symbol in _messageTextSymbols)
@@ -27,7 +27,7 @@ namespace ModernEncryption.BusinessLogic.Crypto
                 concatenatedEncryptedSymbols += CreateCharacterPair(permutedChipher);
             }
 
-            //_message.Text = concatenatedEncryptedSymbols;*/
+            _message.Text = concatenatedEncryptedSymbols;
             return _message;
         }
 

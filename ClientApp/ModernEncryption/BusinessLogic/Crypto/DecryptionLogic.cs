@@ -19,7 +19,7 @@ namespace ModernEncryption.BusinessLogic.Crypto
         }
 
         public DecryptedMessage Decrypt()
-        {/*
+        {
             var concatenatedDecryptedSymbols = string.Empty;
 
             for (var i = 0; i < _messageTextSymbols.Length; i++)
@@ -31,10 +31,9 @@ namespace ModernEncryption.BusinessLogic.Crypto
                 {
                     Debug.WriteLine("Ungültiger Eingabewert");
                 }
-            }*/
+            }
 
-            //return new DecryptedMessage(_message.Id, _message.Timestamp, concatenatedDecryptedSymbols, _message.MessageHeader);
-            return new DecryptedMessage(_message.Id, _message.Timestamp, _message.Text, _message.MessageHeader);
+            return new DecryptedMessage(_message.Id, _message.Timestamp, concatenatedDecryptedSymbols, _message.MessageHeader);
         }
 
         private int RevertCharacterPair(char concatenatedSymbolPartA, char concatenatedSymbolPartB)
