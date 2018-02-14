@@ -156,6 +156,9 @@
   <data name="Key" xml:space="preserve">
     <value>Key</value>
   </data>
+  <data name="KeyText" xml:space="preserve">
+    <value>The key for this channel. </value>
+  </data>
   <data name="MessageSnippetMoreSign" xml:space="preserve">
     <value>...</value>
   </data>

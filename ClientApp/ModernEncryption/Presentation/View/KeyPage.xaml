@@ -7,8 +7,8 @@
              x:Name="KeyPage">
     <ContentPage.Content>
         <StackLayout>
-            <!--<Label Text="Ihr Schlüssel für den Channel" />-->
-            <Image Source="{local:ImageResource ModernEncryption.qrcode.png}" />
+            <Label Text="{i18n:Translate KeyText}" FontSize="20"></Label>
+            <Image Source="{local:ImageResource ModernEncryption.qrcode.png}" HeightRequest ="300" HorizontalOptions="Center"  VerticalOptions="Center" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

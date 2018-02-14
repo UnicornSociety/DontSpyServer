@@ -21,6 +21,11 @@
     <None Remove="Presentation\View\ContactsPageMultipleSelection.xaml" />
     <None Remove="Presentation\View\KeyPage.xaml" />
     <None Remove="Presentation\View\RegistrationPage.xaml" />
+    <None Remove="qrcode.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="qrcode.png" />
   </ItemGroup>
 
   <ItemGroup>

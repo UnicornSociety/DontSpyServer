@@ -179,6 +179,15 @@ namespace ModernEncryption.Translations {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die The key for this channel.  ähnelt.
+        /// </summary>
+        public static string KeyText {
+            get {
+                return ResourceManager.GetString("KeyText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die ... ähnelt.
         /// </summary>
         public static string MessageSnippetMoreSign {

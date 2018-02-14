@@ -189,4 +189,7 @@
   <data name="Key" xml:space="preserve">
     <value>Schlüssel</value>
   </data>
+  <data name="KeyText" xml:space="preserve">
+    <value>Der Schlüssel für diesen Channel.</value>
+  </data>
 </root>
