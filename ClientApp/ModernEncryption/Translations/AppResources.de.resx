@@ -195,4 +195,7 @@
   <data name="InvalidCharacter" xml:space="preserve">
     <value>Sie haben ein ungültiges Zeichen eingegeben. </value>
   </data>
+  <data name="CharacterError" xml:space="preserve">
+    <value>ds</value>
+  </data>
 </root>

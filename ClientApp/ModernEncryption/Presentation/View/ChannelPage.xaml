@@ -46,14 +46,7 @@
                             <Button Text="{i18n:Translate SendCallToAction}" TextColor="White"  HorizontalOptions="End" FontSize="20" BackgroundColor="#3A99D8" BorderRadius="10" Command="{Binding SendMessageCommand}"/>
                         </StackLayout>
                         <StackLayout Orientation="Horizontal">
-                            <Label Text="{Binding Label.Errors, Converter={StaticResource FirstValidationErrorConverter}" IsVisible="true">
-                                
-                                <!-- <Label.Triggers>
-                                    <DataTrigger TargetType="Label" Binding="{Binding Message.IsValid}" Value="False">
-                                        <Setter Property="IsVisible" Value="false" />
-                                    </DataTrigger>
-                                </Label.Triggers>-->
-                            </Label>
+                            <Label FontSize="12" TextColor="Red"  Text="{Binding Message.Errors, Converter={StaticResource FirstValidationErrorConverter}" IsVisible="true"></Label>
                         </StackLayout>
                     </StackLayout>
                 </ListView.Footer>
