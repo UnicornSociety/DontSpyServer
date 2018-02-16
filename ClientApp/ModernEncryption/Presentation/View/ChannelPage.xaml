@@ -10,6 +10,7 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <converter:TimestampConverter x:Key="TimestampConverter" />
+            <converter:FirstValidationErrorConverter x:Key="FirstValidationErrorConverter" />
         </ResourceDictionary>
     </ContentPage.Resources>
 
@@ -45,10 +46,13 @@
                             <Button Text="{i18n:Translate SendCallToAction}" TextColor="White"  HorizontalOptions="End" FontSize="20" BackgroundColor="#3A99D8" BorderRadius="10" Command="{Binding SendMessageCommand}"/>
                         </StackLayout>
                         <StackLayout Orientation="Horizontal">
-                            <Label Text="{i18n:Translate InvalidCharacter}" FontSize="12"  HorizontalTextAlignment="Center" IsVisible="{Binding BindingContext.InvalidCharacter}">
-                               <!-- <Label.Behaviors>
-                                    <behavior:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateMessageCommand}" />
-                                </Label.Behaviors>-->
+                            <Label Text="{Binding Label.Errors, Converter={StaticResource FirstValidationErrorConverter}" IsVisible="true">
+                                
+                                <!-- <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding Message.IsValid}" Value="False">
+                                        <Setter Property="IsVisible" Value="false" />
+                                    </DataTrigger>
+                                </Label.Triggers>-->
                             </Label>
                         </StackLayout>
                     </StackLayout>
