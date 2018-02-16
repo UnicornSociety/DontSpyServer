@@ -153,6 +153,9 @@
   <data name="InputMessage" xml:space="preserve">
     <value>Input message</value>
   </data>
+  <data name="InvalidCharacter" xml:space="preserve">
+    <value>There is an invalid character in your message. </value>
+  </data>
   <data name="Key" xml:space="preserve">
     <value>Key</value>
   </data>

@@ -170,6 +170,15 @@ namespace ModernEncryption.Translations {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die There is an invalid character in your message.  ähnelt.
+        /// </summary>
+        public static string InvalidCharacter {
+            get {
+                return ResourceManager.GetString("InvalidCharacter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Key ähnelt.
         /// </summary>
         public static string Key {

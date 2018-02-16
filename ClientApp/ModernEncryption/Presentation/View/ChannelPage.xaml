@@ -24,24 +24,33 @@
                 </ListView.Header>
 
                 <ListView.Footer>
-                    <StackLayout Orientation="Horizontal" Padding="5,5,5,5">
-                        <Entry Text="{Binding Message.Value, Mode=TwoWay}" Placeholder="{i18n:Translate InputMessage}" HorizontalOptions="FillAndExpand" FontSize="20">
-                            <Entry.Style>
-                                <OnPlatform x:TypeArguments="Style"  
+                    <StackLayout Orientation="Vertical" Padding="5,5,5,5">
+                        <StackLayout Orientation="Horizontal">
+                            <Entry Text="{Binding Message.Value, Mode=TwoWay}" Placeholder="{i18n:Translate InputMessage}" HorizontalOptions="FillAndExpand" FontSize="20">
+                                <Entry.Style>
+                                    <OnPlatform x:TypeArguments="Style"  
                                             iOS="{StaticResource EntryStyle}"  
                                             Android="{StaticResource EntryStyle}"  
                                             WinPhone="{StaticResource EntryStyle}"/>
-                            </Entry.Style>
-                            <Entry.Behaviors>
-                                <behavior:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateMessageCommand}" />
-                            </Entry.Behaviors>
-                            <Entry.Triggers>
-                                <DataTrigger TargetType="Entry" Binding="{Binding Message.IsValid}" Value="False">
-                                    <Setter Property="behavior:LineColorBehavior.LineColor" Value="{StaticResource ErrorColor}" />
-                                </DataTrigger>
-                            </Entry.Triggers>
-                        </Entry>
-                        <Button Text="{i18n:Translate SendCallToAction}" TextColor="White"  HorizontalOptions="End" FontSize="20" BackgroundColor="#3A99D8" BorderRadius="10" Command="{Binding SendMessageCommand}"/>
+                                </Entry.Style>
+                                <Entry.Behaviors>
+                                    <behavior:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateMessageCommand}" />
+                                </Entry.Behaviors>
+                                <Entry.Triggers>
+                                    <DataTrigger TargetType="Entry" Binding="{Binding Message.IsValid}" Value="False">
+                                        <Setter Property="behavior:LineColorBehavior.LineColor" Value="{StaticResource ErrorColor}" />
+                                    </DataTrigger>
+                                </Entry.Triggers>
+                            </Entry>
+                            <Button Text="{i18n:Translate SendCallToAction}" TextColor="White"  HorizontalOptions="End" FontSize="20" BackgroundColor="#3A99D8" BorderRadius="10" Command="{Binding SendMessageCommand}"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{i18n:Translate InvalidCharacter}" FontSize="12"  HorizontalTextAlignment="Center" IsVisible="{Binding BindingContext.InvalidCharacter}">
+                               <!-- <Label.Behaviors>
+                                    <behavior:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateMessageCommand}" />
+                                </Label.Behaviors>-->
+                            </Label>
+                        </StackLayout>
                     </StackLayout>
                 </ListView.Footer>
 

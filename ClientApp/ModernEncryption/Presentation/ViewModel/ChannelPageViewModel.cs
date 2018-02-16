@@ -15,6 +15,7 @@ namespace ModernEncryption.Presentation.ViewModel
         private ChannelPage _view;
         private string _title = AppResources.ChannelHeading;
         private ValidatableObject<string> _message = new ValidatableObject<string>();
+       // private bool _invalidCharacter;
         public ObservableCollection<DecryptedMessage> Messages { get; } = new ObservableCollection<DecryptedMessage>();
         public ICommand SendMessageCommand { protected set; get; }
         public ICommand ValidateMessageCommand { protected set; get; }
@@ -70,6 +71,16 @@ namespace ModernEncryption.Presentation.ViewModel
                 _view.Navigation.PushAsync(new KeyPage());
             });
         }
+
+        /*public bool InvalidCharacter
+        {
+            set
+            {
+                if (_message != null)
+                    OnPropertyChanged("IsVisible");
+            }
+
+        }*/
 
         protected sealed override void AddValidations()
         {

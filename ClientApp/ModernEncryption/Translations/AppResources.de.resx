@@ -192,4 +192,7 @@
   <data name="KeyText" xml:space="preserve">
     <value>Der Schlüssel für diesen Channel.</value>
   </data>
+  <data name="InvalidCharacter" xml:space="preserve">
+    <value>Sie haben ein ungültiges Zeichen eingegeben. </value>
+  </data>
 </root>
