@@ -22,7 +22,6 @@ namespace ModernEncryption.Presentation.ViewModel
         public ICommand ShowKeyCommand { protected set; get; }
         public Page KeyPage { get; set; }
         public bool KeyVisibility { get; set; }
-        public bool ChannelKeyVisibility { get; }
 
         public string Title
         {
@@ -67,14 +66,14 @@ namespace ModernEncryption.Presentation.ViewModel
                 Validate();
             });
 
-            KeyVisibility = Channel.ChannelKeyVisibility;
+            KeyVisibility = channel.ChannelKeyVisibility;
 
             ShowKeyCommand = new Command<object>(param =>
             {
                 DependencyManager.AnchorPage.Children[1].Navigation.PopToRootAsync(false);
                 _view.Navigation.PushAsync(new KeyPage());
                 KeyVisibility = false;
-                Channel.ChannelKeyVisibility = false;
+                channel.ChannelKeyVisibility = false;
             });
         }
 

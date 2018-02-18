@@ -26,7 +26,7 @@ namespace ModernEncryption.Model
         [Ignore]
         public ChannelPage View => _channelView ?? (_channelView = new ChannelPage(this));
 
-        public static bool ChannelKeyVisibility { get; set; } = true;
+        public bool ChannelKeyVisibility { get; set; } = true;
 
         public Channel()
         {
