@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Input;
 using ModernEncryption.Model;
@@ -20,6 +21,8 @@ namespace ModernEncryption.Presentation.ViewModel
         public ICommand ValidateMessageCommand { protected set; get; }
         public ICommand ShowKeyCommand { protected set; get; }
         public Page KeyPage { get; set; }
+        public bool KeyVisibility { get; set; }
+        public bool ChannelKeyVisibility { get; }
 
         public string Title
         {
@@ -64,13 +67,16 @@ namespace ModernEncryption.Presentation.ViewModel
                 Validate();
             });
 
+            KeyVisibility = Channel.ChannelKeyVisibility;
+
             ShowKeyCommand = new Command<object>(param =>
             {
                 DependencyManager.AnchorPage.Children[1].Navigation.PopToRootAsync(false);
                 _view.Navigation.PushAsync(new KeyPage());
+                KeyVisibility = false;
+                Channel.ChannelKeyVisibility = false;
             });
         }
-
 
         protected sealed override void AddValidations()
         {

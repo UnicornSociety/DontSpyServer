@@ -20,7 +20,7 @@
                 <ListView.Header>
                     <StackLayout HorizontalOptions="FillAndExpand">
                         <Label Text="{i18n:Translate ChannelHeading}" Font="Bold" HorizontalTextAlignment="Center"/>
-                        <Button Text="{i18n:Translate Key}" HorizontalOptions="Center" Command ="{Binding ShowKeyCommand}"   TextColor="Gray" BorderColor="Gray"  BorderRadius="0"></Button>
+                        <Button Text="{i18n:Translate Key}" HorizontalOptions="Center" Command ="{Binding ShowKeyCommand}" TextColor="Gray" BorderColor="Gray"  BorderRadius="0" IsVisible="{Binding KeyVisibility}"></Button>
                     </StackLayout>
                 </ListView.Header>
 
