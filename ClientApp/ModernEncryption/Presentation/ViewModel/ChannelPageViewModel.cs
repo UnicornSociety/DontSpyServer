@@ -21,7 +21,18 @@ namespace ModernEncryption.Presentation.ViewModel
         public ICommand ValidateMessageCommand { protected set; get; }
         public ICommand ShowKeyCommand { protected set; get; }
         public Page KeyPage { get; set; }
-        public bool KeyVisibility { get; set; }
+        private bool _keyVisibility = true;
+
+        public bool KeyVisibility
+        {
+            get => _keyVisibility;
+            set
+            {
+                if (_keyVisibility == value) return;
+                _keyVisibility = value;
+                OnPropertyChanged("KeyVisibility");
+            }
+        }
 
         public string Title
         {
