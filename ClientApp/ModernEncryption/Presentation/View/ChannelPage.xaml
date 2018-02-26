@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ModernEncryption.Presentation.View.ChannelPage"
@@ -19,9 +19,9 @@
             <ListView x:Name="listView" ItemsSource="{Binding Messages}">
                 <ListView.Header>
                     <StackLayout HorizontalOptions="FillAndExpand">
-                        <Label Text="{i18n:Translate ChannelHeading}" Font="Bold" HorizontalTextAlignment="Center"/>
-                        <Button Text="{i18n:Translate Key}" HorizontalOptions="Center" Command ="{Binding ShowKeyCommand}" TextColor="Gray" BorderColor="Gray"  BorderRadius="0" IsVisible="{Binding KeyVisibility}"></Button>
-                    </StackLayout>
+						<Label Text="{i18n:Translate ChannelHeading}" Font="Bold" HorizontalTextAlignment="Center"/>
+						<Button Text="{i18n:Translate Key}" HorizontalOptions="Center" Command ="{Binding ShowKeyCommand}" TextColor="Gray" BorderColor="Gray"  BorderRadius="0" IsVisible="{Binding KeyVisibility}" />
+					</StackLayout>
                 </ListView.Header>
 
                 <ListView.Footer>
