@@ -16,8 +16,6 @@ namespace ModernEncryption
     {
         public App()
         {
-            var qrcode = new QrCodeService();
-            qrcode.Encoder(); 
             InitializeComponent();
 
             // This lookup NOT required for Windows platforms - the Culture will be automatically set

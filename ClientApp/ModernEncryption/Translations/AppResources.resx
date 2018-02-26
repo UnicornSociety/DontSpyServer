@@ -186,12 +186,9 @@
   <data name="SendCallToAction" xml:space="preserve">
     <value>Send</value>
   </data>
-<<<<<<< HEAD
-=======
   <data name="Username" xml:space="preserve">
     <value>Username</value>
   </data>
->>>>>>> jufo
   <data name="WelcomeTo" xml:space="preserve">
     <value>Welcome to</value>
   </data>

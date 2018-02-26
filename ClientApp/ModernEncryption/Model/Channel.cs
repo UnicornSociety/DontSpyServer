@@ -36,7 +36,6 @@ namespace ModernEncryption.Model
         [Ignore]
         public ChannelPage View => _channelView ?? (_channelView = new ChannelPage(this));
 
-	    [Ignore]
 		private Dictionary<int, int> _keyTable;
 
         [Ignore]
@@ -53,6 +52,9 @@ namespace ModernEncryption.Model
             }
         }
 
+        [Ignore]
+        public bool ChannelKeyVisibility { get; set; } = true;
+
         public Channel()
         {
         }
@@ -68,8 +70,6 @@ namespace ModernEncryption.Model
             }
             empty = empty + key[key.Length-1];
             CrossSecureStorage.Current.SetValue(id, empty);
-            IQrCodeService _qrCodeService = new QrCodeService();
-            QrCodeImage = _qrCodeService.Encoder();
             Id = id;
             Members = members;
             

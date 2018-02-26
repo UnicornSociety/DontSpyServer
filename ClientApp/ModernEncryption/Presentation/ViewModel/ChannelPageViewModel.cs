@@ -63,12 +63,6 @@ namespace ModernEncryption.Presentation.ViewModel
         {
             AddValidations();
 
-            if (channel.QrCodeImage != null)
-            {
-                QrCodeImage = channel.QrCodeImage;
-                QrCodeVisibility = true;
-            }
-
             // Load all messages from local database
             foreach (var decryptedMessage in DependencyManager.ChannelService.LoadDecryptedMessagesForChannel(channel))
                 Messages.Add(decryptedMessage);
