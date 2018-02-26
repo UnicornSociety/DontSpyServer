@@ -24,11 +24,11 @@
 
                 <ListView.Header>
                     <StackLayout Padding="5">
-                        <Entry Text="{Binding Username.Value, Mode=TwoWay}" Placeholder="Username" HorizontalTextAlignment="Center" FontSize="20">
+                        <Entry Text="{Binding Username.Value, Mode=TwoWay}" Placeholder="{i18n:Translate Username}" HorizontalTextAlignment="Center" FontSize="20">
                             <Entry.Style>
-                                <OnPlatform x:TypeArguments="Style"  
-                                            iOS="{StaticResource EntryStyle}"  
-                                            Android="{StaticResource EntryStyle}"  
+                                <OnPlatform x:TypeArguments="Style"
+                                            iOS="{StaticResource EntryStyle}"
+                                            Android="{StaticResource EntryStyle}"
                                             WinPhone="{StaticResource EntryStyle}"/>
                             </Entry.Style>
                             <Entry.Behaviors>
@@ -42,9 +42,9 @@
                         </Entry>
                         <Button Text="{i18n:Translate SearchCallToAction}" HorizontalOptions="FillAndExpand" Command ="{Binding AddContactViaUsernameCommand}" >
                             <Button.Style>
-                                <OnPlatform x:TypeArguments="Style"  
-                                        iOS="{StaticResource ButtonStyle}"  
-                                        Android="{StaticResource ButtonStyle}"  
+                                <OnPlatform x:TypeArguments="Style"
+                                        iOS="{StaticResource ButtonStyle}"
+                                        Android="{StaticResource ButtonStyle}"
                                         WinPhone="{StaticResource ButtonStyle}"/>
                             </Button.Style>
                         </Button>

@@ -20,7 +20,11 @@ namespace ModernEncryption.Translations {
     // -Klasse über ein Tool wie ResGen oder Visual Studio automatisch generiert.
     // Um einen Member hinzuzufügen oder zu entfernen, bearbeiten Sie die .ResX-Datei und führen dann ResGen
     // mit der /str-Option erneut aus, oder Sie erstellen Ihr VS-Projekt neu.
+<<<<<<< HEAD
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+=======
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+>>>>>>> jufo
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class AppResources {
@@ -134,7 +138,11 @@ namespace ModernEncryption.Translations {
         }
         
         /// <summary>
+<<<<<<< HEAD
         ///   Sucht eine lokalisierte Zeichenfolge, die wyvmcwwybzy5e9p8vmmk ähnelt.
+=======
+        ///   Sucht eine lokalisierte Zeichenfolge, die ?!Or2kR3&amp;öKsp64K&amp;ögrz b(KsKsp6EA&amp;ö4Kb(WC&amp;ögrR3p6b(Ä.p6i+!8 ähnelt.
+>>>>>>> jufo
         /// </summary>
         public static string CryptedOnBoardingMessage {
             get {
@@ -162,10 +170,40 @@ namespace ModernEncryption.Translations {
         
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Input message ähnelt.
+<<<<<<< HEAD
+=======
         /// </summary>
         public static string InputMessage {
             get {
                 return ResourceManager.GetString("InputMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die There is an invalid character in your message.  ähnelt.
+        /// </summary>
+        public static string InvalidCharacter {
+            get {
+                return ResourceManager.GetString("InvalidCharacter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Key ähnelt.
+        /// </summary>
+        public static string Key {
+            get {
+                return ResourceManager.GetString("Key", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die The key for this channel.  ähnelt.
+>>>>>>> jufo
+        /// </summary>
+        public static string KeyText {
+            get {
+                return ResourceManager.GetString("KeyText", resourceCulture);
             }
         }
         

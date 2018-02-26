@@ -71,7 +71,6 @@ namespace ModernEncryption.Presentation.ViewModel
             return ValidateUsername();
         }
 
-
         private bool ValidateUsername()
         {
             return _username.Validate();

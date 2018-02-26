@@ -27,6 +27,8 @@ namespace ModernEncryption.Presentation.View
                 BarTextColor = Color.White
             };
 
+           
+
             BarBackgroundColor = Color.FromHex("dfdfdf");
             BarTextColor = Color.Black;
 

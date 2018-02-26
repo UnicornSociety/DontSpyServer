@@ -1,0 +1,14 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ModernEncryption.Presentation.View.KeyPage"
+             xmlns:local="clr-namespace:ModernEncryption.Utils;assembly=ModernEncryption"
+             xmlns:i18n="clr-namespace:ModernEncryption.Presentation.View;assembly=ModernEncryption"
+             Title="{Binding Title}"
+             x:Name="KeyPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="{i18n:Translate KeyText}" FontSize="20"></Label>
+            <Image Source="{local:ImageResource ModernEncryption.qrcode.png}" HeightRequest ="300" HorizontalOptions="Center"  VerticalOptions="Center" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -36,7 +36,8 @@ namespace ModernEncryption.Model
         [Ignore]
         public ChannelPage View => _channelView ?? (_channelView = new ChannelPage(this));
 
-        private Dictionary<int, int> _keyTable;
+	    [Ignore]
+		private Dictionary<int, int> _keyTable;
 
         [Ignore]
         public Dictionary<int, int> KeyTable
@@ -51,10 +52,6 @@ namespace ModernEncryption.Model
                 return _keyTable;
             }
         }
-
-        [Ignore]
-        public CachedImage QrCodeImage { get; private set; } = null;
-
 
         public Channel()
         {
@@ -80,7 +77,7 @@ namespace ModernEncryption.Model
             if (name == null)
             {
                 if (members.Count > 1)
-                    Name = members[1].Username + " " + AppResources.And + " " + (members.Count - 1) + " " + AppResources.MoreMembers;
+                    Name = members[0].Username + " " + AppResources.And + " " + (members.Count - 1) + " " + AppResources.MoreMembers;
                 else
                     Name = members[0].Username;
             }

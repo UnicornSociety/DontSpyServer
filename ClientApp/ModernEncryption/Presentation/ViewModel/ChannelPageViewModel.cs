@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Input;
 using FFImageLoading.Forms;
@@ -21,8 +22,20 @@ namespace ModernEncryption.Presentation.ViewModel
         public ObservableCollection<DecryptedMessage> Messages { get; } = new ObservableCollection<DecryptedMessage>();
         public ICommand SendMessageCommand { protected set; get; }
         public ICommand ValidateMessageCommand { protected set; get; }
-        public CachedImage QrCodeImage { get; private set; }
-        public bool QrCodeVisibility { get; private set; } = false;
+        public ICommand ShowKeyCommand { protected set; get; }
+        public Page KeyPage { get; set; }
+        private bool _keyVisibility = true;
+
+        public bool KeyVisibility
+        {
+            get => _keyVisibility;
+            set
+            {
+                if (_keyVisibility == value) return;
+                _keyVisibility = value;
+                OnPropertyChanged("KeyVisibility");
+            }
+        }
 
         public string Title
         {
@@ -72,12 +85,22 @@ namespace ModernEncryption.Presentation.ViewModel
             {
                 Validate();
             });
+
+            KeyVisibility = channel.ChannelKeyVisibility;
+
+            ShowKeyCommand = new Command<object>(param =>
+            {
+                DependencyManager.AnchorPage.Children[1].Navigation.PopToRootAsync(false);
+                _view.Navigation.PushAsync(new KeyPage());
+                KeyVisibility = false;
+                channel.ChannelKeyVisibility = false;
+            });
         }
 
         protected sealed override void AddValidations()
         {
             _message.Validations.Add(new IsNullOrEmptyRule<string>());
-            _message.Validations.Add(new HasSupportedCharacterRule<string>());
+            _message.Validations.Add(new HasSupportedCharacterRule<string>(){ValidationMessage = AppResources.InvalidCharacter});
         }
 
         protected override bool Validate()

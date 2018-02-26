@@ -19,7 +19,13 @@
     <None Remove="Presentation\View\ChannelsPage.xaml" />
     <None Remove="Presentation\View\ContactsPage.xaml" />
     <None Remove="Presentation\View\ContactsPageMultipleSelection.xaml" />
+    <None Remove="Presentation\View\KeyPage.xaml" />
     <None Remove="Presentation\View\RegistrationPage.xaml" />
+    <None Remove="qrcode.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="qrcode.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -39,6 +45,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\View\ContactsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\View\KeyPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\View\RegistrationPage.xaml">

@@ -377,7 +377,6 @@ namespace ModernEncryption.BusinessLogic.Crypto
             TransformationTable.Add(88, '#');
             TransformationTable.Add(89, '_');
             TransformationTable.Add(90, '@');
-
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ModernEncryption.Presentation.View.ChannelPage"
@@ -11,6 +11,7 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <converter:TimestampConverter x:Key="TimestampConverter" />
+            <converter:FirstValidationErrorConverter x:Key="FirstValidationErrorConverter" />
         </ResourceDictionary>
     </ContentPage.Resources>
 
@@ -25,17 +26,19 @@
             <ListView x:Name="listView" ItemsSource="{Binding Messages}">
                 <ListView.Header>
                     <StackLayout HorizontalOptions="FillAndExpand">
-                        <Label Text="{i18n:Translate ChannelHeading}" Font="Bold" HorizontalTextAlignment="Center"/>
-                    </StackLayout>
+						<Label Text="{i18n:Translate ChannelHeading}" Font="Bold" HorizontalTextAlignment="Center"/>
+						<Button Text="{i18n:Translate Key}" HorizontalOptions="Center" Command ="{Binding ShowKeyCommand}" TextColor="Gray" BorderColor="Gray"  BorderRadius="0" IsVisible="{Binding KeyVisibility}" />
+					</StackLayout>
                 </ListView.Header>
 
                 <ListView.Footer>
-                    <StackLayout Orientation="Horizontal" Padding="5,5,5,5">
-                        <Entry Text="{Binding Message.Value, Mode=TwoWay}" Placeholder="{i18n:Translate InputMessage}" HorizontalOptions="FillAndExpand" FontSize="20">
-                            <Entry.Style>
-                                <OnPlatform x:TypeArguments="Style"  
-                                            iOS="{StaticResource EntryStyle}"  
-                                            Android="{StaticResource EntryStyle}"  
+                    <StackLayout Orientation="Vertical" Padding="5,5,5,5">
+                        <StackLayout Orientation="Horizontal">
+                            <Entry Text="{Binding Message.Value, Mode=TwoWay}" Placeholder="{i18n:Translate InputMessage}" HorizontalOptions="FillAndExpand" FontSize="20">
+                                <Entry.Style>
+                                    <OnPlatform x:TypeArguments="Style"
+                                            iOS="{StaticResource EntryStyle}"
+                                            Android="{StaticResource EntryStyle}"
                                             WinPhone="{StaticResource EntryStyle}"/>
                             </Entry.Style>
                             <Entry.Behaviors>
@@ -49,12 +52,15 @@
                         </Entry>
                         <Button Text="{i18n:Translate SendCallToAction}"  HorizontalOptions="End" Command="{Binding SendMessageCommand}">
                             <Button.Style>
-                                <OnPlatform x:TypeArguments="Style"  
-                                        iOS="{StaticResource BlueButtonStyle}"  
-                                        Android="{StaticResource BlueButtonStyle}"  
+                                <OnPlatform x:TypeArguments="Style"
+                                        iOS="{StaticResource BlueButtonStyle}"
+                                        Android="{StaticResource BlueButtonStyle}"
                                         WinPhone="{StaticResource BlueButtonStyle}"/>
                             </Button.Style>
                         </Button>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label FontSize="12" TextColor="Red"  Text="{Binding Message.Errors, Converter={StaticResource FirstValidationErrorConverter}" IsVisible="true" /> <!-- TODO: Replace with Button.Style for validations -->
                     </StackLayout>
                 </ListView.Footer>
 
@@ -69,9 +75,9 @@
                                     <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand"  Padding="5">
                                         <Label Text="{Binding Timestamp, Converter={StaticResource TimestampConverter}}"  FontSize="Micro" TextColor="Gray">
                                             <Label.Style>
-                                                <OnPlatform x:TypeArguments="Style"  
-                                            iOS="{StaticResource TimestampStyle}"  
-                                            Android="{StaticResource TimestampStyle}"  
+                                                <OnPlatform x:TypeArguments="Style"
+                                            iOS="{StaticResource TimestampStyle}"
+                                            Android="{StaticResource TimestampStyle}"
                                             WinPhone="{StaticResource TimestampStyle}"/>
                                             </Label.Style>
                                         </Label>

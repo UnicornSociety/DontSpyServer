@@ -22,7 +22,7 @@ namespace ModernEncryption.Presentation.ViewModel
         public ICommand AddContactViaUsernameCommand { protected set; get; }
         public ICommand TabbedContactCommand { protected set; get; }
         public ICommand ClickedCreateGroupCommand { protected set; get; }
-        public ICommand ValidateusernameCommand { protected set; get; }
+        public ICommand ValidateUsernameCommand { protected set; get; }
 
         public string Title
         {
@@ -116,7 +116,7 @@ namespace ModernEncryption.Presentation.ViewModel
                 _view.Navigation.PushAsync(channelPage);
             });
 
-            ValidateusernameCommand = new Command<object>(param =>
+            ValidateUsernameCommand = new Command<object>(param =>
             {
                 Validate();
             });
@@ -134,7 +134,7 @@ namespace ModernEncryption.Presentation.ViewModel
 
         protected sealed override void AddValidations()
         {
-            _username.Validations.Add(new StringLengthRule<string>(6, 254));
+            _username.Validations.Add(new StringLengthRule<string>(3, 64));
         }
 
         protected override bool Validate()

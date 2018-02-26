@@ -25,7 +25,7 @@ class UserEntity implements JsonSerializable
     {
         return [
             'id' => $this->getId(),
-            'displayname' => $this->getUsername()
+            'username' => $this->getUsername()
         ];
     }
 }

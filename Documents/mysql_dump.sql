@@ -49,6 +49,15 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Daten für Tabelle `user`
+--
+
+INSERT INTO `user` (`id`, `username`) VALUES
+('24578a6a73254362a6813bc29adb7154', 'Andrea'),
+('bb95d3d9705b4a9ea07342cc3b5bbd3e', 'Anna'),
+('df2dc5a1cc5449fda8da68612bf962a9', 'Max');
+
+--
 -- Indizes der exportierten Tabellen
 --
 

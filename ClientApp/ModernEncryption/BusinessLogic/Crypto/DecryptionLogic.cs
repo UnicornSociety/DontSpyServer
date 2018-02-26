@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System;
 using System.Diagnostics;
 using System.Linq;
 using ModernEncryption.Interfaces;
@@ -28,7 +28,7 @@ namespace ModernEncryption.BusinessLogic.Crypto
                 var permutedChipher = RevertCharacterPair(_messageTextSymbols[i], _messageTextSymbols[++i]);
                 var chiper = RevertPermutationFor(permutedChipher-1);//KeyTable geht von 0 bis 8099, deshlab -1 weil permutedCipher von 1 bis 8100 ist
                 concatenatedDecryptedSymbols += RevertChipher(chiper);
-                if (chiper == '-')
+                if (chiper == '^')
                 {
                     Debug.WriteLine("Ungültiger Eingabewert");
                 }

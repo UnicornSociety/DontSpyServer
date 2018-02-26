@@ -26,7 +26,7 @@ class UserMapper extends Mapper
         $stmt = $this->db->prepare("INSERT INTO user(id, username) VALUES (:id, :username)");
         $result = $stmt->execute([
             "id" => $user->getId(),
-            "username" => $user->getUsername(),
+            "username" => $user->getUsername()
         ]);
         if (!$result) {
             throw new Exception("Could not save record");

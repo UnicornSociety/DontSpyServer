@@ -24,17 +24,17 @@
                     <Label Text="l" FontSize="10" TextColor="White"></Label>
                     <Label Text="{i18n:Translate RegisterRequest}" FontSize="20">
                         <Label.Style>
-                            <OnPlatform x:TypeArguments="Style"  
-                                        iOS="{StaticResource LabelStyle}"  
-                                        Android="{StaticResource LabelStyle}"  
+                            <OnPlatform x:TypeArguments="Style"
+                                        iOS="{StaticResource LabelStyle}"
+                                        Android="{StaticResource LabelStyle}"
                                         WinPhone="{StaticResource LabelStyle}"/>
                         </Label.Style>
                     </Label>
                     <Entry Text="{Binding Username.Value, Mode=TwoWay}" Placeholder="{i18n:Translate Username}">
                         <Entry.Style>
-                            <OnPlatform x:TypeArguments="Style"  
-                                        iOS="{StaticResource EntryStyle}"  
-                                        Android="{StaticResource EntryStyle}"  
+                            <OnPlatform x:TypeArguments="Style"
+                                        iOS="{StaticResource EntryStyle}"
+                                        Android="{StaticResource EntryStyle}"
                                         WinPhone="{StaticResource EntryStyle}"/>
                         </Entry.Style>
                         <Entry.Behaviors>
@@ -49,17 +49,17 @@
 
                     <Button Text="{i18n:Translate Confirm}" Command="{Binding RegistrationCommand}">
                         <Button.Style>
-                        <OnPlatform x:TypeArguments="Style"  
-                                        iOS="{StaticResource ButtonStyle}"  
-                                        Android="{StaticResource ButtonStyle}"  
+                        <OnPlatform x:TypeArguments="Style"
+                                        iOS="{StaticResource ButtonStyle}"
+                                        Android="{StaticResource ButtonStyle}"
                                         WinPhone="{StaticResource ButtonStyle}"/>
                         </Button.Style>
                     </Button>
                     <Label Text="{Binding Username.Errors, Converter={StaticResource FirstValidationErrorConverter}" Style="{StaticResource ValidationErrorLabelStyle}">
                         <Label.Style>
-                            <OnPlatform x:TypeArguments="Style"  
-                                        iOS="{StaticResource LabelStyle}"  
-                                        Android="{StaticResource LabelStyle}"  
+                            <OnPlatform x:TypeArguments="Style"
+                                        iOS="{StaticResource LabelStyle}"
+                                        Android="{StaticResource LabelStyle}"
                                         WinPhone="{StaticResource LabelStyle}"/>
                         </Label.Style>
                         </Label>
