@@ -263,3 +263,5 @@ __pycache__/
 /vendor/
 /logs/*
 !/logs/README.md
+
+._.*
