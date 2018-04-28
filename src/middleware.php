@@ -2,7 +2,8 @@
 
 $app->add(new \Slim\Middleware\HttpBasicAuthentication([
     "users" => [
-        "somebody" => "passw0rd"
+        "x" => "$2y$10$SeR.PX6.YBs7ndrMDuf0cO3phd/JsgGubUMwg9OaO5tHg7MXtNHR2",
+        "y" => "123"
     ]
 ]));
 
