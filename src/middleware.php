@@ -1,4 +1,11 @@
 <?php
+
+$app->add(new \Slim\Middleware\HttpBasicAuthentication([
+    "users" => [
+        "somebody" => "passw0rd"
+    ]
+]));
+
 // Application middleware
 
 /*$app->add(new \Slim\Middleware\HttpBasicAuthentication([
@@ -16,6 +23,7 @@
 
 // Access-Control-Allow-Methods
 // Options
+
 $app->options('/{routes:.+}', function ($request, $response, $args) {
     return $response;
 });
