@@ -8,7 +8,7 @@ This section describes how to use this server part of the DontSpy client-server 
 
 ### Installation
 
-Clone the repository, transfer all the files onto a HTTP Web Server, secure the data transfer between client and server with a SSL certificate, secure the directory of the files with a HTTP Basic Authentification and [adjust the configuration](https://github.com/dontspy/DontSpyServer/edit/master/README.md#L71). Furthermore, create a new MySQL database and [import the SQL scheme](https://github.com/dontspy/DontSpyServer/blob/master/mysql_dump.sql). You are ready to start.
+Clone the repository, transfer all the files onto a HTTP Web Server, secure the data transfer between client and server with a SSL certificate, secure the directory of the files with a HTTP Basic Authentification and [adjust the configuration](https://github.com/dontspy/DontSpyServer/master/README.md#L71). Furthermore, create a new MySQL database and [import the SQL scheme](https://github.com/dontspy/DontSpyServer/blob/master/mysql_dump.sql). You are ready to start.
 
 ### API
 
